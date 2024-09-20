@@ -1,0 +1,124 @@
+{
+  "welcome": "Selamat Datang",
+  "language": "Bahasa",
+  "home": {
+    "hero": {
+      "title": "Percayakan Kami untuk Mewujudkan Impian Anda Bersama Kami",
+      "description": "Kami adalah General Supplier, Fabrikasi, Permesinan, Mekanikal, Elektrikal, dan Perusahaan Sipil",
+      "button-learn-more": "Pelajari Lebih Lanjut",
+      "button-our-business": "Bisnis kami"
+    },
+    "message": {
+      "welcome": "Selamat datang di",
+      "description": "Atas nama Direksi dan manajemen PT TRIJAYA BERKAH MANDIRI (PT TBM), kami menyampaikan optimisme baru dalam menghadapi tantangan konstruksi industri global. \nPT.TBM berkomitmen untuk melakukan transformasi berkelanjutan dalam teknologi, produk, dan proses, dengan tujuan meningkatkan kualitas hidup dan perekonomian. \nMelalui sinergi tim yang solid, PT.TBM terus fokus pada kolaborasi antara manusia, usaha, dan strategi, serta siap bersaing secara global dengan kualitas kelas dunia demi masa depan yang lebih baik.",
+      "job-title": "Direktur"
+    },
+    "services": {
+      "one": {
+        "title": "Pemasok Umum",
+        "description": "Kami melayani pemesanan pengumpulan barang mentah atau setengah jadi sesuai kontrak yang telah disepakati kedua belah pihak."
+      },
+      "two": {
+        "title": "Konstruksi",
+        "description": "Kami melayani pemesanan mendesain dan membangun, ataupun merenovasi infrastruktur berupa bangunan gedung dan bangunan sipil yang telah disepakati kedua belah pihak."
+      },
+      "three": {
+        "title": "Fabrikasi, Mekanik",
+        "description": "Kami melayani pemesanan dalam bidang fabrikasi, mekanikal, dan teknik, baik dalam bentuk produk maupun jasa."
+      },
+      "title": "Layanan Khusus Kami untuk Anda",
+      "description": "Kami menyediakan layanan profesional untuk bisnis Anda"
+    },
+    "clients": {
+      "title": "Klien kami",
+      "description": "Kami berkolaborasi untuk menciptakan solusi yang mampu bertahan dalam ujian waktu"
+    },
+    "articles": "Ruang wartawan"
+  },
+  "profile": {
+    "hero": {
+      "title": "Profil",
+      "description": "Temukan Siapa Kami: Kisah, Visi, dan Misi Kami. \nJelajahi Struktur Organisasi, Landasan Hukum, dan Sertifikasi Industri Kami yang Mendorong Komitmen Kami terhadap Keunggulan."
+    },
+    "message": {
+      "subtitle": "Kami adalah perusahaan General Supplier, Fabrikasi, Permesinan, Mekanikal, Elektrikal, dan Sipil.",
+      "description-one": "PT Trijaya Berkah Mandiri telah berjalan sejak tahun 2015 dengan Akta Pendirian Notaris No.1 tanggal 4 November 2015. Selama perjalanan, kami telah banyak melayani produk-produk baik dalam skala besar maupun kecil, begitu juga proyek-proyek, pekerjaan, bengkel, dan hampir \nsebagian besar mendominasi daerah Banten barat hingga sebagian wilayah Jawa, Sumatera dan Kalimantan.",
+      "description-two": "PT.Trijaya Berkah Mandiri sebagai salah satu General Supplier dan Project hadir memenuhi kebutuhan para pebisnis yang fokus bergerak dalam bidang Electrical Spesial Panel Maker, Mechanical, Engineering, Safety dan Project lainnya. \nDan pada tahun 2019 kami mulai bergerak di bidang Kontruksi.Kami melayani dengan sepenuh hati dan mensupport sesuai dengan kebutuhan pelanggan baik skala besar maupun kecil."
+    },
+    "vision-mission": {
+      "title": "Penglihatan",
+      "vision": {
+        "title": "Penglihatan",
+        "description": "Memenuhi kebutuhan sektor industri dalam hal pembuatan mesin-mesin produksi, serta menyediakan jasa pembuatan dan perbaikan part berkualitas yang baik, sehingga dapat mengurangi ketergantungan terhadap produk-produk luar negeri dan menjadi produsen di negara sendiri"
+      },
+      "mission": {
+        "title": "Misi",
+        "description-one": "Memberikan pembuatan mesin maupun jasa pembuatan part hingga perbaikan sparepart mesin produksi dengan kualitas yang baik sehingga memberikan rasa kepuasan dan kepercayaan dari pelanggan sehingga dapat terjalin kerjasama yang baik",
+        "description-two": "Membantu pemerintah dalam menciptakan lapangan kerja guna mengurangi kemiskinan dan meningkatkan perekonomian dalam negeri serta mensejahterakan keluarga Indonesia"
+      }
+    },
+    "organizational-structure": {
+      "title": "Struktur Organisasi",
+      "description": "Kenali para direktur dan manajer yang bersemangat di balik kesuksesan kami.",
+      "job": {
+        "director": "Direktur",
+        "general-manager": "Manajer Umum",
+        "assistant-manager": "Asisten Manajer",
+        "electrical-manager": "Manajer Listrik",
+        "accounting-manager": "Manajer Akuntansi",
+        "project-manager": "Manajer Proyek",
+        "machining-supervisor": "Pengawas Permesinan",
+        "fabrication-supervisor": "Pengawas Fabrikasi"
+      }
+    }
+  },
+  "business": {
+    "hero": {
+      "title": "Bisnis",
+      "description": "Memberikan layanan komprehensif di bidang fabrikasi, permesinan, mekanikal, elektrikal, dan teknik sipil, didukung oleh solusi pasokan yang andal untuk setiap industri."
+    },
+    "details": {
+      "title": "Layanan",
+      "description": "PT TRIJAYA BERKAH MANDIRI juga mampu melakukan pekerjaan khusus di bidang industri kertas, khususnya di bidang MESIN KERTAS. \nKeahlian kami meliputi pekerjaan perbaikan pada mesin HEADBOX untuk meningkatkan produk akhir sesuai kebutuhan pelanggan. \nPekerjaan ini didukung oleh tim PMPRO dari Thailand yang terdiri dari para ahli terampil yang berpengalaman di Asia, Eropa, dan Timur Tengah.",
+      "message": "Semua pekerjaan akan diawasi di bawah kendali tinggi oleh seorang Supervisor mulai dari tahap perencanaan awal, pengerjaan, hingga commissioning. \nJaminan pekerjaan diberikan sesuai dengan standar TBM atau sesuai kebutuhan klien atau pelanggan.",
+      "list-one": {
+        "title": "Produk Listrik",
+        "description": "Supply Kabel, Alat Listrik, Panel, Kontaktor, Motor, Cable Tray, Lampu, Pengikat Kabel, Tiang Lampu, Kipas Angin dan lain-lain."
+      },
+      "list-two": {
+        "title": "Proyek Listrik",
+        "description": "Batang penerangan, Sumur Cad, Instalasi Tegangan Rendah dan Tinggi untuk industri, Telepon atau Interkom, Hall Sound System, sistem PLC penangkal petir dan lain-lain."
+      },
+      "list-three": {
+        "title": "Suku Cadang Mekanik",
+        "description": "Karet, Segel, Selang, Puting Pipa, Injektor, Pengukur Tekanan, Jahitan, Baut, Saluran dan lain-lain."
+      },
+      "list-four": {
+        "title": "Proyek Lokakarya",
+        "description": "Krom Keras, Peledakan Pasir, Pelapis Teflon, Krom Nikel, Struktur Cangkang, Proyek Terima Kasih, Perombakan, Perpipaan, Pencetakan, Pemisah, Penggetar, Gulungan Pencampur, dan lain-lain."
+      },
+      "list-five": {
+        "title": "Konstruksi",
+        "description": "Pekerjaan kami meliputi pembangunan gedung industri atau perbaikan gedung industri, pemasangan berbagai jenis atap seperti model Spandex, model Bitumen, partisi, dan segala pekerjaan fabrikasi."
+      },
+      "list-six": {
+        "title": "Keamanan",
+        "description": "Pembuatan Box Pemadam Kebakaran, Modifikasi Nozzle, Detektor Asap, Upgrade Selang, Valve, Alat Penyiram Lokal dan Impor, dan jasa sejenisnya."
+      },
+      "list-seven": {
+        "title": "Mesin Kertas",
+        "description": "Layanan Mesin Kertas HEADBOX"
+      }
+    },
+    "experiences": {
+      "title": "Pengalaman",
+      "description": "Kami telah berhasil memberikan layanan berkualitas tinggi di beragam industri dan wilayah"
+    }
+  },
+  "certification": {
+    "hero": {
+      "title": "Legalitas dan Sertifikasi",
+      "description": "Berkomitmen pada standar tinggi, perusahaan kami memegang semua kepatuhan hukum dan sertifikasi yang diperlukan untuk menjamin kualitas dan keamanan layanan terbaik di industri."
+    }
+  }
+}

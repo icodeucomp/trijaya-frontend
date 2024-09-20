@@ -1,0 +1,17 @@
+export const clientsImage: string[] = [
+  "/images/clients/indah-kiat.png",
+  "/images/clients/ekamas-fortuna.png",
+  "/images/clients/pindo-deli.png",
+  "/images/clients/tjiwi-kimia.png",
+  "/images/clients/dss.png",
+  "/images/clients/konverta-mitra-abadi.png",
+  "/images/clients/purinusa-eka-persada.png",
+  "/images/clients/the-univenus.png",
+  "/images/clients/krakatau.png",
+  "/images/clients/lamberti.png",
+  "/images/clients/intercipta-kimia-pratama.png",
+  "/images/clients/stp.png",
+  "/images/clients/jmu.png",
+  "/images/clients/arwana-eramics.png",
+  "/images/clients/pupr.png",
+];

@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom style */
+.card-shadow {
+  box-shadow: 0px 6px 15px #181c143b;
+}
+
+@layer components {
+  .btn-outline {
+    @apply border rounded-lg text-primary border-primary hover:bg-primary hover:text-light;
+  }
+  .btn-cross-border {
+    @apply absolute duration-300 right-4 top-4 flex justify-center items-center rounded-full border-primary border-2 size-8 hover:bg-primary;
+  }
+  .filter {
+    @apply bg-gradient-to-b from-dark/80 to-dark/50;
+  }
+  .filter-image {
+    @apply bg-gradient-to-b from-dark/60 via-dark-blue/20 to-dark/60;
+  }
+  .popover {
+    @apply absolute p-4 space-y-2 -translate-x-1/2 border border-gray rounded-lg shadow-lg left-1/2 w-full bg-light text-dark-blue z-100;
+  }
+  .dropdown {
+    @apply relative flex items-center gap-2 p-2 text-sm text-gray font-semibold rounded-lg cursor-pointer sm:px-4 sm:gap-8 border;
+  }
+  .triangle {
+    @apply block absolute -right-14 duration-300 transition-all size-0 border-t-[30px] border-t-transparent border-l-[60px] border-b-[30px] border-b-transparent;
+  }
+  .card-certification {
+    @apply relative flex items-center w-full gap-4 px-6 py-4 duration-300 cursor-pointer card-shadow rounded-xl bg-light;
+  }
+}

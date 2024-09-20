@@ -1,0 +1,124 @@
+{
+  "welcome": "欢迎",
+  "language": "语言",
+  "home": {
+    "hero": {
+      "title": "Trust Us to Bring Your Dream with Us",
+      "description": "We are General Supplier, Fabrication, Machining, Mechanical, Electrical, and Civil Company",
+      "button-learn-more": "Learn More",
+      "button-our-business": "Our Business"
+    },
+    "message": {
+      "welcome": "Welcome to",
+      "description": "Atas nama Direksi dan manajemen PT TRIJAYA BERKAH MANDIRI (PT TBM), kami menyampaikan optimisme baru dalam menghadapi tantangan global industri konstruksi. PT.TBM berkomitmen untuk melakukan transformasi berkelanjutan dalam teknologi, produk, dan proses, dengan tujuan meningkatkan kualitas hidup dan perekonomian. Melalui sinergi tim yang solid, PT.TBM terus berfokus pada kolaborasi antara manusia, usaha, dan strategi, serta siap bersaing secara global dengan kualitas kelas dunia demi masa depan yang lebih baik.",
+      "job-title": "Director"
+    },
+    "services": {
+      "one": {
+        "title": "General Supplier",
+        "description": "Kami melayani pemesanan memasok barang mentah atau setengah jadi sesuai kontrak yang telah disepakati kedua belah pihak."
+      },
+      "two": {
+        "title": "Construction",
+        "description": "Kami melayani pemesanan mendesain dan membangun, ataupun merenovasi infrastruktur berupa bangunan gedung dan bangunan sipil yang telah disepakati kedua belah pihak."
+      },
+      "three": {
+        "title": "Fabrication, Mechanical",
+        "description": "Kami melayani pemesanan dalam bidang fabrikasi, mechanical, dan engineering, baik dalam bentuk produk maupun jasa."
+      },
+      "title": "Our Dedicated Services for You",
+      "description": "We provide professional services for your business"
+    },
+    "clients": {
+      "title": "Our Clients",
+      "description": "We collaborate to engineer solutions that stand the test of time"
+    },
+    "articles": "Newsroom"
+  },
+  "profile": {
+    "hero": {
+      "title": "Profile",
+      "description": "Discover Who We Are: Our Story, Vision, and Mission. Explore Our Organizational Structure, Legal Foundations, and Industry Certifications That Drive Our Commitment to Excellence."
+    },
+    "message": {
+      "subtitle": "We are General Supplier, Fabrication, Machining, Mechanical, Electrical, and Civil company.",
+      "description-one": "PT Trijaya Berkah Mandiri telah berjalan sejak tahun 2015 dengan Akta Pendirian Notaris No.1 tanggal 4 November 2015. Selama perjalanan, kami telah banyak melayani produk-produk baik dalam skala besar maupun kecil, begitu juga proyek-proyek, pekerjaan, workshop, dan hampir sebagian besar mendominasi daerah Banten barat hingga sebagian wilayah Jawa, Sumatera dan Kalimantan.",
+      "description-two": "PT.Trijaya Berkah Mandiri sebagai salah satu General Supplier dan Project hadir memenuhi kebutuhan para pebisnis yang berorientasi bergerak dalam bidang Electrical Spesial Panel Maker, Mechanical, Engineering, Safety dan Project lainnya. Dan pada tahun 2019 kami mulai bergerak di bidang Kontruksi.Kami melayani dengan sepenuh hati dan mensupport sesuai dengan kebutuhan customer baik skala besar maupun kecil."
+    },
+    "vision-mission": {
+      "title": "Vision",
+      "vision": {
+        "title": "Vision",
+        "description": "Memenuhi kebutuhan sektor industri dalam hal pembuatan mesin-mesin produksi, serta menyediakan jasa pembuatan dan perbaikan part berkualitas yang baik, sehingga dapat mengurangi ketergantungan terhadap produk-produk luar negeri dan menjadi produsen di negara sendiri"
+      },
+      "mission": {
+        "title": "Missions",
+        "description-one": "Memberikan pelayanan pembuatan mesin maupun jasa pembuatan part hingga perbaikan sparepart mesin produksi dengan kualitas yang baik sehingga memberikan rasa kepuasan dan kepercayaan dari pelanggan sehingga dapat terjalin kerjasama yang baik",
+        "description-two": "Membantu pemerintah dalam menciptakan lapangan kerja guna mengurangi pengangguran dan meningkatkan perekonomian dalam negeri serta turut mensejahterakan keluarga Indonesia"
+      }
+    },
+    "organizational-structure": {
+      "title": "Organizational Structure",
+      "description": "Get to know the passionate directors and managers behind our success.",
+      "job": {
+        "director": "Director",
+        "general-manager": "General Manager",
+        "assistant-manager": "Assistant Manager",
+        "electrical-manager": "Electrical Manager",
+        "accounting-manager": "Accounting Manager",
+        "project-manager": "Project Manager",
+        "machining-supervisor": "Machining Supervisor",
+        "fabrication-supervisor": "Fabrication Supervisor"
+      }
+    }
+  },
+  "business": {
+    "hero": {
+      "title": "Business",
+      "description": "Delivering comprehensive services across fabrication, machining, mechanical, electrical, and civil engineering, backed by reliable supply solutions for every industry."
+    },
+    "details": {
+      "title": "Services",
+      "description": "PT TRIJAYA BERKAH MANDIRI is also capable of performing specialized work in the paper industry, particularly in the area of PAPER MACHINES. Our expertise includes repair work on HEADBOX machines to improve the final product according to customer needs. This work is supported by the PMPRO team from Thailand, which consists of skilled experts with experience across Asia, Europe, and the Middle East.",
+      "message": "All work will be supervised under high control by a Supervisor from the initial planning, progress, to commissioning stages. A work guarantee is provided in accordance with TBM standards or as required by the client or customer.",
+      "list-one": {
+        "title": "Electrical Products",
+        "description": "Supply Cable, Electrical Tools, Panel, Contactor, Motor, Cable Tray, Lamp, Cable ties, Light poles, Fan and etc."
+      },
+      "list-two": {
+        "title": "Electrical Project",
+        "description": "Lighting rod, Cad Well, Installation Low ang High Voltage for industries, Phone or Intercom, Hall Sound System, lightning protection  PLC system and etc."
+      },
+      "list-three": {
+        "title": "Mechanical Spare part",
+        "description": "Rubber, Seal, Hose, Pipe Nipple, Injector, Pressure gauge, Sews, Bolt, Conduit  and etc."
+      },
+      "list-four": {
+        "title": "Workshop Project",
+        "description": "Hard Chrome, Sand Blasting, Teflon Coating, Nikel Chrome, Shell Structure, Thank Project, Overhaul, Piping, Molding,Separator, Vibrator, Mixing Rolls and etc."
+      },
+      "list-five": {
+        "title": "Construction",
+        "description": "Our work includes industrial building construction or industrial building repairs, installation of various types of roofing such as Spandex models, Bitumen models, partitioning, and all fabrication work."
+      },
+      "list-six": {
+        "title": "Safety",
+        "description": "Manufacturing of Fire Extinguisher Boxes, Nozzle Modification, Smoke Detectors, Hose Upgrades, Valves, Local and Imported Sprinklers, and similar services."
+      },
+      "list-seven": {
+        "title": "Paper Machine",
+        "description": "HEADBOX Paper Machine Services"
+      }
+    },
+    "experiences": {
+      "title": "Experiences",
+      "description": "We have successfully delivered high-quality services across a diverse range of industries and regions"
+    }
+  },
+  "certification": {
+    "hero": {
+      "title": "Legalities and Certifications",
+      "description": "Committed to high standards, our company holds all necessary legal compliances and certifications to guarantee the best service quality and safety in the industry."
+    }
+  }
+}
