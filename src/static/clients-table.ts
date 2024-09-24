@@ -44,7 +44,7 @@ export const clientsTableLists: ClientsTableTypes[] = [
       { pathImg: "/images/clients/arwana-eramics.png", title: "PT Arwana Citra Mulia Tbk" },
       { pathImg: "/images/clients/pindo-deli.png", title: "PT Pindo Deli Pulp & Paper" },
       { pathImg: "/images/clients/dss.png", title: "PT Dian Swastatika Sentosa Tbk" },
-      { pathImg: "/images/clients/dss.png", title: "PT Japfa Comfeed Indonesia Tbk" },
+      { pathImg: "/images/clients/japfa.png", title: "PT Japfa Comfeed Indonesia Tbk" },
       { pathImg: "/images/clients/stp.png", title: "PT Suri Tani Pemuka" },
     ],
   },

@@ -15,14 +15,14 @@ export const OurServices = () => {
         <h3 className="text-4xl font-semibold text-primary">{t("title")}</h3>
         <p className="text-xl text-dark-gray">{t("description")}</p>
       </div>
-      <div className="flex justify-between gap-4">
-        {services.map((service, index) => (
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {services.map((item, index) => (
           <div key={index} className="flex-1 p-8 space-y-2 rounded-lg shadow-lg bg-light">
             <div className="px-4 py-2 rounded-lg bg-light-gray w-max">
-              <Img src={service.pathImg} alt={service.title} className="size-12" />
+              <Img src={item.pathImg} alt={item.title} className="size-12" />
             </div>
-            <h5 className="font-semibold text-primary">{service.title}</h5>
-            <p className="text-sm">{service.description}</p>
+            <h5 className="font-semibold text-primary">{item.title}</h5>
+            <p className="text-sm">{item.description}</p>
           </div>
         ))}
       </div>

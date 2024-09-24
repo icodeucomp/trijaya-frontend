@@ -8,6 +8,7 @@ import { Poppins } from "next/font/google";
 import { Footer, Header } from "@/layouts";
 
 import "./globals.css";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -32,7 +33,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
       <body className={`${poppins.className} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <div className="mt-20 pt-2">{children}</div>
+          <div className="mt-20">{children}</div>
           <Footer />
         </NextIntlClientProvider>
       </body>

@@ -5,7 +5,7 @@ export const clientsImage: string[] = [
   "/images/clients/tjiwi-kimia.png",
   "/images/clients/dss.png",
   "/images/clients/konverta-mitra-abadi.png",
-  "/images/clients/purinusa-eka-persada.png",
+  "/images/clients/japfa.png",
   "/images/clients/the-univenus.png",
   "/images/clients/krakatau.png",
   "/images/clients/lamberti.png",

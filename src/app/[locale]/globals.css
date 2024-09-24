@@ -9,7 +9,13 @@
 
 @layer components {
   .btn-outline {
-    @apply border rounded-lg text-primary border-primary hover:bg-primary hover:text-light;
+    @apply border text-primary border-primary hover:bg-primary hover:text-light;
+  }
+  .btn-primary {
+    @apply text-light bg-primary hover:bg-primary/90;
+  }
+  .btn-secondary {
+    @apply text-light bg-green-500 hover:bg-green-500/90;
   }
   .btn-cross-border {
     @apply absolute duration-300 right-4 top-4 flex justify-center items-center rounded-full border-primary border-2 size-8 hover:bg-primary;
@@ -31,5 +37,11 @@
   }
   .card-certification {
     @apply relative flex items-center w-full gap-4 px-6 py-4 duration-300 cursor-pointer card-shadow rounded-xl bg-light;
+  }
+  .form-contact-input {
+    @apply w-full text-sm bg-light-gray border border-gray outline-primary focus:border-primary p-2.5 rounded-md duration-300;
+  }
+  .social-media-icons {
+    @apply rounded-full duration-300 cursor-pointer flex justify-center items-center size-10 border border-primary hover:bg-primary;
   }
 }

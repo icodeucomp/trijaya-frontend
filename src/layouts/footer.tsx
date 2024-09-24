@@ -33,7 +33,7 @@ export const Footer = () => {
           </div>
           <h5 className="text-sm">© Copyright PT Trijaya Berkah Mandiri</h5>
         </div>
-        <div className="flex flex-wrap justify-end flex-1">
+        <div className="hidden sm:grid justify-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 flex-1 gap-8 mt-4">
           {footerLists.map((footer, i) => (
             <div key={i} className="space-y-2 min-w-48">
               <h5 className="font-semibold">{footer.title}</h5>

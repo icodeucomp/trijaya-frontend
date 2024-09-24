@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Container } from "./container";
-import { BackgroundProps } from "@/types/background";
+import { BackgroundProps } from "@/types";
 
 export const Background = ({ src, className, children, parentClassName }: BackgroundProps) => {
   return (

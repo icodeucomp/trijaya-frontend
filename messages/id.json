@@ -113,6 +113,15 @@
     "experiences": {
       "title": "Pengalaman",
       "description": "Kami telah berhasil memberikan layanan berkualitas tinggi di beragam industri dan wilayah"
+    },
+    "business-sector": {
+      "electrical": "Listrik",
+      "mechanical": "Mekanis",
+      "fabrication": "Pembuatan",
+      "machining": "permesinan",
+      "general-supplier": "Pemasok Umum",
+      "construction": "Konstruksi",
+      "civil": "Sipil"
     }
   },
   "certification": {
@@ -120,5 +129,60 @@
       "title": "Legalitas dan Sertifikasi",
       "description": "Berkomitmen pada standar tinggi, perusahaan kami memegang semua kepatuhan hukum dan sertifikasi yang diperlukan untuk menjamin kualitas dan keamanan layanan terbaik di industri."
     }
+  },
+  "career": {
+    "hero": {
+      "title": "Karier",
+      "description": "Bergabunglah dengan kami di dan buka potensi Anda, bekerja dengan tim yang penuh semangat dan buat perbedaan nyata di dunia. \nKami sangat menantikan kedatangan Anda!"
+    },
+    "head": {
+      "title": "Staf Professinal dan Magang",
+      "description": "Kami membuka beberapa lowongan kerja dan magang"
+    },
+    "one": {
+      "title": "Staf Profesional",
+      "description": "Lorem Ipsum hanyalah teks tiruan dari industri percetakan dan penyusunan huruf. \nLorem Ipsum telah menjadi teks tiruan standar industri sejak tahun 1500an,",
+      "button-text": "Lihat Lowongan"
+    },
+    "two": {
+      "title": "Program Magang",
+      "description": "Lorem Ipsum hanyalah teks tiruan dari industri percetakan dan penyusunan huruf. \nLorem Ipsum telah menjadi teks tiruan standar industri sejak tahun 1500an,",
+      "button-text": "Menerapkan"
+    }
+  },
+  "contact-us": {
+    "hero": {
+      "title": "Hubungi kami",
+      "description": "Kami Siap Membantu: Hubungi Dukungan, Pertanyaan Bisnis, atau Peluang Kolaborasi. \nMari Bekerja Sama untuk Membangun Koneksi yang Kuat."
+    },
+    "head": {
+      "title": "Mari Bicara dengan Kami",
+      "description": "Jangkau layanan kami dan mari berkolaborasi bersama"
+    },
+    "left-side": {
+      "title": "Anda dapat menghubungi kami di",
+      "button-text": "Hubungi kami Melalui Whatsapp"
+    },
+    "right-side": {
+      "title": "Pertanyaan, komentar, atau saran?",
+      "description": "Cukup isi formulir dan kami akan segera menghubungi Anda",
+      "button-text": "Kirim Pesan"
+    }
+  },
+  "media": {
+    "hero": {
+      "title": "Media",
+      "description": "Tetap Update dengan Liputan Media Terkini, Update Berita, dan Pengumuman Pers"
+    },
+    "head": {
+      "title": "Galeri Perusahaan",
+      "description": "Pekerjaan Kami dalam Tindakan: Kegiatan Proyek dan Artikel"
+    },
+    "project-activities": "Kegiatan Proyek",
+    "articles-gallery": "Galeri Artikel",
+    "latest-articles": "Artikel Terakhir",
+    "more-articles": "Artikel Lainnya",
+    "share-articles": "Bagikan artikel ini",
+    "related-articles": "Artikel Terkait"
   }
 }

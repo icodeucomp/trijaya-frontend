@@ -1,15 +1,17 @@
-import { Background, Img } from "@/components";
-import { ServiceAndProductLists } from "@/static/services-products";
 import { useTranslations } from "next-intl";
+
+import { Background, Img } from "@/components";
+
+import { Business } from "@/static/business";
 
 export const Details = () => {
   const t = useTranslations("business.details");
 
-  const lists = ServiceAndProductLists();
+  const businessLists = Business();
 
   return (
-    <div className="grid grid-cols-2 max-w-screen-2xl mx-auto w-full">
-      <Background src="/temp-image-2.png" className="flex-col justify-between w-full h-full py-40 filter">
+    <div className="grid w-full grid-cols-2 mx-auto max-w-screen-2xl">
+      <Background src="/temp-image-2.png" className="flex-col justify-between w-full h-full py-40" parentClassName="filter">
         <div className="px-16 text-light">
           <h3 className="text-5xl font-semibold">{t("title")}</h3>
           <p className="mt-2 text-lg leading-normal text-justify">{t("description")}</p>
@@ -25,14 +27,14 @@ export const Details = () => {
         </div>
       </Background>
       <div className="w-full p-8 space-y-8 bg-light-gray">
-        {lists.map((list, index) => (
+        {businessLists.map((item, index) => (
           <div key={index} className="flex items-center gap-4 px-8 py-4 rounded-lg bg-primary">
             <div className="p-4 rounded-lg bg-light">
-              <Img src={list.pathImg} alt={list.title} className="w-12 aspect-square" />
+              <Img src={item.pathImg} alt={item.title} className="w-12 aspect-square" />
             </div>
             <div className="space-y-1 text-light">
-              <h5 className="text-lg font-semibold">{list.title}</h5>
-              <p className="text-sm leading-snug">{list.description}</p>
+              <h5 className="text-lg font-semibold">{item.title}</h5>
+              <p className="text-sm leading-snug">{item.description}</p>
             </div>
           </div>
         ))}

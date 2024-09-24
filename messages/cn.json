@@ -113,6 +113,15 @@
     "experiences": {
       "title": "Experiences",
       "description": "We have successfully delivered high-quality services across a diverse range of industries and regions"
+    },
+    "business-sector": {
+      "electrical": "Electrical",
+      "mechanical": "Mechanical",
+      "fabrication": "Fabrication",
+      "machining": "Machining",
+      "general-supplier": "General Supplier",
+      "construction": "Construction",
+      "civil": "Civil"
     }
   },
   "certification": {
@@ -120,5 +129,60 @@
       "title": "Legalities and Certifications",
       "description": "Committed to high standards, our company holds all necessary legal compliances and certifications to guarantee the best service quality and safety in the industry."
     }
+  },
+  "career": {
+    "hero": {
+      "title": "Career",
+      "description": "Join us at and unlock your potential, working with a passionate team and making a real difference in the world. We eagerly look forward to your arrival!"
+    },
+    "head": {
+      "title": "Professinal Staff and Internship",
+      "description": "We have several job and internship vacancies open"
+    },
+    "one": {
+      "title": "Professional Staff",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "button-text": "See Vacancy"
+    },
+    "two": {
+      "title": "Internship Program",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "button-text": "Apply"
+    }
+  },
+  "contact-us": {
+    "hero": {
+      "title": "Contact Us",
+      "description": "We're Here to Help: Reach Out for Any Support, Business Inquiries, or Collaboration Opportunities. Let's Work Together to Build Strong Connections."
+    },
+    "head": {
+      "title": "Let's Talk with Us",
+      "description": "Reach out to our services and let's collaborate together"
+    },
+    "left-side": {
+      "title": "You can reach us at",
+      "button-text": "Contact us Through Whatsapp"
+    },
+    "right-side": {
+      "title": "Questions, comments, or suggestions?",
+      "description": "Simply fill in the form and we`ll be in touch shortly",
+      "button-text": "Send Message"
+    }
+  },
+  "media": {
+    "hero": {
+      "title": "Media",
+      "description": "Stay Updated with the Latest Media Coverage, News Updates, and Press Announcements"
+    },
+    "head": {
+      "title": "Company Gallery",
+      "description": "Our Work in Action: Projects Activities and Articles"
+    },
+    "project-activities": "Project Activities",
+    "articles-gallery": "Articles Gallery",
+    "latest-articles": "Latest Articles",
+    "more-articles": "More Articles",
+    "share-articles": "Share this article",
+    "related-articles": "Related Articles"
   }
 }

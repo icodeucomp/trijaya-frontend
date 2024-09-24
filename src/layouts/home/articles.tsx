@@ -1,13 +1,17 @@
-import { Button, Container, Img, Slider } from "@/components";
 import { Link } from "@/i18n/routing";
-import { calendar, carbon_tag } from "@/icons";
+
 import { useTranslations } from "next-intl";
+
+import { Button, Container, Img, Slider } from "@/components";
+
+import { calendar, carbon_tag } from "@/icons";
+
 import { GoArrowRight } from "react-icons/go";
 
 export const Articles = () => {
   const t = useTranslations();
   return (
-    <Container className="py-16">
+    <Container className="pb-16">
       <Slider
         title={`${t("home.articles")}`}
         breakpoints={{ 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}

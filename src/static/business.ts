@@ -4,7 +4,7 @@ import { building, electric_cord, electrical_services, helmet_safety, navaid_mil
 
 import { TemplateTypes } from "@/types";
 
-export const ServiceAndProductLists = () => {
+export const Business = () => {
   const t = useTranslations("business.details");
 
   return [

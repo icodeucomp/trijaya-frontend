@@ -1,6 +1,8 @@
-import { TemplateTypes } from "@/types";
-import { data_usage_settings, factory_worker, park_delivery } from "@/icons";
 import { useTranslations } from "next-intl";
+
+import { data_usage_settings, factory_worker, park_delivery } from "@/icons";
+
+import { TemplateTypes } from "@/types";
 
 export const ServiceLists = () => {
   const t = useTranslations("home.services");

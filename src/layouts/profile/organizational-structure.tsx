@@ -1,6 +1,8 @@
-import { Container, Img } from "@/components";
-import { OrganizationalLists } from "@/static";
 import { useTranslations } from "next-intl";
+
+import { Container, Img } from "@/components";
+
+import { OrganizationalLists } from "@/static";
 
 export const OrganizationalStructure = () => {
   const t = useTranslations("profile.organizational-structure");
@@ -13,11 +15,11 @@ export const OrganizationalStructure = () => {
         <p className="text-dark-gray text-xl">{t("description")}</p>
       </div>
       <div className="grid grid-cols-4 gap-8">
-        {organizational.map((organization, index) => (
+        {organizational.map((item, index) => (
           <div key={index} className="text-dark-gray space-y-1">
-            <Img src={organization.pathImg} alt={organization.name} className="h-72 w-full" cover />
-            <h5 className="text-lg font-semibold w-max">{organization.name}</h5>
-            <p className="text-sm w-max">{organization.job}</p>
+            <Img src={item.pathImg} alt={item.name} className="h-72 w-full" cover />
+            <h5 className="text-lg font-semibold w-max">{item.name}</h5>
+            <p className="text-sm w-max">{item.job}</p>
           </div>
         ))}
       </div>

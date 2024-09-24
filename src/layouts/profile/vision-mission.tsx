@@ -1,6 +1,6 @@
-import { Container, Img } from "@/components";
 import { useTranslations } from "next-intl";
-import React from "react";
+
+import { Container, Img } from "@/components";
 
 export const VisionMission = () => {
   const t = useTranslations("profile.vision-mission");

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+
 import { Background, Container, Modal, Slider } from "@/components";
+
 import { AnimatePresence } from "framer-motion";
 
 export const Products = () => {
@@ -31,14 +33,14 @@ export const Products = () => {
         title="Products"
         isBold
         isButton
-        linkButton="/"
+        linkButton="/business/sector"
         spaceBetween={10}
         slidesPerView={4}
         breakpoints={{ 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }}
       >
         {items.map((item, index) => (
           <div key={index} onClick={() => openModal(index)}>
-            <Background src="/temp-image-4.png" className="flex-col justify-between p-8 aspect-square filter-image" parentClassName="rounded-lg">
+            <Background src="/temp-image-4.png" className="flex-col justify-between py-8 aspect-square filter-image" parentClassName="rounded-lg">
               <div className="rounded-3xl bg-secondary px-6 py-1 w-max">
                 <label className="text-sm">{item.category}</label>
               </div>

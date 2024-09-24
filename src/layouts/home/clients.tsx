@@ -15,12 +15,12 @@ export const Clients = () => {
         <h3 className="text-4xl font-semibold text-primary">{t("title")}</h3>
         <p className="text-xl text-dark-gray">{t("description")}</p>
       </div>
-      <div className="grid grid-cols-5 place-items-center gap-x-12 gap-y-8">
-        {clientsImage.map((image, index) => {
-          const sizes = index < 14 && index > 10 ? 120 : 160;
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 place-items-center gap-x-12 gap-y-8">
+        {clientsImage.map((item, index) => {
+          const sizes = index < 14 && index > 10 ? 100 : index === 6 ? 110 : 160;
           return (
             <div key={index} className="grid w-full h-24 px-2 border rounded-lg border-primary bg-light place-items-center">
-              <Image src={image} alt="image clients PT Trijata Berkah Mandiri" width={sizes} height={sizes} className="max-w-40" />
+              <Image src={item} alt="image clients PT Trijata Berkah Mandiri" width={sizes} height={sizes} className="max-w-32 sm:max-w-40" />
             </div>
           );
         })}

@@ -1,5 +1,6 @@
-import { Button, Container, Dropdown, ImageSlider, Img, Slider } from "@/components";
 import { Link } from "@/i18n/routing";
+
+import { Button, Container, Dropdown, ImageSlider, Img, Slider } from "@/components";
 
 export const Services = () => {
   const images = [
@@ -16,7 +17,7 @@ export const Services = () => {
     <Container className="pt-24 pb-16 space-y-8">
       <div className="flex items-center justify-between">
         <h3 className="text-4xl font-semibold text-primary">Services</h3>
-        <Link href="/">
+        <Link href="/business/sector">
           <Button className="btn-outline">Learn More</Button>
         </Link>
       </div>

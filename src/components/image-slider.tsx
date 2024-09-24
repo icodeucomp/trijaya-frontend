@@ -34,10 +34,10 @@ export const ImageSlider = ({ images, imgClassName, ...props }: ImageSliderProps
         onSwiper={setControlledSwiper}
         {...props}
       >
-        {images.map((image, index) => (
+        {images.map((item, index) => (
           <SwiperSlide key={index}>
             <div className={`overflow-hidden rounded-lg cursor-pointer`}>
-              <Img src={image} alt="image slider" className={`w-full ${imgClassName}`} cover />
+              <Img src={item} alt="image slider" className={`w-full ${imgClassName}`} cover />
             </div>
           </SwiperSlide>
         ))}

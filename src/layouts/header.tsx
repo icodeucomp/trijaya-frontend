@@ -6,7 +6,7 @@ import { Link } from "@/i18n/routing";
 
 import { useToggleState } from "@/hooks";
 
-import { Container, Img, LanguageSwitcher, Navbar } from "@/components";
+import { Img, LanguageSwitcher, Navbar } from "@/components";
 
 import { IoMdClose, IoMdMenu } from "react-icons/io";
 
@@ -35,24 +35,30 @@ export const Header = () => {
   return (
     <header
       ref={ref}
-      className={`fixed top-0 w-full py-4 z-1000 transition-all duration-500 bg-light-gray ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+      className={`fixed top-0 h-20 z-1000 shadow-lg transition-all w-full duration-500 bg-light-gray ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
     >
-      <Container className="flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <Img className="size-10 sm:size-12 md:size-14" src="/logo-company.png" alt="logo PT Trijaya Berkah Mandiri" />
-          <h1 className="text-sm font-medium sm:text-base md:text-lg font-red-hat">PT Trijaya Berkah Mandiri</h1>
-        </Link>
+      <div className="relative flex items-center w-full h-full">
+        <div className="flex items-center justify-between w-full h-full max-w-screen-xl px-4 mx-auto sm:px-8">
+          <Link href="/" className="flex items-center gap-2">
+            <Img className="size-10 sm:size-12 md:size-14" src="/logo-company.png" alt="logo PT Trijaya Berkah Mandiri" />
+            <h1 className="text-sm font-medium sm:text-base md:text-lg font-red-hat">PT Trijaya Berkah Mandiri</h1>
+          </Link>
 
-        <Navbar navbar={navbar} />
+          <Navbar navbar={navbar} />
 
-        <LanguageSwitcher />
+          <div className="hidden lg:block">
+            <LanguageSwitcher />
+          </div>
 
-        <div className="block lg:hidden">
-          <button onClick={toggleNavbar}>
-            {navbar ? <IoMdClose size={32} className="fill-primary" /> : <IoMdMenu size={32} className="fill-primary" />}
-          </button>
+          <div className="block lg:hidden">
+            <button onClick={toggleNavbar}>
+              {navbar ? <IoMdClose size={32} className="fill-primary" /> : <IoMdMenu size={32} className="fill-primary" />}
+            </button>
+          </div>
         </div>
-      </Container>
+      </div>
     </header>
   );
 };

@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       minHeight: {
-        "custom-header": "calc(100vh - 88px)",
+        "custom-header": "calc(100vh - 80px)",
         200: "200px",
         300: "300px",
         400: "400px",
@@ -28,21 +28,9 @@ const config: Config = {
         1000: "1000",
         10000: "10000",
       },
-      // minWidth: {
-      //   xxs: "288px",
-      //   xs: "320px",
-      //   sm: "384px",
-      //   md: "448px",
-      //   lg: "512px",
-      //   xl: "576px",
-      // },
-      // maxWidth: {
-      //   100: "100px",
-      //   200: "200px",
-      //   300: "300px",
-      //   "container-1": "1120px",
-      //   "container-2": "992px",
-      // },
+      boxShadow: {
+        "custom-border": "0 0 0 2px rgba(185, 28, 28, 0.9)",
+      },
       colors: {
         primary: "#0E2D65",
         secondary: "#B91C1C",

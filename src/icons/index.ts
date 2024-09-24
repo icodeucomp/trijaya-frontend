@@ -14,8 +14,18 @@ import navaid_military from "./navaid-military.svg";
 import helmet_safety from "./helmet-safety.svg";
 import quill_paper from "./quill-paper.svg";
 import building from "./building.svg";
+import new_job from "./new-job.svg";
+import permanent_job from "./permanent-job.svg";
+import call from "./call.svg";
+import email from "./email.svg";
+import location from "./location.svg";
 
 export {
+  call,
+  email,
+  location,
+  new_job,
+  permanent_job,
   electric_cord,
   electrical_services,
   robot_two,
