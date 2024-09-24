@@ -77,6 +77,12 @@
       "title": "Business",
       "description": "Delivering comprehensive services across fabrication, machining, mechanical, electrical, and civil engineering, backed by reliable supply solutions for every industry."
     },
+    "sector": {
+      "hero": {
+        "title": "Business Sector",
+        "description": "We offer a full suite of services to support your operations, including general supply, fabrication, machining, mechanical, electrical, civil, and construction solutions. Our expert team ensures high-quality products, precision components, and reliable support to help your business excel."
+      }
+    },
     "details": {
       "title": "Services",
       "description": "PT TRIJAYA BERKAH MANDIRI is also capable of performing specialized work in the paper industry, particularly in the area of PAPER MACHINES. Our expertise includes repair work on HEADBOX machines to improve the final product according to customer needs. This work is supported by the PMPRO team from Thailand, which consists of skilled experts with experience across Asia, Europe, and the Middle East.",
@@ -122,6 +128,10 @@
       "general-supplier": "General Supplier",
       "construction": "Construction",
       "civil": "Civil"
+    },
+    "your-business": {
+      "title": "Solutions for Your Business Needs",
+      "description": "We offer specialized products and services to meet your needs and operational goals"
     }
   },
   "certification": {

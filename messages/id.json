@@ -77,6 +77,12 @@
       "title": "Bisnis",
       "description": "Memberikan layanan komprehensif di bidang fabrikasi, permesinan, mekanikal, elektrikal, dan teknik sipil, didukung oleh solusi pasokan yang andal untuk setiap industri."
     },
+    "sector": {
+      "hero": {
+        "title": "Sektor Bisnis",
+        "description": "Kami menawarkan serangkaian layanan lengkap untuk mendukung operasi Anda, termasuk pasokan umum, fabrikasi, permesinan, mekanik, listrik, sipil, dan solusi konstruksi. \nTim ahli kami memastikan produk berkualitas tinggi, komponen presisi, dan dukungan andal untuk membantu bisnis Anda unggul."
+      }
+    },
     "details": {
       "title": "Layanan",
       "description": "PT TRIJAYA BERKAH MANDIRI juga mampu melakukan pekerjaan khusus di bidang industri kertas, khususnya di bidang MESIN KERTAS. \nKeahlian kami meliputi pekerjaan perbaikan pada mesin HEADBOX untuk meningkatkan produk akhir sesuai kebutuhan pelanggan. \nPekerjaan ini didukung oleh tim PMPRO dari Thailand yang terdiri dari para ahli terampil yang berpengalaman di Asia, Eropa, dan Timur Tengah.",
@@ -122,6 +128,10 @@
       "general-supplier": "Pemasok Umum",
       "construction": "Konstruksi",
       "civil": "Sipil"
+    },
+    "your-business": {
+      "title": "Solusi Kebutuhan Bisnis Anda",
+      "description": "Kami menawarkan produk dan layanan khusus untuk memenuhi kebutuhan dan tujuan operasional Anda"
     }
   },
   "certification": {

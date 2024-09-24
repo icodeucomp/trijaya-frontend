@@ -2,13 +2,16 @@ import { Background, Container } from "@/components";
 import { Link } from "@/i18n/routing";
 
 import { sectorBusinessLists } from "@/static";
+import { useTranslations } from "next-intl";
 
 export const YourBusiness = () => {
+  const t = useTranslations("business.your-business");
+
   return (
     <Container className="py-20 space-y-8">
       <div className="space-y-2 text-center">
-        <h3 className="text-4xl font-semibold text-primary">Solutions for Your Business Needs</h3>
-        <p className="text-lg text-dark-gray">We offer specialized products and services to meet your needs and operational goals</p>
+        <h3 className="text-4xl font-semibold text-primary">{t("title")}</h3>
+        <p className="text-lg text-dark-gray">{t("description")}</p>
       </div>
       <div className="grid grid-cols-4 gap-4">
         {sectorBusinessLists.map((item, index) => (
