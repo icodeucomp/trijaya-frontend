@@ -33,7 +33,7 @@ export const AddMedia = () => {
       <AnimatePresence>
         {modal && (
           <Modal isVisible={modal} onClose={toggleModal} className="max-w-xl">
-            <form className="space-y-4 md:min-w-xl" encType="multipart/form-data">
+            <form onSubmit={handleSubmit} className="space-y-4 md:min-w-xl" encType="multipart/form-data">
               <h1 className="text-lg font-semibold text-center sm:text-start text-primary">Add Media</h1>
               <input
                 type="file"

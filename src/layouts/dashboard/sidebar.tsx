@@ -27,7 +27,7 @@ export const Sidebar = ({ openNav, isTabletMid }: { openNav: boolean; isTabletMi
 
   return (
     <motion.aside
-      variants={isTabletMid && animation}
+      variants={isTabletMid ? animation : undefined}
       animate={openNav ? "open" : "closed"}
       className="fixed h-screen py-4 space-y-8 overflow-auto text-center min-w-64 bg-light z-1000 sidebar"
     >
