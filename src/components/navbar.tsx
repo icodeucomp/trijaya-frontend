@@ -6,7 +6,7 @@ import { Link, usePathname } from "@/i18n/routing";
 
 import { useToggleState } from "@/hooks";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { navbarList } from "@/static";
 
@@ -41,37 +41,39 @@ const DesktopLink = ({ pathUrl, title, content }: NavbarTypes) => {
         <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
         <span className={`absolute h-1 transition-all -bottom-2 right-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
       </Link>
-      {isHovered && content && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="absolute left-0 w-full duration-300 bg-light-gray shadow-lg h-96 top-16 z-10000"
-        >
+      <AnimatePresence>
+        {isHovered && content && (
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            className="w-full max-w-screen-xl px-4 pt-10 mx-auto space-y-8 sm:px-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="absolute left-0 w-full duration-300 bg-light-gray shadow-lg h-80 top-16 z-10000"
           >
-            <h4 className="flex items-center gap-4 text-xl font-medium text-primary">
-              {title} <FaAngleRight />
-            </h4>
-            <div className="grid max-w-screen-md grid-cols-2 gap-8">
-              {content?.map((item, index) => (
-                <div key={index} className="space-y-2">
-                  <Link href={pathUrl + item.pathUrl} key={index} className="flex items-center gap-4 text-lg font-medium text-dark-gray">
-                    {item.title} <FaAngleRight />
-                  </Link>
-                  <p className="text-sm text-gray line-clamp-2">{item.description}</p>
-                </div>
-              ))}
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="w-full max-w-screen-xl px-4 pt-10 mx-auto space-y-8 sm:px-8"
+            >
+              <h4 className="flex items-center gap-4 text-xl font-medium text-primary">
+                {title} <FaAngleRight />
+              </h4>
+              <div className="grid max-w-screen-md grid-cols-2 gap-8">
+                {content?.map((item, index) => (
+                  <div key={index} className="space-y-2">
+                    <Link href={pathUrl + item.pathUrl} key={index} className="flex items-center gap-4 text-lg font-medium text-dark-gray">
+                      {item.title} <FaAngleRight />
+                    </Link>
+                    <p className="text-sm text-gray line-clamp-2">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
+        )}
+      </AnimatePresence>
     </li>
   );
 };

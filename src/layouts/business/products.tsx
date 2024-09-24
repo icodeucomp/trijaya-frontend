@@ -41,12 +41,12 @@ export const Products = () => {
         {items.map((item, index) => (
           <div key={index} onClick={() => openModal(index)}>
             <Background src="/temp-image-4.png" className="flex-col justify-between py-8 aspect-square filter-image" parentClassName="rounded-lg">
-              <div className="rounded-3xl bg-secondary px-6 py-1 w-max">
+              <div className="px-6 py-1 rounded-3xl bg-secondary w-max">
                 <label className="text-sm">{item.category}</label>
               </div>
-              <div className="text-light space-y-1">
+              <div className="space-y-1 text-light">
                 <h5 className="text-lg">PT Trijaya Berkah Mandiri</h5>
-                <h6 className="text-xl font-semibold">{item.products}</h6>
+                <h6 className="text-xl font-semibold">{item.products} Products</h6>
               </div>
             </Background>
           </div>

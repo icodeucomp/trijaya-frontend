@@ -12,7 +12,7 @@ export default function Home() {
           src="/images/pattern.png"
           alt="pattern background"
           fill
-          className="mx-auto 2xl:max-w-screen-xl opacity-70"
+          className="mx-auto 2xl:max-w-screen-xl opacity-40"
           objectFit="cover"
           objectPosition="center"
         />
