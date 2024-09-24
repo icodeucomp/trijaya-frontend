@@ -1,15 +1,14 @@
 "use client";
 
 import * as React from "react";
+import dynamic from "next/dynamic";
 
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import { ClassicEditor, Bold, Essentials, Italic, Mention, Paragraph, Undo } from "ckeditor5";
+const CKEditor = dynamic(() => import("../ckeditor"), { ssr: false });
 
 import Select from "react-select";
+import { Button } from "@/components";
 
 // import { CustomImageUpload } from "@/utils/customImageUpload";
-
-import { Button } from "@/components";
 
 import { MdOutlineFileUpload } from "react-icons/md";
 import { PiCaretLeftLight } from "react-icons/pi";
@@ -76,16 +75,7 @@ export const AddArticle = () => {
           placeholder="Title..."
           required
         />
-        <CKEditor
-          editor={ClassicEditor}
-          config={{
-            toolbar: {
-              items: ["undo", "redo", "|", "bold", "italic"],
-            },
-            plugins: [Bold, Essentials, Italic, Mention, Paragraph, Undo],
-            initialData: "<p>Hello from CKEditor 5 in React!</p>",
-          }}
-        />
+        <CKEditor />
       </div>
     </>
   );
