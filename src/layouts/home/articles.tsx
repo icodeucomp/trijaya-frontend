@@ -38,7 +38,7 @@ export const Articles = () => {
               </li>
             </div>
             <h4 className="mt-4 text-2xl font-semibold text-dark-blue">ClearWater Engineering Breaks Ground on $500M Water Treatment Facility</h4>
-            <Link href="/" className="block mt-4">
+            <Link href="/media/article/test-1" className="block mt-4">
               <Button className="flex items-center gap-2 btn-outline group">
                 Read More <GoArrowRight className="fill-primary group-hover:fill-light" size={20} />
               </Button>
