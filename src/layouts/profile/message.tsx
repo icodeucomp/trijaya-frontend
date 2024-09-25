@@ -13,11 +13,11 @@ export const Message = () => {
         <p className="text-sm font-normal text-justify sm:text-base text-dark-blue">{t("description-one")}</p>
         <p className="text-sm font-normal text-justify sm:text-base text-dark-blue">{t("description-two")}</p>
       </div>
-      <div className="relative w-full max-w-md mx-auto overflow-hidden rounded-lg">
+      <div className="relative w-full max-w-md mx-auto">
         <Img
-          src="/images/profile/company-building.png"
+          src="/images/profile-message.webp"
           alt="PT Trijaya Berkah Mandiri company building picture "
-          className="w-full h-72 sm:h-80 lg:h-96"
+          className="w-full h-72 sm:h-80 lg:h-96 overflow-hidden rounded-lg"
           cover
         />
       </div>

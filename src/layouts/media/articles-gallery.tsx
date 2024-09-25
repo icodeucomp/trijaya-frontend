@@ -12,7 +12,7 @@ export const ArticlesGallery = () => {
   const t = useTranslations("media");
 
   return (
-    <Container className="py-10 sm:py-16">
+    <Container className="pb-10 sm:pb-16">
       <Slider title={`${t("articles-gallery")}`} slidesPerView={1} grid={{ rows: 2 }} className="space-y-10" isBold>
         {Array.from({ length: 3 }, (_, i) => (
           <div key={i} className="grid grid-cols-1 gap-8 p-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -20,7 +20,7 @@ export const ArticlesGallery = () => {
               .slice(i * 6, (i + 1) * 6)
               .map((_, j) => (
                 <div key={j}>
-                  <Img src={`/images/home/profile-${j + 1}.png`} alt={`Profile ${j + 1}`} className="w-full h-64 overflow-hidden rounded-lg" cover />
+                  <Img src={`/temp-image-5.png`} alt={`Profile ${j + 1}`} className="w-full h-64 overflow-hidden rounded-lg" cover />
                   <div className="flex gap-4 mt-2 text-xs sm:text-sm text-dark-gray">
                     <li className="flex gap-1">
                       <Img src={calendar} alt="calendar icon" className="size-4" />

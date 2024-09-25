@@ -21,12 +21,7 @@ export const Articles = () => {
       >
         {[...Array(4)].map((_, index) => (
           <div key={index}>
-            <Img
-              src={`/images/home/profile-${index + 1}.png`}
-              alt={`Profile ${index + 1}`}
-              className="w-full h-64 overflow-hidden rounded-lg"
-              cover
-            />
+            <Img src={`/temp-image-5.png`} alt={`Profile ${index + 1}`} className="w-full h-64 overflow-hidden rounded-lg" cover />
             <div className="flex gap-4 mt-2 text-xs sm:text-sm text-dark-gray">
               <li className="flex gap-1">
                 <Img src={calendar} alt="calendar icon" className="size-4" />

@@ -12,7 +12,7 @@ export const Details = () => {
   return (
     <div className="grid w-full grid-cols-1 mx-auto lg:grid-cols-2 max-w-screen-2xl">
       <Background
-        src="/temp-image-2.png"
+        src="/images/business-details.webp"
         className="flex-col w-full h-full gap-40 py-20 lg:gap-0 lg:justify-between sm:py-28 md:py-32 xl:py-40"
         parentClassName="filter"
       >

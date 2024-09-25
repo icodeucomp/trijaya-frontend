@@ -30,12 +30,7 @@ const Content = () => {
       ) : (
         Array.from({ length: 4 }).map((_, index) => (
           <article key={index} className="w-full max-w-xs p-4 duration-300 rounded-md card-shadow text-dark-blue bg-light">
-            <Img
-              src={`/images/home/profile-${index + 1}.png`}
-              alt={`Profile ${index + 1}`}
-              className="w-full overflow-hidden rounded-lg h-72"
-              cover
-            />
+            <Img src={`/temp-image-5.png`} alt={`Profile ${index + 1}`} className="w-full overflow-hidden rounded-lg h-72" cover />
             <div className="flex gap-1 mt-2 text-sm text-dark-gray">
               <Img src={carbon_tag} alt="calendar icon" className="size-4" />
               Legality

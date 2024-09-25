@@ -14,12 +14,7 @@ const Content = () => {
       ) : (
         Array.from({ length: 4 }).map((_, index) => (
           <article key={index} className="relative w-full max-w-xs p-2 duration-300 rounded-md card-shadow text-dark-blue bg-light">
-            <Img
-              src={`/images/home/profile-${index + 1}.png`}
-              alt={`Profile ${index + 1}`}
-              className="w-full overflow-hidden rounded-lg h-72"
-              cover
-            />
+            <Img src={`/temp-image-5.png`} alt={`Profile ${index + 1}`} className="w-full overflow-hidden rounded-lg h-72" cover />
             <DeleteMedia />
           </article>
         ))

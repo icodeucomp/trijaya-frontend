@@ -63,12 +63,13 @@
       "job": {
         "director": "Direktur",
         "general-manager": "Manajer Umum",
-        "assistant-manager": "Asisten Manajer",
         "electrical-manager": "Manajer Listrik",
         "accounting-manager": "Manajer Akuntansi",
         "project-manager": "Manajer Proyek",
         "machining-supervisor": "Pengawas Permesinan",
-        "fabrication-supervisor": "Pengawas Fabrikasi"
+        "fabrication-supervisor": "Pengawas Fabrikasi",
+        "leader-admin": "Administrator",
+        "safety": "Keamanan"
       }
     }
   },

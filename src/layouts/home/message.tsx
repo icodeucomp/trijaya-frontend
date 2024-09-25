@@ -1,10 +1,17 @@
-import { Container, Img } from "@/components";
 import { useTranslations } from "next-intl";
+
+import { Container, Img } from "@/components";
 
 export const Message = () => {
   const t = useTranslations("home.message");
 
-  const images: string[] = ["/images/home/profile-1.png", "/images/home/profile-2.png", "/images/home/profile-3.png", "/images/home/profile-4.png"];
+  const images: string[] = [
+    "/images/home-message-1.webp",
+    "/images/home-message-2.webp",
+    "/images/home-message-3.webp",
+    "/images/home-message-4.webp",
+  ];
+
   return (
     <Container className="flex flex-col-reverse gap-8 pt-10 sm:pt-16 md:pt-20 lg:flex-row">
       <div className="flex-1 space-y-4 font-semibold sm:space-y-2">

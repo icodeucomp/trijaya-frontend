@@ -7,7 +7,7 @@ export default function Career() {
 
   return (
     <>
-      <Hero pathImg="/images/certification-header.webp" title={`${t("title")}`} description={`${t("description")}`} />
+      <Hero pathImg="/images/career-header.webp" title={`${t("title")}`} description={`${t("description")}`} />
       <Careers />
     </>
   );

@@ -17,7 +17,7 @@ export const Clients = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 place-items-center gap-x-8 sm:gap-x-12 gap-y-8">
         {clientsImage.map((item, index) => {
-          const sizes = index < 14 && index > 10 ? 100 : index === 6 ? 110 : 160;
+          const sizes = index > 10 ? 100 : 160;
           return (
             <div key={index} className="grid w-full h-24 px-2 border rounded-lg border-primary bg-light place-items-center">
               <Image src={item} alt="image clients PT Trijata Berkah Mandiri" width={sizes} height={sizes} className="max-w-32 sm:max-w-40" />

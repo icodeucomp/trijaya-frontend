@@ -8,7 +8,7 @@ export default function Business() {
 
   return (
     <>
-      <Hero pathImg="/images/home-header.webp" title={`${t("title")}`} description={`${t("description")}`} />
+      <Hero pathImg="/images/business-header.webp" title={`${t("title")}`} description={`${t("description")}`} />
       <OurServices />
       <Details />
       <Services />

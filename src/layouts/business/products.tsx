@@ -39,10 +39,10 @@ export const Products = () => {
         breakpoints={{ 0: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }}
       >
         {items.map((item, index) => (
-          <div key={index} onClick={() => openModal(index)}>
+          <div key={index} onClick={() => openModal(index)} className="cursor-pointer">
             <Background
               src="/temp-image-4.png"
-              className="flex-col justify-between w-full py-4 sm:py-6 md:py-8 min-h-300 filter-image"
+              className="flex-col justify-between w-full py-4 sm:py-6 min-h-300 filter-image"
               parentClassName="rounded-lg"
             >
               <div className="px-4 py-1 sm:px-6 rounded-3xl bg-secondary w-max">

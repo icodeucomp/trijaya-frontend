@@ -7,7 +7,7 @@ export default function ContactUs() {
 
   return (
     <>
-      <Hero pathImg="/images/certification-header.webp" title={`${t("title")}`} description={`${t("description")}`} />
+      <Hero pathImg="/images/contact-us-header.webp" title={`${t("title")}`} description={`${t("description")}`} />
       <Contacts />
     </>
   );

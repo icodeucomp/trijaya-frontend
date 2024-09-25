@@ -63,12 +63,13 @@
       "job": {
         "director": "Director",
         "general-manager": "General Manager",
-        "assistant-manager": "Assistant Manager",
         "electrical-manager": "Electrical Manager",
         "accounting-manager": "Accounting Manager",
         "project-manager": "Project Manager",
         "machining-supervisor": "Machining Supervisor",
-        "fabrication-supervisor": "Fabrication Supervisor"
+        "fabrication-supervisor": "Fabrication Supervisor",
+        "leader-admin": "Leader Admin",
+        "safety": "Safety"
       }
     }
   },
