@@ -22,9 +22,7 @@ export default function Home() {
       <section className="bg-light-gray">
         <Clients />
       </section>
-      <section className="relative py-20">
-        <Articles />
-      </section>
+      <Articles />
     </>
   );
 }

@@ -30,8 +30,8 @@ export const Slider = ({ title, children, isFilter, isBold, isButton, linkButton
   return (
     <div className={`relative w-full ${className ?? ""}`}>
       <div className="flex items-center justify-between">
-        <h3 className={`text-primary ${isBold ? "font-semibold text-4xl" : "font-medium text-3xl"}`}>{title}</h3>
-        <div className="relative flex gap-4">
+        <h3 className={`${isBold ? "heading" : "font-medium text-xl sm:text-2xl md:text-3xl"}`}>{title}</h3>
+        <div className="relative flex items-center gap-4">
           {isFilter && <Dropdown parentClassName="w-60" className="top-16" />}
           {isButton && (
             <Link href={linkButton as string}>
@@ -40,7 +40,7 @@ export const Slider = ({ title, children, isFilter, isBold, isButton, linkButton
           )}
           <div className="flex gap-2 text-sm font-medium w-max">
             <button
-              className={`p-3 border rounded-lg bg-light ${isBeginning ? "border-gray" : "border-primary"}`}
+              className={`p-2 md:p-3 border rounded-lg bg-light ${isBeginning ? "border-gray" : "border-primary"}`}
               disabled={isBeginning}
               type="button"
               onClick={handleClickPrev}
@@ -48,7 +48,7 @@ export const Slider = ({ title, children, isFilter, isBold, isButton, linkButton
               <FaArrowLeft size={20} className={`${isBeginning ? "fill-gray" : "fill-secondary "}`} />
             </button>
             <button
-              className={`p-3 border rounded-lg bg-light ${isEnd ? "border-gray" : "border-primary"}`}
+              className={`p-2 md:p-3 border rounded-lg bg-light ${isEnd ? "border-gray" : "border-primary"}`}
               disabled={isEnd}
               type="button"
               onClick={handleClickNext}

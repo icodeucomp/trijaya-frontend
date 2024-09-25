@@ -21,15 +21,10 @@ export const MoreArticles = () => {
           className="space-y-10"
           isBold
         >
-          {[...Array(4)].map((_, index) => (
-            <div key={index}>
-              <Img
-                src={`/images/home/profile-${index + 1}.png`}
-                alt={`Profile ${index + 1}`}
-                className="overflow-hidden rounded-lg aspect-video w-96"
-                cover
-              />
-              <div className="flex text-sm gap-4 text-dark-gray !mt-2">
+          {[...Array(4)].map((_, j) => (
+            <div key={j}>
+              <Img src={`/images/home/profile-${j + 1}.png`} alt={`Profile ${j + 1}`} className="w-full h-64 overflow-hidden rounded-lg" cover />
+              <div className="flex gap-4 mt-2 text-xs sm:text-sm text-dark-gray">
                 <li className="flex gap-1">
                   <Img src={calendar} alt="calendar icon" className="size-4" />
                   22 January 2024
@@ -39,7 +34,9 @@ export const MoreArticles = () => {
                   Social
                 </li>
               </div>
-              <h4 className="mt-4 text-2xl font-semibold text-dark-blue">ClearWater Engineering Breaks Ground on $500M Water Treatment Facility</h4>
+              <h4 className="mt-4 text-xl font-semibold md:text-2xl text-dark-blue">
+                ClearWater Engineering Breaks Ground on $500M Water Treatment Facility
+              </h4>
               <Link href="/media/article/test-1" className="block mt-4">
                 <Button className="flex items-center gap-2 btn-outline group">
                   Read More <GoArrowRight className="fill-primary group-hover:fill-light" size={20} />

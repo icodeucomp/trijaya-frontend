@@ -2,9 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* custom style */
+/* card shadow style */
 .card-shadow {
   box-shadow: 0px 6px 15px #181c143b;
+}
+
+/* scrollbar style */
+.scrollbar::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #f3f4f6;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 100vh;
+  border: 3px solid #f3f4f6;
+}
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #0e2d65;
 }
 
 @layer components {
@@ -20,6 +38,12 @@
   .btn-cross-border {
     @apply absolute duration-300 right-4 top-4 flex justify-center items-center rounded-full border-primary border-2 size-8 hover:bg-primary;
   }
+  .heading {
+    @apply text-2xl font-semibold sm:text-3xl lg:text-4xl text-primary;
+  }
+  .subheading {
+    @apply text-sm sm:text-base md:text-xl text-dark-gray;
+  }
   .filter {
     @apply bg-gradient-to-b from-dark/80 to-dark/50;
   }
@@ -33,10 +57,10 @@
     @apply relative flex items-center gap-2 p-2 text-sm text-gray font-semibold rounded-lg cursor-pointer sm:px-4 sm:gap-8 border;
   }
   .triangle {
-    @apply block absolute -right-14 duration-300 transition-all size-0 border-t-[30px] border-t-transparent border-l-[60px] border-b-[30px] border-b-transparent;
+    @apply absolute -right-14 duration-300 transition-all size-0 border-t-[30px] border-t-transparent border-l-[60px] border-b-[30px] border-b-transparent;
   }
   .card-certification {
-    @apply relative flex items-center w-full gap-4 px-6 py-4 duration-300 cursor-pointer card-shadow rounded-xl bg-light;
+    @apply relative flex items-center w-full gap-4 px-3 sm:px-6 min-h-36 sm:min-h-44 lg:min-h-36 duration-300 cursor-pointer card-shadow rounded-xl bg-light;
   }
   .form-contact-input {
     @apply w-full text-sm bg-light-gray border border-gray outline-primary focus:border-primary p-2.5 rounded-md duration-300;

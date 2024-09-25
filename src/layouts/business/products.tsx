@@ -27,7 +27,7 @@ export const Products = () => {
   ];
 
   return (
-    <Container className="pt-10 pb-20">
+    <Container className="pt-10 pb-16 sm:pb-20">
       <Slider
         className="space-y-8"
         title="Products"
@@ -36,17 +36,21 @@ export const Products = () => {
         linkButton="/business/sector"
         spaceBetween={10}
         slidesPerView={4}
-        breakpoints={{ 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }}
+        breakpoints={{ 0: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }}
       >
         {items.map((item, index) => (
           <div key={index} onClick={() => openModal(index)}>
-            <Background src="/temp-image-4.png" className="flex-col justify-between py-8 aspect-square filter-image" parentClassName="rounded-lg">
-              <div className="px-6 py-1 rounded-3xl bg-secondary w-max">
-                <label className="text-sm">{item.category}</label>
+            <Background
+              src="/temp-image-4.png"
+              className="flex-col justify-between w-full py-4 sm:py-6 md:py-8 min-h-300 filter-image"
+              parentClassName="rounded-lg"
+            >
+              <div className="px-4 py-1 sm:px-6 rounded-3xl bg-secondary w-max">
+                <label className="text-xs sm:text-sm">{item.category}</label>
               </div>
               <div className="space-y-1 text-light">
-                <h5 className="text-lg">PT Trijaya Berkah Mandiri</h5>
-                <h6 className="text-xl font-semibold">{item.products} Products</h6>
+                <h5 className="text-sm sm:text-base lg:text-lg">PT Trijaya Berkah Mandiri</h5>
+                <h6 className="text-base font-semibold lg:text-xl">{item.products} Products</h6>
               </div>
             </Background>
           </div>

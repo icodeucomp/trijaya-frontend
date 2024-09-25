@@ -10,16 +10,16 @@ export const OurServices = () => {
   const services = ServiceLists();
 
   return (
-    <Container className="py-24 space-y-8">
+    <Container className="py-10 space-y-8 sm:py-16 md:py-20">
       <div className="space-y-2 text-center">
-        <h3 className="text-4xl font-semibold text-primary">{t("title")}</h3>
-        <p className="text-xl text-dark-gray">{t("description")}</p>
+        <h3 className="heading">{t("title")}</h3>
+        <p className="subheading">{t("description")}</p>
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((item, index) => (
-          <div key={index} className="flex-1 p-8 space-y-2 rounded-lg shadow-lg bg-light">
+          <div key={index} className="flex-1 p-6 space-y-2 rounded-lg shadow-lg sm:p-8 bg-light">
             <div className="px-4 py-2 rounded-lg bg-light-gray w-max">
-              <Img src={item.pathImg} alt={item.title} className="size-12" />
+              <Img src={item.pathImg} alt={item.title} className="size-10 sm:size-12" />
             </div>
             <h5 className="font-semibold text-primary">{item.title}</h5>
             <p className="text-sm">{item.description}</p>

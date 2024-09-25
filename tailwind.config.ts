@@ -21,6 +21,9 @@ const config: Config = {
         900: "800px",
         1000: "1000px",
       },
+      maxHeight: {
+        "custom-modal": "calc(100% - 16px)",
+      },
       zIndex: {
         1: "1",
         5: "5",
@@ -30,6 +33,9 @@ const config: Config = {
       },
       boxShadow: {
         "custom-border": "0 0 0 2px rgba(185, 28, 28, 0.9)",
+      },
+      fontSize: {
+        xxs: "0.625rem",
       },
       colors: {
         primary: "#0E2D65",

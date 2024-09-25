@@ -34,14 +34,14 @@ export const AllSectorBusiness = () => {
         isBold
         spaceBetween={10}
         slidesPerView={4}
-        breakpoints={{ 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }}
+        breakpoints={{ 0: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }}
       >
         {items.map((item, index) => (
           <div key={index} onClick={() => openModal(index)}>
-            <Background src="/temp-image-4.png" className="flex-col justify-end py-2 w-full h-80 filter-image" parentClassName="rounded-lg">
+            <Background src="/temp-image-4.png" className="flex-col justify-end w-full py-2 h-72 sm:h-80 filter-image" parentClassName="rounded-lg">
               <div className="text-light">
-                <h5 className="text-lg">Alat Bor</h5>
-                <h6 className="text-xl font-semibold">Products</h6>
+                <h5 className="text-base sm:text-lg">Alat Bor</h5>
+                <h6 className="text-lg font-semibold sm:text-xl">Products</h6>
               </div>
             </Background>
           </div>

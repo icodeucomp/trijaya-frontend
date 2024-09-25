@@ -14,17 +14,17 @@ export const Services = () => {
   ];
 
   return (
-    <Container className="pt-24 pb-16 space-y-8">
+    <Container className="pt-12 pb-8 space-y-8 sm:pb-16 sm:pt-16 md:pt-24">
       <div className="flex items-center justify-between">
-        <h3 className="text-4xl font-semibold text-primary">Services</h3>
+        <h3 className="heading">Services</h3>
         <Link href="/business/sector">
           <Button className="btn-outline">Learn More</Button>
         </Link>
       </div>
-      <div className="grid grid-cols-2">
-        <div className="space-y-4 w-full">
-          <div className="overflow-hidden rounded-lg">
-            <Img src="/temp-image-3.png" alt="temporary" className="w-full h-80" cover />
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-0">
+        <div className="w-full max-w-xl mx-auto space-y-4 lg:max-w-2xl">
+          <div className="w-full overflow-hidden rounded-lg">
+            <Img src="/temp-image-3.png" alt="temporary" className="w-full h-72 sm:h-80" cover />
           </div>
           <ImageSlider
             imgClassName="aspect-video"
@@ -34,13 +34,13 @@ export const Services = () => {
             slidesPerView={3}
           />
         </div>
-        <div className="space-y-8 w-full pl-8">
+        <div className="w-full space-y-4 sm:space-y-8 lg:pl-8">
           <Dropdown parentClassName="w-full py-4" className="top-16" />
           <Slider slidesPerView={1} title="Service Activities" className="space-y-4">
             {Array.from({ length: 4 }).map((_, index) => (
               <div key={index} className="space-y-4">
-                <h4 className="text-3xl font-semibold text-primary">Service {index + 1}</h4>
-                <p className="leading-tight text-justify text-lg">
+                <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">Service {index + 1}</h4>
+                <p className="text-sm leading-tight text-justify sm:text-base xl:text-lg">
                   Our scope of work encompasses a wide range of services, including the construction and repair of industrial buildings tailored to
                   meet the unique needs of various sectors. We specialize in the installation of diverse roofing systems, such as Spandek models,
                   Bitumen models, and other advanced materials designed for durability and efficiency. Additionally, we provide comprehensive

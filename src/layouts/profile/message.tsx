@@ -6,15 +6,20 @@ export const Message = () => {
   const t = useTranslations("profile.message");
 
   return (
-    <Container className="py-20 flex justify-between gap-8">
-      <div className="max max-w-screen-md font-semibold">
-        <h2 className="text-primary text-4xl font-semibold mb-2">PT Trijaya Berkah Mandiri</h2>
-        <h4 className="text-primary text-2xl font-semibold mb-2">{t("subtitle")}</h4>
-        <p className="text-dark-blue font-normal text-justify mb-4">{t("description-one")}</p>
-        <p className="text-dark-blue font-normal text-justify">{t("description-two")}</p>
+    <Container className="flex flex-col-reverse justify-between gap-8 py-10 sm:py-16 md:py-20 lg:flex-row">
+      <div className="w-full space-y-4 font-semibold lg:max-w-screen-md">
+        <h2 className="heading">PT Trijaya Berkah Mandiri</h2>
+        <h4 className="text-base font-semibold text-justify sm:text-lg md:text-xl lg:text-2xl text-primary lg:text-start">{t("subtitle")}</h4>
+        <p className="text-sm font-normal text-justify sm:text-base text-dark-blue">{t("description-one")}</p>
+        <p className="text-sm font-normal text-justify sm:text-base text-dark-blue">{t("description-two")}</p>
       </div>
-      <div className="relative w-full rounded-lg overflow-hidden">
-        <Img src="/images/profile/company-building.png" alt="PT Trijaya Berkah Mandiri company building picture " className="w-full h-96" cover />
+      <div className="relative w-full max-w-md mx-auto overflow-hidden rounded-lg">
+        <Img
+          src="/images/profile/company-building.png"
+          alt="PT Trijaya Berkah Mandiri company building picture "
+          className="w-full h-72 sm:h-80 lg:h-96"
+          cover
+        />
       </div>
     </Container>
   );

@@ -36,15 +36,13 @@ export const ImageSlider = ({ images, imgClassName, ...props }: ImageSliderProps
       >
         {images.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className={`overflow-hidden rounded-lg cursor-pointer`}>
-              <Img src={item} alt="image slider" className={`w-full ${imgClassName}`} cover />
-            </div>
+            <Img src={item} alt="image slider" className={`overflow-hidden rounded-lg ${imgClassName}`} cover />
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="absolute flex items-center justify-between w-full px-4 text-sm font-medium top-1/2 -translate-y-1/2 z-1">
+      <div className="absolute flex items-center justify-between w-full px-4 text-sm font-medium -translate-y-1/2 top-1/2 z-1">
         <button
-          className={`p-3 border rounded-lg bg-light ${isBeginning ? "border-gray" : "border-primary"}`}
+          className={`p-2 md:p-3 border rounded-lg bg-light ${isBeginning ? "border-gray" : "border-primary"}`}
           disabled={isBeginning}
           type="button"
           onClick={handleClickPrev}
@@ -52,7 +50,7 @@ export const ImageSlider = ({ images, imgClassName, ...props }: ImageSliderProps
           <FaArrowLeft size={20} className={`${isBeginning ? "fill-gray" : "fill-secondary "}`} />
         </button>
         <button
-          className={`p-3 border rounded-lg bg-light ${isEnd ? "border-gray" : "border-primary"}`}
+          className={`p-2 md:p-3 border rounded-lg bg-light ${isEnd ? "border-gray" : "border-primary"}`}
           disabled={isEnd}
           type="button"
           onClick={handleClickNext}

@@ -12,21 +12,16 @@ export const ArticlesGallery = () => {
   const t = useTranslations("media");
 
   return (
-    <Container className="py-16">
+    <Container className="py-10 sm:py-16">
       <Slider title={`${t("articles-gallery")}`} slidesPerView={1} grid={{ rows: 2 }} className="space-y-10" isBold>
         {Array.from({ length: 3 }, (_, i) => (
-          <div key={i} className="grid grid-cols-3 gap-8 p-1">
+          <div key={i} className="grid grid-cols-1 gap-8 p-1 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 15 })
               .slice(i * 6, (i + 1) * 6)
               .map((_, j) => (
                 <div key={j}>
-                  <Img
-                    src={`/images/home/profile-${i + 1}.png`}
-                    alt={`Profile ${i + 1}`}
-                    className="overflow-hidden rounded-lg aspect-video w-96"
-                    cover
-                  />
-                  <div className="flex gap-4 mt-2 text-sm text-dark-gray">
+                  <Img src={`/images/home/profile-${j + 1}.png`} alt={`Profile ${j + 1}`} className="w-full h-64 overflow-hidden rounded-lg" cover />
+                  <div className="flex gap-4 mt-2 text-xs sm:text-sm text-dark-gray">
                     <li className="flex gap-1">
                       <Img src={calendar} alt="calendar icon" className="size-4" />
                       22 January 2024
@@ -36,7 +31,7 @@ export const ArticlesGallery = () => {
                       Social
                     </li>
                   </div>
-                  <h4 className="mt-4 text-2xl font-semibold text-dark-blue">
+                  <h4 className="mt-4 text-xl font-semibold md:text-2xl text-dark-blue">
                     ClearWater Engineering Breaks Ground on $500M Water Treatment Facility
                   </h4>
                   <Link href="/media/article/test-1" className="block mt-4">

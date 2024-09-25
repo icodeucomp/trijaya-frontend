@@ -6,7 +6,7 @@ export const Message = () => {
 
   const images: string[] = ["/images/home/profile-1.png", "/images/home/profile-2.png", "/images/home/profile-3.png", "/images/home/profile-4.png"];
   return (
-    <Container className="flex flex-col-reverse gap-8 pt-16 md:pt-24 lg:flex-row">
+    <Container className="flex flex-col-reverse gap-8 pt-10 sm:pt-16 md:pt-20 lg:flex-row">
       <div className="flex-1 space-y-4 font-semibold sm:space-y-2">
         <div className="space-y-2">
           <h2 className="text-2xl sm:text-3xl text-primary">{t("welcome")}</h2>

@@ -11,10 +11,10 @@ export const Experiences = () => {
   return (
     <Container className="pb-20">
       <div className="max-w-xl mx-auto space-y-2 text-center">
-        <h3 className="text-4xl font-semibold text-primary">{t("title")}</h3>
-        <p className="text-lg font-medium text-dark-gray">{t("description")}</p>
+        <h3 className="heading">{t("title")}</h3>
+        <p className="text-sm font-medium sm:text-base md:text-lg text-dark-gray">{t("description")}</p>
       </div>
-      <div className="grid grid-cols-2 gap-8 px-0 mt-8 sm:px-4 md:px-8">
+      <div className="grid grid-cols-1 gap-8 px-0 mt-8 md:grid-cols-2 sm:px-4 md:px-8">
         {clientsTableLists.map((item, index) => (
           <div key={index} className="overflow-hidden">
             <h6 className="py-3 text-center rounded-t-lg bg-primary text-light">{item.year}</h6>
@@ -25,9 +25,15 @@ export const Experiences = () => {
               return (
                 <div key={index} className={`grid grid-cols-3 border-b text-dark-gray ${lastIndex && "rounded-b-lg"}`}>
                   <div className={`flex items-center justify-center h-16 border-l border-r ${lastIndex && "rounded-es-lg"}`}>
-                    <Image src={item.pathImg} alt={item.title} width={sizes} height={sizes} className="max-w-40" />
+                    <Image src={item.pathImg} alt={item.title} width={sizes} height={sizes} className="max-w-24 lg:max-w-40" />
                   </div>
-                  <div className={`flex items-center col-span-2 pl-4 font-medium border-r ${lastIndex && "rounded-ee-lg"}`}>{item.title}</div>
+                  <div
+                    className={`flex text-xs sm:text-sm md:text-base items-center col-span-2 pl-4 font-medium border-r ${
+                      lastIndex && "rounded-ee-lg"
+                    }`}
+                  >
+                    {item.title}
+                  </div>
                 </div>
               );
             })}
