@@ -19,7 +19,7 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
       <div className="flex flex-col-reverse gap-4 md:gap-8 md:flex-row">
         <div className="w-full max-w-screen-md space-y-4">
           <h3 className="heading">Electrical</h3>
-          <p className="h-full overflow-y-auto text-sm leading-normal text-justify text-primary sm:text-base md:h-64 xl:h-full scrollbar">
+          <p className="h-full overflow-y-auto text-sm leading-normal text-justify text-primary sm:text-base md:h-64 xl:h-auto scrollbar">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quas minus veritatis corporis. Esse incidunt error unde iusto expedita
             commodi repudiandae eaque praesentium perspiciatis quo consequatur doloribus saepe, qui consequuntur molestiae, ipsum sunt ex nobis
             officia delectus minus dolore! Nam sequi, voluptatibus suscipit harum eos exercitationem cum obcaecati eaque cumque excepturi, in sed
