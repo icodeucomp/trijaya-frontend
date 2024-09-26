@@ -10,3 +10,5 @@ export * from "./documents/document";
 export * from "./media/media";
 
 export * from "./business/business";
+export * from "./business/edit-business";
+export * from "./business/show-business";

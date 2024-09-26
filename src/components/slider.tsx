@@ -30,7 +30,7 @@ export const Slider = ({ title, children, isFilter, isBold, isButton, linkButton
   return (
     <div className={`relative w-full ${className ?? ""}`}>
       <div className="flex items-center justify-between">
-        <h3 className={`${isBold ? "heading" : "font-medium text-xl sm:text-2xl md:text-3xl"}`}>{title}</h3>
+        <h3 className={`${isBold ? "heading" : "font-medium text-xl sm:text-2xl md:text-3xl text-primary"}`}>{title}</h3>
         <div className="relative flex items-center gap-4">
           {isFilter && <Dropdown parentClassName="w-60" className="top-16" />}
           {isButton && (

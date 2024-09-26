@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { Poppins } from "next/font/google";
 
-import { Layout } from "@/layouts/dashboard";
+import { Layout } from "@/dashboards";
 
 import "./globals.css";
 
@@ -19,8 +19,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Dashboard | Trijaya Berkah Mandiri",
-  description: "Dashboard Page for PT Trijaya Berkah Mandiri",
+  title: "Dashboards",
+  description: "Dashboards Page for PT Trijaya Berkah Mandiri",
 };
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {

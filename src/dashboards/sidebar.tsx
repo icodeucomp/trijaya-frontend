@@ -8,6 +8,8 @@ import { motion, Variants } from "framer-motion";
 
 import { Img } from "@/components";
 
+import { SidebarProps } from "./types";
+
 export const sideBarMenu = [
   { title: "Articles", pathUrl: "article" },
   { title: "Documents", pathUrl: "document" },
@@ -15,7 +17,7 @@ export const sideBarMenu = [
   { title: "Business", pathUrl: "business" },
 ];
 
-export const Sidebar = ({ openNav, isTabletMid }: { openNav: boolean; isTabletMid: boolean }) => {
+export const Sidebar = ({ openNav, isTabletMid }: SidebarProps) => {
   const pathname = usePathname();
 
   const animation: Variants = {

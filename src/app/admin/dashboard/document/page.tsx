@@ -1,4 +1,4 @@
-import { Document } from "@/layouts/dashboard";
+import { Document } from "@/dashboards";
 
 export default function DocumentsDashboard() {
   return <Document />;

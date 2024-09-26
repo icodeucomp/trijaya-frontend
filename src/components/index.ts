@@ -10,3 +10,5 @@ export * from "./modal";
 export * from "./image-slider";
 export * from "./form";
 export * from "./breadcrumb";
+export * from "./article-card";
+export * from "./motion";

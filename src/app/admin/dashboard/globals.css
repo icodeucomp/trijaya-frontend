@@ -7,6 +7,35 @@
   box-shadow: 0px 6px 15px #181c143b;
 }
 
+.container-border {
+  background-color: #f3f4f6;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='30' ry='30' stroke='%23525B6BFF' stroke-width='4' stroke-dasharray='16' stroke-dashoffset='43' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 2/1;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #f3f4f6;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 100vh;
+  border: 3px solid #f3f4f6;
+}
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #0e2d65;
+}
+
 @layer components {
   .btn-outline {
     @apply border text-primary border-primary hover:bg-primary hover:text-light;
@@ -16,6 +45,18 @@
   }
   .btn-secondary {
     @apply text-light bg-green-500 hover:bg-green-500/90;
+  }
+  .heading {
+    @apply text-xl font-semibold sm:text-2xl lg:text-3xl text-primary;
+  }
+  .subheading {
+    @apply text-lg font-medium sm:text-xl lg:text-2xl text-primary;
+  }
+  .floating-input {
+    @apply w-full pb-1.5 pt-5 block text-dark-blue bg-light border-0 border-b-2 border-gray appearance-none focus:outline-none focus:ring-0 focus:border-primary;
+  }
+  .floating-label {
+    @apply absolute text-gray duration-300 transform -translate-y-6 scale-75 top-5 z-10 origin-[0];
   }
   .btn-cross-border {
     @apply absolute duration-300 right-4 top-4 flex justify-center items-center rounded-full border-primary border-2 size-8 hover:bg-primary;

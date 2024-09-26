@@ -1,4 +1,4 @@
-import { EditArticle } from "@/layouts/dashboard";
+import { EditArticle } from "@/dashboards";
 
 export default function EditArticleDashboard() {
   return <EditArticle />;

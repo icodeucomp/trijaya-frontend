@@ -1,4 +1,4 @@
-import { Business } from "@/layouts/dashboard";
+import { Business } from "@/dashboards";
 
 export default function BusinessDashboard() {
   return <Business />;

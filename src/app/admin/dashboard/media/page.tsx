@@ -1,4 +1,4 @@
-import { Media } from "@/layouts/dashboard";
+import { Media } from "@/dashboards";
 
 export default function MediasDashboard() {
   return <Media />;
