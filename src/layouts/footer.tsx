@@ -2,11 +2,12 @@ import { Link } from "@/i18n/routing";
 
 import { Container, Img } from "@/components";
 
-import { footerLists } from "@/static";
+import { FooterLists } from "@/static";
 
 import { MdCall, MdEmail } from "react-icons/md";
 
 export const Footer = () => {
+  const footerLists = FooterLists();
   return (
     <footer className="bg-primary">
       <Container className="flex justify-between gap-8 py-8 text-light">

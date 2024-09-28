@@ -12,6 +12,7 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
   const router = useRouter();
 
   const [selectImages, setSelectImages] = React.useState<number>(0);
+  console.log("🚀 ~ ShowBusiness ~ selectImages:", selectImages);
 
   const images = ["/temp-image-2.png", "/temp-image-2.png", "/temp-image-2.png"];
 

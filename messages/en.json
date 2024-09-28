@@ -255,5 +255,47 @@
       }
     },
     "contact-us": "Contact Us"
+  },
+  "footer": {
+    "profile": {
+      "title": "Profile",
+      "fields": {
+        "one": "About Us",
+        "two": "Visions & Missions",
+        "three": "Organization Structure",
+        "four": "Legality",
+        "five": "Certifications"
+      }
+    },
+    "business": {
+      "title": "Business",
+      "fields": {
+        "one": "Services",
+        "two": "Products",
+        "three": "Experiences",
+        "four": "Business Sector"
+      }
+    },
+    "media": {
+      "title": "Media",
+      "fields": {
+        "one": "Blog & Articles",
+        "two": "Gallery"
+      }
+    },
+    "contact-us": {
+      "title": "Contact Us",
+      "fields": {
+        "one": "Business Phone",
+        "two": "Contact Form"
+      }
+    },
+    "career": {
+      "title": "Career",
+      "fields": {
+        "one": "Internship",
+        "two": "Staff"
+      }
+    }
   }
 }

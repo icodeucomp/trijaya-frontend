@@ -255,5 +255,47 @@
         "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
       }
     }
+  },
+  "footer": {
+    "profile": {
+      "title": "Profil",
+      "fields": {
+        "one": "Tentang Kami",
+        "two": "Visi",
+        "three": "Struktur Organisasi",
+        "four": "Legalitas",
+        "five": "Sertifikasi"
+      }
+    },
+    "business": {
+      "title": "Bisnis",
+      "fields": {
+        "one": "Layanan",
+        "two": "Produk",
+        "three": "Pengalaman",
+        "four": "Sektor Bisnis"
+      }
+    },
+    "media": {
+      "title": "Media",
+      "fields": {
+        "one": "blog",
+        "two": "Galeri"
+      }
+    },
+    "contact-us": {
+      "title": "Hubungi kami",
+      "fields": {
+        "one": "Telepon Bisnis",
+        "two": "Formulir Kontak"
+      }
+    },
+    "career": {
+      "title": "Karier",
+      "fields": {
+        "one": "Magang",
+        "two": "Staf"
+      }
+    }
   }
 }
