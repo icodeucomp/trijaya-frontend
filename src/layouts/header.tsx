@@ -42,8 +42,7 @@ export const Header = () => {
       <div className="relative flex items-center w-full h-full">
         <div className="flex items-center justify-between w-full h-full max-w-screen-xl px-4 mx-auto sm:px-8">
           <Link href="/" className="flex items-center gap-2">
-            <Img className="size-10 sm:size-12 md:size-14" src="/logo-company.png" alt="logo PT Trijaya Berkah Mandiri" />
-            <h1 className="text-sm font-medium sm:text-base md:text-lg font-red-hat">PT Trijaya Berkah Mandiri</h1>
+            <Img className="min-w-56 sm:min-w-64 h-14 sm:h-16" src="/logo-company-navbar.png" alt="logo PT Trijaya Berkah Mandiri" />
           </Link>
 
           <Navbar navbar={navbar} />
