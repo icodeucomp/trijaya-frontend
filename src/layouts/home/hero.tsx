@@ -11,7 +11,7 @@ export const Hero = () => {
   return (
     <Background src="/images/home-header.webp" className="flex items-center min-h-500 lg:min-h-custom-header 2xl:min-h-500" parentClassName="filter">
       <div className="max-w-xl space-y-4">
-        <h1 className="text-3xl font-semibold leading-snug md:text-4xl xl:text-5xl">{t("title")}</h1>
+        <h1 className="text-3xl font-semibold leading-snug md:text-4xl">{t("title")}</h1>
         <p className="text-base sm:text-lg">{t("description")}</p>
         <div className="flex items-center gap-4">
           <Link href="/profile" className="block h-full">

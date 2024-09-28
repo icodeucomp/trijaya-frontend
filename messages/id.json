@@ -1,10 +1,10 @@
 {
   "welcome": "Selamat Datang",
-  "language": "Bahasa",
+  "language": "Bahasa Indonesia",
   "home": {
     "hero": {
-      "title": "Percayakan Kami untuk Mewujudkan Impian Anda Bersama Kami",
-      "description": "Kami adalah General Supplier, Fabrikasi, Permesinan, Mekanikal, Elektrikal, dan Perusahaan Sipil",
+      "title": "Percayakan kepada Kami untuk Mencapai Tujuan Proyek Anda dari Konsep hingga Penyelesaian",
+      "description": "Kami adalah General Supplier, Fabrikasi, Permesinan, Mekanikal, Elektrikal, Kontraktor, dan Perusahaan Sipil",
       "button-learn-more": "Pelajari Lebih Lanjut",
       "button-our-business": "Bisnis kami"
     },
@@ -15,15 +15,15 @@
     },
     "services": {
       "one": {
-        "title": "Pemasok Umum",
-        "description": "Kami melayani pemesanan pengumpulan barang mentah atau setengah jadi sesuai kontrak yang telah disepakati kedua belah pihak."
+        "title": "General Supplier",
+        "description": "Kami melayani pemesanan pengumpulan produk mentah atau setengah jadi dan menyediakan layanan berkualitas untuk memenuhi kebutuhan bisnis."
       },
       "two": {
         "title": "Konstruksi",
-        "description": "Kami melayani pemesanan mendesain dan membangun, ataupun merenovasi infrastruktur berupa bangunan gedung dan bangunan sipil yang telah disepakati kedua belah pihak."
+        "description": "Kami melayani pemesanan konstruksi proyek skala besar dan kecil Dengan tim ahli dan pengalaman yang mendalam, kami menjamin kualitas dalam setiap tahap pembangunan."
       },
       "three": {
-        "title": "Fabrikasi, Mekanik",
+        "title": "Fabrikasi, Mekanik, & Teknik",
         "description": "Kami melayani pemesanan dalam bidang fabrikasi, mekanikal, dan teknik, baik dalam bentuk produk maupun jasa."
       },
       "title": "Layanan Khusus Kami untuk Anda",
@@ -31,9 +31,9 @@
     },
     "clients": {
       "title": "Klien kami",
-      "description": "Kami berkolaborasi untuk menciptakan solusi yang mampu bertahan dalam ujian waktu"
+      "description": "Kami berkolaborasi untuk menciptakan solusi inovatif yang dirancang untuk keberlanjutan dan dapat diandalkan dalam berbagai tantangan industri."
     },
-    "articles": "Ruang wartawan"
+    "articles": "Pusat Informasi"
   },
   "profile": {
     "hero": {
@@ -42,13 +42,13 @@
     },
     "message": {
       "subtitle": "Kami adalah perusahaan General Supplier, Fabrikasi, Permesinan, Mekanikal, Elektrikal, dan Sipil.",
-      "description-one": "PT Trijaya Berkah Mandiri telah berjalan sejak tahun 2015 dengan Akta Pendirian Notaris No.1 tanggal 4 November 2015. Selama perjalanan, kami telah banyak melayani produk-produk baik dalam skala besar maupun kecil, begitu juga proyek-proyek, pekerjaan, bengkel, dan hampir \nsebagian besar mendominasi daerah Banten barat hingga sebagian wilayah Jawa, Sumatera dan Kalimantan.",
+      "description-one": "PT Trijaya Berkah Mandiri telah berjalan sejak tahun 2015 dengan Akta Pendirian Notaris No.1 tanggal 4 November 2015. Selama perjalanan, kami telah banyak melayani produksi produk baik dalam skala besar maupun kecil, begitu juga proyek, pekerjaan, bengkel, dan hampir \nsebagian besar mendominasi daerah Banten barat hingga sebagian wilayah Jawa, Sumatera dan Kalimantan.",
       "description-two": "PT.Trijaya Berkah Mandiri sebagai salah satu General Supplier dan Project hadir memenuhi kebutuhan para pebisnis yang fokus bergerak dalam bidang Electrical Spesial Panel Maker, Mechanical, Engineering, Safety dan Project lainnya. \nDan pada tahun 2019 kami mulai bergerak di bidang Kontruksi.Kami melayani dengan sepenuh hati dan mensupport sesuai dengan kebutuhan pelanggan baik skala besar maupun kecil."
     },
     "vision-mission": {
-      "title": "Penglihatan",
+      "title": "Visi",
       "vision": {
-        "title": "Penglihatan",
+        "title": "Visi",
         "description": "Memenuhi kebutuhan sektor industri dalam hal pembuatan mesin-mesin produksi, serta menyediakan jasa pembuatan dan perbaikan part berkualitas yang baik, sehingga dapat mengurangi ketergantungan terhadap produk-produk luar negeri dan menjadi produsen di negara sendiri"
       },
       "mission": {
@@ -59,17 +59,17 @@
     },
     "organizational-structure": {
       "title": "Struktur Organisasi",
-      "description": "Kenali para direktur dan manajer yang bersemangat di balik kesuksesan kami.",
+      "description": "Berikut adalah sosok yang menjadi pilar utama kesuksesan kami.",
       "job": {
-        "director": "Direktur",
-        "general-manager": "Manajer Umum",
-        "electrical-manager": "Manajer Listrik",
-        "accounting-manager": "Manajer Akuntansi",
-        "project-manager": "Manajer Proyek",
-        "machining-supervisor": "Pengawas Permesinan",
-        "fabrication-supervisor": "Pengawas Fabrikasi",
-        "leader-admin": "Administrator",
-        "safety": "Keamanan"
+        "director": "Director",
+        "general-manager": "General Manager",
+        "electrical-manager": "Electrical Manager",
+        "accounting-manager": "Accounting Manager",
+        "project-manager": "Project Manager",
+        "machining-supervisor": "Machining Supervisor",
+        "fabrication-supervisor": "Fabrication Supervisor",
+        "leader-admin": "Leader Admin",
+        "safety": "Safety"
       }
     }
   },
@@ -86,7 +86,7 @@
     },
     "details": {
       "title": "Layanan",
-      "description": "PT TRIJAYA BERKAH MANDIRI juga mampu melakukan pekerjaan khusus di bidang industri kertas, khususnya di bidang MESIN KERTAS. \nKeahlian kami meliputi pekerjaan perbaikan pada mesin HEADBOX untuk meningkatkan produk akhir sesuai kebutuhan pelanggan. \nPekerjaan ini didukung oleh tim PMPRO dari Thailand yang terdiri dari para ahli terampil yang berpengalaman di Asia, Eropa, dan Timur Tengah.",
+      "description": "PT. Trijaya Berkah Mandiri memiliki pengalaman yang kaya dan mendalam dalam berbagai proyek di bidang General Supplier, Fabrication, Machining, Mechanical, Electrical, Civil, dan Construction. Kami didukung oleh tim profesional yang kompeten dan berdedikasi, siap menghadapi tantangan di setiap tahap proyek. Dengan pendekatan yang berorientasi pada inovasi dan efisiensi, kami selalu berusaha memberikan solusi yang memenuhi kebutuhan spesifik klien kami. Kami bangga menjalin kemitraan yang kuat dengan berbagai industri, memberikan hasil yang memuaskan, dan berkontribusi pada kesuksesan proyek-proyek mereka.",
       "message": "Semua pekerjaan akan diawasi di bawah kendali tinggi oleh seorang Supervisor mulai dari tahap perencanaan awal, pengerjaan, hingga commissioning. \nJaminan pekerjaan diberikan sesuai dengan standar TBM atau sesuai kebutuhan klien atau pelanggan.",
       "list-one": {
         "title": "Produk Listrik",
@@ -101,7 +101,7 @@
         "description": "Karet, Segel, Selang, Puting Pipa, Injektor, Pengukur Tekanan, Jahitan, Baut, Saluran dan lain-lain."
       },
       "list-four": {
-        "title": "Proyek Lokakarya",
+        "title": "Proyek Workshop",
         "description": "Krom Keras, Peledakan Pasir, Pelapis Teflon, Krom Nikel, Struktur Cangkang, Proyek Terima Kasih, Perombakan, Perpipaan, Pencetakan, Pemisah, Penggetar, Gulungan Pencampur, dan lain-lain."
       },
       "list-five": {
@@ -114,7 +114,7 @@
       },
       "list-seven": {
         "title": "Mesin Kertas",
-        "description": "Layanan Mesin Kertas HEADBOX"
+        "description": "Layanan Mesin Kertas HEADBOX untuk Meningkatkan Produk Akhir Sesuai Kebutuhan Pelanggan, Didukung oleh Tim PMPRO dari Thailand yang Terdiri dari Ahli Terampil Berpengalaman di Asia, Eropa, dan Timur Tengah."
       }
     },
     "experiences": {
@@ -126,7 +126,7 @@
       "mechanical": "Mekanis",
       "fabrication": "Pembuatan",
       "machining": "permesinan",
-      "general-supplier": "Pemasok Umum",
+      "general-supplier": "General Supplier",
       "construction": "Konstruksi",
       "civil": "Sipil"
     },
@@ -138,13 +138,13 @@
   "certification": {
     "hero": {
       "title": "Legalitas dan Sertifikasi",
-      "description": "Berkomitmen pada standar tinggi, perusahaan kami memegang semua kepatuhan hukum dan sertifikasi yang diperlukan untuk menjamin kualitas dan keamanan layanan terbaik di industri."
+      "description": "Kami berkomitmen pada standar tinggi dengan memastikan semua kepatuhan hukum dan sertifikasi yang diperlukan, menjamin kualitas dan keamanan layanan terbaik di industri."
     }
   },
   "career": {
     "hero": {
       "title": "Karier",
-      "description": "Bergabunglah dengan kami di dan buka potensi Anda, bekerja dengan tim yang penuh semangat dan buat perbedaan nyata di dunia. \nKami sangat menantikan kedatangan Anda!"
+      "description": "Bergabunglah dengan kami dan buka potensi Anda! Bekerja bersama tim yang penuh semangat untuk menciptakan perbedaan yang nyata. \nKami sangat menantikan kontribusi Anda!"
     },
     "head": {
       "title": "Staf Professinal dan Magang",
@@ -152,13 +152,13 @@
     },
     "one": {
       "title": "Staf Profesional",
-      "description": "Lorem Ipsum hanyalah teks tiruan dari industri percetakan dan penyusunan huruf. \nLorem Ipsum telah menjadi teks tiruan standar industri sejak tahun 1500an,",
+      "description": "Kami mencari individu berbakat untuk berkontribusi pada proyek inovatif. Jika Anda bersemangat dan ingin berkembang di lingkungan dinamis, kami ingin mendengarnya dari Anda!",
       "button-text": "Lihat Lowongan"
     },
     "two": {
       "title": "Program Magang",
-      "description": "Lorem Ipsum hanyalah teks tiruan dari industri percetakan dan penyusunan huruf. \nLorem Ipsum telah menjadi teks tiruan standar industri sejak tahun 1500an,",
-      "button-text": "Menerapkan"
+      "description": "Bergabunglah dengan program magang kami untuk mendapatkan keterampilan praktis dan wawasan industri. Bekerja bersama ahli dan perluas jaringan profesional Anda!",
+      "button-text": "Lamar"
     }
   },
   "contact-us": {
@@ -183,7 +183,7 @@
   "media": {
     "hero": {
       "title": "Media",
-      "description": "Tetap Update dengan Liputan Media Terkini, Update Berita, dan Pengumuman Pers"
+      "description": "Jelajahi seluruh pengalaman dan aktivitas kami dengan dokumentasi pekerjaan, artikel, dan kabar terkini kami"
     },
     "head": {
       "title": "Galeri Perusahaan",
@@ -195,5 +195,65 @@
     "more-articles": "Artikel Lainnya",
     "share-articles": "Bagikan artikel ini",
     "related-articles": "Artikel Terkait"
+  },
+  "header": {
+    "home": "Rumah",
+    "profile": {
+      "title": "Profil",
+      "about-us": {
+        "title": "Tentang Kami",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "vision-mission": {
+        "title": "Penglihatan",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "legality": {
+        "title": "Legalitas",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      }
+    },
+    "business": {
+      "title": "Bisnis",
+      "services": {
+        "title": "Layanan",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "products": {
+        "title": "Produk",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "experiences": {
+        "title": "Pengalaman",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "business-sector": {
+        "title": "Sektor Bisnis",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      }
+    },
+    "media": {
+      "title": "Media",
+      "company-activities": {
+        "title": "Kegiatan Perusahaan",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "articles": {
+        "title": "Artikel",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      }
+    },
+    "contact-us": "Hubungi kami",
+    "career": {
+      "title": "Karier",
+      "staff-professional": {
+        "title": "Staf Profesional",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "internship-program": {
+        "title": "Program Magang",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      }
+    }
   }
 }

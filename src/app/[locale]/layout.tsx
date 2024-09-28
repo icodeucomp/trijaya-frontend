@@ -5,6 +5,7 @@ import { getMessages } from "next-intl/server";
 
 import { Poppins } from "next/font/google";
 
+import { Toaster } from "react-hot-toast";
 import { Footer, Header } from "@/layouts";
 
 import "./globals.css";
@@ -32,6 +33,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
     <html lang={locale}>
       <body className={`${poppins.className} antialiased`}>
         <NextIntlClientProvider messages={messages}>
+          <Toaster position="bottom-center" />
           <Header />
           <div className="mt-20">{children}</div>
           <Footer />

@@ -1,48 +1,33 @@
-import { Link } from "@/i18n/routing";
+"use client";
+
+import { useGetApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
 
-import { Button, Container, Img, Slider } from "@/components";
+import { ArticleCard, BigSlider, Container } from "@/components";
 
-import { calendar, carbon_tag } from "@/icons";
-
-import { GoArrowRight } from "react-icons/go";
+import { ResponseArticlesTypes } from "@/types";
 
 export const Articles = () => {
+  const { response: articles, loading } = useGetApi<ResponseArticlesTypes>("/blogs");
+
   const t = useTranslations();
+
   return (
     <Container className="py-12 sm:py-16 md:py-20">
-      <Slider
+      <BigSlider
         title={`${t("home.articles")}`}
         breakpoints={{ 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}
         slidesPerView={3}
         className="space-y-6 sm:space-y-10"
-        isBold
+        loadData={loading as boolean}
       >
-        {[...Array(4)].map((_, index) => (
+        {articles?.data.map((item, index) => (
           <div key={index}>
-            <Img src={`/temp-image-5.png`} alt={`Profile ${index + 1}`} className="w-full h-64 overflow-hidden rounded-lg" cover />
-            <div className="flex gap-4 mt-2 text-xs sm:text-sm text-dark-gray">
-              <li className="flex gap-1">
-                <Img src={calendar} alt="calendar icon" className="size-4" />
-                22 January 2024
-              </li>
-              <li className="flex gap-1">
-                <Img src={carbon_tag} alt="calendar icon" className="size-4" />
-                Social
-              </li>
-            </div>
-            <h4 className="mt-4 text-xl font-semibold sm:text-2xl text-dark-blue">
-              ClearWater Engineering Breaks Ground on $500M Water Treatment Facility
-            </h4>
-            <Link href="/media/article/test-1" className="block mt-4">
-              <Button className="flex items-center gap-2 btn-outline group">
-                Read More <GoArrowRight className="fill-primary group-hover:fill-light" size={20} />
-              </Button>
-            </Link>
+            <ArticleCard date={item.updatedAt} title={item.title} pathUrl={item.slug} pathImg={item.imageHeader} />
           </div>
         ))}
-      </Slider>
+      </BigSlider>
     </Container>
   );
 };

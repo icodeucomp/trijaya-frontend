@@ -2,19 +2,19 @@
 
 import { useState } from "react";
 
+import { Link } from "@/i18n/routing";
+
 import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
 import { Controller } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper/types";
 
-import { Dropdown } from "./dropdown";
+import { Button } from "./button";
 
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
-import { SliderProps } from "@/types";
-import { Link } from "@/i18n/routing";
-import { Button } from "./button";
+import { BigSliderProps } from "@/types";
 
-export const Slider = ({ title, children, isFilter, isBold, isButton, linkButton, className, ...props }: SliderProps) => {
+export const BigSlider = ({ title, children, loadData, isButton, linkButton, className, ...props }: BigSliderProps) => {
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   const [controlledSwiper, setControlledSwiper] = useState<SwiperClass | null>(null);
@@ -30,9 +30,8 @@ export const Slider = ({ title, children, isFilter, isBold, isButton, linkButton
   return (
     <div className={`relative w-full ${className ?? ""}`}>
       <div className="flex items-center justify-between">
-        <h3 className={`${isBold ? "heading" : "font-medium text-xl sm:text-2xl md:text-3xl text-primary"}`}>{title}</h3>
+        <h3 className="heading">{title}</h3>
         <div className="relative flex items-center gap-4">
-          {isFilter && <Dropdown parentClassName="w-60" className="top-16" />}
           {isButton && (
             <Link href={linkButton as string}>
               <Button className="btn-outline">Learn More</Button>
@@ -59,18 +58,30 @@ export const Slider = ({ title, children, isFilter, isBold, isButton, linkButton
         </div>
       </div>
 
-      <Swiper
-        modules={[Controller]}
-        controller={{ control: controlledSwiper }}
-        onSlideChange={handleSlideChange}
-        onSwiper={setControlledSwiper}
-        spaceBetween={10}
-        {...props}
-      >
-        {children?.map((child, index) => (
-          <SwiperSlide key={index}>{child}</SwiperSlide>
-        ))}
-      </Swiper>
+      {loadData ? (
+        <div className="w-full py-16 flex justify-center">
+          <span className="loader"></span>
+        </div>
+      ) : (
+        <Swiper
+          modules={[Controller]}
+          controller={{ control: controlledSwiper }}
+          onSlideChange={handleSlideChange}
+          onSwiper={setControlledSwiper}
+          spaceBetween={10}
+          {...props}
+        >
+          {Array.isArray(children) ? (
+            <>
+              {children?.map((child, index) => (
+                <SwiperSlide key={index}>{child}</SwiperSlide>
+              ))}
+            </>
+          ) : (
+            children
+          )}
+        </Swiper>
+      )}
     </div>
   );
 };

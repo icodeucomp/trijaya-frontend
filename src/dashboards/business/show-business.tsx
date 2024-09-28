@@ -1,13 +1,18 @@
 "use client";
 
+import * as React from "react";
+
 import { useRouter } from "next/navigation";
 
-import { ImageSlider, Img, Slider } from "@/components";
+import { ImageSlider, Img, SmallSlider } from "@/components";
 
 import { PiCaretLeftLight } from "react-icons/pi";
 
 export const ShowBusiness = ({ slug }: { slug: string }) => {
   const router = useRouter();
+
+  const [selectImages, setSelectImages] = React.useState<number>(0);
+
   const images = ["/temp-image-2.png", "/temp-image-2.png", "/temp-image-2.png"];
 
   return (
@@ -32,7 +37,7 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
       </div>
       <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-3">
         <ImageSlider images={images} imgClassName="w-full max-w-xs mx-auto h-60 md:h-72" />
-        <Slider slidesPerView={1} title="Products" className="space-y-2 md:space-y-4 md:col-span-2">
+        <SmallSlider slidesPerView={1} title="Products" className="space-y-2 md:space-y-4 md:col-span-2" setIndex={setSelectImages}>
           {Array.from({ length: 4 }).map((_, index) => (
             <div key={index} className="space-y-2 md:space-y-4">
               <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">Alat bor {index + 1}</h4>
@@ -46,11 +51,11 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
               </p>
             </div>
           ))}
-        </Slider>
+        </SmallSlider>
       </div>
       <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-3">
         <ImageSlider images={images} imgClassName="w-full max-w-xs mx-auto h-60 md:h-72" />
-        <Slider slidesPerView={1} title="Services" className="space-y-2 md:space-y-4 md:col-span-2">
+        <SmallSlider slidesPerView={1} title="Services" className="space-y-2 md:space-y-4 md:col-span-2" setIndex={setSelectImages}>
           {Array.from({ length: 4 }).map((_, index) => (
             <div key={index} className="space-y-2 md:space-y-4">
               <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">Alat bor {index + 1}</h4>
@@ -64,11 +69,11 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
               </p>
             </div>
           ))}
-        </Slider>
+        </SmallSlider>
       </div>
       <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-3">
         <ImageSlider images={images} imgClassName="w-full max-w-xs mx-auto h-60 md:h-72" />
-        <Slider slidesPerView={1} title="Projects" className="space-y-2 md:space-y-4 md:col-span-2">
+        <SmallSlider slidesPerView={1} title="Projects" className="space-y-2 md:space-y-4 md:col-span-2" setIndex={setSelectImages}>
           {Array.from({ length: 4 }).map((_, index) => (
             <div key={index} className="space-y-2 md:space-y-4">
               <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">Alat bor {index + 1}</h4>
@@ -82,7 +87,7 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
               </p>
             </div>
           ))}
-        </Slider>
+        </SmallSlider>
       </div>
     </>
   );

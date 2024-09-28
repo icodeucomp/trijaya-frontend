@@ -8,4 +8,3 @@ export * from "./clients-table";
 export * from "./careers";
 export * from "./business";
 export * from "./sector-business";
-export * from "./company-activities";

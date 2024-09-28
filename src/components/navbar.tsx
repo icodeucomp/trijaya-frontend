@@ -8,7 +8,7 @@ import { useToggleState } from "@/hooks";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { navbarList } from "@/static";
+import { NavbarList } from "@/static";
 
 import { FaAngleRight } from "react-icons/fa6";
 
@@ -112,6 +112,7 @@ const MobileLink = ({ pathUrl, title, content }: NavbarTypes) => {
 };
 
 export const Navbar = ({ navbar }: { navbar: boolean }) => {
+  const navbarList = NavbarList();
   return (
     <>
       <nav className="hidden h-full gap-4 lg:flex">

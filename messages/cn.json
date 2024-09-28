@@ -3,63 +3,63 @@
   "language": "语言",
   "home": {
     "hero": {
-      "title": "Trust Us to Bring Your Dream with Us",
-      "description": "We are General Supplier, Fabrication, Machining, Mechanical, Electrical, and Civil Company",
-      "button-learn-more": "Learn More",
-      "button-our-business": "Our Business"
+      "title": "信任我们，实现您的项目目标，从概念到完成。",
+      "description": "我们是一家综合供应商，专注于制造、机械加工、机械、电气和土木工程服务。",
+      "button-learn-more": "了解更多",
+      "button-our-business": "我们的业务"
     },
     "message": {
-      "welcome": "Welcome to",
-      "description": "Atas nama Direksi dan manajemen PT TRIJAYA BERKAH MANDIRI (PT TBM), kami menyampaikan optimisme baru dalam menghadapi tantangan global industri konstruksi. PT.TBM berkomitmen untuk melakukan transformasi berkelanjutan dalam teknologi, produk, dan proses, dengan tujuan meningkatkan kualitas hidup dan perekonomian. Melalui sinergi tim yang solid, PT.TBM terus berfokus pada kolaborasi antara manusia, usaha, dan strategi, serta siap bersaing secara global dengan kualitas kelas dunia demi masa depan yang lebih baik.",
+      "welcome": "欢迎来到",
+      "description": "代表PT TRIJAYA BERKAH MANDIRI (PT TBM) 的董事会和管理层, 我们对应对建筑行业的全球挑战表达了新的乐观态度。PT TBM致力于在技术、产品和流程上不断转型, 旨在提升生活质量和经济增长。通过强大的团队协同, PT TBM专注于促进人与企业和战略之间的合作, 准备以世界级的质量在全球竞争，共同创造更美好的未来。",
       "job-title": "Director"
     },
     "services": {
       "one": {
-        "title": "General Supplier",
-        "description": "Kami melayani pemesanan memasok barang mentah atau setengah jadi sesuai kontrak yang telah disepakati kedua belah pihak."
+        "title": "综合供应商",
+        "description": "我们提供原材料或半成品的订购收集服务，并提供优质服务以满足业务需求。"
       },
       "two": {
-        "title": "Construction",
-        "description": "Kami melayani pemesanan mendesain dan membangun, ataupun merenovasi infrastruktur berupa bangunan gedung dan bangunan sipil yang telah disepakati kedua belah pihak."
+        "title": "建筑",
+        "description": "我们提供大规模和小规模项目的施工订购服务。凭借专业团队和丰富的经验，我们保证在每个建设阶段的质量。"
       },
       "three": {
-        "title": "Fabrication, Mechanical",
-        "description": "Kami melayani pemesanan dalam bidang fabrikasi, mechanical, dan engineering, baik dalam bentuk produk maupun jasa."
+        "title": "制造、机械、工程",
+        "description": "我们提供在制造、机械和工程领域的订购服务，包括产品和服务。"
       },
-      "title": "Our Dedicated Services for You",
-      "description": "We provide professional services for your business"
+      "title": "我们为您提供专属服务",
+      "description": "我们为您的业务提供专业服务"
     },
     "clients": {
-      "title": "Our Clients",
-      "description": "We collaborate to engineer solutions that stand the test of time"
+      "title": "我们的客户",
+      "description": "我们合作创造旨在可持续性和在各种行业挑战中可靠的创新解决方案。"
     },
-    "articles": "Newsroom"
+    "articles": "信息中心"
   },
   "profile": {
     "hero": {
-      "title": "Profile",
-      "description": "Discover Who We Are: Our Story, Vision, and Mission. Explore Our Organizational Structure, Legal Foundations, and Industry Certifications That Drive Our Commitment to Excellence."
+      "title": "资料",
+      "description": "了解我们：我们的故事、愿景和使命。探索我们的组织结构、法律基础和推动我们对卓越承诺的行业认证。"
     },
     "message": {
-      "subtitle": "We are General Supplier, Fabrication, Machining, Mechanical, Electrical, and Civil company.",
-      "description-one": "PT Trijaya Berkah Mandiri telah berjalan sejak tahun 2015 dengan Akta Pendirian Notaris No.1 tanggal 4 November 2015. Selama perjalanan, kami telah banyak melayani produk-produk baik dalam skala besar maupun kecil, begitu juga proyek-proyek, pekerjaan, workshop, dan hampir sebagian besar mendominasi daerah Banten barat hingga sebagian wilayah Jawa, Sumatera dan Kalimantan.",
-      "description-two": "PT.Trijaya Berkah Mandiri sebagai salah satu General Supplier dan Project hadir memenuhi kebutuhan para pebisnis yang berorientasi bergerak dalam bidang Electrical Spesial Panel Maker, Mechanical, Engineering, Safety dan Project lainnya. Dan pada tahun 2019 kami mulai bergerak di bidang Kontruksi.Kami melayani dengan sepenuh hati dan mensupport sesuai dengan kebutuhan customer baik skala besar maupun kecil."
+      "subtitle": "我们是一家综合供应商，提供制造、机械、电气和土木工程服务。",
+      "description-one": "PT Trijaya Berkah Mandiri自2015年起运营, 注册成立于2015年11月4日, 公证人第1号。在这段时间里, 我们为大规模和小规模的产品生产提供了大量服务，包括项目、工作、车间，并在西万丹及部分爪哇、苏门答腊和加里曼丹地区占据主导地位。",
+      "description-two": "PT Trijaya Berkah Mandiri作为一家综合供应商和项目公司, 致力于满足专注于电气特殊面板制造、机械、工程、安全和其他项目的商家的需求。在2019年, 我们开始涉足建筑领域。我们全心全意地服务，并根据客户的需求支持无论是大规模还是小规模的项目。"
     },
     "vision-mission": {
-      "title": "Vision",
+      "title": "愿景",
       "vision": {
-        "title": "Vision",
-        "description": "Memenuhi kebutuhan sektor industri dalam hal pembuatan mesin-mesin produksi, serta menyediakan jasa pembuatan dan perbaikan part berkualitas yang baik, sehingga dapat mengurangi ketergantungan terhadap produk-produk luar negeri dan menjadi produsen di negara sendiri"
+        "title": "愿景",
+        "description": "满足工业部门在生产机械制造方面的需求，提供高质量的零件制造和维修服务，从而减少对外国产品的依赖，成为国内生产者。"
       },
       "mission": {
-        "title": "Missions",
-        "description-one": "Memberikan pelayanan pembuatan mesin maupun jasa pembuatan part hingga perbaikan sparepart mesin produksi dengan kualitas yang baik sehingga memberikan rasa kepuasan dan kepercayaan dari pelanggan sehingga dapat terjalin kerjasama yang baik",
-        "description-two": "Membantu pemerintah dalam menciptakan lapangan kerja guna mengurangi pengangguran dan meningkatkan perekonomian dalam negeri serta turut mensejahterakan keluarga Indonesia"
+        "title": "使命",
+        "description-one": "提供机械制造以及零件制造和生产设备备件维修服务，确保高质量，从而使客户满意并建立良好的合作关系。",
+        "description-two": "帮助政府创造就业机会，以减少贫困、促进国内经济发展，并改善印尼家庭的福祉。"
       }
     },
     "organizational-structure": {
-      "title": "Organizational Structure",
-      "description": "Get to know the passionate directors and managers behind our success.",
+      "title": "组织结构",
+      "description": "以下是我们成功的主要支柱。",
       "job": {
         "director": "Director",
         "general-manager": "General Manager",
@@ -75,125 +75,185 @@
   },
   "business": {
     "hero": {
-      "title": "Business",
-      "description": "Delivering comprehensive services across fabrication, machining, mechanical, electrical, and civil engineering, backed by reliable supply solutions for every industry."
+      "title": "商业",
+      "description": "提供全面的服务，涵盖制造、机械加工、机械、电气和土木工程领域，并为每个行业提供可靠的供应解决方案。"
     },
     "sector": {
       "hero": {
-        "title": "Business Sector",
-        "description": "We offer a full suite of services to support your operations, including general supply, fabrication, machining, mechanical, electrical, civil, and construction solutions. Our expert team ensures high-quality products, precision components, and reliable support to help your business excel."
+        "title": "商业领域",
+        "description": "我们提供一系列完整的服务来支持您的运营，包括综合供应、制造、机械加工、机械、电气、土木工程和建筑解决方案。我们的专家团队确保高质量的产品、精密组件和可靠的支持，以帮助您的业务取得成功。"
       }
     },
     "details": {
-      "title": "Services",
-      "description": "PT TRIJAYA BERKAH MANDIRI is also capable of performing specialized work in the paper industry, particularly in the area of PAPER MACHINES. Our expertise includes repair work on HEADBOX machines to improve the final product according to customer needs. This work is supported by the PMPRO team from Thailand, which consists of skilled experts with experience across Asia, Europe, and the Middle East.",
-      "message": "All work will be supervised under high control by a Supervisor from the initial planning, progress, to commissioning stages. A work guarantee is provided in accordance with TBM standards or as required by the client or customer.",
+      "title": "服务",
+      "description": "PT.Trijaya Berkah Mandiri在一般供应、制造、机械、机电、土木和建筑等领域拥有丰富的经验和专业知识。我们拥有一支敬业和技术精湛的团队, 随时准备应对项目各个阶段的挑战。我们专注于创新和高效, 努力提供满足客户特定需求的解决方案。我们为与各个行业建立强大的合作伙伴关系、提供令人满意的成果以及为项目的成功做出贡献而感到自豪。",
+      "message": "所有工作将由监督员在高标准控制下进行监督, 从初步规划、进展到调试阶段。根据TBM标准或客户要求, 提供工作保证。",
       "list-one": {
-        "title": "Electrical Products",
-        "description": "Supply Cable, Electrical Tools, Panel, Contactor, Motor, Cable Tray, Lamp, Cable ties, Light poles, Fan and etc."
+        "title": "电气产品",
+        "description": "提供电缆、电气工具、面板、接触器、电机、电缆托盘、灯具、束线器、灯杆、风扇等。"
       },
       "list-two": {
-        "title": "Electrical Project",
-        "description": "Lighting rod, Cad Well, Installation Low ang High Voltage for industries, Phone or Intercom, Hall Sound System, lightning protection  PLC system and etc."
+        "title": "电气项目",
+        "description": "照明杆、备用井、工业低压和高压安装、电话或对讲机、大厅音响系统、PLC避雷系统等。"
       },
       "list-three": {
-        "title": "Mechanical Spare part",
-        "description": "Rubber, Seal, Hose, Pipe Nipple, Injector, Pressure gauge, Sews, Bolt, Conduit  and etc."
+        "title": "机械零件",
+        "description": "橡胶、密封件、软管、管接头、喷油器、压力表、缝合、螺栓、管道等。"
       },
       "list-four": {
-        "title": "Workshop Project",
-        "description": "Hard Chrome, Sand Blasting, Teflon Coating, Nikel Chrome, Shell Structure, Thank Project, Overhaul, Piping, Molding,Separator, Vibrator, Mixing Rolls and etc."
+        "title": "车间项目",
+        "description": "硬铬、喷砂、特氟龙涂层、镍铬、壳体结构、感谢项目、改造、管道、印刷、分离器、振动器、混合滚筒等。"
       },
       "list-five": {
-        "title": "Construction",
-        "description": "Our work includes industrial building construction or industrial building repairs, installation of various types of roofing such as Spandex models, Bitumen models, partitioning, and all fabrication work."
+        "title": "建筑",
+        "description": "我们的工作包括工业建筑的建设或维修，安装各种类型的屋顶，如弹性模型、沥青模型、隔断和所有制造工作。"
       },
       "list-six": {
-        "title": "Safety",
-        "description": "Manufacturing of Fire Extinguisher Boxes, Nozzle Modification, Smoke Detectors, Hose Upgrades, Valves, Local and Imported Sprinklers, and similar services."
+        "title": "安全",
+        "description": "制造灭火器箱、喷嘴改造、烟雾探测器、软管升级、阀门、本地和进口喷淋设备及类似服务。"
       },
       "list-seven": {
-        "title": "Paper Machine",
-        "description": "HEADBOX Paper Machine Services"
+        "title": "纸张机械",
+        "description": "HEADBOX纸机服务, 旨在根据客户需求提高最终产品, 由来自泰国的PMPRO团队支持, 团队由在亚洲、欧洲和中东经验丰富的专业人员组成。"
       }
     },
     "experiences": {
-      "title": "Experiences",
-      "description": "We have successfully delivered high-quality services across a diverse range of industries and regions"
+      "title": "经验",
+      "description": "我们已成功为多个行业和地区提供高质量的服务"
     },
     "business-sector": {
-      "electrical": "Electrical",
-      "mechanical": "Mechanical",
-      "fabrication": "Fabrication",
-      "machining": "Machining",
-      "general-supplier": "General Supplier",
-      "construction": "Construction",
-      "civil": "Civil"
+      "electrical": "电气",
+      "mechanical": "机械",
+      "fabrication": "制造 ",
+      "machining": "加工",
+      "general-supplier": "一般供应",
+      "construction": "建筑",
+      "civil": "土木"
     },
     "your-business": {
-      "title": "Solutions for Your Business Needs",
-      "description": "We offer specialized products and services to meet your needs and operational goals"
+      "title": "满足您业务需求的解决方案",
+      "description": "我们提供专业的产品和服务，以满足您的需求和运营目标"
     }
   },
   "certification": {
     "hero": {
-      "title": "Legalities and Certifications",
-      "description": "Committed to high standards, our company holds all necessary legal compliances and certifications to guarantee the best service quality and safety in the industry."
+      "title": "法律和认证",
+      "description": "我们公司致力于高标准，持有所有必要的法律合规和认证，以保证行业内最佳的服务质量和安全性."
     }
   },
   "career": {
     "hero": {
-      "title": "Career",
-      "description": "Join us at and unlock your potential, working with a passionate team and making a real difference in the world. We eagerly look forward to your arrival!"
+      "title": "职业",
+      "description": "加入我们，释放您的潜力，与充满热情的团队合作，在世界上创造真正的改变。我们期待您的到来！"
     },
     "head": {
-      "title": "Professinal Staff and Internship",
-      "description": "We have several job and internship vacancies open"
+      "title": "专业员工和实习",
+      "description": "我们有多个职位和实习空缺"
     },
     "one": {
-      "title": "Professional Staff",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-      "button-text": "See Vacancy"
+      "title": "专业员工",
+      "description": "我们正在寻找有才华的个人为创新项目做出贡献。如果您充满热情并希望在动态环境中成长，我们期待您的来信！",
+      "button-text": "查看职位空缺"
     },
     "two": {
-      "title": "Internship Program",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-      "button-text": "Apply"
+      "title": "实习项目",
+      "description": "加入我们的实习项目，获得实践技能和行业洞察。与专家合作，拓展您的专业网络！",
+      "button-text": "申请实习"
     }
   },
   "contact-us": {
     "hero": {
-      "title": "Contact Us",
-      "description": "We're Here to Help: Reach Out for Any Support, Business Inquiries, or Collaboration Opportunities. Let's Work Together to Build Strong Connections."
+      "title": "联系我们",
+      "description": "我们随时准备提供帮助：联系支持、业务咨询或合作机会。让我们携手建立强大联系。"
     },
     "head": {
-      "title": "Let's Talk with Us",
-      "description": "Reach out to our services and let's collaborate together"
+      "title": "和我们谈谈",
+      "description": "联系我们的服务，让我们共同合作"
     },
     "left-side": {
-      "title": "You can reach us at",
-      "button-text": "Contact us Through Whatsapp"
+      "title": "您可以通过以下方式与我们联系",
+      "button-text": "通过Whatsapp与我们联系"
     },
     "right-side": {
-      "title": "Questions, comments, or suggestions?",
-      "description": "Simply fill in the form and we`ll be in touch shortly",
-      "button-text": "Send Message"
+      "title": "有问题、评论或建议吗？",
+      "description": "只需填写表格，我们会尽快与您联系",
+      "button-text": "发送消息"
     }
   },
   "media": {
     "hero": {
-      "title": "Media",
-      "description": "Stay Updated with the Latest Media Coverage, News Updates, and Press Announcements"
+      "title": "媒体",
+      "description": "通过我们的工作文档、文章和最新消息，探索我们的所有体验和活动"
     },
     "head": {
-      "title": "Company Gallery",
-      "description": "Our Work in Action: Projects Activities and Articles"
+      "title": "公司画廊",
+      "description": "我们的工作实践：项目活动和文章"
     },
-    "project-activities": "Project Activities",
-    "articles-gallery": "Articles Gallery",
-    "latest-articles": "Latest Articles",
-    "more-articles": "More Articles",
-    "share-articles": "Share this article",
-    "related-articles": "Related Articles"
+    "project-activities": "项目活动",
+    "articles-gallery": "文章画廊",
+    "latest-articles": "最新文章",
+    "more-articles": "更多文章",
+    "share-articles": "分享这篇文章",
+    "related-articles": "相关文章"
+  },
+  "header": {
+    "home": "Home",
+    "profile": {
+      "title": "Profile",
+      "about-us": {
+        "title": "About Us",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "vision-mission": {
+        "title": "Vision",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "legality": {
+        "title": "Legality",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      }
+    },
+    "business": {
+      "title": "Business",
+      "services": {
+        "title": "Services",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "products": {
+        "title": "Products",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "experiences": {
+        "title": "Experiences",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "business-sector": {
+        "title": "Business Sector",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      }
+    },
+    "media": {
+      "title": "Media",
+      "company-activities": {
+        "title": "Company Activities",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "articles": {
+        "title": "Articles",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      }
+    },
+    "contact-us": "Contact Us",
+    "career": {
+      "title": "Career",
+      "staff-professional": {
+        "title": "Staff Professional",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
+      "internship-program": {
+        "title": "Internship Program",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      }
+    }
   }
 }

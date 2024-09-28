@@ -5,23 +5,24 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { Button } from "./button";
 
 import { ContactUsTypes } from "@/types";
+import { usePostApi } from "@/hooks";
 
 export const Form = ({ buttonTitle }: { buttonTitle: string }) => {
   const initValues = { firstName: "", email: "", lastName: "", phoneNumber: "", message: "" };
   const [input, setInput] = useState<ContactUsTypes>(initValues);
-
-  //   const validation = !input.firstName || !input.email || !input.lastName || !input.phoneNumber;
+  const { loading, execute, error } = usePostApi("/contacts", "POST");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInput((prev) => ({
       ...prev,
-
       [e.target.name]: e.target.value,
     }));
   };
 
   const submitForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    execute(input);
   };
 
   return (
@@ -36,7 +37,7 @@ export const Form = ({ buttonTitle }: { buttonTitle: string }) => {
             value={input.firstName}
             className={`form-contact-input`}
           />
-          {/* {error && !input.firstName && <small className="text-red-600">Masukkan nama depan anda</small>} */}
+          {error && !input.firstName && <small className="text-secondary">Enter your first name</small>}
         </div>
 
         <div className="w-full">
@@ -48,12 +49,12 @@ export const Form = ({ buttonTitle }: { buttonTitle: string }) => {
             value={input.lastName}
             className={`form-contact-input`}
           />
-          {/* {error && !input.lastName && <small className="text-red-600">Masukkan nama belakang anda</small>} */}
+          {error && !input.lastName && <small className="text-secondary">Enter your last name</small>}
         </div>
 
         <div className="w-full col-span-2">
           <input type="email" placeholder="Email*" name="email" onChange={handleChange} value={input.email} className={`form-contact-input`} />
-          {/* {error && !input.email && <small className="text-red-600">Masukkan email anda</small>} */}
+          {error && !input.email && <small className="text-secondary">Enter your email</small>}
         </div>
 
         <div className="w-full col-span-2">
@@ -65,19 +66,14 @@ export const Form = ({ buttonTitle }: { buttonTitle: string }) => {
             value={input.phoneNumber}
             className={`form-contact-input`}
           />
-          {/* {error && !input.phoneNumber && <small className="text-red-600">Masukkan no telp anda</small>} */}
+          {error && !input.phoneNumber && <small className="text-secondary">Enter your number phone</small>}
         </div>
-
-        <textarea
-          rows={4}
-          placeholder="Your Message"
-          onChange={handleChange}
-          value={input.message}
-          name="message"
-          className="col-span-2 form-contact-input"
-        />
+        <div className="w-full col-span-2">
+          <textarea rows={4} placeholder="Your Message" onChange={handleChange} value={input.message} name="message" className="form-contact-input" />
+          {error && !input.message && <small className="text-secondary">Enter your messages</small>}
+        </div>
       </div>
-      <Button type="submit" className={`btn-primary w-full`}>
+      <Button type="submit" className={`btn-primary w-full ${loading && "animate-pulse"}`}>
         {buttonTitle}
       </Button>
     </form>
