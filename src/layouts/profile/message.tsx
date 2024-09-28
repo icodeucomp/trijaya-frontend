@@ -6,7 +6,7 @@ export const Message = () => {
   const t = useTranslations("profile.message");
 
   return (
-    <Container className="flex flex-col-reverse justify-between gap-8 py-10 sm:py-16 md:py-20 lg:flex-row">
+    <Container id="about-us" className="flex flex-col-reverse justify-between gap-8 py-10 sm:py-16 md:py-20 lg:flex-row">
       <div className="w-full space-y-4 font-semibold lg:max-w-screen-md">
         <h2 className="heading">PT Trijaya Berkah Mandiri</h2>
         <h4 className="text-base font-semibold text-justify sm:text-lg md:text-xl lg:text-2xl text-primary lg:text-start">{t("subtitle")}</h4>
@@ -17,7 +17,7 @@ export const Message = () => {
         <Img
           src="/images/profile-message.webp"
           alt="PT Trijaya Berkah Mandiri company building picture "
-          className="w-full h-72 sm:h-80 lg:h-96 overflow-hidden rounded-lg"
+          className="w-full overflow-hidden rounded-lg h-72 sm:h-80 lg:h-96"
           cover
         />
       </div>

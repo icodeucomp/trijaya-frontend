@@ -48,7 +48,7 @@ const DesktopLink = ({ pathUrl, title, content }: NavbarTypes) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 w-full duration-300 bg-light-gray shadow-lg h-80 top-16 z-10000"
+            className="absolute left-0 w-full duration-300 shadow-lg bg-light-gray h-80 top-16 z-10000"
           >
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -61,14 +61,19 @@ const DesktopLink = ({ pathUrl, title, content }: NavbarTypes) => {
                 {title} <FaAngleRight />
               </h4>
               <div className="grid max-w-screen-md grid-cols-2 gap-8">
-                {content?.map((item, index) => (
-                  <div key={index} className="space-y-2">
-                    <Link href={pathUrl + item.pathUrl} key={index} className="flex items-center gap-4 text-lg font-medium text-dark-gray">
-                      {item.title} <FaAngleRight />
-                    </Link>
-                    <p className="text-sm text-gray line-clamp-2">{item.description}</p>
-                  </div>
-                ))}
+                {content?.map((item, index) => {
+                  return (
+                    <div key={index} className="space-y-2">
+                      <Link
+                        href={pathUrl + item.pathUrl}
+                        className="flex items-center gap-4 text-lg font-medium duration-300 text-dark-gray hover:text-dark-blue"
+                      >
+                        {item.title} <FaAngleRight />
+                      </Link>
+                      <p className="text-sm text-gray line-clamp-2">{item.description}</p>
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
           </motion.div>

@@ -10,7 +10,7 @@ export const Careers = () => {
   const careers = CareerLists();
 
   return (
-    <Container className="py-10 space-y-8 sm:py-16 md:py-20">
+    <Container id="career" className="py-10 space-y-8 sm:py-16 md:py-20">
       <div className="space-y-2 text-center">
         <h3 className="heading">{t("title")}</h3>
         <p className="subheading">{t("description")}</p>

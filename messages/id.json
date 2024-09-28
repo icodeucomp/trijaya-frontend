@@ -208,6 +208,10 @@
         "title": "Penglihatan",
         "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
       },
+      "organizational": {
+        "title": "Struktur Organisasi",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
       "legality": {
         "title": "Legalitas",
         "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
@@ -263,8 +267,7 @@
         "one": "Tentang Kami",
         "two": "Visi",
         "three": "Struktur Organisasi",
-        "four": "Legalitas",
-        "five": "Sertifikasi"
+        "four": "Legalitas & Sertifikasi"
       }
     },
     "business": {

@@ -1,4 +1,8 @@
 export interface FooterTypes {
   title: string;
-  fields: string[];
+  pathUrl: string;
+  content: {
+    title: string;
+    pathUrl: string;
+  }[];
 }

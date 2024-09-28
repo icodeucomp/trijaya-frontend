@@ -34,15 +34,17 @@ export const Footer = () => {
           </div>
           <h5 className="text-sm">© Copyright PT Trijaya Berkah Mandiri</h5>
         </div>
-        <div className="hidden sm:grid justify-items-center grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 flex-1 gap-8 mt-4">
+        <div className="flex-1 hidden grid-cols-1 gap-8 mt-4 sm:grid justify-items-center lg:grid-cols-2 xl:grid-cols-3">
           {footerLists.map((footer, i) => (
             <div key={i} className="space-y-2 min-w-48">
-              <h5 className="font-semibold">{footer.title}</h5>
+              <Link href={footer.pathUrl} className="block">
+                <h5 className="font-semibold">{footer.title}</h5>
+              </Link>
               <menu className="space-y-2">
-                {footer.fields.map((field, j) => (
-                  <p key={j} className="text-sm">
-                    {field}
-                  </p>
+                {footer.content.map((field, j) => (
+                  <Link key={j} className="block" href={footer.pathUrl + field.pathUrl}>
+                    <p className="text-sm">{field.title}</p>
+                  </Link>
                 ))}
               </menu>
             </div>

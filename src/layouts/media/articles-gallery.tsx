@@ -14,7 +14,7 @@ export const ArticlesGallery = () => {
   const t = useTranslations("media");
 
   return (
-    <Container className="pb-10 sm:pb-16">
+    <Container id="article" className="pb-10 sm:pb-16">
       <BigSlider
         title={`${t("articles-gallery")}`}
         breakpoints={{ 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}

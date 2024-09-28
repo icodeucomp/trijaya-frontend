@@ -27,7 +27,7 @@ export const Products = () => {
   const filterData = products?.data.find((item) => item.slug === openModalIndex);
 
   return (
-    <Container className="pt-10 pb-16 sm:pb-20">
+    <Container id="product" className="pt-10 pb-16 sm:pb-20">
       <BigSlider
         className="space-y-8"
         title="Products"

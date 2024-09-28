@@ -9,7 +9,7 @@ import { clientsTableLists } from "@/static";
 export const Experiences = () => {
   const t = useTranslations("business.experiences");
   return (
-    <Container className="pb-20">
+    <Container id="experience" className="pb-20">
       <div className="max-w-xl mx-auto space-y-2 text-center">
         <h3 className="heading">{t("title")}</h3>
         <p className="text-sm font-medium sm:text-base md:text-lg text-dark-gray">{t("description")}</p>

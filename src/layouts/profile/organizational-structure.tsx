@@ -9,7 +9,7 @@ export const OrganizationalStructure = () => {
 
   const organizational = OrganizationalLists();
   return (
-    <Container className="py-16 space-y-8">
+    <Container id="organizational" className="py-16 space-y-8">
       <div className="space-y-4 text-center sm:space-y-2 sm:text-start">
         <h3 className="heading">{t("title")}</h3>
         <p className="subheading">{t("description")}</p>

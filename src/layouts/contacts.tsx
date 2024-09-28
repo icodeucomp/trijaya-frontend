@@ -9,7 +9,7 @@ export const Contacts = () => {
   const t = useTranslations("contact-us");
 
   return (
-    <Container className="py-10 space-y-10 sm:py-16 md:py-20 md:space-y-12">
+    <Container id="contact" className="py-10 space-y-10 sm:py-16 md:py-20 md:space-y-12">
       <div className="space-y-2 text-center">
         <h3 className="heading">{t("head.title")}</h3>
         <p className="subheading">{t("head.description")}</p>

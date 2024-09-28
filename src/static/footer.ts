@@ -7,20 +7,47 @@ export const FooterLists = () => {
   return [
     {
       title: `${t("profile.title")}`,
-      fields: [
-        `${t("profile.fields.one")}`,
-        `${t("profile.fields.two")}`,
-        `${t("profile.fields.three")}`,
-        `${t("profile.fields.four")}`,
-        `${t("profile.fields.five")}`,
+      pathUrl: "/profile",
+      content: [
+        { title: `${t("profile.fields.one")}`, pathUrl: "#about-us" },
+        { title: `${t("profile.fields.two")}`, pathUrl: "#vision-mission" },
+        { title: `${t("profile.fields.three")}`, pathUrl: "#organizational" },
+        { title: `${t("profile.fields.four")}`, pathUrl: "/certification" },
       ],
     },
     {
       title: `${t("business.title")}`,
-      fields: [`${t("business.fields.one")}`, `${t("business.fields.two")}`, `${t("business.fields.three")}`, `${t("business.fields.four")}`],
+      pathUrl: "/business",
+      content: [
+        { title: `${t("business.fields.one")}`, pathUrl: "#service" },
+        { title: `${t("business.fields.two")}`, pathUrl: "#product" },
+        { title: `${t("business.fields.three")}`, pathUrl: "#experience" },
+        { title: `${t("business.fields.four")}`, pathUrl: "/sector" },
+      ],
     },
-    { title: `${t("media.title")}`, fields: [`${t("media.fields.one")}`, `${t("media.fields.two")}`] },
-    { title: `${t("contact-us.title")}`, fields: [`${t("contact-us.fields.one")}`, `${t("contact-us.fields.two")}`] },
-    { title: `${t("career.title")}`, fields: [`${t("career.fields.one")}`, `${t("career.fields.two")}`] },
+    {
+      title: `${t("media.title")}`,
+      pathUrl: "/media",
+      content: [
+        { title: `${t("media.fields.one")}`, pathUrl: "#article" },
+        { title: `${t("media.fields.two")}`, pathUrl: "#company-activity" },
+      ],
+    },
+    {
+      title: `${t("contact-us.title")}`,
+      pathUrl: "/contact",
+      content: [
+        { title: `${t("contact-us.fields.one")}`, pathUrl: "#contact" },
+        { title: `${t("contact-us.fields.two")}`, pathUrl: "#contact" },
+      ],
+    },
+    {
+      title: `${t("career.title")}`,
+      pathUrl: "/career",
+      content: [
+        { title: `${t("career.fields.one")}`, pathUrl: "#career" },
+        { title: `${t("career.fields.two")}`, pathUrl: "#career" },
+      ],
+    },
   ] as FooterTypes[];
 };

@@ -32,7 +32,7 @@ export const Services = () => {
   };
 
   return (
-    <Container className="pt-12 pb-8 space-y-8 sm:pb-16 sm:pt-16 md:pt-24">
+    <Container id="service" className="pt-12 pb-8 space-y-8 sm:pb-16 sm:pt-16 md:pt-24">
       <div className="flex items-center justify-between">
         <h3 className="heading">Services</h3>
         <Link href="/business/sector">
@@ -42,7 +42,7 @@ export const Services = () => {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-0">
         <div className="w-full max-w-xl mx-auto space-y-4 lg:max-w-2xl">
           {loading ? (
-            <div className="w-full py-8 flex justify-center">
+            <div className="flex justify-center w-full py-8">
               <span className="loader"></span>
             </div>
           ) : (
@@ -67,7 +67,7 @@ export const Services = () => {
         </div>
         <div className="w-full space-y-4 sm:space-y-8 lg:pl-8">
           {loading ? (
-            <div className="w-full py-8 flex justify-center">
+            <div className="flex justify-center w-full py-8">
               <span className="loader"></span>
             </div>
           ) : (

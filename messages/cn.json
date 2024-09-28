@@ -208,6 +208,10 @@
         "title": "Vision",
         "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
       },
+      "organizational": {
+        "title": "Organization Structure",
+        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+      },
       "legality": {
         "title": "Legality",
         "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
@@ -263,8 +267,7 @@
         "one": "About Us",
         "two": "Visions",
         "three": "Organization Structure",
-        "four": "Legality",
-        "five": "Certifications"
+        "four": "Legality & Certifications"
       }
     },
     "business": {
