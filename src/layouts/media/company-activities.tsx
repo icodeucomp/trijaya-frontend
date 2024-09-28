@@ -21,6 +21,7 @@ export const CompanyActivities = () => {
   useEffect(() => {
     if (medias?.data && medias.data.length > 0) {
       setSplitData(Math.ceil(medias?.data.length / 6));
+      setSelected(medias?.data[0].url);
     }
   }, [medias]);
 

@@ -10,7 +10,7 @@ export default function Sector({ params }: { params: { slug: string } }) {
     <>
       <Hero pathImg="/images/sector-header.webp" title={`${t("title")}`} description={`${t("description")}`} />
       <SectorBusiness slug={params.slug} />
-      <AllSectorBusiness />
+      <AllSectorBusiness slug={params.slug} />
     </>
   );
 }

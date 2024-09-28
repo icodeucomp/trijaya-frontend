@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion";
 
 import { Background, BigSlider, Container, ImageSlider, Modal } from "@/components";
 
-import { BusinessSectorTypes, ResponseBusinessesSectorTypes } from "@/types";
+import { BusinessSectorTypes, ResponseBusinessTypes } from "@/types";
 
 interface SectorBusinessTypes {
   title: string;
@@ -77,34 +77,32 @@ const SectorBusiness = ({ title, data, loading, openModalIndex, setOpenModalInde
   );
 };
 
-export const AllSectorBusiness = () => {
+export const AllSectorBusiness = ({ slug }: { slug: string }) => {
   const [openModalProducts, setOpenModalProducts] = useState<string | null>(null);
   const [openModalServices, setOpenModalServices] = useState<string | null>(null);
   const [openModalProjects, setOpenModalProjects] = useState<string | null>(null);
 
-  const { response: products, loading: loadProducts } = useGetApi<ResponseBusinessesSectorTypes>("/products");
-  const { response: projects, loading: loadProjects } = useGetApi<ResponseBusinessesSectorTypes>("/projects");
-  const { response: services, loading: loadServices } = useGetApi<ResponseBusinessesSectorTypes>("/services");
+  const { response: business, loading } = useGetApi<ResponseBusinessTypes>(`/business/${slug}`);
 
   return (
     <Container className="pb-20">
       <SectorBusiness
-        data={products?.data}
-        loading={loadProducts as boolean}
+        data={business?.data.Product}
+        loading={loading as boolean}
         openModalIndex={openModalProducts}
         setOpenModalIndex={setOpenModalProducts}
         title="Products"
       />
       <SectorBusiness
-        data={projects?.data}
-        loading={loadProjects as boolean}
+        data={business?.data.Project}
+        loading={loading as boolean}
         openModalIndex={openModalProjects}
         setOpenModalIndex={setOpenModalProjects}
         title="Projects"
       />
       <SectorBusiness
-        data={services?.data}
-        loading={loadServices as boolean}
+        data={business?.data.Service}
+        loading={loading as boolean}
         openModalIndex={openModalServices}
         setOpenModalIndex={setOpenModalServices}
         title="Services"
