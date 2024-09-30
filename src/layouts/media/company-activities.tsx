@@ -51,7 +51,7 @@ export const CompanyActivities = () => {
                     }`}
                     onClick={() => setSelect(item.slug)}
                   >
-                    <Img src={item.url} alt={item.title} className="w-full h-32 sm:h-24 lg:h-36" cover />
+                    <Img src={item.url} alt={item.name} className="w-full h-32 sm:h-24 lg:h-36" cover />
                   </div>
                 ))}
               </div>

@@ -1,6 +1,8 @@
 "use client";
 
-import { useToggleState } from "@/hooks";
+import { FormEvent } from "react";
+
+import { usePost, useToggleState } from "@/hooks";
 
 import { AnimatePresence } from "framer-motion";
 
@@ -9,8 +11,15 @@ import { Modal } from "../modal";
 
 import { GoTrash } from "react-icons/go";
 
-export const DeleteMedia = () => {
+export const DeleteMedia = ({ slug }: { slug: string }) => {
   const [ref, modal, toggleModal] = useToggleState();
+
+  const { execute } = usePost("DELETE", "media");
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    execute(`/media/${slug}`, {});
+  };
 
   return (
     <div ref={ref}>
@@ -24,7 +33,7 @@ export const DeleteMedia = () => {
       <AnimatePresence>
         {modal && (
           <Modal isVisible={modal} onClose={toggleModal} className="max-w-sm">
-            <form className="w-full space-y-4">
+            <form onSubmit={handleSubmit} className="w-full space-y-4">
               <div className="space-y-2">
                 <h1 className="mb-4 text-sm font-semibold text-center sm:text-start text-primary-1 sm:text-lg">Delete Media</h1>
                 <p className="text-sm text-medium text-dark-1 sm:text-base">Are you sure you want to permanently delete this media?</p>

@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 
 import { Poppins } from "next/font/google";
 
+import { Toaster } from "react-hot-toast";
+
+import { CookiesProvider } from "next-client-cookies/server";
+
 import "./globals.css";
 
 import "ckeditor5/ckeditor5.css";
@@ -24,7 +28,12 @@ export const metadata: Metadata = {
 export default async function LoginLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>{children}</body>
+      <body className={`${poppins.className} antialiased`}>
+        <CookiesProvider>
+          <Toaster position="bottom-center" />
+          {children}
+        </CookiesProvider>
+      </body>
     </html>
   );
 }

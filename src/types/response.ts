@@ -32,18 +32,19 @@ export interface BusinessSectorTypes {
 }
 
 export interface BusinessesTypes {
+  id: number;
   title: string;
   slug: string;
   description: string;
   imageHeaderUrl: string;
-  productHeaderUrls: string;
+  productHeaderUrl: string;
   Product: BusinessSectorTypes[];
   Project: BusinessSectorTypes[];
   Service: BusinessSectorTypes[];
 }
 
 export interface MediaTypes {
-  title: string;
+  name: string;
   slug: string;
   url: string;
 }
@@ -71,3 +72,4 @@ export type ResponseBusinessSectorTypes = ResponsePayload<BusinessSectorTypes>;
 export type ResponseMediaTypes = ResponsePayload<MediaTypes[]>;
 
 export type ResponseDocumentsTypes = ResponsePayload<DocumentsTypes[]>;
+export type ResponseDocumentTypes = ResponsePayload<DocumentsTypes>;

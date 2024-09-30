@@ -1,13 +1,68 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { Products, Projects, Services } from "./adding-business";
+import * as React from "react";
 
-import { MdOutlineAddAPhoto } from "react-icons/md";
+import { useRouter } from "next/navigation";
+
+import { useGet, usePost, useUpload } from "@/hooks";
+
+import { Products, Projects, Services } from "./adding-business";
+import { Button, Img } from "@/components";
+
 import { PiCaretLeftLight } from "react-icons/pi";
 
-export const EditBusiness = () => {
+import { UploadTypes } from "../types";
+import { ResponseBusinessTypes } from "@/types";
+
+export const EditBusiness = ({ slug }: { slug: string }) => {
   const router = useRouter();
+
+  // set data
+  const [title, setTitle] = React.useState<string>("");
+  const [description, setDescription] = React.useState<string>("");
+  const [imageHeaderUrl, setImageHeaderUrl] = React.useState<string>("");
+  const [productImageHeaderUrl, setProductImageHeaderUrl] = React.useState<string>("");
+
+  // call api
+  const { response: business, loading } = useGet<ResponseBusinessTypes>(`/business/${slug}`);
+  const { execute, loading: loadData } = usePost("PATCH", `/business/edit/${slug}`);
+  const { uploading: uploadingImageHeader, uploadFile: uploadImageHeader, response: dataImageHeader } = useUpload<UploadTypes>();
+  const { uploading: uploadingImageProduct, uploadFile: uploadImageProduct, response: dataImageProduct } = useUpload<UploadTypes>();
+
+  // logic handler
+  const handleFileImageHeader = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+    await uploadImageHeader(file!, "business", slug);
+    setImageHeaderUrl(URL.createObjectURL(file!));
+  };
+
+  const handleFileImageProduct = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+    await uploadImageProduct(file!, "business", slug);
+    setProductImageHeaderUrl(URL.createObjectURL(file!));
+  };
+
+  // handle submit
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    execute(`/business/${slug}`, {
+      title,
+      description,
+      imageHeaderUrl: dataImageHeader?.url || imageHeaderUrl,
+      productHeaderUrl: dataImageProduct?.url || productImageHeaderUrl,
+    });
+  };
+
+  React.useEffect(() => {
+    if (business?.data !== null) {
+      setTitle(business?.data.title || "");
+      setDescription(business?.data.description || "");
+      setProductImageHeaderUrl(business?.data.productHeaderUrl || "");
+      setImageHeaderUrl(business?.data.imageHeaderUrl || "");
+    }
+  }, [business]);
+
   return (
     <>
       <div className="px-2 py-4">
@@ -18,21 +73,93 @@ export const EditBusiness = () => {
           <h1 className="heading">Edit Category</h1>
         </span>
       </div>
-      <div className="w-full max-w-screen-sm px-4 pt-8 mx-auto space-y-4 sm:px-8">
-        <div className="relative text-center">
-          <label htmlFor="category" className="container-border cursor-pointer w-72">
-            <MdOutlineAddAPhoto className="size-10 fill-gray" />
-          </label>
-          <label htmlFor="category" className="text-xl duration-300 cursor-pointer text-primary hover:text-primary/80">
-            Upload Photo
-          </label>
-          <input type="file" id="category" className="sr-only" />
+      {loading || loadData ? (
+        <div className="flex justify-center py-16">
+          <div className="loader"></div>
         </div>
-        <input type="text" className="input_form" placeholder="Description" required />
-      </div>
-      <Products />
-      <Projects />
-      <Services />
+      ) : (
+        <>
+          <form onSubmit={handleSubmit} className="w-full max-w-screen-md px-4 pt-8 mx-auto space-y-8 sm:px-8">
+            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 place-items-center">
+              {uploadingImageHeader ? (
+                <div className="flex justify-center py-16">
+                  <div className="loader"></div>
+                </div>
+              ) : (
+                <div className="relative text-center">
+                  <Img src={imageHeaderUrl || "/temporary.png"} alt={title} className="w-72 aspect-video" />
+
+                  <label htmlFor="image-header" className="md:text-xl duration-300 cursor-pointer text-primary hover:text-primary/80">
+                    Upload Image Header
+                  </label>
+                  <input type="file" id="image-header" className="sr-only" onChange={handleFileImageHeader} />
+                </div>
+              )}
+              {uploadingImageProduct ? (
+                <div className="flex justify-center py-16">
+                  <div className="loader"></div>
+                </div>
+              ) : (
+                <div className="relative text-center">
+                  <Img src={productImageHeaderUrl || "/temporary.png"} alt={title} className="w-72 aspect-video" />
+
+                  <label htmlFor="image-product" className="md:text-xl duration-300 cursor-pointer text-primary hover:text-primary/80">
+                    Upload Photo Product
+                  </label>
+                  <input type="file" id="image-product" className="sr-only" onChange={handleFileImageProduct} />
+                </div>
+              )}
+            </div>
+            <div className="relative w-full">
+              <input
+                type="text"
+                id="title"
+                value={title}
+                className="floating-input peer"
+                placeholder=" "
+                required
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <label
+                htmlFor="title"
+                className="floating-label peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
+              >
+                title
+              </label>
+            </div>
+            <div className="relative w-full">
+              <input
+                type="text"
+                id="description"
+                value={description}
+                className="floating-input peer"
+                placeholder=" "
+                required
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <label
+                htmlFor="description"
+                className="floating-label peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
+              >
+                description
+              </label>
+            </div>
+            {/* {error && !business?.data.title && <small className="text-secondary">Enter document name</small>} */}
+            {uploadingImageHeader && uploadingImageProduct ? (
+              <div className="flex justify-center py-16">
+                <div className="loader"></div>
+              </div>
+            ) : (
+              <Button type="submit" className="btn-primary">
+                Submit Business
+              </Button>
+            )}
+          </form>
+          <Products data={business?.data.Product} slugBusiness={slug} id={business?.data.id as number} />
+          <Projects data={business?.data.Project} slugBusiness={slug} id={business?.data.id as number} />
+          <Services data={business?.data.Service} slugBusiness={slug} id={business?.data.id as number} />
+        </>
+      )}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { ShowArticle } from "@/dashboards";
 
-export default function ShowArticleDashboard() {
-  return <ShowArticle />;
+export default function ShowArticleDashboard({ params }: { params: { slug: string } }) {
+  return <ShowArticle slug={params.slug} />;
 }

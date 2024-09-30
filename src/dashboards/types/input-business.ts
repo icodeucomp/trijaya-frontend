@@ -1,11 +1,16 @@
 import { ChangeEvent } from "react";
 
 export interface InputBusinessProps {
-  id: number;
+  slug: string;
   title: string;
   description: string;
-  images: File[];
-  onInputChange: (id: number, e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  onImagesChange: (id: number, files: FileList | null) => void;
-  onDelete: (id: number) => void;
+  images: string[];
+  uploading: boolean;
+  onInputChange: (slug: string, e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onImagesChange: (slug: string, e: ChangeEvent<HTMLInputElement>) => void;
+  onDelete: (slug: string) => void;
+  handleDeleteImage: (slug: string, index: number) => void;
+  handleSubmitImage: (slug: string) => void;
+  handleSubmitForm: (slug: string) => void;
+  loadData?: boolean;
 }

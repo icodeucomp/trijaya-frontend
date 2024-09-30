@@ -4,6 +4,10 @@ import { Poppins } from "next/font/google";
 
 import { Layout } from "@/dashboards";
 
+import { Toaster } from "react-hot-toast";
+
+import { CookiesProvider } from "next-client-cookies/server";
+
 import "./globals.css";
 
 import "ckeditor5/ckeditor5.css";
@@ -27,7 +31,10 @@ export default async function DashboardLayout({ children }: { children: React.Re
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
-        <Layout>{children}</Layout>
+        <CookiesProvider>
+          <Toaster position="bottom-center" />
+          <Layout>{children}</Layout>
+        </CookiesProvider>
       </body>
     </html>
   );

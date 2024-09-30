@@ -5,42 +5,44 @@ import dynamic from "next/dynamic";
 
 const CKEditor = dynamic(() => import("../ckeditor"), { ssr: false });
 
-import Select from "react-select";
-import { Button } from "@/components";
+import { useGet, usePost, useUpload } from "@/hooks";
 
-// import { CustomImageUpload } from "@/utils/customImageUpload";
+import { Button, Img } from "@/components";
 
 import { MdOutlineFileUpload } from "react-icons/md";
 import { PiCaretLeftLight } from "react-icons/pi";
 
-// interface InputTypes {
-//   title: string;
-//   content: string;
-//   categories: {
-//     value: string;
-//     label: string;
-//   }[];
-// }
+import { ResponseArticleTypes } from "@/types";
+import { UploadTypes } from "../types";
 
-export const EditArticle = () => {
-  // const [input, setInput] = React.useState<InputTypes>({
-  //   title: "",
-  //   content: "",
-  //   categories: [],
-  // });
+export const EditArticle = ({ slug }: { slug: string }) => {
+  const [content, setContent] = React.useState<string>("");
+  const [title, setTitle] = React.useState<string>("");
+  const [imageHeader, setImageHeader] = React.useState<string>("");
 
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
+  const { response: article, loading } = useGet<ResponseArticleTypes>(`/blogs/${slug}`);
+  const { execute, loading: loadData } = usePost("POST", "article");
+  const { uploadFile, response: dataImage, uploading } = useUpload<UploadTypes>();
 
-  // function MyCustomUploadAdapterPlugin(editor) {
-  //   editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
-  //     const title = input.title;
-  //     return new CustomImageUpload(loader, title);
-  //   };
-  // }
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+    await uploadFile(file!, "blogs", "");
+    setImageHeader(URL.createObjectURL(file!));
+  };
+
+  const handleSubmitForm = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    execute(`/blogs/${slug}`, { title, content, imageHeader: imageHeader || dataImage?.url });
+  };
+
+  React.useEffect(() => {
+    if (article?.data !== null) {
+      setTitle(article?.data.title || "");
+      setContent(article?.data.content || "");
+      setImageHeader(article?.data.imageHeader || "");
+    }
+  }, [article]);
+
   return (
     <>
       <div className="flex flex-col items-center justify-between gap-4 px-2 pb-2 border-b-2 sm:items-end sm:flex-row">
@@ -48,35 +50,50 @@ export const EditArticle = () => {
           <PiCaretLeftLight size={24} />
           <h1 className="text-xl sm:text-2xl md:text-3xl">Edit Article</h1>
         </span>
-        <Button className="flex items-center gap-2 btn-primary">
-          <MdOutlineFileUpload size={20} />
-          Publish
-        </Button>
+        {uploading ? (
+          <div className="flex items-center w-full">
+            <div className="loader"></div>
+          </div>
+        ) : (
+          <Button onClick={handleSubmitForm} className="flex items-center gap-2 btn-primary">
+            <MdOutlineFileUpload size={20} />
+            Publish
+          </Button>
+        )}
       </div>
-      <div className="relative w-full max-w-screen-sm px-4 py-10 mx-auto space-y-4 sm:px-8">
-        <Select
-          placeholder="Select categories for article..."
-          className="z-20"
-          isMulti
-          options={options}
-          theme={(theme) => ({
-            ...theme,
-            borderRadius: 0,
-            colors: {
-              ...theme.colors,
-              primary25: "#f3f4f6",
-              primary: "#0e2d65",
-            },
-          })}
-        />
-        <input
-          type="text"
-          className="w-full p-3.5 text-2xl border border-gray/50 focus:border-primary outline-none"
-          placeholder="Title..."
-          required
-        />
-        <CKEditor />
-      </div>
+      {loadData || loading ? (
+        <div className="flex justify-center py-16 w-full">
+          <div className="loader"></div>
+        </div>
+      ) : (
+        <div className="relative w-full max-w-screen-sm px-4 py-10 mx-auto space-y-4 sm:px-8">
+          <div className="relative w-full">
+            <input
+              type="text"
+              id="title"
+              value={title}
+              className="floating-input peer"
+              placeholder=" "
+              required
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <label
+              htmlFor="title"
+              className="floating-label peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
+            >
+              Title
+            </label>
+          </div>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="block w-full text-sm border rounded-lg cursor-pointer text-gray border-gray bg-light-gray focus:outline-none focus:border-primary"
+          />
+          <div className="relative">{imageHeader && <Img src={imageHeader} alt={title} className="w-full h-20 rounded-lg" cover />}</div>
+          <CKEditor setContent={setContent} title={title} />
+        </div>
+      )}
     </>
   );
 };

@@ -1,5 +1,7 @@
 "use client";
 
+import { useGet } from "@/hooks";
+
 import { Img } from "@/components";
 import { Filter } from "../filter";
 
@@ -10,39 +12,30 @@ import { AddDocument } from "./add-document";
 
 import { carbon_tag } from "@/icons";
 
-import { StyleTypes } from "../types";
+import { DocumentsTypes, ResponseDocumentsTypes } from "@/types";
 
-const stylesOptions: StyleTypes = {
-  control: (_, state) => ({
-    display: "inline-flex",
-    borderBottom: "2px solid #313335b5",
-    borderColor: state.isFocused ? "#0e2d65" : "#313335b5",
-    fontSize: "14px",
-    width: "100%",
-  }),
-};
-
-const Content = () => {
+const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
   return (
     <menu className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 place-items-center xl:grid-cols-3">
-      {!Array.from({ length: 6 }).length ? (
-        <h1 className="w-full m-8 text-3xl font-semibold text-center text-gray/50">The document is not found</h1>
+      {!data?.length ? (
+        <h1 className="w-full col-span-1 m-8 text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
+          The document is not found
+        </h1>
       ) : (
-        Array.from({ length: 4 }).map((_, index) => (
+        data?.map((item, index) => (
           <article key={index} className="w-full max-w-xs p-4 duration-300 rounded-md card-shadow text-dark-blue bg-light">
-            <Img src={`/temp-image-5.png`} alt={`Profile ${index + 1}`} className="w-full overflow-hidden rounded-lg h-72" cover />
+            <Img src={`/temp-image-5.png`} alt={item.name} className="w-full overflow-hidden rounded-lg h-72" cover />
             <div className="flex gap-1 mt-2 text-sm text-dark-gray">
               <Img src={carbon_tag} alt="calendar icon" className="size-4" />
-              Legality
+              {item.category}
             </div>
-            <div className="mt-2 space-y-2 text-center">
-              <h5 className="text-xl font-semibold">Akta Notaris</h5>
-              <p className="text-xs line-clamp-3">No. 1, Tanggal 04 November Tahun 2015 (Akte Pendirian) No. 7, Tanggal 10 Januari Tahun 2024</p>
+            <div className="mt-2 space-y-2 text-center h-14">
+              <h5 className="text-xl font-semibold">{item.name}</h5>
             </div>
             <div className="flex items-center justify-between mt-4">
-              <ShowDocument />
-              <EditDocument stylesOptions={stylesOptions} />
-              <DeleteDocument />
+              <ShowDocument slug={item.slug} />
+              <EditDocument slug={item.slug} />
+              <DeleteDocument slug={item.slug} />
             </div>
           </article>
         ))
@@ -52,6 +45,7 @@ const Content = () => {
 };
 
 export const Document = () => {
+  const { response: documents, loading } = useGet<ResponseDocumentsTypes>("/documents");
   return (
     <>
       <div className="flex flex-col items-center justify-between gap-4 px-2 pb-2 border-b-2 sm:items-end sm:flex-row">
@@ -60,9 +54,15 @@ export const Document = () => {
       </div>
       <div className="flex flex-col items-center justify-between gap-4 my-4 sm:flex-row">
         <Filter />
-        <AddDocument stylesOptions={stylesOptions} />
+        <AddDocument />
       </div>
-      <Content />
+      {loading ? (
+        <div className="flex justify-center py-16">
+          <div className="loader"></div>
+        </div>
+      ) : (
+        <Content data={documents?.data} />
+      )}
     </>
   );
 };

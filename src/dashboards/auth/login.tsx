@@ -1,55 +1,46 @@
 "use client";
 
-import { useState } from "react";
-
-import { useForm } from "react-hook-form";
+import * as React from "react";
 
 import { Background, Button } from "@/components";
 
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { usePostApi } from "@/hooks";
+import { useLogin } from "@/hooks";
+
+interface LoginTypes {
+  username: "";
+  password: "";
+}
 
 export const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const [input, setInput] = React.useState<LoginTypes>({ username: "", password: "" });
+  const [isVisible, setVisible] = React.useState(false);
 
-  const [isVisible, setVisible] = useState(false);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setInput((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+  };
 
-  const { execute } = usePostApi("/auth/login", "POST");
+  const { execute, error, loading } = useLogin("/auth/login");
 
-  const onSubmit = (data: any) => {
-    execute(data);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!input.password || !input.password) {
+      return;
+    }
+    execute(input);
   };
 
   return (
     <Background src="/images/pattern.png" className="min-h-screen items-center justify-center p-4 text-dark">
       <div className="w-full h-max max-w-sm p-4 mx-auto border border-gray shadow-lg rounded-3xl text-dark bg-light z-1 sm:p-6 md:p-8">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit}>
           <h5 className="text-2xl font-bold text-center text-dark-1 mb-6 sm:mb-8">Sign In</h5>
 
           <div className="relative w-full mt-4">
-            <input
-              type="text"
-              id="username"
-              className="floating-input peer"
-              placeholder=" "
-              {...register("username", {
-                required: true,
-                minLength: {
-                  value: 8,
-                  message: "Username Too Short",
-                },
-                maxLength: {
-                  value: 50,
-                  message: "Username too long",
-                },
-                pattern: { value: /^[a-zA-Z.!@#$%^&*-=_+ ]+$/i, message: "Please input true username." },
-              })}
-              autoComplete="off"
-            />
+            <input type="text" id="username" className="floating-input peer" placeholder=" " onChange={handleChange} autoComplete="off" />
             <label
               htmlFor="username"
               className="floating-label peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
@@ -57,7 +48,7 @@ export const Login = () => {
               Input your username
             </label>
           </div>
-          {errors.username && <small className="text-secondary w-full block mt-1">{`${errors.username?.message}`}</small>}
+          {error && !input.username && <small className="text-secondary">Enter your username</small>}
 
           <div className="relative w-full mt-4">
             <input
@@ -65,17 +56,7 @@ export const Login = () => {
               id="password"
               className="floating-input pr-8 peer"
               placeholder=" "
-              {...register("password", {
-                required: true,
-                minLength: {
-                  value: 8,
-                  message: "Password Too Short",
-                },
-                maxLength: {
-                  value: 25,
-                  message: "Password Too Long",
-                },
-              })}
+              onChange={handleChange}
               autoComplete="off"
             />
             <label
@@ -88,11 +69,16 @@ export const Login = () => {
               {isVisible ? <FaEye size={24} /> : <FaEyeSlash size={24} />}
             </button>
           </div>
-          {errors.password && <small className="text-secondary w-full block mt-1">{`${errors.password?.message}`}</small>}
-
-          <Button type="submit" className="text-light bg-primary hover:bg-primary/90 mt-6">
-            Sign In
-          </Button>
+          {error && !input.password && <small className="text-secondary">Enter your password</small>}
+          {loading ? (
+            <div className="flex justify-center py-16">
+              <div className="loader"></div>
+            </div>
+          ) : (
+            <Button type="submit" className="text-light bg-primary hover:bg-primary/90 mt-6">
+              Sign In
+            </Button>
+          )}
         </form>
       </div>
     </Background>

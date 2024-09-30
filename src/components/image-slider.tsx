@@ -32,6 +32,7 @@ export const ImageSlider = ({ images, imgClassName, ...props }: ImageSliderProps
         controller={{ control: controlledSwiper }}
         onSlideChange={handleSlideChange}
         onSwiper={setControlledSwiper}
+        spaceBetween={10}
         {...props}
       >
         {images.map((item, index) => (

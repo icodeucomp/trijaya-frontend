@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { usePathname } from "next/navigation";
 
-import { useMediaQuery } from "@/hooks";
+import { useGet, useMediaQuery } from "@/hooks";
 
 import { Sidebar } from "./sidebar";
 
@@ -13,14 +13,29 @@ import { TopBar } from "./topbar";
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const isTabletMid = useMediaQuery("(max-width: 1024px)");
 
+  const { error, loading } = useGet("/profile");
+
   const [openNav, setOpenNav] = React.useState<boolean>(isTabletMid ? false : true);
 
   const pathname = usePathname();
 
   React.useEffect(() => {
+    if (error) {
+      window.location.href = "/admin/login";
+      return;
+    }
+  }, [error]);
+
+  React.useEffect(() => {
     if (isTabletMid) setOpenNav(false);
     else setOpenNav(true);
   }, [isTabletMid, pathname]);
+
+  if (loading) {
+    <div className="flex justify-center min-h-screen items-center">
+      <div className="loader"></div>
+    </div>;
+  }
 
   return (
     <div className="relative flex bg-light">

@@ -41,7 +41,7 @@ export const Products = () => {
         {products?.data.map((item, index) => (
           <div key={index} onClick={() => openModal(item.slug)} className="cursor-pointer">
             <Background
-              src={item.productHeaderUrls || "/temp-image-3.png"}
+              src={item.productHeaderUrl || ""}
               className="flex-col justify-between w-full py-4 sm:py-6 min-h-300 filter-image"
               parentClassName="rounded-lg"
             >

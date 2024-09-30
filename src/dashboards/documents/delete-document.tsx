@@ -1,6 +1,8 @@
 "use client";
 
-import { useToggleState } from "@/hooks";
+import { FormEvent } from "react";
+
+import { usePost, useToggleState } from "@/hooks";
 
 import { AnimatePresence } from "framer-motion";
 
@@ -9,8 +11,15 @@ import { Modal } from "../modal";
 
 import { GoTrash } from "react-icons/go";
 
-export const DeleteDocument = () => {
+export const DeleteDocument = ({ slug }: { slug: string }) => {
   const [ref, modal, toggleModal] = useToggleState();
+
+  const { execute, loading } = usePost("DELETE", "document");
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    execute(`/documents/${slug}`, {});
+  };
 
   return (
     <div ref={ref}>
@@ -21,15 +30,21 @@ export const DeleteDocument = () => {
       <AnimatePresence>
         {modal && (
           <Modal isVisible={modal} onClose={toggleModal} className="max-w-sm">
-            <form className="w-full space-y-4">
-              <div className="space-y-2">
-                <h1 className="mb-4 text-sm font-semibold text-center sm:text-start text-primary-1 sm:text-lg">Delete Document</h1>
-                <p className="text-sm text-medium text-dark-1 sm:text-base">Are you sure you want to permanently delete this document?</p>
+            {loading ? (
+              <div className="flex justify-center py-16">
+                <div className="loader"></div>
               </div>
-              <Button type="submit" className="btn-primary">
-                Delete
-              </Button>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="w-full space-y-4">
+                <div className="space-y-2">
+                  <h1 className="mb-4 text-sm font-semibold text-center sm:text-start text-primary-1 sm:text-lg">Delete Document</h1>
+                  <p className="text-sm text-medium text-dark-1 sm:text-base">Are you sure you want to permanently delete this document?</p>
+                </div>
+                <Button type="submit" className="btn-primary">
+                  Delete
+                </Button>
+              </form>
+            )}
           </Modal>
         )}
       </AnimatePresence>
