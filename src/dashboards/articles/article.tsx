@@ -37,7 +37,7 @@ const Content = ({ data }: { data: ArticlesTypes[] | undefined }) => {
                 {convertDate(item.updatedAt)}
               </li>
             </div>
-            <h4 className="text-xl font-semibold line-clamp-2 h-14">{item.title}</h4>
+            <h4 className="text-xl font-semibold line-clamp-2 h-16">{item.title}</h4>
             <div className="relative flex items-center justify-between">
               <Link href={`/admin/dashboard/article/show/${item.slug}`}>
                 <button className="p-2 duration-300 border rounded-full border-primary bg-light hover:bg-primary group">

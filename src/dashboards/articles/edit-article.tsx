@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 
 const CKEditor = dynamic(() => import("../ckeditor"), { ssr: false });
 
+import { useRouter } from "next/navigation";
+
 import { useGet, usePost } from "@/hooks";
 
 import { Button } from "@/components";
@@ -13,7 +15,6 @@ import { MdOutlineFileUpload } from "react-icons/md";
 import { PiCaretLeftLight } from "react-icons/pi";
 
 import { ResponseArticleTypes } from "@/types";
-import { useRouter } from "next/navigation";
 
 export const EditArticle = ({ slug }: { slug: string }) => {
   const [content, setContent] = React.useState<string>("");

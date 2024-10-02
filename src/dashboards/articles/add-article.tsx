@@ -6,6 +6,8 @@ import dynamic from "next/dynamic";
 
 const CKEditor = dynamic(() => import("../ckeditor"), { ssr: false });
 
+import { useRouter } from "next/navigation";
+
 import { usePost } from "@/hooks";
 
 import { Button } from "@/components";
@@ -17,6 +19,8 @@ export const AddArticle = () => {
   const [content, setContent] = React.useState<string>("");
   const [title, setTitle] = React.useState<string>("");
   const [error, setError] = React.useState<boolean>(false);
+
+  const { back } = useRouter();
 
   const { execute, loading } = usePost("POST", "article");
 
@@ -33,7 +37,9 @@ export const AddArticle = () => {
     <>
       <div className="flex flex-col items-center justify-between gap-4 px-2 pb-2 border-b-2 sm:items-end sm:flex-row">
         <span className="flex items-center gap-2 text-dark-blue">
-          <PiCaretLeftLight size={24} />
+          <button onClick={() => back()}>
+            <PiCaretLeftLight size={24} />
+          </button>
           <h1 className="text-xl sm:text-2xl md:text-3xl">Create New Article</h1>
         </span>
         <Button onClick={handleSubmitForm} className="flex items-center gap-2 btn-primary">
