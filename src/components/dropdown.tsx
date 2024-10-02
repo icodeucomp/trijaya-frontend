@@ -1,15 +1,17 @@
 "use client";
 
-import { useToggleState } from "@/hooks";
-
-import { PiCaretDown } from "react-icons/pi";
-
-import { DropdownProps } from "@/types";
-import { Button } from "./button";
 import { useState } from "react";
 
+import { useToggleState } from "@/hooks";
+
+import { Button } from "./button";
+
+import { PiCaretDownBold } from "react-icons/pi";
+
+import { DropdownProps } from "@/types";
+
 export const Dropdown = ({ parentClassName, className, data, setFiltered, dropdownKey }: DropdownProps) => {
-  const [select, setSelect] = useState<string>("All");
+  const [select, setSelect] = useState<string>(dropdownKey === "services" ? data?.[0]?.display : "All");
 
   const [ref, popover, togglePopover] = useToggleState(false);
 
@@ -21,7 +23,7 @@ export const Dropdown = ({ parentClassName, className, data, setFiltered, dropdo
   return (
     <span ref={ref} className={`dropdown ${parentClassName} ${popover ? "border-primary" : "border-gray"}`} onClick={togglePopover}>
       {select}
-      <PiCaretDown size={16} className={`duration-300 absolute right-2 ${popover && "rotate-180"}`} />
+      <PiCaretDownBold size={20} className={`duration-300 absolute right-2 fill-dark ${popover && "rotate-180"}`} />
       {popover && (
         <div className={`popover ${className}`}>
           {data?.map((item, index) => (

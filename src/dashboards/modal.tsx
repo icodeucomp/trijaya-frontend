@@ -23,7 +23,7 @@ export const Modal = ({ isVisible, onClose, children, className }: DashboardModa
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-opacity-50 bg-dark-blue z-1000">
+    <div className="fixed inset-0 flex items-center px-4 sm:px-0 justify-center bg-opacity-50 bg-dark-blue z-1000">
       <motion.div
         className={`relative w-full p-6 mx-auto rounded-lg shadow-lg bg-light ${className ?? ""}`}
         initial={{ opacity: 0, scale: 0.8 }}

@@ -4,6 +4,8 @@ import * as React from "react";
 
 import { usePost, useUpload } from "@/hooks";
 
+import toast from "react-hot-toast";
+
 import { Button } from "@/components";
 import { InputBusiness } from "@/dashboards/input-business";
 
@@ -12,7 +14,7 @@ import { MdAdd } from "react-icons/md";
 import { BusinessSectorTypes } from "@/types";
 
 interface ProductTypes extends BusinessSectorTypes {
-  newFiles?: File | File[];
+  newFiles?: File[];
 }
 interface UploadTypes {
   uploadedFiles: {
@@ -33,9 +35,9 @@ export const Products = ({ data, slugBusiness, id }: { slugBusiness: string; dat
     setElements((prev) => [...prev, { title: "", description: "", mediaUrls: [], slug: "", newFiles: [], business: { title: "" } }]);
   };
 
-  const deleteElement = (slug: string) => {
+  const deleteElement = async (slug: string) => {
     if (slug) {
-      executeDelete(`/products/${slug}`, {});
+      await executeDelete(`/products/${slug}`, {});
       setElements((prev) => prev.filter((el) => el.slug !== slug));
       return;
     } else {
@@ -54,19 +56,43 @@ export const Products = ({ data, slugBusiness, id }: { slugBusiness: string; dat
     const filePreviews = files.map((file) => URL.createObjectURL(file));
 
     setElements((prev) =>
-      prev.map((el) => (el.slug === slug ? { ...el, newFiles: files, mediaUrls: [...(el.mediaUrls || []), ...filePreviews] } : el))
+      prev.map((el) =>
+        el.slug === slug ? { ...el, newFiles: [...(el.newFiles || []), ...files], mediaUrls: [...(el.mediaUrls || []), ...filePreviews] } : el
+      )
     );
   };
 
   const handleDeleteImage = (slug: string, index: number) => {
-    setElements((prev) => prev.map((el) => (el.slug === slug ? { ...el, mediaUrls: el.mediaUrls.filter((_, i) => i !== index) } : el)));
+    setElements((prev) =>
+      prev.map((el) => {
+        if (el.slug === slug) {
+          const totalMediaUrls = el.mediaUrls?.length || 0;
+          const totalNewFiles = Array.isArray(el.newFiles) ? el.newFiles.length : 1;
+
+          const isNewFile = index >= totalMediaUrls - totalNewFiles;
+
+          if (isNewFile) {
+            const newFiles = Array.isArray(el.newFiles) ? el.newFiles.filter((_, i) => i !== index - (totalMediaUrls - totalNewFiles)) : [];
+            const mediaUrls = el.mediaUrls.filter((_, i) => i !== index);
+            return { ...el, newFiles: newFiles.length > 0 ? newFiles : undefined, mediaUrls };
+          } else {
+            return { ...el, mediaUrls: el.mediaUrls.filter((_, i) => i !== index) };
+          }
+        }
+        return el;
+      })
+    );
   };
 
   const handleSubmitImage = async (slug: string) => {
     const element = elements.find((el) => el.slug === slug);
     const files = element?.newFiles;
+    if (!files) {
+      toast.success("Success upload file");
+      return;
+    }
     if (element) {
-      await uploadFile(files!, slugBusiness, "product");
+      await uploadFile(files!, `type=business&category=${slugBusiness}&business-type=product`);
     }
   };
 

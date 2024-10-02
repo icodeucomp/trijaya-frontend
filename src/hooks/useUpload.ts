@@ -1,15 +1,19 @@
 "use client";
 
+import { useState } from "react";
+
 import axios from "axios";
 
 import { useCookies } from "next-client-cookies";
 
-import { useState } from "react";
+import toast from "react-hot-toast";
+
+import { baseUrlApi } from "@/utils";
 
 interface UseFileUpload<T> {
   uploading: boolean;
   error: string | null;
-  uploadFile: (files: File | File[], type: string, category: string) => Promise<void>;
+  uploadFile: (files: File | File[], query: string) => Promise<void>;
   response: T | null | undefined;
 }
 
@@ -20,7 +24,7 @@ export const useUpload = <T>(): UseFileUpload<T> => {
 
   const cookies = useCookies();
 
-  const uploadFile = async (files: File | File[], type: string, category: string) => {
+  const uploadFile = async (files: File | File[], query: string) => {
     const formData = new FormData();
     if (Array.isArray(files)) {
       files.forEach((file) => {
@@ -30,27 +34,30 @@ export const useUpload = <T>(): UseFileUpload<T> => {
       formData.append("upload", files);
     }
 
-    try {
-      setUploading(true);
-      setError(null);
+    setUploading(true);
+    setError(null);
 
-      // Dynamically construct the endpoint
-      const endpoint = Array.isArray(files) ? `/upload/media?business=${type}&type=${category}` : `/upload?type=${type}&category=${category}`;
+    const endpoint = Array.isArray(files) ? `/uploads?${query}` : `/upload?${query}`;
 
-      const response = await axios.post(endpoint, formData, {
-        baseURL: "https://trijaya-backend-423887735295.asia-southeast2.run.app/api/v1",
+    await axios
+      .post(endpoint, formData, {
+        baseURL: baseUrlApi,
         headers: {
           Authorization: `Bearer ${cookies.get("jwt")}`,
           "Content-Type": "multipart/form-data",
         },
+      })
+      .then((response) => {
+        toast.success("Success upload file");
+        setResponse(response.data);
+      })
+      .catch((error) => {
+        toast.error("Upload file error");
+        setError(error instanceof Error ? error.message : "There was an error");
+      })
+      .finally(() => {
+        setUploading(false);
       });
-
-      setResponse(response.data);
-    } catch (error) {
-      setError(error instanceof Error ? error.message : "There was an error");
-    } finally {
-      setUploading(false);
-    }
   };
 
   return { response, uploading, error, uploadFile };

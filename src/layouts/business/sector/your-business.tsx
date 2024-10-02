@@ -30,7 +30,7 @@ export const YourBusiness = () => {
           {products?.data.map((item, index) => (
             <Link href={`/business/sector/${item.slug}`} key={index}>
               <Background
-                src={item.imageHeaderUrl}
+                src={item.imageHeaderUrl || "/temp-business.webp"}
                 className="items-center justify-center py-8 aspect-square filter-image"
                 parentClassName="rounded-lg"
               >

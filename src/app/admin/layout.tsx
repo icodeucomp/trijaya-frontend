@@ -8,7 +8,6 @@ import { CookiesProvider } from "next-client-cookies/server";
 
 import "./globals.css";
 
-import "ckeditor5/ckeditor5.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
   description: "Login Page for PT Trijaya Berkah Mandiri",
 };
 
-export default async function LoginLayout({ children }: { children: React.ReactNode }) {
+export default async function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>

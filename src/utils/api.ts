@@ -7,9 +7,9 @@ interface AxiosProps {
   options?: AxiosRequestConfig;
 }
 
-const axiosInstance = axios.create({
-  baseURL: "https://trijaya-backend-423887735295.asia-southeast2.run.app/api/v1",
-});
+export const baseUrlApi = "https://trijaya-backend-423887735295.asia-southeast2.run.app/api/v1";
+
+const axiosInstance = axios.create({ baseURL: baseUrlApi });
 
 export const request = async ({ path, method, body, options = {} }: AxiosProps) => {
   const config: AxiosRequestConfig = {

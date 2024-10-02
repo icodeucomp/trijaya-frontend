@@ -6,11 +6,11 @@ import { Swiper as SwiperType } from "swiper/types";
 
 import { Img } from "@/components";
 
-import { AiOutlineEye } from "react-icons/ai";
+import { AiOutlineDownload, AiOutlineEye } from "react-icons/ai";
 
 import { DocumentsTypes } from "@/types";
 
-import { convertDate } from "@/utils";
+import { baseUrlApi, convertDate } from "@/utils";
 
 interface CustomSliderProps {
   controlledSwiper: SwiperClass | null;
@@ -58,6 +58,9 @@ export const CustomSlider = ({
                 <div className="absolute flex items-center gap-4 right-6 bottom-5 sm:bottom-3">
                   <a href={item.url} target="_blank" rel="noopener">
                     <AiOutlineEye className={`size-5 sm:size-6 ${selected === item.slug ? "fill-light" : "fill-primary"}`} />
+                  </a>
+                  <a href={`${baseUrlApi}/download?url=${item.url}`} download={item.name}>
+                    <AiOutlineDownload className={`size-5 sm:size-6 ${selected === item.slug ? "fill-light" : "fill-primary"}`} />
                   </a>
                 </div>
                 <div className={`triangle hidden xl:block ${selected === item.slug ? "border-l-primary " : "border-l-transparent"}`}></div>

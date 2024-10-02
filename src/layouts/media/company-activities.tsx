@@ -39,7 +39,12 @@ export const CompanyActivities = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <Img src={selectedImg?.url as string} alt={select} className="w-full overflow-hidden rounded-lg h-80 sm:h-96 md:h-80 lg:h-96" cover />
+          <Img
+            src={selectedImg?.url || "/temp-business.webp"}
+            alt={select}
+            className="w-full overflow-hidden rounded-lg h-80 sm:h-96 md:h-80 lg:h-96"
+            cover
+          />
           <SmallSlider title={`${t("project-activities")}`} slidesPerView={1} grid={{ rows: 2 }} className="space-y-8">
             {Array.from({ length: splitData }, (_, i) => (
               <div key={i} className="grid grid-cols-2 gap-2 p-1 sm:grid-cols-3">
@@ -51,7 +56,7 @@ export const CompanyActivities = () => {
                     }`}
                     onClick={() => setSelect(item.slug)}
                   >
-                    <Img src={item.url} alt={item.name} className="w-full h-32 sm:h-24 lg:h-36" cover />
+                    <Img src={item.url || "/temp-business.webp"} alt={item.name} className="w-full h-32 sm:h-24 lg:h-36" cover />
                   </div>
                 ))}
               </div>

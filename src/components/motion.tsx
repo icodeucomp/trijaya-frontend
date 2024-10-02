@@ -64,7 +64,7 @@ export const Motion = React.forwardRef<HTMLElement, MotionComponentProps>(
           x: inView ? animateX : initialX,
         }}
         transition={{ duration, delay }}
-        className={className}
+        className={`${className ?? ""}`}
         {...rest}
       >
         {children}

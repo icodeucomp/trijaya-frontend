@@ -7,4 +7,3 @@ export * from "./organizational";
 export * from "./clients-table";
 export * from "./careers";
 export * from "./business";
-export * from "./sector-business";

@@ -10,7 +10,7 @@ import { usePostApi } from "@/hooks";
 export const Form = ({ buttonTitle }: { buttonTitle: string }) => {
   const initValues = { firstName: "", email: "", lastName: "", phoneNumber: "", message: "" };
   const [input, setInput] = useState<ContactUsTypes>(initValues);
-  const { loading, execute, error } = usePostApi("/contacts", "POST");
+  const { loading, execute, error } = usePostApi("/contacts-us", "POST");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInput((prev) => ({

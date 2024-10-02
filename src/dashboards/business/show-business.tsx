@@ -37,7 +37,7 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
       ) : (
         <>
           <div className="w-full max-w-screen-sm px-4 pt-8 mx-auto space-y-4 sm:px-8">
-            <Img src={business?.data.imageHeaderUrl as string} alt="temporary" className="aspect-square w-60 mx-auto" cover />
+            <Img src={business?.data.imageHeaderUrl || "/temp-business.webp"} alt="temporary" className="aspect-square w-60 mx-auto" cover />
             <h3 className="heading">{business?.data.title}</h3>
             <p className="text-sm sm:text-base text-dark-gray text-justify">{business?.data.description}</p>
           </div>

@@ -11,5 +11,5 @@ export default function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/(id|en|cn)/:path*"],
+  matcher: ["/", "/(id|en|cn)/:path*", "/admin/:path"],
 };

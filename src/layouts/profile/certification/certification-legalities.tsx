@@ -13,8 +13,8 @@ import { Pagination } from "./pagination";
 import { CustomSlider } from "./custom-slider";
 
 import { ResponseDocumentsTypes } from "@/types";
-import { convertDate } from "@/utils";
-// import { PdfViewer } from "./pdf-viewer";
+import { convertDate, formatDate } from "@/utils";
+import { DateValueType } from "react-tailwindcss-datepicker";
 
 export const CertificationLegalities = () => {
   // swiper state
@@ -38,9 +38,21 @@ export const CertificationLegalities = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sort, setSort] = useState<string>("uploadedAt");
   const [order, setOrder] = useState<string>("desc");
+
+  const [date, setDate] = useState<DateValueType>({ startDate: null, endDate: null });
+  const dateStart = formatDate(date?.startDate);
+  const dateEnd = formatDate(date?.endDate);
+
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
-  const { response: documents, loading } = useGetSearchApi<ResponseDocumentsTypes>(debouncedSearchTerm, sort, order);
+  const { response: documents, loading } = useGetSearchApi<ResponseDocumentsTypes>({
+    path: "/documents",
+    searchQuery: debouncedSearchTerm,
+    sort,
+    order,
+    dateEnd,
+    dateStart,
+  });
 
   const selectedCard = documents?.data.find((item) => item.slug === selectCard);
 
@@ -48,13 +60,13 @@ export const CertificationLegalities = () => {
 
   const handleSetFiltered = (dropdownKey: string, value: string) => {
     const [newSort, newOrder] = value.split("&").map((param) => param.split("=")[1]);
-    if (dropdownKey === "right") {
+    if (dropdownKey === "dropdownFilter") {
       setSort(newSort);
       setOrder(newOrder);
     }
   };
 
-  const handleSearch = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchTerm(e.target.value);
   };
@@ -69,17 +81,17 @@ export const CertificationLegalities = () => {
     <Container className="py-10 space-y-8 sm:py-16 md:py-20">
       <h2 className="text-center heading">Company Legalities and Certifications</h2>
       <div className="hidden lg:block">
-        <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} />
+        <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} date={date} setDate={setDate} />
       </div>
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         {loading ? (
-          <div className="flex justify-center py-16 items-center">
+          <div className="flex items-center justify-center py-16">
             <div className="loader"></div>
           </div>
         ) : (
           <div className="relative order-2 w-full lg:order-1">
             <div className="block lg:hidden">
-              <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} />
+              <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} date={date} setDate={setDate} />
             </div>
             <CustomSlider
               splitData={splitData}
@@ -111,7 +123,10 @@ export const CertificationLegalities = () => {
           </div>
         </div>
       </div>
-      {/* <PdfViewer url="https://icodeu-storage.s3.ap-southeast-1.amazonaws.com/documents/gitkraken-git-basics-cheat-sheet-1726203463649.pdf" /> */}
+      {/* <DisplayThumbnail
+        fileUrl="https://icodeu-storage.s3.ap-southeast-1.amazonaws.com/documents/legality/surat-pernyataan-ambil-sertifikat-toeflmuhammad-helmy-fadlail-albab-1727775279869.pdf"
+        pageIndex={0}
+      /> */}
     </Container>
   );
 };

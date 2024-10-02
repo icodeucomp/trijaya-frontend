@@ -1,6 +1,10 @@
 "use client";
 
-import { useGet } from "@/hooks";
+import * as React from "react";
+
+import { useGetSearchApi } from "@/hooks";
+
+import { useDebounce } from "use-debounce";
 
 import { Filter } from "../filter";
 import { Img } from "@/components";
@@ -17,7 +21,7 @@ const Content = ({ data }: { data: MediaTypes[] | undefined }) => {
       ) : (
         data?.map((item, index) => (
           <article key={index} className="relative w-full max-w-xs p-2 duration-300 rounded-md card-shadow text-dark-blue bg-light">
-            <Img src={item.url || `/temp-image-5.png`} alt={item.name} className="w-full overflow-hidden rounded-lg h-72" cover />
+            <Img src={item.url || "/temp-business.webp"} alt={item.name} className="w-full overflow-hidden rounded-lg h-72" cover />
             <DeleteMedia slug={item.slug} />
           </article>
         ))
@@ -27,7 +31,19 @@ const Content = ({ data }: { data: MediaTypes[] | undefined }) => {
 };
 
 export const Media = () => {
-  const { response: medias, loading } = useGet<ResponseMediaTypes>("/media");
+  const [searchTerm, setSearchTerm] = React.useState<string>("");
+
+  const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
+
+  const { response: medias, loading } = useGetSearchApi<ResponseMediaTypes>({
+    path: "/media",
+    searchQuery: debouncedSearchTerm,
+  });
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value);
+  };
   return (
     <>
       <div className="flex flex-col items-center justify-between gap-4 px-2 pb-2 border-b-2 sm:items-end sm:flex-row">
@@ -35,7 +51,7 @@ export const Media = () => {
         <span className="text-sm text-gray">Last Updated at: 04/03/2024 17:00</span>
       </div>
       <div className="flex flex-col items-center justify-between gap-4 my-4 sm:flex-row">
-        <Filter />
+        <Filter setSearchTerm={handleSearch} />
         <AddMedia />
       </div>
       {loading ? (

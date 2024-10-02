@@ -12,31 +12,45 @@ import { Modal } from "../modal";
 import { PiCaretUpDownFill } from "react-icons/pi";
 
 import { UploadTypes } from "../types";
-import { ResponseDocumentsTypes } from "@/types";
+import { ResponseCategoriesDocumentTypes } from "@/types";
 
 export const AddDocument = () => {
   const [ref, modal, toggleModal] = useToggleState();
 
   // call api
-  const { response: categories, loading } = useGet<ResponseDocumentsTypes>("/documents");
+  const { response: categories, loading } = useGet<ResponseCategoriesDocumentTypes>("/documents/categories");
   const { loading: loadData, execute } = usePost("POST", "/document");
   const { uploading, uploadFile, response: dataUpload } = useUpload<UploadTypes>();
 
   // logic handle data
   const [name, setName] = React.useState<string>("");
-  const [category, setCategory] = React.useState<string>("Document Type");
+  const [category, setCategory] = React.useState<string>("");
   const [error, setError] = React.useState<boolean>(false);
+  const [selectedFile, setSelectedFile] = React.useState<string>("Please select a file");
+  const [errorFile, setErrorFile] = React.useState<boolean>(false);
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
-    await uploadFile(file!, "documents", "best");
+    const ext = file?.name.split(".").pop();
+    if (!category) {
+      setError(true);
+      return;
+    }
+    if (ext !== "pdf") {
+      setErrorFile(true);
+      return;
+    }
+    setSelectedFile(file?.name || "");
+    setErrorFile(false);
+    setError(false);
+    await uploadFile(file!, `type=documents&category=${category}`);
   };
 
   // submit form
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (category === "Document Type") {
+    if (!category || !name) {
       setError(true);
       return;
     }
@@ -44,7 +58,7 @@ export const AddDocument = () => {
     const size = dataUpload?.size;
 
     const body = { name, category, url, size };
-
+    setError(false);
     execute("/documents", body);
   };
 
@@ -62,7 +76,7 @@ export const AddDocument = () => {
                 <div className="loader"></div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 md:min-w-xl" encType="multipart/form-data">
+              <form onSubmit={handleSubmit} className="space-y-4 md:min-w-xl">
                 <h1 className="text-lg font-semibold text-center sm:text-start text-primary">Add Document</h1>
                 <div className="space-y-4">
                   {loading ? (
@@ -73,11 +87,14 @@ export const AddDocument = () => {
                     <div className="relative">
                       <select
                         onChange={(e) => setCategory(e.target.value)}
-                        className={`select-input ${category === "Document Type" ? "text-gray" : "text-dark-blue"}`}
+                        className={`select-input ${category === "" ? "text-gray" : "text-dark-blue"}`}
                         value={category}
                       >
+                        <option value="" disabled>
+                          Document category
+                        </option>
                         {categories?.data.map((item, index) => (
-                          <option key={index} value={item.category} className="text-dark-blue">
+                          <option key={index} value={item.slug} className="text-dark-blue">
                             {item.category}
                           </option>
                         ))}
@@ -85,7 +102,7 @@ export const AddDocument = () => {
                       <PiCaretUpDownFill className="size-6 fill-dark absolute top-2.5 right-2.5" />
                     </div>
                   )}
-                  {error && !category && <small className="text-secondary">Select your category</small>}
+                  {error && !category && <small className="text-secondary">Select document category</small>}
                   <div className="relative w-full">
                     <input type="text" id="name" className="floating-input peer" placeholder=" " onChange={(e) => setName(e.target.value)} />
                     <label
@@ -96,12 +113,19 @@ export const AddDocument = () => {
                     </label>
                   </div>
                   {error && !name && <small className="text-secondary">Enter document name</small>}
-                  <input
-                    type="file"
-                    onChange={handleFileChange}
-                    required
-                    className="block w-full text-sm border rounded-lg cursor-pointer text-gray border-gray bg-light-gray focus:outline-none focus:border-primary"
-                  />
+
+                  <div className="relative flex flex-row items-center overflow-hidden border rounded-lg border-gray/50">
+                    <input type="file" id="file-pdf" onChange={handleFileChange} hidden />
+                    <label
+                      htmlFor="file-pdf"
+                      className="block px-4 py-2 mr-4 text-sm font-semibold border-0 cursor-pointer rounded-s-lg whitespace-nowrap bg-light-gray text-primary hover:bg-blue-200"
+                    >
+                      Choose file
+                    </label>
+                    <label className="text-sm text-slate-500 whitespace-nowrap">{selectedFile}</label>
+                    <div className="absolute top-0 right-0 w-4 h-full bg-light"></div>
+                  </div>
+                  {errorFile && <small className="text-secondary">Input the right file document, only a pdf!</small>}
                 </div>
                 <div className="flex justify-end">
                   {uploading ? (

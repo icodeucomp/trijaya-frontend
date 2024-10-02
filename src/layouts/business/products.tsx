@@ -41,7 +41,7 @@ export const Products = () => {
         {products?.data.map((item, index) => (
           <div key={index} onClick={() => openModal(item.slug)} className="cursor-pointer">
             <Background
-              src={item.productHeaderUrl || ""}
+              src={item.productHeaderUrl || "/temp-business.webp"}
               className="flex-col justify-between w-full py-4 sm:py-6 min-h-300 filter-image"
               parentClassName="rounded-lg"
             >
@@ -60,7 +60,7 @@ export const Products = () => {
         {openModalIndex !== null && (
           <Modal isVisible={openModalIndex !== null} onClose={closeModal}>
             <ImageSlider
-              images={filterData?.Product[selectImages].mediaUrls || ["/temp-image-3.png"]}
+              images={filterData?.Product[selectImages].mediaUrls || ["/temp-business.webp"]}
               imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-72 lg:h-96"
             />
             <SmallSlider slidesPerView={1} setIndex={setSelectImages} title={filterData?.title as string} className="space-y-2 md:space-y-4">

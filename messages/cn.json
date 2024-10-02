@@ -87,6 +87,8 @@
     "details": {
       "title": "服务",
       "description": "PT.Trijaya Berkah Mandiri在一般供应、制造、机械、机电、土木和建筑等领域拥有丰富的经验和专业知识。我们拥有一支敬业和技术精湛的团队, 随时准备应对项目各个阶段的挑战。我们专注于创新和高效, 努力提供满足客户特定需求的解决方案。我们为与各个行业建立强大的合作伙伴关系、提供令人满意的成果以及为项目的成功做出贡献而感到自豪。",
+      "motto-name": "座右铭",
+      "motto": "工程卓越，始终伴您同行。",
       "message": "所有工作将由监督员在高标准控制下进行监督, 从初步规划、进展到调试阶段。根据TBM标准或客户要求, 提供工作保证。",
       "list-one": {
         "title": "电气产品",
@@ -197,107 +199,108 @@
     "related-articles": "相关文章"
   },
   "header": {
-    "home": "Home",
+    "home": "首页",
     "profile": {
-      "title": "Profile",
+      "title": "个人资料",
       "about-us": {
-        "title": "About Us",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "关于我们",
+        "description": "了解公司的背景和核心价值观。"
       },
       "vision-mission": {
-        "title": "Vision",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "愿景与使命",
+        "description": " 探索指导我们前进的长期目标。"
       },
       "organizational": {
-        "title": "Organization Structure",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "组织结构",
+        "description": "认识团队和各自的角色，以实现公司的愿景。"
       },
       "legality": {
-        "title": "Legality",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "合法性、证书与奖项",
+        "description": "提供有关营业执照、显示质量标准的证书，以及我们获得的奖项，体现我们的奉献精神。"
       }
     },
     "business": {
-      "title": "Business",
+      "title": "商业",
       "services": {
-        "title": "Services",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "服务",
+        "description": "了解我们为支持各行业需求提供的服务。"
       },
       "products": {
-        "title": "Products",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "产品",
+        "description": "探索我们开发的创新产品，以为客户提供最佳解决方案。"
       },
       "experiences": {
-        "title": "Experiences",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "经验",
+        "description": "了解我们在以往项目中的经验和取得的成功。"
       },
       "business-sector": {
-        "title": "Business Sector",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "业务领域",
+        "description": "了解我们服务的业务领域，包括一般供应商、制造、管道项目、机械加工、机械、电气、土木工程和建筑。"
       }
     },
     "media": {
-      "title": "Media",
+      "title": "媒体",
       "company-activities": {
-        "title": "Company Activities",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "公司活动",
+        "description": "了解我们在项目执行中的最新公司活动信息。"
       },
       "articles": {
-        "title": "Articles",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "文章",
+        "description": "阅读关于我们及相关行业、创新和趋势的最新资讯和信息文章。"
       }
     },
-    "contact-us": "Contact Us",
+    "contact-us": "联系我们",
     "career": {
-      "title": "Career",
+      "title": "职业",
       "staff-professional": {
-        "title": "Staff Professional",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "专业员工",
+        "description": "了解我们为希望加入团队的专业人士提供的职业机会。获取关于可用职位和所需资格的信息。"
       },
       "internship-program": {
-        "title": "Internship Program",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "实习",
+        "description": "探索我们为学生和应届毕业生提供的实习项目。获得宝贵经验，并直接向行业专家学习。"
       }
     }
   },
   "footer": {
+    "description": "相信我们，实现您的项目目标，从概念到完成。",
     "profile": {
-      "title": "Profile",
+      "title": "个人资料",
       "fields": {
-        "one": "About Us",
-        "two": "Visions",
-        "three": "Organization Structure",
-        "four": "Legality & Certifications"
+        "one": "关于我们",
+        "two": "愿景与使命",
+        "three": "组织结构",
+        "four": "合法性与证书"
       }
     },
     "business": {
-      "title": "Business",
+      "title": "商业",
       "fields": {
-        "one": "Services",
-        "two": "Products",
-        "three": "Experiences",
-        "four": "Business Sector"
+        "one": "服务 ",
+        "two": "产品 ",
+        "three": "经验 ",
+        "four": "业务领域"
       }
     },
     "media": {
-      "title": "Media",
+      "title": "媒体 ",
       "fields": {
-        "one": "Blog",
-        "two": "Gallery"
+        "one": "博客",
+        "two": "画廊"
       }
     },
     "contact-us": {
-      "title": "Contact Us",
+      "title": "联系我们",
       "fields": {
-        "one": "Business Phone",
-        "two": "Contact Form"
+        "one": "商务电话",
+        "two": "联系表单"
       }
     },
     "career": {
-      "title": "Career",
+      "title": "职业",
       "fields": {
-        "one": "Internship",
-        "two": "Staff"
+        "one": "实习",
+        "two": "专业员工"
       }
     }
   }

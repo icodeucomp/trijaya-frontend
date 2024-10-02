@@ -42,7 +42,7 @@ const SectorBusiness = ({ title, data, loading, openModalIndex, setOpenModalInde
         {data?.map((item, index) => (
           <div key={index} onClick={() => openModal(item.slug)}>
             <Background
-              src={item.mediaUrls[0] || "/temp-image-4.png"}
+              src={item.mediaUrls[0] || "/temp-business.webp"}
               className="flex-col justify-end w-full py-2 h-72 sm:h-80 filter-image"
               parentClassName="rounded-lg"
             >
@@ -58,7 +58,7 @@ const SectorBusiness = ({ title, data, loading, openModalIndex, setOpenModalInde
         {openModalIndex !== null && (
           <Modal isVisible={openModalIndex !== null} onClose={closeModal}>
             <ImageSlider
-              images={filterData?.mediaUrls || ["/temp-image-3.png", "/temp-image-3.png", "/temp-image-3.png"]}
+              images={filterData?.mediaUrls || ["/temp-business.webp"]}
               imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-72 lg:h-96"
             />
             <div className={`relative w-full space-y-8`}>

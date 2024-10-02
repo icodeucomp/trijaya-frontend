@@ -2,6 +2,8 @@
 
 import { Link } from "@/i18n/routing";
 
+import { notFound } from "next/navigation";
+
 import { useGetApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
@@ -17,7 +19,7 @@ import { ArticleCardProps, ResponseArticlesTypes, ResponseArticleTypes } from "@
 const RelatedArticles = ({ date, title, pathUrl, pathImg }: ArticleCardProps) => {
   return (
     <div className="flex items-center gap-4">
-      <Img src={pathImg || "/temp-image-5.png"} alt="temporary" className="overflow-hidden rounded-lg aspect-square min-w-20 sm:min-w-24" cover />
+      <Img src={pathImg || "/temp-article.webp"} alt="temporary" className="overflow-hidden rounded-lg aspect-square min-w-20 sm:min-w-24" cover />
       <div className="space-y-2">
         <div className="flex gap-2 text-xs lg:gap-4 text-dark-gray">
           <li className="flex gap-1">
@@ -35,9 +37,13 @@ const RelatedArticles = ({ date, title, pathUrl, pathImg }: ArticleCardProps) =>
 
 export const ArticleContent = ({ slug }: { slug: string }) => {
   const { response: articles, loading: loadingArticles } = useGetApi<ResponseArticlesTypes>("blogs");
-  const { response: article, loading: loadingArticle } = useGetApi<ResponseArticleTypes>(`/blogs/${slug}`);
+  const { response: article, loading: loadingArticle, error } = useGetApi<ResponseArticleTypes>(`/blogs/${slug}`);
 
   const t = useTranslations("media");
+
+  if (error) {
+    notFound();
+  }
 
   return (
     <Container className="py-10 sm:py-16 md:py-20 grid grid-cols-1 lg:grid-cols-3 grid-rows-[auto,auto] gap-x-6 gap-y-4 xl:gap-16 text-dark-blue">
@@ -52,7 +58,7 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
               <Breadcrumbs
                 items={[
                   { name: "Media", path: "/media" },
-                  { name: slug, path: slug },
+                  { name: article?.data.title || "", path: slug },
                 ]}
               />
             </div>

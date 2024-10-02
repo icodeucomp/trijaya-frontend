@@ -129,7 +129,7 @@ export const Navbar = ({ navbar }: { navbar: boolean }) => {
         initial={false}
         animate={navbar ? "open" : "closed"}
         variants={motionVariants}
-        className="absolute left-0 w-full py-4 space-y-4 overflow-hidden sm:py-8 top-20 text-nowrap bg-primary text-light"
+        className="absolute left-0 w-full py-4 space-y-4 overflow-hidden sm:py-8 lg:py-0 top-20 text-nowrap bg-primary text-light"
       >
         {navbarList.map((item, index) => (
           <MobileLink key={index} pathUrl={item.pathUrl} title={item.title} content={item.content} />

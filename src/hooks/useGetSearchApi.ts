@@ -2,7 +2,16 @@ import { useEffect, useState } from "react";
 
 import { request } from "@/utils";
 
-export const useGetSearchApi = <T>(searchQuery: string, sort: string, order: string) => {
+interface UseGetParamsProps {
+  path: string;
+  searchQuery: string;
+  sort?: string;
+  order?: string;
+  dateStart?: string;
+  dateEnd?: string;
+}
+
+export const useGetSearchApi = <T>({ path, searchQuery, sort, order, dateStart, dateEnd }: UseGetParamsProps) => {
   const [response, setResponse] = useState<T | null>();
   const [loading, setLoading] = useState<boolean>();
   const [error, setError] = useState<string>();
@@ -11,13 +20,15 @@ export const useGetSearchApi = <T>(searchQuery: string, sort: string, order: str
     const fetchData = async () => {
       setLoading(true);
       await request({
-        path: "/documents",
+        path,
         method: "GET",
         options: {
           params: {
-            name: searchQuery,
+            title: searchQuery,
             sort,
             order,
+            dateStart,
+            dateEnd,
           },
         },
       })
@@ -29,7 +40,8 @@ export const useGetSearchApi = <T>(searchQuery: string, sort: string, order: str
     };
 
     fetchData();
-  }, [searchQuery, sort, order]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery, sort, order, dateStart, dateEnd]);
 
   return { response, error, loading };
 };

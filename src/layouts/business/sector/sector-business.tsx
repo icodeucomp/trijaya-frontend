@@ -1,5 +1,7 @@
 "use client";
 
+import { notFound } from "next/navigation";
+
 import { useGetApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
@@ -11,9 +13,13 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { ResponseBusinessTypes } from "@/types";
 
 export const SectorBusiness = ({ slug }: { slug: string }) => {
-  const { response: business, loading } = useGetApi<ResponseBusinessTypes>(`/business/${slug}`);
+  const { response: business, loading, error } = useGetApi<ResponseBusinessTypes>(`/business/${slug}`);
 
   const t = useTranslations("contact-us");
+
+  if (error) {
+    notFound();
+  }
 
   return (
     <Container className="pt-10 pb-16 space-y-8">
@@ -27,7 +33,7 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
             <Breadcrumbs
               items={[
                 { name: "Business", path: "/business sector" },
-                { name: business?.data.title as string, path: slug },
+                { name: business?.data.title || "", path: slug },
               ]}
             />
           </div>
@@ -44,7 +50,12 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
               </a>
             </div>
             <div className="w-full max-w-md mx-auto">
-              <Img src={business?.data.imageHeaderUrl as string} alt={slug} className="w-full overflow-hidden rounded-lg h-80 md:h-96" cover />
+              <Img
+                src={business?.data.imageHeaderUrl || "/temp-business.webp"}
+                alt={slug}
+                className="w-full overflow-hidden rounded-lg h-80 md:h-96"
+                cover
+              />
             </div>
           </div>
         </>

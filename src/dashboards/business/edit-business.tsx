@@ -32,13 +32,13 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
   // logic handler
   const handleFileImageHeader = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
-    await uploadImageHeader(file!, "business", slug);
+    await uploadImageHeader(file!, `type=business&name=${slug}`);
     setImageHeaderUrl(URL.createObjectURL(file!));
   };
 
   const handleFileImageProduct = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
-    await uploadImageProduct(file!, "business", slug);
+    await uploadImageProduct(file!, `type=business&name=${slug}`);
     setProductImageHeaderUrl(URL.createObjectURL(file!));
   };
 
@@ -87,12 +87,12 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
                 </div>
               ) : (
                 <div className="relative text-center">
-                  <Img src={imageHeaderUrl || "/temporary.png"} alt={title} className="w-72 aspect-video" />
+                  <Img src={imageHeaderUrl || "/temp-business.webp"} alt={title} className="w-72 aspect-video" cover />
 
                   <label htmlFor="image-header" className="md:text-xl duration-300 cursor-pointer text-primary hover:text-primary/80">
                     Upload Image Header
                   </label>
-                  <input type="file" id="image-header" className="sr-only" onChange={handleFileImageHeader} />
+                  <input type="file" accept="image/*" id="image-header" className="sr-only" onChange={handleFileImageHeader} />
                 </div>
               )}
               {uploadingImageProduct ? (
@@ -101,12 +101,12 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
                 </div>
               ) : (
                 <div className="relative text-center">
-                  <Img src={productImageHeaderUrl || "/temporary.png"} alt={title} className="w-72 aspect-video" />
+                  <Img src={productImageHeaderUrl || "/temp-business.webp"} alt={title} className="w-72 aspect-video" cover />
 
                   <label htmlFor="image-product" className="md:text-xl duration-300 cursor-pointer text-primary hover:text-primary/80">
                     Upload Photo Product
                   </label>
-                  <input type="file" id="image-product" className="sr-only" onChange={handleFileImageProduct} />
+                  <input type="file" accept="image/*" id="image-product" className="sr-only" onChange={handleFileImageProduct} />
                 </div>
               )}
             </div>

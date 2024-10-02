@@ -10,13 +10,18 @@ import { Button, Container, Dropdown, ImageSlider, Img, SmallSlider } from "@/co
 
 import { BusinessesTypes, ResponseBusinessesTypes } from "@/types";
 
+interface TitleServicesTypes {
+  display: string;
+  value: string;
+}
+
 export const Services = () => {
   const { response: services, loading } = useGetApi<ResponseBusinessesTypes>("/business");
 
   const [filtered, setFiltered] = React.useState<string>("");
   const [selectImages, setSelectImages] = React.useState<number>(0);
 
-  const titleServices: { display: string; value: string }[] = services?.data.map((item) => ({ display: item.title, value: item.title })) || [];
+  const titleServices: TitleServicesTypes[] = services?.data.map((item) => ({ display: item.title, value: item.title })) || [];
 
   const filterDataServices: BusinessesTypes | undefined = services?.data.find((item: BusinessesTypes) => item.title === filtered);
 
@@ -49,7 +54,7 @@ export const Services = () => {
             <>
               <div className="w-full overflow-hidden rounded-lg">
                 <Img
-                  src={filterDataServices?.Service[selectImages]?.mediaUrls[0] || "/temp-image-3.png"}
+                  src={filterDataServices?.Service[selectImages]?.mediaUrls[0] || "/temp-business.webp"}
                   alt="temporary"
                   className="w-full h-72 sm:h-80"
                   cover
@@ -57,7 +62,7 @@ export const Services = () => {
               </div>
               <ImageSlider
                 imgClassName="aspect-video"
-                images={filterDataServices?.Service[selectImages]?.mediaUrls || ["/temp-image-3.png"]}
+                images={filterDataServices?.Service[selectImages]?.mediaUrls || ["/temp-business.webp"]}
                 spaceBetween={10}
                 breakpoints={{ 0: { slidesPerView: 2 }, 768: { slidesPerView: 3 } }}
                 slidesPerView={3}

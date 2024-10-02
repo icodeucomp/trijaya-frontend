@@ -3,14 +3,15 @@
 import { Dispatch, SetStateAction } from "react";
 
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import BalloonEditor from "@ckeditor/ckeditor5-build-balloon";
 
-const api = "https://trijaya-backend-423887735295.asia-southeast2.run.app/api/v1";
+import { baseUrlApi } from "@/utils";
 
 interface CustomEditorProps {
   setContent: Dispatch<SetStateAction<string>>;
-  title: string;
-  data?: any;
+  error: boolean;
+  content?: string;
 }
 
 class CustomUploadAdapter {
@@ -20,16 +21,28 @@ class CustomUploadAdapter {
     this.loader = loader;
   }
 
+  getCookie(name: string) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop()?.split(";").shift();
+    return null;
+  }
+
   upload() {
     return this.loader.file.then(
       (file: File) =>
         new Promise((resolve, reject) => {
           const formData = new FormData();
-          formData.append("file", file);
+          formData.append("upload", file);
 
-          fetch(`${api}/uploads`, {
+          const cookies = this.getCookie("jwt");
+
+          fetch(`${baseUrlApi}/upload?type=blogs`, {
             method: "POST",
             body: formData,
+            headers: {
+              Authorization: `Bearer ${cookies}`, // Set the Authorization header
+            },
           })
             .then((response) => response.json())
             .then((data) => resolve({ default: data.url }))
@@ -49,18 +62,21 @@ function CustomUploadAdapterPlugin(editor: any) {
   };
 }
 
-const CustomEditor = ({ setContent, data }: CustomEditorProps) => {
+const CustomEditor = ({ setContent, content, error }: CustomEditorProps) => {
   return (
-    <CKEditor
-      editor={ClassicEditor}
-      config={{
-        extraPlugins: [CustomUploadAdapterPlugin],
-      }}
-      onChange={(_, editor) => {
-        setContent(editor.getData());
-      }}
-      data={data?.content}
-    />
+    <>
+      <CKEditor
+        editor={BalloonEditor as any}
+        config={{
+          extraPlugins: [CustomUploadAdapterPlugin],
+        }}
+        onChange={(_, editor) => {
+          setContent(editor.getData());
+        }}
+        data={!content ? "please input your content here" : content}
+      />
+      {error && !content && <small className="text-secondary">please input content</small>}
+    </>
   );
 };
 

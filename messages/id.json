@@ -87,6 +87,8 @@
     "details": {
       "title": "Layanan",
       "description": "PT. Trijaya Berkah Mandiri memiliki pengalaman yang kaya dan mendalam dalam berbagai proyek di bidang General Supplier, Fabrication, Machining, Mechanical, Electrical, Civil, dan Construction. Kami didukung oleh tim profesional yang kompeten dan berdedikasi, siap menghadapi tantangan di setiap tahap proyek. Dengan pendekatan yang berorientasi pada inovasi dan efisiensi, kami selalu berusaha memberikan solusi yang memenuhi kebutuhan spesifik klien kami. Kami bangga menjalin kemitraan yang kuat dengan berbagai industri, memberikan hasil yang memuaskan, dan berkontribusi pada kesuksesan proyek-proyek mereka.",
+      "motto-name": "Motto",
+      "motto": "Engineering Excellence, Every Step of the Way",
       "message": "Semua pekerjaan akan diawasi di bawah kendali tinggi oleh seorang Supervisor mulai dari tahap perencanaan awal, pengerjaan, hingga commissioning. \nJaminan pekerjaan diberikan sesuai dengan standar TBM atau sesuai kebutuhan klien atau pelanggan.",
       "list-one": {
         "title": "Produk Listrik",
@@ -197,77 +199,78 @@
     "related-articles": "Artikel Terkait"
   },
   "header": {
-    "home": "Rumah",
+    "home": "Beranda",
     "profile": {
       "title": "Profil",
       "about-us": {
         "title": "Tentang Kami",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "description": "Pelajari latar belakang perusahaan dan nilai-nilai inti kami."
       },
       "vision-mission": {
-        "title": "Penglihatan",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "Visi dan Misi",
+        "description": "Temukan tujuan jangka panjang yang memandu langkah kami."
       },
       "organizational": {
         "title": "Struktur Organisasi",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "description": "Kenali tim dan peran masing-masing dalam mencapai visi perusahaan."
       },
       "legality": {
-        "title": "Legalitas",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "title": "Legalitas, Sertifikat, dan Penghargaan",
+        "description": " Informasi mengenai izin usaha, sertifikat yang menunjukkan standar kualitas, serta penghargaan yang kami raih sebagai bukti dedikasi kami."
       }
     },
     "business": {
       "title": "Bisnis",
       "services": {
         "title": "Layanan",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "description": "Temukan layanan yang kami tawarkan untuk mendukung berbagai kebutuhan industri."
       },
       "products": {
         "title": "Produk",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "description": "Jelajahi berbagai produk inovatif yang kami kembangkan untuk solusi terbaik bagi pelanggan."
       },
       "experiences": {
         "title": "Pengalaman",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "description": "Pelajari tentang pengalaman kami dalam proyek-proyek sebelumnya dan keberhasilan yang telah kami capai."
       },
       "business-sector": {
         "title": "Sektor Bisnis",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "description": "Kenali sektor-sektor bisnis yang kami layani, termasuk General Supplier, Fabrication, Piping Project, Machining, Mechanical, Electrical, Civil, dan Construction."
       }
     },
     "media": {
       "title": "Media",
       "company-activities": {
         "title": "Kegiatan Perusahaan",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "description": "Temukan informasi terkini tentang berbagai kegiatan perusahaan dalam pengerjaan proyek kami."
       },
       "articles": {
         "title": "Artikel",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "description": "Baca artikel informatif dan berita terkini mengenai kami, dan industri, inovasi, dan tren yang relevan."
       }
     },
     "contact-us": "Hubungi kami",
     "career": {
-      "title": "Karier",
+      "title": "Karir",
       "staff-professional": {
         "title": "Staf Profesional",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "description": "emukan peluang karir untuk staf profesional yang ingin bergabung dengan tim kami. Dapatkan informasi tentang posisi yang tersedia dan syarat yang diperlukan."
       },
       "internship-program": {
         "title": "Program Magang",
-        "description": "lorem ipsum dolor sit amet consectetur adipiscing elit sed diam"
+        "description": "Jelajahi program magang yang kami tawarkan bagi mahasiswa dan fresh graduates. Dapatkan pengalaman berharga dan belajar langsung dari para ahli di bidangnya."
       }
     }
   },
   "footer": {
+    "description": "Percayakan kepada kami untuk mewujudkan tujuan proyek Anda, dari konsep hingga penyelesaian.",
     "profile": {
       "title": "Profil",
       "fields": {
         "one": "Tentang Kami",
         "two": "Visi",
         "three": "Struktur Organisasi",
-        "four": "Legalitas & Sertifikasi"
+        "four": "Legalitas, Sertifikat & Penghargaan"
       }
     },
     "business": {
@@ -294,10 +297,10 @@
       }
     },
     "career": {
-      "title": "Karier",
+      "title": "Karir",
       "fields": {
         "one": "Magang",
-        "two": "Staf"
+        "two": "Staf Profesional"
       }
     }
   }

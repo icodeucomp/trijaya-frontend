@@ -13,3 +13,4 @@ export * from "./breadcrumb";
 export * from "./article-card";
 export * from "./motion";
 export * from "./big-slider";
+export * from "./display-thumbnail";

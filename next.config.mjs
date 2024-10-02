@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "icodeu-storage.s3.ap-southeast-1.amazonaws.com",
       },
+      {
+        protocol: "https",
+        hostname: "example.com",
+      },
     ],
   },
 };

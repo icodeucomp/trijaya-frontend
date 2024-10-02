@@ -28,14 +28,13 @@ export const AddMedia = () => {
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files ? Array.from(e.target.files) : [];
     setSelectedImages(files);
-    await uploadFile(files!, "test", "test");
+    await uploadFile(files!, "type=media");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dataImages?.uploadedFiles.map((file) => {
-      execute("/media", { name: file.name, url: file.url, size: file.size });
-    });
+    const body = dataImages?.uploadedFiles.map((file) => ({ name: file.name, url: file.url, size: file.size }));
+    execute("/media", body);
   };
 
   return (
@@ -52,7 +51,7 @@ export const AddMedia = () => {
                 <div className="loader"></div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 md:min-w-xl" encType="multipart/form-data">
+              <form onSubmit={handleSubmit} className="space-y-4 md:min-w-xl">
                 <h1 className="text-lg font-semibold text-center sm:text-start text-primary">Add Media</h1>
                 <input
                   type="file"
@@ -65,7 +64,12 @@ export const AddMedia = () => {
                   {selectedImages.map((image, index) => (
                     <div key={index} className="relative">
                       <button className="absolute -top-2 -right-2 w-4 h-4 z-1 rounded-full bg-secondary"></button>
-                      <Img src={URL.createObjectURL(image)} alt={`Selected image ${index + 1}`} className="w-full h-20 rounded-lg" cover />
+                      <Img
+                        src={URL.createObjectURL(image) || "/temp-business.webp"}
+                        alt={`Selected image ${index + 1}`}
+                        className="w-full h-32 rounded-lg"
+                        cover
+                      />
                     </div>
                   ))}
                 </div>

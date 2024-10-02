@@ -58,6 +58,23 @@
   }
 }
 
+/* ckeditor style */
+.dangerous_html * {
+  all: revert;
+}
+.dangerous_html .image {
+  margin: 0 auto;
+  max-width: 600px !important;
+  width: 100%;
+}
+.dangerous_html img {
+  max-width: 600px !important;
+  width: 100%;
+}
+.dangerous_html p {
+  text-align: justify;
+}
+
 @layer components {
   .btn-outline {
     @apply border text-primary border-primary hover:bg-primary hover:text-light;

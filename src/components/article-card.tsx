@@ -14,14 +14,14 @@ import { ArticleCardProps } from "@/types";
 export const ArticleCard = ({ date, title, pathUrl, pathImg }: ArticleCardProps) => {
   return (
     <>
-      <Img src={pathImg || "/temp-image-5.png"} alt={title} className="w-full h-64 overflow-hidden rounded-lg" cover />
+      <Img src={pathImg || "/temp-article.webp"} alt={title} className="w-full h-64 overflow-hidden rounded-lg" cover />
       <div className="flex gap-4 mt-2 text-xs sm:text-sm text-dark-gray">
         <li className="flex gap-1">
           <Img src={calendar} alt="calendar icon" className="size-4" />
           {convertDate(date)}
         </li>
       </div>
-      <h4 className="mt-4 text-xl font-semibold sm:text-2xl text-dark-blue">{title}</h4>
+      <h4 className="mt-4 text-xl font-semibold sm:text-2xl text-dark-blue line-clamp-2 h-16">{title}</h4>
       <Link href={`/media/article/${pathUrl}`} className="block mt-4">
         <Button className="flex items-center gap-2 btn-outline group">
           Read More <GoArrowRight className="fill-primary group-hover:fill-light" size={20} />

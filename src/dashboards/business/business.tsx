@@ -18,7 +18,7 @@ const Content = ({ data }: { data: BusinessesTypes[] | undefined }) => {
       ) : (
         data?.map((item, index) => (
           <article key={index} className="w-full max-w-xs p-2 duration-300 rounded-lg card-shadow text-dark-blue bg-light">
-            <Img src={item.imageHeaderUrl || "/temp-image-3.png"} alt={item.title} className="w-full overflow-hidden rounded-lg h-72" cover />
+            <Img src={item.imageHeaderUrl || "/temp-business.png"} alt={item.title} className="w-full overflow-hidden rounded-lg h-72" cover />
             <div className="relative pt-2 pb-6 text-center">
               <h4 className="text-xl font-semibold">{item.title}</h4>
               <Link href={`/admin/dashboard/business/show/${item.slug}`} className="absolute top-1.5 right-1.5">

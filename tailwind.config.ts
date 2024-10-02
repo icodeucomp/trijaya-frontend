@@ -7,7 +7,9 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/layouts/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/dashboards/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.{js,ts}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       minHeight: {

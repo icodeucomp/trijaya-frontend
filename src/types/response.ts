@@ -12,6 +12,11 @@ export interface ContactUsTypes {
   phoneNumber: string;
 }
 
+export interface UserTypes {
+  username: string;
+  email: string;
+}
+
 export interface ArticlesTypes {
   title: string;
   slug: string;
@@ -58,6 +63,11 @@ export interface DocumentsTypes {
   uploadedAt: string;
 }
 
+export interface CategoriesDocumentTypes {
+  slug: string;
+  category: string;
+}
+
 export type ResponseContactUs = ResponsePayload<ContactUsTypes>;
 
 export type ResponseArticlesTypes = ResponsePayload<ArticlesTypes[]>;
@@ -72,4 +82,7 @@ export type ResponseBusinessSectorTypes = ResponsePayload<BusinessSectorTypes>;
 export type ResponseMediaTypes = ResponsePayload<MediaTypes[]>;
 
 export type ResponseDocumentsTypes = ResponsePayload<DocumentsTypes[]>;
+export type ResponseCategoriesDocumentTypes = ResponsePayload<CategoriesDocumentTypes[]>;
 export type ResponseDocumentTypes = ResponsePayload<DocumentsTypes>;
+
+export type ResponseUserTypes = ResponsePayload<UserTypes>;

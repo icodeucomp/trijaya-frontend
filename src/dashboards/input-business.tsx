@@ -26,34 +26,73 @@ export const InputBusiness = ({
   loadData,
 }: InputBusinessProps) => {
   const [ref, modal, toggleModal] = useToggleState();
+  const [refDeleteModal, deleteModal, toggleDeleteModal] = useToggleState();
+
+  const handleSubmitDelete = (slug: string) => {
+    if (slug) {
+      toggleDeleteModal();
+      return;
+    } else {
+      onDelete(slug);
+      return;
+    }
+  };
 
   return (
-    <div className="relative bg-light border border-gray rounded-lg flex w-full gap-8 px-4 py-6 mt-6">
+    <div
+      ref={refDeleteModal}
+      className="relative bg-light border border-gray rounded-lg flex justify-between w-full gap-4 flex-col sm:flex-row md:gap-8 px-2 sm:px-4 py-6 mt-6"
+    >
       {loadData ? (
         <div className="flex items-center justify-center w-full py-8">
           <div className="loader"></div>
         </div>
       ) : (
         <>
-          <button onClick={() => onDelete(slug)} className="absolute -top-4 -right-4 border border-secondary p-1 rounded-full bg-light">
-            <FaMinusCircle className="size-6 fill-secondary" />
-          </button>
+          <>
+            <button onClick={() => handleSubmitDelete(slug)} className="absolute -top-4 -right-4 border border-secondary p-1 rounded-full bg-light">
+              <FaMinusCircle className="size-5 sm:size-6 fill-secondary" />
+            </button>
+            <Modal isVisible={deleteModal} onClose={toggleDeleteModal} className="max-w-sm">
+              {loadData ? (
+                <div className="flex justify-center py-16">
+                  <div className="loader"></div>
+                </div>
+              ) : (
+                <div className="w-full space-y-4">
+                  <div className="space-y-2">
+                    <h1 className="mb-4 text-sm font-semibold text-center sm:text-start text-primary-1 sm:text-lg">Delete {title}</h1>
+                    <p className="text-sm text-medium text-dark-1 sm:text-base">Are you sure you want to permanently delete this {title}?</p>
+                  </div>
+                  <Button onClick={() => onDelete(slug)} type="submit" className="btn-primary">
+                    Delete
+                  </Button>
+                </div>
+              )}
+            </Modal>
+          </>
+
           <div className="relative text-center" ref={ref}>
             {!images.length ? (
               <div className="container-border w-60 cursor-pointer" onClick={toggleModal}>
                 <MdAdd className="size-8 fill-gray" />
               </div>
             ) : (
-              <Img src={images[0]} alt={title} className="w-60 aspect-video rounded-lg overflow-hidden" cover />
+              <Img
+                src={images[0] || "/temp-article.webp"}
+                alt={title}
+                className="w-full h-40 sm:w-60 sm:aspect-video rounded-lg overflow-hidden"
+                cover
+              />
             )}
             <button className="text-lg duration-300 cursor-pointer text-primary hover:text-primary/80" onClick={toggleModal}>
-              {!images.length ? "Upload media" : "Show media"}
+              {!images.length ? "Upload images" : "Show images"}
             </button>
             <AnimatePresence>
               {modal && (
                 <Modal isVisible={modal} onClose={toggleModal} className="max-w-2xl">
                   <div className="space-y-4 md:min-w-xl">
-                    <h1 className="text-lg font-semibold text-center sm:text-start text-primary">Add Media</h1>
+                    <h1 className="text-lg font-semibold text-center sm:text-start text-primary">Add Images</h1>
                     <input
                       type="file"
                       accept="image/*"
@@ -61,14 +100,14 @@ export const InputBusiness = ({
                       onChange={(e) => onImagesChange(slug, e)}
                       className="block w-full text-sm border rounded-lg cursor-pointer text-gray border-gray bg-light-gray focus:outline-none focus:border-primary"
                     />
-                    <div className="grid grid-cols-3 gap-2 mt-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
                       {images.map((image, index) => (
                         <div key={index} className="relative">
                           <button
                             onClick={() => handleDeleteImage(slug, index)}
                             className="absolute -top-2 -right-2 w-4 h-4 z-1 rounded-full bg-secondary"
                           ></button>
-                          <Img src={image} alt={title} className="w-full h-28" cover />
+                          <Img src={image || "/temp-business.webp"} alt={title} className="w-full h-36 rounded-lg overflow-hidden" cover />
                         </div>
                       ))}
                     </div>

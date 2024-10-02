@@ -28,7 +28,6 @@ export const useLogin = <T>(path: string) => {
       .catch((error) => {
         toast.error(error.response?.data.message || "There was an error");
         setError(error instanceof Error ? error.message : "There was an error");
-        return;
       })
       .finally(() => {
         setLoading(false);

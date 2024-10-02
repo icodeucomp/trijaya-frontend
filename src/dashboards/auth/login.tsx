@@ -71,7 +71,7 @@ export const Login = () => {
           </div>
           {error && !input.password && <small className="text-secondary">Enter your password</small>}
           {loading ? (
-            <div className="flex justify-center py-16">
+            <div className="flex justify-center pt-6">
               <div className="loader"></div>
             </div>
           ) : (

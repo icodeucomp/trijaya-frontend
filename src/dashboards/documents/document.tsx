@@ -1,6 +1,10 @@
 "use client";
 
-import { useGet } from "@/hooks";
+import * as React from "react";
+
+import { useGetSearchApi } from "@/hooks";
+
+import { useDebounce } from "use-debounce";
 
 import { Img } from "@/components";
 import { Filter } from "../filter";
@@ -24,13 +28,13 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
       ) : (
         data?.map((item, index) => (
           <article key={index} className="w-full max-w-xs p-4 duration-300 rounded-md card-shadow text-dark-blue bg-light">
-            <Img src={`/temp-image-5.png`} alt={item.name} className="w-full overflow-hidden rounded-lg h-72" cover />
+            <Img src={"/temp-article.webp"} alt={item.name} className="w-full overflow-hidden rounded-lg h-72" cover />
             <div className="flex gap-1 mt-2 text-sm text-dark-gray">
               <Img src={carbon_tag} alt="calendar icon" className="size-4" />
               {item.category}
             </div>
             <div className="mt-2 space-y-2 text-center h-14">
-              <h5 className="text-xl font-semibold">{item.name}</h5>
+              <h5 className="text-xl font-semibold line-clamp-2">{item.name}</h5>
             </div>
             <div className="flex items-center justify-between mt-4">
               <ShowDocument slug={item.slug} />
@@ -45,7 +49,20 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
 };
 
 export const Document = () => {
-  const { response: documents, loading } = useGet<ResponseDocumentsTypes>("/documents");
+  const [searchTerm, setSearchTerm] = React.useState<string>("");
+
+  const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
+
+  const { response: documents, loading } = useGetSearchApi<ResponseDocumentsTypes>({
+    path: "/documents",
+    searchQuery: debouncedSearchTerm,
+  });
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value);
+  };
+
   return (
     <>
       <div className="flex flex-col items-center justify-between gap-4 px-2 pb-2 border-b-2 sm:items-end sm:flex-row">
@@ -53,7 +70,7 @@ export const Document = () => {
         <span className="text-sm text-gray">Last Updated at: 04/03/2024 17:00</span>
       </div>
       <div className="flex flex-col items-center justify-between gap-4 my-4 sm:flex-row">
-        <Filter />
+        <Filter setSearchTerm={handleSearch} />
         <AddDocument />
       </div>
       {loading ? (
