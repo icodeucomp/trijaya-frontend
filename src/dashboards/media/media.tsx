@@ -21,7 +21,7 @@ const Content = ({ data }: { data: MediaTypes[] | undefined }) => {
       ) : (
         data?.map((item, index) => (
           <article key={index} className="relative w-full max-w-xs p-2 duration-300 rounded-md card-shadow text-dark-blue bg-light">
-            <Img src={item.url || "/temp-business.webp"} alt={item.name} className="w-full overflow-hidden rounded-lg h-72" cover />
+            <Img src={item.url || "/temp-business.webp"} alt={item.name} className="w-full rounded-lg h-72" cover />
             <DeleteMedia slug={item.slug} />
           </article>
         ))

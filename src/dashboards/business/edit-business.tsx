@@ -32,13 +32,13 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
   // logic handler
   const handleFileImageHeader = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
-    await uploadImageHeader(file!, `type=business&name=${slug}`);
+    await uploadImageHeader(file!, `type=business&category=${slug}`);
     setImageHeaderUrl(URL.createObjectURL(file!));
   };
 
   const handleFileImageProduct = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
-    await uploadImageProduct(file!, `type=business&name=${slug}`);
+    await uploadImageProduct(file!, `type=business&category=${slug}`);
     setProductImageHeaderUrl(URL.createObjectURL(file!));
   };
 
@@ -80,16 +80,16 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
       ) : (
         <>
           <form onSubmit={handleSubmit} className="w-full max-w-screen-md px-4 pt-8 mx-auto space-y-8 sm:px-8">
-            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 place-items-center">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 place-items-center">
               {uploadingImageHeader ? (
                 <div className="flex justify-center py-16">
                   <div className="loader"></div>
                 </div>
               ) : (
                 <div className="relative text-center">
-                  <Img src={imageHeaderUrl || "/temp-business.webp"} alt={title} className="w-72 aspect-video" cover />
+                  <Img src={imageHeaderUrl || "/temp-business.webp"} alt={title} className="rounded-lg w-72 aspect-video" cover />
 
-                  <label htmlFor="image-header" className="md:text-xl duration-300 cursor-pointer text-primary hover:text-primary/80">
+                  <label htmlFor="image-header" className="duration-300 cursor-pointer md:text-xl text-primary hover:text-primary/80">
                     Upload Image Header
                   </label>
                   <input type="file" accept="image/*" id="image-header" className="sr-only" onChange={handleFileImageHeader} />
@@ -101,9 +101,9 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
                 </div>
               ) : (
                 <div className="relative text-center">
-                  <Img src={productImageHeaderUrl || "/temp-business.webp"} alt={title} className="w-72 aspect-video" cover />
+                  <Img src={productImageHeaderUrl || "/temp-business.webp"} alt={title} className="rounded-lg w-72 aspect-video" cover />
 
-                  <label htmlFor="image-product" className="md:text-xl duration-300 cursor-pointer text-primary hover:text-primary/80">
+                  <label htmlFor="image-product" className="duration-300 cursor-pointer md:text-xl text-primary hover:text-primary/80">
                     Upload Photo Product
                   </label>
                   <input type="file" accept="image/*" id="image-product" className="sr-only" onChange={handleFileImageProduct} />

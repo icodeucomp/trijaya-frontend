@@ -37,7 +37,7 @@ export const ImageSlider = ({ images, imgClassName, ...props }: ImageSliderProps
       >
         {images.map((item, index) => (
           <SwiperSlide key={index}>
-            <Img src={item || "/temp-article.webp"} alt="image slider" className={`overflow-hidden rounded-lg ${imgClassName}`} cover />
+            <Img src={item || "/temp-article.webp"} alt="image slider" className={`rounded-lg ${imgClassName}`} cover />
           </SwiperSlide>
         ))}
       </Swiper>

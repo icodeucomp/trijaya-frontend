@@ -3,8 +3,8 @@
 import { Dispatch, SetStateAction } from "react";
 
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import BalloonEditor from "@ckeditor/ckeditor5-build-balloon";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+// import BalloonEditor from "@ckeditor/ckeditor5-build-balloon";
 
 import { baseUrlApi } from "@/utils";
 
@@ -66,7 +66,7 @@ const CustomEditor = ({ setContent, content, error }: CustomEditorProps) => {
   return (
     <>
       <CKEditor
-        editor={BalloonEditor as any}
+        editor={ClassicEditor}
         config={{
           extraPlugins: [CustomUploadAdapterPlugin],
         }}

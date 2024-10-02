@@ -24,7 +24,7 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
   return (
     <Container className="pt-10 pb-16 space-y-8">
       {loading ? (
-        <div className="w-full py-16 flex justify-center">
+        <div className="flex justify-center w-full py-16">
           <span className="loader"></span>
         </div>
       ) : (
@@ -38,7 +38,7 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
             />
           </div>
           <div className="flex flex-col-reverse gap-4 md:gap-8 md:flex-row">
-            <div className="w-full max-w-screen-md gap-4 flex flex-col">
+            <div className="flex flex-col w-full max-w-screen-md gap-4">
               <h3 className="heading">{business?.data.title}</h3>
               <p className="h-full overflow-y-auto text-sm leading-normal text-justify text-primary sm:text-base md:h-64 xl:h-auto scrollbar">
                 {business?.data.description}
@@ -50,12 +50,7 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
               </a>
             </div>
             <div className="w-full max-w-md mx-auto">
-              <Img
-                src={business?.data.imageHeaderUrl || "/temp-business.webp"}
-                alt={slug}
-                className="w-full overflow-hidden rounded-lg h-80 md:h-96"
-                cover
-              />
+              <Img src={business?.data.imageHeaderUrl || "/temp-business.webp"} alt={slug} className="w-full rounded-lg h-80 md:h-96" cover />
             </div>
           </div>
         </>

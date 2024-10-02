@@ -6,6 +6,8 @@ import { Container } from "@/components";
 
 import { clientsImage } from "@/static";
 
+import { shimmer, toBase64 } from "@/utils";
+
 export const Clients = () => {
   const t = useTranslations("home.clients");
 
@@ -20,7 +22,15 @@ export const Clients = () => {
           const sizes = index > 10 ? 100 : 160;
           return (
             <div key={index} className="grid w-full h-24 px-2 border rounded-lg border-primary bg-light place-items-center">
-              <Image src={item} alt="image clients PT Trijata Berkah Mandiri" width={sizes} height={sizes} className="max-w-32 sm:max-w-40" />
+              <Image
+                src={item}
+                alt="image clients PT Trijata Berkah Mandiri"
+                width={sizes}
+                height={sizes}
+                className="max-w-32 sm:max-w-40 max-h-20"
+                placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(sizes, 80))}`}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </div>
           );
         })}

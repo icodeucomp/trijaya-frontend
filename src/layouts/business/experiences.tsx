@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components";
 
 import { clientsTableLists } from "@/static";
+import { shimmer, toBase64 } from "@/utils";
 
 export const Experiences = () => {
   const t = useTranslations("business.experiences");
@@ -25,7 +26,15 @@ export const Experiences = () => {
               return (
                 <div key={index} className={`grid grid-cols-3 border-b text-dark-gray ${lastIndex && "rounded-b-lg"}`}>
                   <div className={`flex items-center justify-center h-16 border-l border-r ${lastIndex && "rounded-es-lg"}`}>
-                    <Image src={item.pathImg} alt={item.title} width={sizes} height={sizes} className="max-w-24 lg:max-w-40" />
+                    <Image
+                      src={item.pathImg}
+                      alt={item.title}
+                      width={sizes}
+                      height={sizes}
+                      className="max-w-24 lg:max-w-40 max-h-14"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(sizes, 56))}`}
+                    />
                   </div>
                   <div
                     className={`flex text-xs sm:text-sm md:text-base items-center col-span-2 pl-4 font-medium border-r ${

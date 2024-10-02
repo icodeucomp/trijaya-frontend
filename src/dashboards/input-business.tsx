@@ -41,7 +41,7 @@ export const InputBusiness = ({
   return (
     <div
       ref={refDeleteModal}
-      className="relative bg-light border border-gray rounded-lg flex justify-between w-full gap-4 flex-col sm:flex-row md:gap-8 px-2 sm:px-4 py-6 mt-6"
+      className="relative flex flex-col justify-between w-full gap-4 px-2 py-6 mt-6 border rounded-lg bg-light border-gray sm:flex-row md:gap-8 sm:px-4"
     >
       {loadData ? (
         <div className="flex items-center justify-center w-full py-8">
@@ -50,7 +50,7 @@ export const InputBusiness = ({
       ) : (
         <>
           <>
-            <button onClick={() => handleSubmitDelete(slug)} className="absolute -top-4 -right-4 border border-secondary p-1 rounded-full bg-light">
+            <button onClick={() => handleSubmitDelete(slug)} className="absolute p-1 border rounded-full -top-4 -right-4 border-secondary bg-light">
               <FaMinusCircle className="size-5 sm:size-6 fill-secondary" />
             </button>
             <Modal isVisible={deleteModal} onClose={toggleDeleteModal} className="max-w-sm">
@@ -74,16 +74,11 @@ export const InputBusiness = ({
 
           <div className="relative text-center" ref={ref}>
             {!images.length ? (
-              <div className="container-border w-60 cursor-pointer" onClick={toggleModal}>
+              <div className="cursor-pointer container-border w-60" onClick={toggleModal}>
                 <MdAdd className="size-8 fill-gray" />
               </div>
             ) : (
-              <Img
-                src={images[0] || "/temp-article.webp"}
-                alt={title}
-                className="w-full h-40 sm:w-60 sm:aspect-video rounded-lg overflow-hidden"
-                cover
-              />
+              <Img src={images[0] || "/temp-article.webp"} alt={title} className="w-full h-40 rounded-lg sm:w-60 sm:aspect-video" cover />
             )}
             <button className="text-lg duration-300 cursor-pointer text-primary hover:text-primary/80" onClick={toggleModal}>
               {!images.length ? "Upload images" : "Show images"}
@@ -100,14 +95,14 @@ export const InputBusiness = ({
                       onChange={(e) => onImagesChange(slug, e)}
                       className="block w-full text-sm border rounded-lg cursor-pointer text-gray border-gray bg-light-gray focus:outline-none focus:border-primary"
                     />
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
+                    <div className="grid grid-cols-2 gap-2 mt-4 sm:grid-cols-3">
                       {images.map((image, index) => (
                         <div key={index} className="relative">
                           <button
                             onClick={() => handleDeleteImage(slug, index)}
-                            className="absolute -top-2 -right-2 w-4 h-4 z-1 rounded-full bg-secondary"
+                            className="absolute w-4 h-4 rounded-full -top-2 -right-2 z-1 bg-secondary"
                           ></button>
-                          <Img src={image || "/temp-business.webp"} alt={title} className="w-full h-36 rounded-lg overflow-hidden" cover />
+                          <Img src={image || "/temp-business.webp"} alt={title} className="w-full rounded-lg h-36" cover />
                         </div>
                       ))}
                     </div>
@@ -127,7 +122,7 @@ export const InputBusiness = ({
               )}
             </AnimatePresence>
           </div>
-          <div className="space-y-4 w-full">
+          <div className="w-full space-y-4">
             <div className="relative w-full">
               <input type="text" id="title" className="floating-input peer" placeholder=" " value={title} onChange={(e) => onInputChange(slug, e)} />
               <label

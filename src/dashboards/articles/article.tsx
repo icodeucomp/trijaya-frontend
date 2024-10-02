@@ -29,15 +29,15 @@ const Content = ({ data }: { data: ArticlesTypes[] | undefined }) => {
         </h1>
       ) : (
         data?.map((item, index) => (
-          <article key={index} className="w-full max-w-xs p-4 space-y-2 duration-300 rounded-md card-shadow text-dark-blue bg-light">
-            <Img src={item.imageHeader || "/temp-article.webp"} alt={item.title} className="w-full overflow-hidden rounded-lg h-60" cover />
+          <article key={index} className="w-full max-w-xs p-4 space-y-4 duration-300 rounded-md card-shadow text-dark-blue bg-light">
+            <Img src={item.imageHeader || "/temp-article.webp"} alt={item.title} className="w-full rounded-lg h-60" cover />
             <div className="flex gap-4 mt-2 text-sm text-dark-gray">
               <li className="flex gap-1">
                 <Img src={calendar} alt="calendar icon" className="size-4" />
                 {convertDate(item.updatedAt)}
               </li>
             </div>
-            <h4 className="text-xl font-semibold line-clamp-2 h-16">{item.title}</h4>
+            <h4 className="text-xl font-semibold h-14 line-clamp-2">{item.title}</h4>
             <div className="relative flex items-center justify-between">
               <Link href={`/admin/dashboard/article/show/${item.slug}`}>
                 <button className="p-2 duration-300 border rounded-full border-primary bg-light hover:bg-primary group">

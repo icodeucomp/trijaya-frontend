@@ -19,7 +19,7 @@ import { ArticleCardProps, ResponseArticlesTypes, ResponseArticleTypes } from "@
 const RelatedArticles = ({ date, title, pathUrl, pathImg }: ArticleCardProps) => {
   return (
     <div className="flex items-center gap-4">
-      <Img src={pathImg || "/temp-article.webp"} alt="temporary" className="overflow-hidden rounded-lg aspect-square min-w-20 sm:min-w-24" cover />
+      <Img src={pathImg || "/temp-article.webp"} alt="temporary" className="rounded-lg aspect-square min-w-20 sm:min-w-24" cover />
       <div className="space-y-2">
         <div className="flex gap-2 text-xs lg:gap-4 text-dark-gray">
           <li className="flex gap-1">
@@ -48,7 +48,7 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
   return (
     <Container className="py-10 sm:py-16 md:py-20 grid grid-cols-1 lg:grid-cols-3 grid-rows-[auto,auto] gap-x-6 gap-y-4 xl:gap-16 text-dark-blue">
       {loadingArticle ? (
-        <div className="w-full py-4 flex justify-center col-span-2">
+        <div className="flex justify-center w-full col-span-2 py-4">
           <span className="loader"></span>
         </div>
       ) : (
@@ -77,7 +77,7 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
       )}
       <div className={`w-full h-auto ${loadingArticle ? "lg:row-span-1" : "lg:row-span-2"}`}>
         {loadingArticles ? (
-          <div className="w-full py-4 flex justify-center">
+          <div className="flex justify-center w-full py-4">
             <span className="loader"></span>
           </div>
         ) : (

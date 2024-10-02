@@ -17,7 +17,7 @@ export const Message = () => {
         <Img
           src="/images/profile-message.webp"
           alt="PT Trijaya Berkah Mandiri company building picture "
-          className="w-full overflow-hidden rounded-lg h-72 sm:h-80 lg:h-96"
+          className="w-full rounded-lg h-72 sm:h-80 lg:h-96"
           cover
         />
       </div>
