@@ -8,12 +8,13 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { useLogin } from "@/hooks";
 
 interface LoginTypes {
-  username: "";
-  password: "";
+  username: string;
+  password: string;
 }
 
 export const Login = () => {
   const [input, setInput] = React.useState<LoginTypes>({ username: "", password: "" });
+  const [error, setError] = React.useState<boolean>(false);
   const [isVisible, setVisible] = React.useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -23,11 +24,12 @@ export const Login = () => {
     }));
   };
 
-  const { execute, error, loading } = useLogin("/auth/login");
+  const { execute, loading } = useLogin("/auth/login");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.password || !input.password) {
+      setError(true);
       return;
     }
     execute(input);
@@ -48,7 +50,7 @@ export const Login = () => {
               Input your username
             </label>
           </div>
-          {error && !input.username && <small className="text-secondary">Enter your username</small>}
+          {error && !input.username && <small className="text-secondary w-full">Enter your username</small>}
 
           <div className="relative w-full mt-4">
             <input
@@ -69,15 +71,17 @@ export const Login = () => {
               {isVisible ? <FaEye size={24} /> : <FaEyeSlash size={24} />}
             </button>
           </div>
-          {error && !input.password && <small className="text-secondary">Enter your password</small>}
+          {error && !input.password && <small className="text-secondary w-full">Enter your password</small>}
           {loading ? (
             <div className="flex justify-center pt-6">
               <div className="loader"></div>
             </div>
           ) : (
-            <Button type="submit" className="text-light bg-primary hover:bg-primary/90 mt-6">
-              Sign In
-            </Button>
+            <div className="mt-6">
+              <Button type="submit" className="btn-primary">
+                Sign In
+              </Button>
+            </div>
           )}
         </form>
       </div>

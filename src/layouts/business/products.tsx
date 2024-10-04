@@ -26,6 +26,8 @@ export const Products = () => {
 
   const filterData = products?.data.find((item) => item.slug === openModalIndex);
 
+  const colorLabel = ["bg-red-600", "bg-green-600", "bg-blue-600", "bg-yellow-600", "bg-rose-600", "bg-orange-600", "bg-teal-600"];
+
   return (
     <Container id="product" className="pt-10 pb-16 sm:pb-20">
       <BigSlider
@@ -45,7 +47,7 @@ export const Products = () => {
               className="flex-col justify-between w-full py-4 sm:py-6 min-h-300 filter-image"
               parentClassName="rounded-lg"
             >
-              <div className="px-4 py-1 sm:px-6 rounded-3xl bg-secondary w-max">
+              <div className={`px-4 py-1 sm:px-6 rounded-3xl w-max ${colorLabel[index]}`}>
                 <label className="text-xs sm:text-sm">{item.title}</label>
               </div>
               <div className="space-y-1 text-light">
@@ -63,7 +65,7 @@ export const Products = () => {
               images={filterData?.Product[selectImages].mediaUrls || ["/temp-business.webp"]}
               imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-72 lg:h-96"
             />
-            <SmallSlider slidesPerView={1} setIndex={setSelectImages} title={filterData?.title as string} className="space-y-2 md:space-y-4">
+            <SmallSlider slidesPerView={1} setIndex={setSelectImages} title={filterData?.title || ""} className="space-y-2 md:space-y-4">
               {filterData?.Product.map((item, index) => (
                 <div key={index} className="space-y-2 md:space-y-4">
                   <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>

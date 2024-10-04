@@ -1,6 +1,8 @@
 export interface ResponsePayload<T> {
   status: string;
   message: string;
+  total: number;
+  newest: number;
   data: T;
 }
 

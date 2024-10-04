@@ -28,7 +28,7 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
       ) : (
         data?.map((item, index) => (
           <article key={index} className="w-full max-w-xs p-4 duration-300 rounded-md card-shadow text-dark-blue bg-light">
-            <Img src={"/temp-article.webp"} alt={item.name} className="w-full rounded-lg h-72" cover />
+            <Img src={"/temp-image.png"} alt={item.name} className="w-full rounded-lg h-72" cover />
             <div className="flex gap-1 mt-2 text-sm text-dark-gray">
               <Img src={carbon_tag} alt="calendar icon" className="size-4" />
               {item.category}
@@ -50,12 +50,15 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
 
 export const Document = () => {
   const [searchTerm, setSearchTerm] = React.useState<string>("");
+  const [page, setPage] = React.useState<string>("1");
+  const [splitData, setSplitData] = React.useState<number>(0);
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
   const { response: documents, loading } = useGetSearchApi<ResponseDocumentsTypes>({
     path: "/documents",
     searchQuery: debouncedSearchTerm,
+    page,
   });
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,11 +66,25 @@ export const Document = () => {
     setSearchTerm(e.target.value);
   };
 
+  const handleNextPage = () => {
+    setPage((prevPage) => (parseInt(prevPage) + 1).toString());
+  };
+
+  const handlePreviousPage = () => {
+    setPage((prevPage) => (parseInt(prevPage) > 1 ? (parseInt(prevPage) - 1).toString() : prevPage));
+  };
+
+  React.useEffect(() => {
+    if (documents?.total && documents?.total > 1) {
+      setSplitData(Math.ceil(documents.total / 9));
+    }
+  }, [documents]);
+
   return (
     <>
       <div className="flex flex-col items-center justify-between gap-4 px-2 pb-2 border-b-2 sm:items-end sm:flex-row">
         <h1 className="text-xl font-semibold sm:text-2xl md:text-3xl">Documents</h1>
-        <span className="text-sm text-gray">Last Updated at: 04/03/2024 17:00</span>
+        <span className="text-sm text-gray">Last Updated at: {documents?.newest}</span>
       </div>
       <div className="flex flex-col items-center justify-between gap-4 my-4 sm:flex-row">
         <Filter setSearchTerm={handleSearch} />
@@ -80,6 +97,19 @@ export const Document = () => {
       ) : (
         <Content data={documents?.data} />
       )}
+      <div className="flex items-center justify-center gap-2 mt-6 mb-3">
+        <button className="pagination-button" onClick={handlePreviousPage} disabled={page === "1"}>
+          Prev
+        </button>
+        {Array.from({ length: splitData }, (_, index) => (
+          <button key={index} className={`pagination-number ${index + 1 === Number(page) ? "bg-primary text-light" : "bg-light text-dark-blue"}`}>
+            {index + 1}
+          </button>
+        ))}
+        <button className="pagination-button" onClick={handleNextPage} disabled={splitData === Number(page)}>
+          Next
+        </button>
+      </div>
     </>
   );
 };

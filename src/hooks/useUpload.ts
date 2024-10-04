@@ -13,7 +13,7 @@ import { baseUrlApi } from "@/utils";
 interface UseFileUpload<T> {
   uploading: boolean;
   error: string | null;
-  uploadFile: (files: File | File[], query: string) => Promise<void>;
+  uploadFile: (files: File | File[], query: string, isDocument?: boolean) => Promise<void>;
   response: T | null | undefined;
 }
 
@@ -24,7 +24,7 @@ export const useUpload = <T>(): UseFileUpload<T> => {
 
   const cookies = useCookies();
 
-  const uploadFile = async (files: File | File[], query: string) => {
+  const uploadFile = async (files: File | File[], query: string, isDocument?: boolean) => {
     const formData = new FormData();
     if (Array.isArray(files)) {
       files.forEach((file) => {
@@ -37,7 +37,7 @@ export const useUpload = <T>(): UseFileUpload<T> => {
     setUploading(true);
     setError(null);
 
-    const endpoint = Array.isArray(files) ? `/uploads?${query}` : `/upload?${query}`;
+    const endpoint = isDocument ? `upload/document?${query}` : Array.isArray(files) ? `/uploads?${query}` : `/upload?${query}`;
 
     await axios
       .post(endpoint, formData, {
@@ -52,7 +52,7 @@ export const useUpload = <T>(): UseFileUpload<T> => {
         setResponse(response.data);
       })
       .catch((error) => {
-        toast.error("Upload file error");
+        toast.error(error.response?.data.message || "Upload file error");
         setError(error instanceof Error ? error.message : "There was an error");
       })
       .finally(() => {

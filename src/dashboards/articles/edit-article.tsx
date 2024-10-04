@@ -19,16 +19,33 @@ import { ResponseArticleTypes } from "@/types";
 export const EditArticle = ({ slug }: { slug: string }) => {
   const [content, setContent] = React.useState<string>("");
   const [title, setTitle] = React.useState<string>("");
+  const [prevContent, setPrevContent] = React.useState<string>("");
+  const [prevTitle, setPrevTitle] = React.useState<string>("");
   const [error, setError] = React.useState<boolean>(false);
 
   const { back } = useRouter();
 
   const { response: article, loading } = useGet<ResponseArticleTypes>(`/blogs/${slug}`);
-  const { execute, loading: loadData } = usePost("PATCH", "article");
+  const { execute, loading: loadData } = usePost("PATCH", `article`);
+
+  const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (prevTitle !== title || prevContent !== content) {
+      if (confirm("Are you sure to back to previous page? Your data will not be saved!")) {
+        setTitle(article?.data.title || "");
+        setContent(article?.data.content || "");
+        back();
+        return;
+      } else {
+        return;
+      }
+    }
+    back();
+  };
 
   const handleSubmitForm = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (!title || !content) {
+    if (title === "" || content === "") {
       setError(true);
       return;
     }
@@ -39,6 +56,8 @@ export const EditArticle = ({ slug }: { slug: string }) => {
     if (article?.data !== null) {
       setTitle(article?.data.title || "");
       setContent(article?.data.content || "");
+      setPrevTitle(article?.data.title || "");
+      setPrevContent(article?.data.content || "");
     }
   }, [article]);
 
@@ -46,18 +65,20 @@ export const EditArticle = ({ slug }: { slug: string }) => {
     <>
       <div className="flex flex-col items-center justify-between gap-4 px-2 pb-2 border-b-2 sm:items-end sm:flex-row">
         <span className="flex items-center gap-2 text-dark-blue">
-          <button onClick={() => back()}>
+          <button onClick={handleBack}>
             <PiCaretLeftLight size={24} />
           </button>
           <h1 className="text-xl sm:text-2xl md:text-3xl">Edit Article</h1>
         </span>
-        <Button onClick={handleSubmitForm} className="flex items-center gap-2 btn-primary">
-          <MdOutlineFileUpload size={20} />
-          Publish
-        </Button>
+        {prevTitle !== title || prevContent !== content ? (
+          <Button onClick={handleSubmitForm} className="flex items-center gap-2 btn-primary">
+            <MdOutlineFileUpload size={20} />
+            Publish
+          </Button>
+        ) : null}
       </div>
       {loadData || loading ? (
-        <div className="flex justify-center py-16 w-full">
+        <div className="flex justify-center w-full py-16">
           <div className="loader"></div>
         </div>
       ) : (

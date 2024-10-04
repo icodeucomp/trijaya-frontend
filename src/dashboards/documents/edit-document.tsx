@@ -46,7 +46,7 @@ export const EditDocument = ({ slug }: { slug: string }) => {
     setSelectedFile(file?.name || "");
     setErrorFile(false);
     setError(false);
-    await uploadFile(file!, `type=documents&category=${category}`);
+    await uploadFile(file!, `category=${category}`, true);
   };
 
   //submit form
@@ -141,7 +141,8 @@ export const EditDocument = ({ slug }: { slug: string }) => {
                     <label className="text-sm text-slate-500 whitespace-nowrap">{selectedFile}</label>
                     <div className="absolute top-0 right-0 w-4 h-full bg-light"></div>
                   </div>
-                  {errorFile && <small className="text-secondary">Input the right file document, only a pdf!</small>}
+                  <small className="pl-2 text-gray/70">maximum file size 20mb.</small>
+                  <div className="flex">{errorFile && <small className="text-secondary">Only a pdf! (MAX. 20mb)</small>}</div>
                 </div>
                 <div className="flex justify-end">
                   {uploading ? (

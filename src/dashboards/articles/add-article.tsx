@@ -24,9 +24,24 @@ export const AddArticle = () => {
 
   const { execute, loading } = usePost("POST", "article");
 
+  const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (title !== "" || content !== "") {
+      if (confirm("Are you sure to back to previous page? Your data will not be saved!")) {
+        setTitle("");
+        setContent("");
+        back();
+        return;
+      } else {
+        return;
+      }
+    }
+    back();
+  };
+
   const handleSubmitForm = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (!title || !content) {
+    if (title === "" || content === "") {
       setError(true);
       return;
     }
@@ -37,18 +52,20 @@ export const AddArticle = () => {
     <>
       <div className="flex flex-col items-center justify-between gap-4 px-2 pb-2 border-b-2 sm:items-end sm:flex-row">
         <span className="flex items-center gap-2 text-dark-blue">
-          <button onClick={() => back()}>
+          <button onClick={handleBack}>
             <PiCaretLeftLight size={24} />
           </button>
           <h1 className="text-xl sm:text-2xl md:text-3xl">Create New Article</h1>
         </span>
-        <Button onClick={handleSubmitForm} className="flex items-center gap-2 btn-primary">
-          <MdOutlineFileUpload size={20} />
-          Publish
-        </Button>
+        {title !== "" && content !== "" && (
+          <Button onClick={handleSubmitForm} className="flex items-center gap-2 btn-primary">
+            <MdOutlineFileUpload size={20} />
+            Publish
+          </Button>
+        )}
       </div>
       {loading ? (
-        <div className="flex justify-center py-16 w-full">
+        <div className="flex justify-center w-full py-16">
           <div className="loader"></div>
         </div>
       ) : (

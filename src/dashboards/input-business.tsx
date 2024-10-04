@@ -78,7 +78,7 @@ export const InputBusiness = ({
                 <MdAdd className="size-8 fill-gray" />
               </div>
             ) : (
-              <Img src={images[0] || "/temp-article.webp"} alt={title} className="w-full h-40 rounded-lg sm:w-60 sm:aspect-video" cover />
+              <Img src={images[0] || "/temp-business.webp"} alt={title} className="w-full h-40 rounded-lg sm:w-60 sm:aspect-video" cover />
             )}
             <button className="text-lg duration-300 cursor-pointer text-primary hover:text-primary/80" onClick={toggleModal}>
               {!images.length ? "Upload images" : "Show images"}
@@ -88,13 +88,18 @@ export const InputBusiness = ({
                 <Modal isVisible={modal} onClose={toggleModal} className="max-w-2xl">
                   <div className="space-y-4 md:min-w-xl">
                     <h1 className="text-lg font-semibold text-center sm:text-start text-primary">Add Images</h1>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      multiple
-                      onChange={(e) => onImagesChange(slug, e)}
-                      className="block w-full text-sm border rounded-lg cursor-pointer text-gray border-gray bg-light-gray focus:outline-none focus:border-primary"
-                    />
+                    <div className="relative flex flex-row items-center overflow-hidden border rounded-lg border-gray/50">
+                      <input type="file" id="images" onChange={(e) => onImagesChange(slug, e)} hidden accept="image/*" multiple />
+                      <label
+                        htmlFor="images"
+                        className="block px-4 py-2 mr-4 text-sm font-semibold border-0 cursor-pointer rounded-s-lg whitespace-nowrap bg-light-gray text-primary hover:bg-blue-200"
+                      >
+                        Choose file
+                      </label>
+                      <label className="text-sm text-slate-500 whitespace-nowrap">{images.length} Images</label>
+                      <div className="absolute top-0 right-0 w-4 h-full bg-light"></div>
+                    </div>
+                    <small className="pl-2 text-gray/70">maximum image size 5mb.</small>
                     <div className="grid grid-cols-2 gap-2 mt-4 sm:grid-cols-3">
                       {images.map((image, index) => (
                         <div key={index} className="relative">

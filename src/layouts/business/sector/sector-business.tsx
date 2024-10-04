@@ -32,7 +32,7 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
           <div className="hidden md:block">
             <Breadcrumbs
               items={[
-                { name: "Business", path: "/business sector" },
+                { name: "Business", path: "/business/sector" },
                 { name: business?.data.title || "", path: slug },
               ]}
             />

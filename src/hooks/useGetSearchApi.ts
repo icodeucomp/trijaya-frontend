@@ -9,9 +9,10 @@ interface UseGetParamsProps {
   order?: string;
   dateStart?: string;
   dateEnd?: string;
+  page?: string;
 }
 
-export const useGetSearchApi = <T>({ path, searchQuery, sort, order, dateStart, dateEnd }: UseGetParamsProps) => {
+export const useGetSearchApi = <T>({ path, searchQuery, sort, order, dateStart, dateEnd, page }: UseGetParamsProps) => {
   const [response, setResponse] = useState<T | null>();
   const [loading, setLoading] = useState<boolean>();
   const [error, setError] = useState<string>();
@@ -29,6 +30,7 @@ export const useGetSearchApi = <T>({ path, searchQuery, sort, order, dateStart, 
             order,
             dateStart,
             dateEnd,
+            page,
           },
         },
       })
@@ -41,7 +43,7 @@ export const useGetSearchApi = <T>({ path, searchQuery, sort, order, dateStart, 
 
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery, sort, order, dateStart, dateEnd]);
+  }, [searchQuery, sort, order, dateStart, dateEnd, page]);
 
   return { response, error, loading };
 };

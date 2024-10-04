@@ -7,14 +7,15 @@ import { useDebounce } from "use-debounce";
 import { SwiperClass } from "swiper/react";
 import { Swiper as SwiperType } from "swiper/types";
 
-import { Container, Img } from "@/components";
+import { Container, DisplayThumbnail, Img } from "@/components";
 import { SearchFilter } from "./search-filter";
 import { Pagination } from "./pagination";
 import { CustomSlider } from "./custom-slider";
 
-import { ResponseDocumentsTypes } from "@/types";
 import { convertDate, formatDate } from "@/utils";
+
 import { DateValueType } from "react-tailwindcss-datepicker";
+import { ResponseDocumentsTypes } from "@/types";
 
 export const CertificationLegalities = () => {
   // swiper state
@@ -72,8 +73,12 @@ export const CertificationLegalities = () => {
   };
 
   useEffect(() => {
+    if (documents?.data && documents.data.length < 1) {
+      setSplitData(1);
+    }
     if (documents?.data && documents.data.length > 0) {
       setSplitData(Math.ceil(documents?.data.length / 3));
+      setSelectCard(documents?.data[0].slug);
     }
   }, [documents]);
 
@@ -93,15 +98,17 @@ export const CertificationLegalities = () => {
             <div className="block lg:hidden">
               <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} date={date} setDate={setDate} />
             </div>
-            <CustomSlider
-              splitData={splitData}
-              data={documents?.data}
-              controlledSwiper={controlledSwiper}
-              handleSlideChange={handleSlideChange}
-              setControlledSwiper={setControlledSwiper}
-              selected={selectCard}
-              setSelected={setSelectCard}
-            />
+            <div className="min-h-500">
+              <CustomSlider
+                splitData={splitData}
+                data={documents?.data}
+                controlledSwiper={controlledSwiper}
+                handleSlideChange={handleSlideChange}
+                setControlledSwiper={setControlledSwiper}
+                selected={selectCard}
+                setSelected={setSelectCard}
+              />
+            </div>
             <Pagination
               isBeginning={isBeginning}
               isEnd={isEnd}
@@ -118,15 +125,12 @@ export const CertificationLegalities = () => {
             <h5 className="text-lg font-semibold sm:text-xl md:text-3xl text-primary group-hover:text-light">{selectedCard?.name}</h5>
             <p className="text-sm sm:text-base md:text-lg text-gray group-hover:text-light">{selectedCard?.category}</p>
             <p className="text-xs font-semibold sm:text-sm md:text-base text-gray group-hover:text-light">
-              {convertDate(selectedCard?.uploadedAt as string)}
+              {convertDate(selectedCard?.uploadedAt || "")}
             </p>
           </div>
         </div>
       </div>
-      {/* <DisplayThumbnail
-        fileUrl="https://icodeu-storage.s3.ap-southeast-1.amazonaws.com/documents/legality/surat-pernyataan-ambil-sertifikat-toeflmuhammad-helmy-fadlail-albab-1727775279869.pdf"
-        pageIndex={0}
-      /> */}
+      <DisplayThumbnail fileUrl="https://icodeu-storage.s3.ap-southeast-1.amazonaws.com/documents/certification/compro-ptaam-2024-1728028930592.pdf" />
     </Container>
   );
 };

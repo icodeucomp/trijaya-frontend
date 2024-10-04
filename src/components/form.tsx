@@ -10,7 +10,8 @@ import { usePostApi } from "@/hooks";
 export const Form = ({ buttonTitle }: { buttonTitle: string }) => {
   const initValues = { firstName: "", email: "", lastName: "", phoneNumber: "", message: "" };
   const [input, setInput] = useState<ContactUsTypes>(initValues);
-  const { loading, execute, error } = usePostApi("/contacts-us", "POST");
+  const [error, setError] = useState<boolean>(false);
+  const { loading, execute } = usePostApi("/contact-us", "POST");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInput((prev) => ({
@@ -21,6 +22,12 @@ export const Form = ({ buttonTitle }: { buttonTitle: string }) => {
 
   const submitForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const { email, firstName, lastName, message, phoneNumber } = input;
+
+    if (!email || !firstName || !lastName || !message || !phoneNumber) {
+      setError(true);
+      return;
+    }
 
     execute(input);
   };

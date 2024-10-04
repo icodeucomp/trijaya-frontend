@@ -35,7 +35,7 @@ export const FooterLists = () => {
     },
     {
       title: `${t("contact-us.title")}`,
-      pathUrl: "/contact",
+      pathUrl: "/contact-us",
       content: [
         { title: `${t("contact-us.fields.one")}`, pathUrl: "#contact" },
         { title: `${t("contact-us.fields.two")}`, pathUrl: "#contact" },

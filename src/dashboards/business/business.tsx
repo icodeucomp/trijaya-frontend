@@ -42,8 +42,8 @@ export const Business = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-between gap-4 px-2 pb-2 border-b-2 sm:items-end sm:flex-row">
-        <h1 className="text-xl font-semibold sm:text-2xl md:text-3xl">Media</h1>
-        <span className="text-sm text-gray">Last Updated at: 04/03/2024 17:00</span>
+        <h1 className="text-xl font-semibold sm:text-2xl md:text-3xl">Business</h1>
+        <span className="text-sm text-gray">Last Updated at: {businesses?.newest}</span>
       </div>
       {loading ? (
         <div className="flex justify-center py-16">

@@ -60,7 +60,8 @@
 
 /* ckeditor style */
 .dangerous_html * {
-  all: revert;
+  content: "" !important;
+  all: revert !important;
 }
 .dangerous_html .image {
   margin: 0 auto;

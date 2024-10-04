@@ -24,6 +24,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Home | Trijaya Berkah Mandiri",
   description: "Home Page for PT Trijaya Berkah Mandiri",
+  icons: {
+    icon: "/logo-company.png",
+  },
 };
 
 export default async function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {

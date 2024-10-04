@@ -46,7 +46,7 @@ export const CompanyActivities = () => {
                 {medias?.data.slice(i * 6, (i + 1) * 6).map((item, index) => (
                   <div
                     key={index}
-                    className={`cursor-pointer hover:shadow-custom-border transition-shadow ${
+                    className={`cursor-pointer hover:shadow-custom-border rounded-lg overflow-hidden transition-shadow ${
                       select === item.slug ? "shadow-custom-border" : "shadow-none"
                     }`}
                     onClick={() => setSelect(item.slug)}

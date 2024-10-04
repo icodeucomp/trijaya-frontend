@@ -73,7 +73,7 @@ const CustomEditor = ({ setContent, content, error }: CustomEditorProps) => {
         onChange={(_, editor) => {
           setContent(editor.getData());
         }}
-        data={!content ? "please input your content here" : content}
+        data={content}
       />
       {error && !content && <small className="text-secondary">please input content</small>}
     </>

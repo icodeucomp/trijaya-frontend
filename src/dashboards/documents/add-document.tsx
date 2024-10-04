@@ -43,7 +43,22 @@ export const AddDocument = () => {
     setSelectedFile(file?.name || "");
     setErrorFile(false);
     setError(false);
-    await uploadFile(file!, `type=documents&category=${category}`);
+    await uploadFile(file!, `category=${category}`, true);
+  };
+
+  const handleClose = () => {
+    if (name !== "" || category !== "" || selectedFile !== "Please select a file") {
+      if (confirm("Are you sure you want to close? Your data will not be saved!")) {
+        setName("");
+        setCategory("");
+        setSelectedFile("Please select a file");
+        toggleModal();
+        return;
+      } else {
+        return;
+      }
+    }
+    toggleModal();
   };
 
   // submit form
@@ -70,7 +85,7 @@ export const AddDocument = () => {
 
       <AnimatePresence>
         {modal && (
-          <Modal isVisible={modal} onClose={toggleModal} className="max-w-xl">
+          <Modal isVisible={modal} onClose={handleClose} className="max-w-xl">
             {loadData ? (
               <div className="flex justify-center py-4">
                 <div className="loader"></div>
@@ -125,7 +140,8 @@ export const AddDocument = () => {
                     <label className="text-sm text-slate-500 whitespace-nowrap">{selectedFile}</label>
                     <div className="absolute top-0 right-0 w-4 h-full bg-light"></div>
                   </div>
-                  {errorFile && <small className="text-secondary">Input the right file document, only a pdf!</small>}
+                  <small className="pl-2 text-gray/70">maximum file size 20mb.</small>
+                  <div className="flex">{errorFile && <small className="text-secondary">Only a pdf! (MAX. 20mb)</small>}</div>
                 </div>
                 <div className="flex justify-end">
                   {uploading ? (

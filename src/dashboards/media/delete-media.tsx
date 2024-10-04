@@ -14,7 +14,7 @@ import { GoTrash } from "react-icons/go";
 export const DeleteMedia = ({ slug }: { slug: string }) => {
   const [ref, modal, toggleModal] = useToggleState();
 
-  const { execute } = usePost("DELETE", "media");
+  const { execute, loading } = usePost("DELETE", "media");
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,9 +38,13 @@ export const DeleteMedia = ({ slug }: { slug: string }) => {
                 <h1 className="mb-4 text-sm font-semibold text-center sm:text-start text-primary-1 sm:text-lg">Delete Media</h1>
                 <p className="text-sm text-medium text-dark-1 sm:text-base">Are you sure you want to permanently delete this media?</p>
               </div>
-              <Button type="submit" className="btn-primary">
-                Delete
-              </Button>
+              {loading ? (
+                <div className="loader"></div>
+              ) : (
+                <Button type="submit" className="btn-primary">
+                  Delete
+                </Button>
+              )}
             </form>
           </Modal>
         )}

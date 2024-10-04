@@ -38,12 +38,12 @@ export const SearchFilter = ({ setFiltered, setSearchTerm, date, setDate }: Sear
       </div>
       <div className="grid w-full grid-cols-2 gap-4">
         <Datepicker
-          inputClassName="w-full rounded-lg h-full outline-none border border-gray text-sm pl-4 focus:ring-0 font-medium bg-light placeholder:text-gray text-gray"
+          inputClassName="w-full rounded-lg h-full outline-none border border-gray text-sm pl-4 pr-10 focus:ring-0 font-medium bg-light placeholder:text-gray text-gray"
           popoverDirection="down"
           primaryColor={"indigo"}
           value={date}
+          useRange={false}
           onChange={(newValue) => setDate(newValue)}
-          showShortcuts={true}
         />
         <Dropdown dropdownKey="dropdownFilter" parentClassName="w-full" className="top-10 lg:top-16" data={rightData} setFiltered={setFiltered} />
       </div>
