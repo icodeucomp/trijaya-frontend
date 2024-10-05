@@ -1,52 +1,37 @@
 "use client";
 
-import * as React from "react";
-
 import { useGetSearchApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
 
-import { ArticleCard, Container, Pagination } from "@/components";
+import { ArticleCard, BigSlider, Container } from "@/components";
 
 import { ResponseArticlesTypes } from "@/types";
 
 export const ArticlesGallery = () => {
-  const [splitData, setSplitData] = React.useState<number>(0);
-  const [page, setPage] = React.useState<string>("1");
-
   const { response: articles, loading } = useGetSearchApi<ResponseArticlesTypes>({
     path: "/blogs",
-    limit: "3",
-    page,
+    limit: "100000",
   });
-
-  React.useEffect(() => {
-    if (articles?.data && articles.data.length > 0) {
-      setSplitData(Math.ceil(articles.total / 3));
-    }
-  }, [articles]);
 
   const t = useTranslations("media");
 
   return (
     <Container id="article" className="pb-10 sm:pb-16">
-      <Pagination
+      <BigSlider
         className="space-y-8"
-        splitData={splitData}
-        isBold
-        loading={loading}
         title={`${t("articles-gallery")}`}
-        page={page}
-        setPage={setPage}
+        loadData={loading as boolean}
+        spaceBetween={10}
+        slidesPerView={3}
+        breakpoints={{ 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}
       >
-        <div className="grid grid-cols-2 gap-2 p-1 sm:grid-cols-3">
-          {articles?.data.map((item, index) => (
-            <div key={index}>
-              <ArticleCard date={item.updatedAt} title={item.title} pathUrl={item.slug} pathImg={item.imageHeader} />
-            </div>
-          ))}
-        </div>
-      </Pagination>
+        {articles?.data.map((item, index) => (
+          <div key={index}>
+            <ArticleCard date={item.updatedAt} title={item.title} pathUrl={item.slug} pathImg={item.imageHeader} />
+          </div>
+        ))}
+      </BigSlider>
     </Container>
   );
 };

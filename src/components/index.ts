@@ -14,4 +14,3 @@ export * from "./article-card";
 export * from "./motion";
 export * from "./big-slider";
 export * from "./display-thumbnail";
-export * from "./pagination";

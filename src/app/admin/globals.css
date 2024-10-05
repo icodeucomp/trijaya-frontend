@@ -70,6 +70,11 @@
     transform: rotate(360deg);
   }
 }
+/* preview pdf style */
+.preview-thumbnail > .rpv-core__viewer {
+  width: 260px !important;
+  height: 260px !important;
+}
 
 /* ckeditor style */
 .ck-content * {

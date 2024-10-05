@@ -25,13 +25,13 @@ export const SmallSlider = ({ title, children, loadData, isButton, linkButton, s
   const handleSlideChange = (swiper: SwiperType) => {
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
-    setIndex(swiper.activeIndex);
+    setIndex?.(swiper.activeIndex);
   };
 
   return (
     <div className={`relative w-full ${className ?? ""}`}>
       <div className="flex items-center justify-between">
-        <h3 className="font-medium text-xl sm:text-2xl md:text-3xl text-primary">{title}</h3>
+        <h3 className="text-xl font-medium sm:text-2xl md:text-3xl text-primary">{title}</h3>
         <div className="relative flex items-center gap-4">
           {isButton && (
             <Link href={linkButton as string}>
@@ -59,7 +59,7 @@ export const SmallSlider = ({ title, children, loadData, isButton, linkButton, s
         </div>
       </div>
       {loadData ? (
-        <div className="w-full py-16 flex justify-center">
+        <div className="flex justify-center w-full py-16">
           <span className="loader"></span>
         </div>
       ) : (

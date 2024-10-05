@@ -11,7 +11,6 @@ export * from "./background";
 export * from "./article-card";
 export * from "./breadcrumb";
 export * from "./big-slider";
-export * from "./pagination";
 
 export * from "./navbar";
 export * from "./footer";

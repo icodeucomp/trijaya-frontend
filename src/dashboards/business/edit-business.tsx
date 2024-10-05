@@ -87,6 +87,7 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
                 </div>
               ) : (
                 <div className="relative text-center">
+                  <small className="w-full">maximum image size 5mb.</small>
                   <Img src={imageHeaderUrl || "/temp-business.webp"} alt={title} className="rounded-lg w-72 aspect-video" cover />
 
                   <label htmlFor="image-header" className="duration-300 cursor-pointer md:text-xl text-primary hover:text-primary/80">
@@ -101,6 +102,7 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
                 </div>
               ) : (
                 <div className="relative text-center">
+                  <small className="w-full">maximum image size 5mb.</small>
                   <Img src={productImageHeaderUrl || "/temp-business.webp"} alt={title} className="rounded-lg w-72 aspect-video" cover />
 
                   <label htmlFor="image-product" className="duration-300 cursor-pointer md:text-xl text-primary hover:text-primary/80">

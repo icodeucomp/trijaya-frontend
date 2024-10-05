@@ -5,7 +5,7 @@ import { shimmer, toBase64 } from "@/utils";
 
 export const Img = ({ src, alt, className, cover, priority = false }: ImgProps) => {
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`relative overflow-hidden ${className ?? ""}`}>
       <Image
         src={src}
         alt={alt}

@@ -12,9 +12,10 @@ interface SearchFilterProps {
   setSearchTerm: (e: React.ChangeEvent<HTMLInputElement>) => void;
   date: DateValueType;
   setDate: (date: DateValueType) => void;
+  searchTerm: string;
 }
 
-export const SearchFilter = ({ setFiltered, setSearchTerm, date, setDate }: SearchFilterProps) => {
+export const SearchFilter = ({ setFiltered, setSearchTerm, date, setDate, searchTerm }: SearchFilterProps) => {
   const rightData = [
     { display: "Newest", value: "sort=uploadedAt&order=desc" },
     { display: "Oldest", value: "sort=uploadedAt&order=asc" },
@@ -32,8 +33,8 @@ export const SearchFilter = ({ setFiltered, setSearchTerm, date, setDate }: Sear
           type="search"
           className="block w-full py-2 pl-10 pr-4 text-sm duration-300 border rounded-lg outline-none lg:py-4 text-dark-blue border-gray focus:border-primary"
           onChange={setSearchTerm}
+          value={searchTerm}
           placeholder="Search"
-          required
         />
       </div>
       <div className="grid w-full grid-cols-2 gap-4">

@@ -4,7 +4,7 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Controller } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper/types";
 
-import { Img } from "@/components";
+import { DisplayThumbnail } from "@/components";
 
 import { AiOutlineDownload, AiOutlineEye } from "react-icons/ai";
 
@@ -45,7 +45,14 @@ export const CustomSlider = ({
           <div className="relative px-2 py-4 space-y-4 sm:space-y-8 xl:pr-14">
             {data?.slice(i * 3, i * 3 + 3).map((item, j) => (
               <div key={j} className={`card-certification group ${selected === item.slug && "bg-primary"}`} onClick={() => setSelected(item.slug)}>
-                <Img src={"/temp-image.png"} alt={item.name} className="h-28 sm:h-32 lg:h-28 min-w-24 sm:min-w-28 lg:min-w-32" cover />
+                <div className="preview-thumbnail">
+                  <DisplayThumbnail
+                    fileUrl={
+                      item.url ||
+                      "https://icodeu-storage.s3.ap-southeast-1.amazonaws.com/documents/award/surat-pernyataan-ambil-sertifikat-toeflmuhammad-helmy-fadlail-albab-1728069726585.pdf"
+                    }
+                  />
+                </div>
                 <div className="space-y-2">
                   <h5 className={`text-sm sm:text-base md:text-lg font-semibold ${selected === item.slug ? "text-light" : "text-primary"}`}>
                     {item.name}

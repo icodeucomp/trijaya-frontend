@@ -2,10 +2,11 @@
 
 import * as React from "react";
 
+import { useLogin } from "@/hooks";
+
 import { Background, Button } from "@/components";
 
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import { useLogin } from "@/hooks";
 
 interface LoginTypes {
   username: string;
@@ -36,10 +37,10 @@ export const Login = () => {
   };
 
   return (
-    <Background src="/images/pattern.png" className="min-h-screen items-center justify-center p-4 text-dark">
-      <div className="w-full h-max max-w-sm p-4 mx-auto border border-gray shadow-lg rounded-3xl text-dark bg-light z-1 sm:p-6 md:p-8">
+    <Background src="/images/pattern.png" className="items-center justify-center min-h-screen p-4 text-dark">
+      <div className="w-full max-w-sm p-4 mx-auto border shadow-lg h-max border-gray rounded-3xl text-dark bg-light z-1 sm:p-6 md:p-8">
         <form onSubmit={handleSubmit}>
-          <h5 className="text-2xl font-bold text-center text-dark-1 mb-6 sm:mb-8">Sign In</h5>
+          <h5 className="mb-6 text-2xl font-bold text-center text-dark-1 sm:mb-8">Sign In</h5>
 
           <div className="relative w-full mt-4">
             <input type="text" id="username" className="floating-input peer" placeholder=" " onChange={handleChange} autoComplete="off" />
@@ -50,13 +51,13 @@ export const Login = () => {
               Input your username
             </label>
           </div>
-          {error && !input.username && <small className="text-secondary w-full">Enter your username</small>}
+          {error && !input.username && <small className="w-full text-secondary">Enter your username</small>}
 
           <div className="relative w-full mt-4">
             <input
               type={isVisible ? "text" : "password"}
               id="password"
-              className="floating-input pr-8 peer"
+              className="pr-8 floating-input peer"
               placeholder=" "
               onChange={handleChange}
               autoComplete="off"
@@ -71,7 +72,7 @@ export const Login = () => {
               {isVisible ? <FaEye size={24} /> : <FaEyeSlash size={24} />}
             </button>
           </div>
-          {error && !input.password && <small className="text-secondary w-full">Enter your password</small>}
+          {error && !input.password && <small className="w-full text-secondary">Enter your password</small>}
           {loading ? (
             <div className="flex justify-center pt-6">
               <div className="loader"></div>

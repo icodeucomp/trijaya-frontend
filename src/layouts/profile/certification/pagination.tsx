@@ -23,7 +23,7 @@ export const Pagination = ({ isBeginning, isEnd, dataLength, activeIndex, handle
         {Array.from({ length: dataLength }, (_, index) => (
           <button
             key={index}
-            className={`size-10 sm:size-12 border rounded-lg cursor-auto border-gray ${
+            className={`size-10 md:size-12 border rounded-lg cursor-auto border-gray ${
               activeIndex === index ? "bg-primary text-light" : "text-dark-gray"
             }`}
           >

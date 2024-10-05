@@ -86,29 +86,37 @@ export const CertificationLegalities = () => {
     <Container className="py-10 space-y-8 sm:py-16 md:py-20">
       <h2 className="text-center heading">Company Legalities and Certifications</h2>
       <div className="hidden lg:block">
-        <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} date={date} setDate={setDate} />
+        <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} searchTerm={searchTerm} date={date} setDate={setDate} />
       </div>
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         {loading ? (
-          <div className="flex items-center justify-center py-16">
+          <div className="flex items-center justify-center min-h-500">
             <div className="loader"></div>
           </div>
         ) : (
-          <div className="relative order-2 w-full lg:order-1">
+          <div className="relative order-2 w-full lg:order-1 min-h-500">
             <div className="block lg:hidden">
-              <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} date={date} setDate={setDate} />
+              <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} searchTerm={searchTerm} date={date} setDate={setDate} />
             </div>
-            <div className="min-h-500">
-              <CustomSlider
-                splitData={splitData}
-                data={documents?.data}
-                controlledSwiper={controlledSwiper}
-                handleSlideChange={handleSlideChange}
-                setControlledSwiper={setControlledSwiper}
-                selected={selectCard}
-                setSelected={setSelectCard}
-              />
-            </div>
+            {documents?.data && documents?.data.length < 1 ? (
+              <div className="flex items-center justify-center min-h-400">
+                <h3 className="w-full col-span-1 m-8 text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
+                  The document is not found
+                </h3>
+              </div>
+            ) : (
+              <div className="min-h-400">
+                <CustomSlider
+                  splitData={splitData}
+                  data={documents?.data}
+                  controlledSwiper={controlledSwiper}
+                  handleSlideChange={handleSlideChange}
+                  setControlledSwiper={setControlledSwiper}
+                  selected={selectCard}
+                  setSelected={setSelectCard}
+                />
+              </div>
+            )}
             <Pagination
               isBeginning={isBeginning}
               isEnd={isEnd}
@@ -120,8 +128,7 @@ export const CertificationLegalities = () => {
           </div>
         )}
         <div className="order-1 w-full space-y-4 text-center lg:order-2">
-          {/* <Img src={"/temp-image.png"} alt={"test"} className="mx-auto w-72 sm:w-80 lg:w-96 aspect-square" cover /> */}
-          <div className="flex justify-center w-full mt-8">
+          <div className="flex justify-center w-full mt-4 lg:mt-8 preview-thumbnail-selected">
             <DisplayThumbnail
               fileUrl={
                 selectedCard?.url ||

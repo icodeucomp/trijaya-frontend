@@ -59,9 +59,19 @@
 }
 
 /* preview pdf style */
-.rpv-core__viewer {
+.preview-thumbnail > .rpv-core__viewer {
+  width: 120px !important;
+  height: 120px !important;
+}
+.preview-thumbnail-selected > .rpv-core__viewer {
   width: 450px !important;
   height: 450px !important;
+}
+@media only screen and (max-width: 640px) {
+  .preview-thumbnail-selected > .rpv-core__viewer {
+    width: 300px !important;
+    height: 300px !important;
+  }
 }
 
 /* ckeditor style */

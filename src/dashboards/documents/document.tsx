@@ -6,7 +6,7 @@ import { useGetSearchApi } from "@/hooks";
 
 import { useDebounce } from "use-debounce";
 
-import { Img } from "@/components";
+import { DisplayThumbnail, Img } from "@/components";
 import { Filter } from "../filter";
 
 import { DeleteDocument } from "./delete-document";
@@ -22,13 +22,20 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
   return (
     <menu className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 place-items-center xl:grid-cols-3">
       {!data?.length ? (
-        <h1 className="w-full col-span-1 m-8 text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
+        <h3 className="w-full col-span-1 m-8 text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
           The document is not found
-        </h1>
+        </h3>
       ) : (
         data?.map((item, index) => (
           <article key={index} className="w-full max-w-xs p-4 duration-300 rounded-md card-shadow text-dark-blue bg-light">
-            <Img src={"/temp-image.png"} alt={item.name} className="w-full rounded-lg h-72" cover />
+            <div className="preview-thumbnail">
+              <DisplayThumbnail
+                fileUrl={
+                  item.url ||
+                  "https://icodeu-storage.s3.ap-southeast-1.amazonaws.com/documents/award/surat-pernyataan-ambil-sertifikat-toeflmuhammad-helmy-fadlail-albab-1728069726585.pdf"
+                }
+              />
+            </div>
             <div className="flex gap-1 mt-2 text-sm text-dark-gray">
               <Img src={carbon_tag} alt="calendar icon" className="size-4" />
               {item.category}

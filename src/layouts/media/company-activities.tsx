@@ -6,12 +6,11 @@ import { useGetSearchApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
 
-import { Container, Img, Pagination } from "@/components";
+import { Container, Img, SmallSlider } from "@/components";
 
 import { ResponseMediaTypes } from "@/types";
 
 export const CompanyActivities = () => {
-  const [page, setPage] = React.useState<string>("1");
   const [select, setSelect] = React.useState<string>("");
   const [splitData, setSplitData] = React.useState<number>(0);
 
@@ -19,14 +18,13 @@ export const CompanyActivities = () => {
 
   const { response: medias, loading } = useGetSearchApi<ResponseMediaTypes>({
     path: "/media",
-    limit: "6",
-    page,
+    limit: "100000",
   });
 
   React.useEffect(() => {
     if (medias?.data && medias.data.length > 0) {
-      setSelect(medias?.data[0].slug);
-      setSplitData(Math.ceil(medias.total / 6));
+      setSplitData(Math.ceil(medias.data.length / 6));
+      setSelect(medias.data[0].slug);
     }
   }, [medias]);
 
@@ -39,24 +37,32 @@ export const CompanyActivities = () => {
         <p className="subheading">{t("head.description")}</p>
       </div>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        <Img src={selectedImg?.url || "/temp-business.webp"} alt={select} className="w-full rounded-lg h-80 sm:h-96 md:h-80 lg:h-96" cover />
-        <Pagination className="space-y-8" splitData={splitData} loading={loading} title={`${t("project-activities")}`} page={page} setPage={setPage}>
-          <div className="grid grid-cols-2 gap-2 p-1 sm:grid-cols-3">
-            {medias?.data.map((item, index) => (
-              <div
-                key={index}
-                className={`cursor-pointer hover:shadow-custom-border rounded-lg overflow-hidden transition-shadow ${
-                  select === item.slug ? "shadow-custom-border" : "shadow-none"
-                }`}
-                onClick={() => setSelect(item.slug)}
-              >
-                <Img src={item.url || "/temp-business.webp"} alt={item.name} className="w-full h-32 rounded-lg sm:h-24 lg:h-36" cover />
+      {loading ? (
+        <div className="flex justify-center py-20">
+          <div className="loader"></div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <Img src={selectedImg?.url || "/temp-business.webp"} alt={select} className="w-full rounded-lg h-80 sm:h-96 md:h-80 lg:h-96" cover />
+          <SmallSlider slidesPerView={1} title={`${t("project-activities")}`} className="space-y-8">
+            {Array.from({ length: splitData }, (_, i) => (
+              <div key={i} className="grid grid-cols-2 gap-2 p-1 sm:grid-cols-3">
+                {medias?.data.slice(i * 6, i * 6 + 6).map((item, j) => (
+                  <div
+                    key={j}
+                    className={`cursor-pointer hover:shadow-custom-border rounded-lg overflow-hidden transition-shadow ${
+                      select === item.slug ? "shadow-custom-border" : "shadow-none"
+                    }`}
+                    onClick={() => setSelect(item.slug)}
+                  >
+                    <Img src={item.url || "/temp-business.webp"} alt={item.name} className="w-full h-32 rounded-lg sm:h-24 lg:h-36" cover />
+                  </div>
+                ))}
               </div>
             ))}
-          </div>
-        </Pagination>
-      </div>
+          </SmallSlider>
+        </div>
+      )}
     </Container>
   );
 };
