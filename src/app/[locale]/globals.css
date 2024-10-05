@@ -58,6 +58,12 @@
   }
 }
 
+/* preview pdf style */
+.rpv-core__viewer {
+  width: 450px !important;
+  height: 450px !important;
+}
+
 /* ckeditor style */
 .dangerous_html * {
   content: "" !important;

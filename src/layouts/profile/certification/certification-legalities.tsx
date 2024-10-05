@@ -7,7 +7,7 @@ import { useDebounce } from "use-debounce";
 import { SwiperClass } from "swiper/react";
 import { Swiper as SwiperType } from "swiper/types";
 
-import { Container, DisplayThumbnail, Img } from "@/components";
+import { Container, DisplayThumbnail } from "@/components";
 import { SearchFilter } from "./search-filter";
 import { Pagination } from "./pagination";
 import { CustomSlider } from "./custom-slider";
@@ -120,7 +120,15 @@ export const CertificationLegalities = () => {
           </div>
         )}
         <div className="order-1 w-full space-y-4 text-center lg:order-2">
-          <Img src={"/temp-image.png"} alt={"test"} className="mx-auto w-72 sm:w-80 lg:w-96 aspect-square" cover />
+          {/* <Img src={"/temp-image.png"} alt={"test"} className="mx-auto w-72 sm:w-80 lg:w-96 aspect-square" cover /> */}
+          <div className="flex justify-center w-full mt-8">
+            <DisplayThumbnail
+              fileUrl={
+                selectedCard?.url ||
+                "https://icodeu-storage.s3.ap-southeast-1.amazonaws.com/documents/award/surat-pernyataan-ambil-sertifikat-toeflmuhammad-helmy-fadlail-albab-1728069726585.pdf"
+              }
+            />
+          </div>
           <div className="space-y-2">
             <h5 className="text-lg font-semibold sm:text-xl md:text-3xl text-primary group-hover:text-light">{selectedCard?.name}</h5>
             <p className="text-sm sm:text-base md:text-lg text-gray group-hover:text-light">{selectedCard?.category}</p>
@@ -130,7 +138,6 @@ export const CertificationLegalities = () => {
           </div>
         </div>
       </div>
-      <DisplayThumbnail fileUrl="https://icodeu-storage.s3.ap-southeast-1.amazonaws.com/documents/certification/compro-ptaam-2024-1728028930592.pdf" />
     </Container>
   );
 };

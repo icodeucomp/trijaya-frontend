@@ -4,15 +4,16 @@ import { request } from "@/utils";
 
 interface UseGetParamsProps {
   path: string;
-  searchQuery: string;
+  searchQuery?: string;
   sort?: string;
   order?: string;
   dateStart?: string;
   dateEnd?: string;
   page?: string;
+  limit?: string;
 }
 
-export const useGetSearchApi = <T>({ path, searchQuery, sort, order, dateStart, dateEnd, page }: UseGetParamsProps) => {
+export const useGetSearchApi = <T>({ path, searchQuery, sort, order, dateStart, dateEnd, page, limit }: UseGetParamsProps) => {
   const [response, setResponse] = useState<T | null>();
   const [loading, setLoading] = useState<boolean>();
   const [error, setError] = useState<string>();
@@ -31,6 +32,7 @@ export const useGetSearchApi = <T>({ path, searchQuery, sort, order, dateStart, 
             dateStart,
             dateEnd,
             page,
+            limit,
           },
         },
       })

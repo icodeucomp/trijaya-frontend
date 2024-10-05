@@ -25,7 +25,7 @@ export const SmallSlider = ({ title, children, loadData, isButton, linkButton, s
   const handleSlideChange = (swiper: SwiperType) => {
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
-    setIndex?.(swiper.activeIndex);
+    setIndex(swiper.activeIndex);
   };
 
   return (
@@ -78,7 +78,7 @@ export const SmallSlider = ({ title, children, loadData, isButton, linkButton, s
               ))}
             </>
           ) : (
-            children
+            <SwiperSlide>{children}</SwiperSlide>
           )}
         </Swiper>
       )}
