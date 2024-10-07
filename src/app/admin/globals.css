@@ -84,6 +84,9 @@
 .ck-content p {
   text-align: justify;
 }
+.dangerous_html * {
+  all: revert !important;
+}
 .dangerous_html .image {
   margin: 0 auto;
   max-width: 600px !important;
@@ -95,6 +98,15 @@
 }
 .dangerous_html p {
   text-align: justify;
+}
+.dangerous_html blockquote {
+  font-style: italic !important;
+  padding: 1rem 1.5rem !important;
+  margin: 1rem 0 !important;
+  border-left: 4px solid #ddd !important;
+}
+.dangerous_html blockquote p {
+  margin: 0 !important;
 }
 
 @layer components {

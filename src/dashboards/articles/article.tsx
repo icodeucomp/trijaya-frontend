@@ -112,7 +112,11 @@ export const Article = () => {
           Prev
         </button>
         {Array.from({ length: splitData }, (_, index) => (
-          <button key={index} className={`pagination-number ${index + 1 === Number(page) ? "bg-primary text-light" : "bg-light text-dark-blue"}`}>
+          <button
+            key={index}
+            onClick={() => setPage((index + 1).toString())}
+            className={`pagination-number ${index + 1 === Number(page) ? "bg-primary text-light" : "bg-light text-dark-blue"}`}
+          >
             {index + 1}
           </button>
         ))}

@@ -15,7 +15,7 @@ import { UploadTypes } from "../types";
 import { ResponseBusinessTypes } from "@/types";
 
 export const EditBusiness = ({ slug }: { slug: string }) => {
-  const router = useRouter();
+  const { back } = useRouter();
 
   // set data
   const [title, setTitle] = React.useState<string>("");
@@ -23,26 +23,50 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
   const [imageHeaderUrl, setImageHeaderUrl] = React.useState<string>("");
   const [productImageHeaderUrl, setProductImageHeaderUrl] = React.useState<string>("");
 
-  // call api
+  // get one business by slug, patch data, and upload image api
   const { response: business, loading } = useGet<ResponseBusinessTypes>(`/business/${slug}`);
   const { execute, loading: loadData } = usePost("PATCH", `/business/edit/${slug}`);
   const { uploading: uploadingImageHeader, uploadFile: uploadImageHeader, response: dataImageHeader } = useUpload<UploadTypes>();
   const { uploading: uploadingImageProduct, uploadFile: uploadImageProduct, response: dataImageProduct } = useUpload<UploadTypes>();
 
-  // logic handler
+  // handle back route
+  const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (
+      title !== business?.data.title ||
+      description !== business?.data.description ||
+      imageHeaderUrl !== business?.data.imageHeaderUrl ||
+      productImageHeaderUrl !== business?.data.productHeaderUrl
+    ) {
+      if (confirm("Are you sure to back to previous page? Your data will not be saved!")) {
+        setTitle(business?.data.title || "");
+        setDescription(business?.data.description || "");
+        setProductImageHeaderUrl(business?.data.productHeaderUrl || "");
+        setImageHeaderUrl(business?.data.imageHeaderUrl || "");
+        back();
+        return;
+      } else {
+        return;
+      }
+    }
+    back();
+  };
+
+  // handle image header upload
   const handleFileImageHeader = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
     await uploadImageHeader(file!, `type=business&category=${slug}`);
     setImageHeaderUrl(URL.createObjectURL(file!));
   };
 
+  // handle image product upload
   const handleFileImageProduct = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
     await uploadImageProduct(file!, `type=business&category=${slug}`);
     setProductImageHeaderUrl(URL.createObjectURL(file!));
   };
 
-  // handle submit
+  // handle edit data
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -67,7 +91,7 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
     <>
       <div className="px-2 py-4">
         <span className="flex items-center gap-2">
-          <button onClick={() => router.back()}>
+          <button onClick={handleBack}>
             <PiCaretLeftLight size={24} />
           </button>
           <h1 className="heading">Edit Category</h1>
@@ -157,9 +181,9 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
               </Button>
             )}
           </form>
-          <Products data={business?.data.Product} slugBusiness={slug} id={business?.data.id as number} />
-          <Projects data={business?.data.Project} slugBusiness={slug} id={business?.data.id as number} />
-          <Services data={business?.data.Service} slugBusiness={slug} id={business?.data.id as number} />
+          <Products data={business?.data.Product} slugBusiness={slug} id={business?.data.id || 0} />
+          <Projects data={business?.data.Project} slugBusiness={slug} id={business?.data.id || 0} />
+          <Services data={business?.data.Service} slugBusiness={slug} id={business?.data.id || 0} />
         </>
       )}
     </>

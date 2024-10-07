@@ -69,6 +69,18 @@ const CustomEditor = ({ setContent, content, error }: CustomEditorProps) => {
         editor={ClassicEditor}
         config={{
           extraPlugins: [CustomUploadAdapterPlugin],
+          link: {
+            decorators: {
+              openInNewTab: {
+                mode: "automatic",
+                callback: (url: string | null) => (url?.startsWith("http") as boolean) || (url?.startsWith("https") as boolean),
+                attributes: {
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                },
+              },
+            },
+          },
         }}
         onChange={(_, editor) => {
           setContent(editor.getData());

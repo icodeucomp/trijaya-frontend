@@ -16,14 +16,18 @@ import { MdOutlineFileUpload } from "react-icons/md";
 import { PiCaretLeftLight } from "react-icons/pi";
 
 export const AddArticle = () => {
+  // define back route
+  const { back } = useRouter();
+
+  //set data
   const [content, setContent] = React.useState<string>("");
   const [title, setTitle] = React.useState<string>("");
   const [error, setError] = React.useState<boolean>(false);
 
-  const { back } = useRouter();
-
+  // post article api
   const { execute, loading } = usePost("POST", "article");
 
+  // handle back button
   const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (title !== "" || content !== "") {
@@ -39,6 +43,7 @@ export const AddArticle = () => {
     back();
   };
 
+  // handle add article
   const handleSubmitForm = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (title === "" || content === "") {
