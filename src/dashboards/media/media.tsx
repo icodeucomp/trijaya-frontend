@@ -7,7 +7,7 @@ import { useGetSearchApi } from "@/hooks";
 import { useDebounce } from "use-debounce";
 
 import { Filter } from "../filter";
-import { Img } from "@/components";
+import { Img, Pagination } from "@/components";
 import { DeleteMedia } from "./delete-media";
 import { AddMedia } from "./add-media";
 
@@ -32,15 +32,15 @@ const Content = ({ data }: { data: MediaTypes[] | undefined }) => {
 
 export const Media = () => {
   const [searchTerm, setSearchTerm] = React.useState<string>("");
-  const [page, setPage] = React.useState<string>("1");
-  const [splitData, setSplitData] = React.useState<number>(0);
+  const [page, setPage] = React.useState<number>(1);
+  const [totalPage, setTotalPage] = React.useState<number>(0);
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
   const { response: medias, loading } = useGetSearchApi<ResponseMediaTypes>({
     path: "/media",
     searchQuery: debouncedSearchTerm,
-    page,
+    page: page.toString(),
   });
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,17 +48,9 @@ export const Media = () => {
     setSearchTerm(e.target.value);
   };
 
-  const handleNextPage = () => {
-    setPage((prevPage) => (parseInt(prevPage) + 1).toString());
-  };
-
-  const handlePreviousPage = () => {
-    setPage((prevPage) => (parseInt(prevPage) > 1 ? (parseInt(prevPage) - 1).toString() : prevPage));
-  };
-
   React.useEffect(() => {
     if (medias?.total && medias?.total > 1) {
-      setSplitData(Math.ceil(medias.total / 9));
+      setTotalPage(Math.ceil(medias.total / 9));
     }
   }, [medias]);
 
@@ -79,23 +71,7 @@ export const Media = () => {
       ) : (
         <Content data={medias?.data} />
       )}
-      <div className="flex items-center justify-center gap-2 mt-6 mb-3">
-        <button className="pagination-button" onClick={handlePreviousPage} disabled={page === "1"}>
-          Prev
-        </button>
-        {Array.from({ length: splitData }, (_, index) => (
-          <button
-            key={index}
-            onClick={() => setPage((index + 1).toString())}
-            className={`pagination-number ${index + 1 === Number(page) ? "bg-primary text-light" : "bg-light text-dark-blue"}`}
-          >
-            {index + 1}
-          </button>
-        ))}
-        <button className="pagination-button" onClick={handleNextPage} disabled={splitData === Number(page)}>
-          Next
-        </button>
-      </div>
+      <Pagination page={page} totalPage={totalPage} setPage={setPage} />
     </>
   );
 };

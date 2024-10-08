@@ -4,7 +4,7 @@ import { Link } from "@/i18n/routing";
 
 import { notFound } from "next/navigation";
 
-import { useGetApi } from "@/hooks";
+import { useGetApi, useGetSearchApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
 
@@ -36,7 +36,7 @@ const RelatedArticles = ({ date, title, pathUrl, pathImg }: ArticleCardProps) =>
 };
 
 export const ArticleContent = ({ slug }: { slug: string }) => {
-  const { response: articles, loading: loadingArticles } = useGetApi<ResponseArticlesTypes>("blogs");
+  const { response: articles, loading: loadingArticles } = useGetSearchApi<ResponseArticlesTypes>({ path: "/blogs", limit: "5" });
   const { response: article, loading: loadingArticle, error } = useGetApi<ResponseArticleTypes>(`/blogs/${slug}`);
 
   const t = useTranslations("media");
@@ -85,7 +85,7 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
             <div className="sticky hidden space-y-12 lg:block top-4">
               <div className="flex items-center gap-4 pt-1">
                 <i className="h-12 border-l-4 border-primary" />
-                <h5 className="text-2xl font-semibold text-primary">{t("related-articles")}</h5>
+                <h5 className="text-2xl font-semibold text-primary">{t("other-articles")}</h5>
               </div>
 
               <div className="space-y-8">
@@ -96,7 +96,7 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
             </div>
             <div className="block my-10 lg:hidden">
               <BigSlider
-                title={`${t("related-articles")}`}
+                title={`${t("other-articles")}`}
                 className="space-y-8"
                 slidesPerView={2}
                 loadData={false}

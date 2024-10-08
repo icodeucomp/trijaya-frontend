@@ -4,41 +4,24 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { useGetSearchApi } from "@/hooks";
 import { useDebounce } from "use-debounce";
 
-import { SwiperClass } from "swiper/react";
-import { Swiper as SwiperType } from "swiper/types";
-
-import { Container, DisplayThumbnail } from "@/components";
+import { Container, DisplayThumbnail, Pagination } from "@/components";
 import { SearchFilter } from "./search-filter";
-import { Pagination } from "./pagination";
-import { CustomSlider } from "./custom-slider";
+import { CardCertification } from "./card-certification";
+import { DateValueType } from "react-tailwindcss-datepicker";
 
 import { convertDate, formatDate } from "@/utils";
 
-import { DateValueType } from "react-tailwindcss-datepicker";
 import { ResponseDocumentsTypes } from "@/types";
 
 export const CertificationLegalities = () => {
-  // swiper state
-  const [isBeginning, setIsBeginning] = useState<boolean>(true);
-  const [isEnd, setIsEnd] = useState<boolean>(false);
-  const [controlledSwiper, setControlledSwiper] = useState<SwiperClass | null>(null);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-
-  // handle change for swiper
-  const handleClickPrev = () => controlledSwiper?.slidePrev();
-  const handleClickNext = () => controlledSwiper?.slideNext();
-
-  const handleSlideChange = (swiper: SwiperType) => {
-    setActiveIndex(controlledSwiper?.activeIndex || 0);
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
-  };
-
   // filtered data state
   const [selectCard, setSelectCard] = useState<string>("");
+
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sort, setSort] = useState<string>("uploadedAt");
   const [order, setOrder] = useState<string>("desc");
+  const [page, setPage] = useState<number>(1);
+  const [totalPage, setTotalPage] = useState<number>(1);
 
   const [date, setDate] = useState<DateValueType>({ startDate: null, endDate: null });
   const dateStart = formatDate(date?.startDate);
@@ -49,6 +32,8 @@ export const CertificationLegalities = () => {
   const { response: documents, loading } = useGetSearchApi<ResponseDocumentsTypes>({
     path: "/documents",
     searchQuery: debouncedSearchTerm,
+    limit: "3",
+    page: page.toString(),
     sort,
     order,
     dateEnd,
@@ -56,8 +41,6 @@ export const CertificationLegalities = () => {
   });
 
   const selectedCard = documents?.data.find((item) => item.slug === selectCard);
-
-  const [splitData, setSplitData] = useState<number>(0);
 
   const handleSetFiltered = (dropdownKey: string, value: string) => {
     const [newSort, newOrder] = value.split("&").map((param) => param.split("=")[1]);
@@ -73,12 +56,9 @@ export const CertificationLegalities = () => {
   };
 
   useEffect(() => {
-    if (documents?.data && documents.data.length < 1) {
-      setSplitData(1);
-    }
     if (documents?.data && documents.data.length > 0) {
-      setSplitData(Math.ceil(documents?.data.length / 3));
-      setSelectCard(documents?.data[0].slug);
+      setTotalPage(Math.ceil(documents.total / 3));
+      setSelectCard(documents.data[0].slug);
     }
   }, [documents]);
 
@@ -94,37 +74,36 @@ export const CertificationLegalities = () => {
             <div className="loader"></div>
           </div>
         ) : (
-          <div className="relative order-2 w-full lg:order-1 min-h-500">
+          <div className="relative order-2 w-full lg:order-1 min-h-600 lg:min-h-500 flex flex-col">
             <div className="block lg:hidden">
               <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} searchTerm={searchTerm} date={date} setDate={setDate} />
             </div>
             {documents?.data && documents?.data.length < 1 ? (
-              <div className="flex items-center justify-center min-h-400">
+              <div className="flex items-center justify-center h-full">
                 <h3 className="w-full col-span-1 m-8 text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
                   The document is not found
                 </h3>
               </div>
             ) : (
-              <div className="min-h-400">
-                <CustomSlider
-                  splitData={splitData}
-                  data={documents?.data}
-                  controlledSwiper={controlledSwiper}
-                  handleSlideChange={handleSlideChange}
-                  setControlledSwiper={setControlledSwiper}
-                  selected={selectCard}
-                  setSelected={setSelectCard}
-                />
+              <div className="space-y-8 mt-8">
+                {documents?.data.map((item, index) => (
+                  <CardCertification
+                    key={index}
+                    category={item.category}
+                    name={item.name}
+                    slug={item.slug}
+                    uploadedAt={item.uploadedAt}
+                    url={item.url}
+                    size={item.size}
+                    selected={selectCard}
+                    setSelected={setSelectCard}
+                  />
+                ))}
               </div>
             )}
-            <Pagination
-              isBeginning={isBeginning}
-              isEnd={isEnd}
-              dataLength={splitData}
-              activeIndex={activeIndex}
-              handleClickNext={handleClickNext}
-              handleClickPrev={handleClickPrev}
-            />
+            <div className="mt-auto w-full">
+              <Pagination setPage={setPage} totalPage={totalPage} page={page} />
+            </div>
           </div>
         )}
         <div className="order-1 w-full space-y-4 text-center lg:order-2">

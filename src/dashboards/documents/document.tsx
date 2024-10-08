@@ -6,7 +6,7 @@ import { useGetSearchApi } from "@/hooks";
 
 import { useDebounce } from "use-debounce";
 
-import { DisplayThumbnail, Img } from "@/components";
+import { DisplayThumbnail, Img, Pagination } from "@/components";
 import { Filter } from "../filter";
 
 import { DeleteDocument } from "./delete-document";
@@ -57,15 +57,15 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
 
 export const Document = () => {
   const [searchTerm, setSearchTerm] = React.useState<string>("");
-  const [page, setPage] = React.useState<string>("1");
-  const [splitData, setSplitData] = React.useState<number>(0);
+  const [page, setPage] = React.useState<number>(1);
+  const [totalPage, setTotalPage] = React.useState<number>(0);
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
   const { response: documents, loading } = useGetSearchApi<ResponseDocumentsTypes>({
     path: "/documents",
     searchQuery: debouncedSearchTerm,
-    page,
+    page: page.toString(),
   });
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,17 +73,9 @@ export const Document = () => {
     setSearchTerm(e.target.value);
   };
 
-  const handleNextPage = () => {
-    setPage((prevPage) => (parseInt(prevPage) + 1).toString());
-  };
-
-  const handlePreviousPage = () => {
-    setPage((prevPage) => (parseInt(prevPage) > 1 ? (parseInt(prevPage) - 1).toString() : prevPage));
-  };
-
   React.useEffect(() => {
     if (documents?.total && documents?.total > 1) {
-      setSplitData(Math.ceil(documents.total / 9));
+      setTotalPage(Math.ceil(documents.total / 9));
     }
   }, [documents]);
 
@@ -104,23 +96,7 @@ export const Document = () => {
       ) : (
         <Content data={documents?.data} />
       )}
-      <div className="flex items-center justify-center gap-2 mt-6 mb-3">
-        <button className="pagination-button" onClick={handlePreviousPage} disabled={page === "1"}>
-          Prev
-        </button>
-        {Array.from({ length: splitData }, (_, index) => (
-          <button
-            key={index}
-            onClick={() => setPage((index + 1).toString())}
-            className={`pagination-number ${index + 1 === Number(page) ? "bg-primary text-light" : "bg-light text-dark-blue"}`}
-          >
-            {index + 1}
-          </button>
-        ))}
-        <button className="pagination-button" onClick={handleNextPage} disabled={splitData === Number(page)}>
-          Next
-        </button>
-      </div>
+      <Pagination page={page} totalPage={totalPage} setPage={setPage} />
     </>
   );
 };

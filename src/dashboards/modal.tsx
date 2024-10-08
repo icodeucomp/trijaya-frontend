@@ -25,7 +25,7 @@ export const Modal = ({ isVisible, onClose, children, className }: DashboardModa
   return (
     <div className="fixed inset-0 flex items-center px-4 sm:px-0 justify-center bg-opacity-50 bg-dark-blue z-1000">
       <motion.div
-        className={`relative w-full p-6 mx-auto rounded-lg shadow-lg bg-light ${className ?? ""}`}
+        className={`relative w-full p-6 mx-auto rounded-lg shadow-lg bg-light overflow-y-auto max-h-custom-modal scrollbar ${className ?? ""}`}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}
