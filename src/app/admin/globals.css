@@ -108,6 +108,29 @@
 .dangerous_html blockquote p {
   margin: 0 !important;
 }
+.dangerous_html table {
+  display: table !important;
+  border-spacing: 0 !important;
+  border-collapse: collapse !important;
+  margin: 1rem auto !important;
+}
+.dangerous_html th,
+.dangerous_html td {
+  border: 1px solid #ddd !important;
+  padding: 2px 6px !important;
+  text-align: left !important;
+  min-width: 34px !important;
+}
+.dangerous_html th {
+  background-color: #f4f4f4 !important;
+  font-weight: bold !important;
+}
+.dangerous_html table caption {
+  caption-side: bottom !important;
+  padding-top: 0.75rem !important;
+  font-style: italic !important;
+  color: #777 !important;
+}
 
 @layer components {
   .btn-outline {

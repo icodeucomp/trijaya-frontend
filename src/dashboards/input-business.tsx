@@ -8,6 +8,7 @@ import { Modal } from "./modal";
 
 import { MdAdd } from "react-icons/md";
 import { FaMinusCircle } from "react-icons/fa";
+import { FaMinus } from "react-icons/fa6";
 
 import { InputBusinessProps } from "./types";
 
@@ -105,8 +106,10 @@ export const InputBusiness = ({
                         <div key={index} className="relative">
                           <button
                             onClick={() => handleDeleteImage(slug, index)}
-                            className="absolute w-4 h-4 rounded-full -top-2 -right-2 z-1 bg-secondary"
-                          ></button>
+                            className="absolute w-5 h-5 rounded-full flex items-center justify-center -top-2 -right-2 z-1 bg-secondary"
+                          >
+                            <FaMinus className="fill-light" />
+                          </button>
                           <Img src={image.url || "/temp-business.webp"} alt={title} className="h-48 mx-auto rounded-lg w-full" cover />
                         </div>
                       ))}

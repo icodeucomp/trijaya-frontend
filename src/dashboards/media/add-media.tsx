@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 
 import { Button, Img } from "@/components";
 import { Modal } from "../modal";
+import { FaMinus } from "react-icons/fa6";
 
 interface UploadTypes {
   uploadedFiles: {
@@ -30,6 +31,10 @@ export const AddMedia = () => {
     setSelectedImages(files);
 
     await uploadFile(files!, "type=media");
+  };
+
+  const handleDeleteImage = (index: number) => {
+    setSelectedImages((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleClose = () => {
@@ -85,7 +90,12 @@ export const AddMedia = () => {
                 <div className="grid grid-cols-3 gap-2 mt-4">
                   {selectedImages.map((image, index) => (
                     <div key={index} className="relative">
-                      <button className="absolute w-4 h-4 rounded-full -top-2 -right-2 z-1 bg-secondary"></button>
+                      <button
+                        onClick={() => handleDeleteImage(index)}
+                        className="absolute w-5 h-5 rounded-full flex items-center justify-center -top-2 -right-2 z-1 bg-secondary"
+                      >
+                        <FaMinus className="fill-light" />
+                      </button>
                       <Img
                         src={URL.createObjectURL(image) || "/temp-business.webp"}
                         alt={`Selected image ${index + 1}`}

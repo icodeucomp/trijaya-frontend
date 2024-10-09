@@ -20,8 +20,8 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
   // set data
   const [title, setTitle] = React.useState<string>("");
   const [description, setDescription] = React.useState<string>("");
-  const [imageHeaderUrl, setImageHeaderUrl] = React.useState<string>("");
-  const [productImageHeaderUrl, setProductImageHeaderUrl] = React.useState<string>("");
+  const [imageHeader, setImageHeader] = React.useState<UploadTypes>();
+  const [productHeader, setProductHeader] = React.useState<UploadTypes>();
 
   // get one business by slug, patch data, and upload image api
   const { response: business, loading } = useGet<ResponseBusinessTypes>(`/business/${slug}`);
@@ -35,14 +35,14 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
     if (
       title !== business?.data.title ||
       description !== business?.data.description ||
-      imageHeaderUrl !== business?.data.imageHeader.url ||
-      productImageHeaderUrl !== business?.data.productHeader.url
+      imageHeader?.url !== business?.data.imageHeader.url ||
+      productHeader?.url !== business?.data.productHeader.url
     ) {
       if (confirm("Are you sure to back to previous page? Your data will not be saved!")) {
         setTitle(business?.data.title || "");
         setDescription(business?.data.description || "");
-        setProductImageHeaderUrl(business?.data.productHeader.url || "");
-        setImageHeaderUrl(business?.data.imageHeader.url || "");
+        setImageHeader({ url: business?.data.imageHeader.url || "", name: business?.data.imageHeader.slug || "" });
+        setProductHeader({ url: business?.data.productHeader.url || "", name: business?.data.productHeader.slug || "" });
         back();
         return;
       } else {
@@ -56,14 +56,14 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
   const handleFileImageHeader = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
     await uploadImageHeader(file!, `type=business&category=${slug}`);
-    setImageHeaderUrl(URL.createObjectURL(file!));
+    setImageHeader({ url: URL.createObjectURL(file!), name: file?.name || "" });
   };
 
   // handle image product upload
   const handleFileImageProduct = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
     await uploadImageProduct(file!, `type=business&category=${slug}`);
-    setProductImageHeaderUrl(URL.createObjectURL(file!));
+    setProductHeader({ url: URL.createObjectURL(file!), name: file?.name || "" });
   };
 
   // handle edit data
@@ -73,8 +73,14 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
     execute(`/business/${slug}`, {
       title,
       description,
-      imageHeaderUrl: dataImageHeader?.url || imageHeaderUrl,
-      productHeaderUrl: dataImageProduct?.url || productImageHeaderUrl,
+      imageHeader: {
+        slug: dataImageHeader?.name || imageHeader?.name,
+        url: dataImageHeader?.url || imageHeader?.url,
+      },
+      productHeader: {
+        slug: dataImageProduct?.name || productHeader?.name,
+        url: dataImageProduct?.url || productHeader?.url,
+      },
     });
   };
 
@@ -82,8 +88,8 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
     if (business?.data !== null) {
       setTitle(business?.data.title || "");
       setDescription(business?.data.description || "");
-      setProductImageHeaderUrl(business?.data.productHeader.url || "");
-      setImageHeaderUrl(business?.data.imageHeader.url || "");
+      setImageHeader({ url: business?.data.imageHeader.url || "", name: business?.data.imageHeader.slug || "" });
+      setProductHeader({ url: business?.data.productHeader.url || "", name: business?.data.productHeader.slug || "" });
     }
   }, [business]);
 
@@ -112,7 +118,7 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
               ) : (
                 <div className="relative text-center">
                   <small className="w-full">maximum image size 5mb. (aspect ratio of 1:1)</small>
-                  <Img src={imageHeaderUrl || "/temp-business.webp"} alt={title} className="rounded-lg w-80 aspect-square" cover />
+                  <Img src={imageHeader?.url || "/temp-business.webp"} alt={title} className="rounded-lg w-80 aspect-square" cover />
 
                   <label htmlFor="image-header" className="duration-300 cursor-pointer md:text-xl text-primary hover:text-primary/80">
                     Upload Image Header
@@ -127,7 +133,7 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
               ) : (
                 <div className="relative text-center">
                   <small className="w-full">maximum image size 5mb. (aspect ratio of 1:1)</small>
-                  <Img src={productImageHeaderUrl || "/temp-business.webp"} alt={title} className="rounded-lg w-80 aspect-square" cover />
+                  <Img src={productHeader?.url || "/temp-business.webp"} alt={title} className="rounded-lg w-80 aspect-square" cover />
 
                   <label htmlFor="image-product" className="duration-300 cursor-pointer md:text-xl text-primary hover:text-primary/80">
                     Upload Photo Product

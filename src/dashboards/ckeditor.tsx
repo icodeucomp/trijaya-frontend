@@ -82,8 +82,12 @@ const CustomEditor = ({ setContent, content, error }: CustomEditorProps) => {
             },
           },
         }}
-        onChange={(_, editor) => {
-          setContent(editor.getData());
+        onChange={(_, editor: any) => {
+          let data = editor.getData();
+          data = data.replace(/href="(?!https?:\/\/)([^"]*)"/g, (_key: any, p1: any) => {
+            return `href="http://${p1}"`;
+          });
+          setContent(data);
         }}
         data={content}
       />

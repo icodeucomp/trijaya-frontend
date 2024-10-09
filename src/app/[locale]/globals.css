@@ -104,25 +104,21 @@
   margin: 0 !important;
 }
 .dangerous_html table {
-  width: 100% !important;
+  display: table !important;
+  border-spacing: 0 !important;
   border-collapse: collapse !important;
-  margin: 1rem 0 !important;
+  margin: 1rem auto !important;
 }
 .dangerous_html th,
-td {
+.dangerous_html td {
   border: 1px solid #ddd !important;
-  padding: 8px !important;
+  padding: 4px 8px !important;
   text-align: left !important;
+  min-width: 32px !important;
 }
 .dangerous_html th {
   background-color: #f4f4f4 !important;
   font-weight: bold !important;
-}
-.dangerous_html tbody tr:nth-child(even) {
-  background-color: #f9f9f9 !important;
-}
-.dangerous_html tbody tr:nth-child(odd) {
-  background-color: #fff !important;
 }
 .dangerous_html table caption {
   caption-side: bottom !important;
