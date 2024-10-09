@@ -19,7 +19,7 @@ interface ServiceTypes extends BusinessSectorTypes {
 interface UploadTypes {
   uploadedFiles: {
     url: string;
-    size: string;
+    name: string;
   }[];
 }
 
@@ -32,7 +32,7 @@ export const Services = ({ data, slugBusiness, id }: { slugBusiness: string; dat
   const { execute: executeDelete, loading: loadDeleteData } = usePost("DELETE", `/business/edit/${slugBusiness}`);
 
   const addElement = () => {
-    setElements((prev) => [...prev, { title: "", description: "", mediaUrls: [], slug: "", newFiles: [], business: { title: "" } }]);
+    setElements((prev) => [...prev, { title: "", description: "", media: [{ slug: "", url: "" }], slug: "", newFiles: [], business: { title: "" } }]);
   };
 
   const deleteElement = (slug: string) => {
@@ -57,7 +57,13 @@ export const Services = ({ data, slugBusiness, id }: { slugBusiness: string; dat
 
     setElements((prev) =>
       prev.map((el) =>
-        el.slug === slug ? { ...el, newFiles: [...(el.newFiles || []), ...files], mediaUrls: [...(el.mediaUrls || []), ...filePreviews] } : el
+        el.slug === slug
+          ? {
+              ...el,
+              newFiles: [...(el.newFiles || []), ...files],
+              media: [...el.media.map((mediaObj) => ({ ...mediaObj })), ...filePreviews.map((previewUrl) => ({ slug: "", url: previewUrl }))],
+            }
+          : el
       )
     );
   };
@@ -66,17 +72,17 @@ export const Services = ({ data, slugBusiness, id }: { slugBusiness: string; dat
     setElements((prev) =>
       prev.map((el) => {
         if (el.slug === slug) {
-          const totalMediaUrls = el.mediaUrls?.length || 0;
+          const totalMedia = el.media?.length || 0;
           const totalNewFiles = Array.isArray(el.newFiles) ? el.newFiles.length : 1;
 
-          const isNewFile = index >= totalMediaUrls - totalNewFiles;
+          const isNewFile = index >= totalMedia - totalNewFiles;
 
           if (isNewFile) {
-            const newFiles = Array.isArray(el.newFiles) ? el.newFiles.filter((_, i) => i !== index - (totalMediaUrls - totalNewFiles)) : [];
-            const mediaUrls = el.mediaUrls.filter((_, i) => i !== index);
-            return { ...el, newFiles: newFiles.length > 0 ? newFiles : undefined, mediaUrls };
+            const newFiles = Array.isArray(el.newFiles) ? el.newFiles.filter((_, i) => i !== index - (totalMedia - totalNewFiles)) : [];
+            const media = el.media.filter((_, i) => i !== index);
+            return { ...el, newFiles: newFiles.length > 0 ? newFiles : undefined, media };
           } else {
-            return { ...el, mediaUrls: el.mediaUrls.filter((_, i) => i !== index) };
+            return { ...el, media: el.media.filter((_, i) => i !== index) };
           }
         }
         return el;
@@ -88,7 +94,7 @@ export const Services = ({ data, slugBusiness, id }: { slugBusiness: string; dat
     const element = elements.find((el) => el.slug === slug);
     const files = element?.newFiles;
     if (!files) {
-      toast.success("Success upload file");
+      toast.error("You not change the images!");
       return;
     }
     if (element) {
@@ -98,10 +104,10 @@ export const Services = ({ data, slugBusiness, id }: { slugBusiness: string; dat
 
   const handleSubmitForm = (slug: string) => {
     const element = elements.find((el) => el.slug === slug);
-    const prevImage = element?.mediaUrls.filter((prev) => prev.includes("icodeu-storage"));
-    const uploadImage = dataImage?.uploadedFiles.map((upload) => upload.url);
+    const prevImage = element?.media.filter((prev) => prev.url.includes("icodeu-storage")).map((upload) => ({ url: upload.url, slug: upload.slug }));
+    const uploadImage = dataImage?.uploadedFiles.map((upload) => ({ url: upload.url, slug: upload.name }));
     const images = [...(prevImage || []), ...(uploadImage || [])];
-    const body = { title: element?.title, description: element?.description, mediaUrls: images, businessId: id };
+    const body = { title: element?.title, description: element?.description, media: images, businessId: id };
     if (!element?.slug) {
       executeAdd(`/services`, body);
       return;
@@ -112,7 +118,7 @@ export const Services = ({ data, slugBusiness, id }: { slugBusiness: string; dat
   };
 
   React.useEffect(() => {
-    if (data && data.length > 1) {
+    if (data && data.length > 0) {
       setElements(data);
     }
   }, [data]);
@@ -125,7 +131,7 @@ export const Services = ({ data, slugBusiness, id }: { slugBusiness: string; dat
           slug={item.slug}
           description={item.description}
           title={item.title}
-          images={item.mediaUrls}
+          images={item.media}
           onDelete={deleteElement}
           onInputChange={handleInputChange}
           onImagesChange={handleImagesChange}

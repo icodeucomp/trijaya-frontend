@@ -15,7 +15,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { BigSliderProps } from "@/types";
 
 export const BigSlider = ({ title, children, loadData, isButton, linkButton, className, ...props }: BigSliderProps) => {
-  const [isBeginning, setIsBeginning] = useState<boolean>(true);
+  const [isBeginning, setIsBeginning] = useState<boolean>(false);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   const [controlledSwiper, setControlledSwiper] = useState<SwiperClass | null>(null);
 
@@ -59,7 +59,7 @@ export const BigSlider = ({ title, children, loadData, isButton, linkButton, cla
       </div>
 
       {loadData ? (
-        <div className="w-full py-16 flex justify-center">
+        <div className="flex justify-center w-full py-16">
           <span className="loader"></span>
         </div>
       ) : (

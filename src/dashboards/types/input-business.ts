@@ -4,7 +4,10 @@ export interface InputBusinessProps {
   slug: string;
   title: string;
   description: string;
-  images: string[];
+  images: {
+    url: string;
+    slug: string;
+  }[];
   uploading: boolean;
   onInputChange: (slug: string, e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onImagesChange: (slug: string, e: ChangeEvent<HTMLInputElement>) => void;

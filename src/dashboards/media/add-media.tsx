@@ -81,7 +81,7 @@ export const AddMedia = () => {
                   <label className="text-sm text-slate-500 whitespace-nowrap">{selectedImages?.length} Images</label>
                   <div className="absolute top-0 right-0 w-4 h-full bg-light"></div>
                 </div>
-                <small className="pl-2 text-gray/70">maximum image size 5mb.</small>
+                <small className="pl-2 text-gray/70">maximum image size 5mb. (aspect ratio of 16:9)</small>
                 <div className="grid grid-cols-3 gap-2 mt-4">
                   {selectedImages.map((image, index) => (
                     <div key={index} className="relative">

@@ -32,7 +32,10 @@ export interface BusinessSectorTypes {
   title: string;
   slug: string;
   description: string;
-  mediaUrls: string[];
+  media: {
+    url: string;
+    slug: string;
+  }[];
   business: {
     title: string;
   };
@@ -43,8 +46,14 @@ export interface BusinessesTypes {
   title: string;
   slug: string;
   description: string;
-  imageHeaderUrl: string;
-  productHeaderUrl: string;
+  imageHeader: {
+    slug: string;
+    url: string;
+  };
+  productHeader: {
+    slug: string;
+    url: string;
+  };
   Product: BusinessSectorTypes[];
   Project: BusinessSectorTypes[];
   Service: BusinessSectorTypes[];

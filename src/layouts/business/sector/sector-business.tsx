@@ -50,7 +50,7 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
               </a>
             </div>
             <div className="w-full max-w-md mx-auto">
-              <Img src={business?.data.imageHeaderUrl || "/temp-business.webp"} alt={slug} className="w-full rounded-lg h-80 md:h-96" cover />
+              <Img src={business?.data.imageHeader.url || "/temp-business.webp"} alt={slug} className="w-full rounded-lg h-80 md:h-96" cover />
             </div>
           </div>
         </>

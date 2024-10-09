@@ -41,7 +41,7 @@ export const InputBusiness = ({
   return (
     <div
       ref={refDeleteModal}
-      className="relative flex flex-col justify-between w-full gap-4 px-2 py-6 mt-6 border rounded-lg bg-light border-gray sm:flex-row md:gap-8 sm:px-4"
+      className="relative flex flex-col justify-between items-center w-full gap-4 px-2 py-6 mt-6 border rounded-lg bg-light border-gray sm:flex-row md:gap-8 sm:px-4"
     >
       {loadData ? (
         <div className="flex items-center justify-center w-full py-8">
@@ -73,15 +73,15 @@ export const InputBusiness = ({
           </>
 
           <div className="relative text-center" ref={ref}>
-            {!images.length ? (
-              <div className="cursor-pointer container-border w-60" onClick={toggleModal}>
+            {!images?.length ? (
+              <div className="cursor-pointer container-border w-52 aspect-square" onClick={toggleModal}>
                 <MdAdd className="size-8 fill-gray" />
               </div>
             ) : (
-              <Img src={images[0] || "/temp-business.webp"} alt={title} className="w-full h-40 rounded-lg sm:w-60 sm:aspect-video" cover />
+              <Img src={images[0].url || "/temp-business.webp"} alt={title} className="w-52 rounded-lg aspect-square" cover />
             )}
             <button className="text-lg duration-300 cursor-pointer text-primary hover:text-primary/80" onClick={toggleModal}>
-              {!images.length ? "Upload images" : "Show images"}
+              {!images?.length ? "Upload images" : "Show images"}
             </button>
             <AnimatePresence>
               {modal && (
@@ -99,15 +99,15 @@ export const InputBusiness = ({
                       <label className="text-sm text-slate-500 whitespace-nowrap">{images.length} Images</label>
                       <div className="absolute top-0 right-0 w-4 h-full bg-light"></div>
                     </div>
-                    <small className="pl-2 text-gray/70">maximum image size 5mb.</small>
-                    <div className="grid grid-cols-2 gap-2 mt-4 sm:grid-cols-3">
+                    <small className="pl-2 text-gray/70">maximum image size 5mb. (aspect ratio of 1:1)</small>
+                    <div className="grid grid-cols-2 gap-4 mt-4 sm:grid-cols-3">
                       {images.map((image, index) => (
                         <div key={index} className="relative">
                           <button
                             onClick={() => handleDeleteImage(slug, index)}
                             className="absolute w-4 h-4 rounded-full -top-2 -right-2 z-1 bg-secondary"
                           ></button>
-                          <Img src={image || "/temp-business.webp"} alt={title} className="w-full rounded-lg h-36" cover />
+                          <Img src={image.url || "/temp-business.webp"} alt={title} className="h-48 mx-auto rounded-lg w-full" cover />
                         </div>
                       ))}
                     </div>

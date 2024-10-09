@@ -24,7 +24,7 @@ const Content = ({ data }: { data: ArticlesTypes[] | undefined }) => {
   return (
     <menu className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 place-items-center xl:grid-cols-3">
       {!data?.length ? (
-        <h3 className="w-full col-span-1 m-8 text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
+        <h3 className="w-full col-span-1 m-8 text-lg sm:text-2xl md:text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
           The articles is not found
         </h3>
       ) : (

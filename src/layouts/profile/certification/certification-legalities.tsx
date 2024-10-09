@@ -80,7 +80,7 @@ export const CertificationLegalities = () => {
             </div>
             {documents?.data && documents?.data.length < 1 ? (
               <div className="flex items-center justify-center h-full">
-                <h3 className="w-full col-span-1 m-8 text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
+                <h3 className="w-full col-span-1 m-8 text-lg sm:text-2xl md:text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
                   The document is not found
                 </h3>
               </div>

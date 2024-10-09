@@ -15,16 +15,15 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { SmallSliderProps } from "@/types";
 
 export const SmallSlider = ({ title, children, loadData, isButton, linkButton, setIndex, className, ...props }: SmallSliderProps) => {
-  const [isBeginning, setIsBeginning] = useState<boolean>(true);
-  const [isEnd, setIsEnd] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [controlledSwiper, setControlledSwiper] = useState<SwiperClass | null>(null);
+  const totalPage = Array.isArray(children) && children.length;
 
   const handleClickPrev = () => controlledSwiper?.slidePrev();
   const handleClickNext = () => controlledSwiper?.slideNext();
 
   const handleSlideChange = (swiper: SwiperType) => {
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
+    setCurrentPage(swiper.activeIndex + 1);
     setIndex?.(swiper.activeIndex);
   };
 
@@ -40,20 +39,20 @@ export const SmallSlider = ({ title, children, loadData, isButton, linkButton, s
           )}
           <div className="flex gap-2 text-sm font-medium w-max">
             <button
-              className={`p-2 md:p-3 border rounded-lg bg-light ${isBeginning ? "border-gray" : "border-primary"}`}
-              disabled={isBeginning}
+              className={`p-2 md:p-3 border rounded-lg bg-light ${currentPage === 1 ? "border-gray" : "border-primary"}`}
+              disabled={currentPage === 1}
               type="button"
               onClick={handleClickPrev}
             >
-              <FaArrowLeft size={20} className={`${isBeginning ? "fill-gray" : "fill-secondary "}`} />
+              <FaArrowLeft size={20} className={`${currentPage === 1 ? "fill-gray" : "fill-secondary "}`} />
             </button>
             <button
-              className={`p-2 md:p-3 border rounded-lg bg-light ${isEnd ? "border-gray" : "border-primary"}`}
-              disabled={isEnd}
+              className={`p-2 md:p-3 border rounded-lg bg-light ${currentPage === totalPage ? "border-gray" : "border-primary"}`}
+              disabled={currentPage === totalPage}
               type="button"
               onClick={handleClickNext}
             >
-              <FaArrowRight size={20} className={`${isEnd ? "fill-gray" : "fill-secondary "}`} />
+              <FaArrowRight size={20} className={`${currentPage === totalPage ? "fill-gray" : "fill-secondary "}`} />
             </button>
           </div>
         </div>
