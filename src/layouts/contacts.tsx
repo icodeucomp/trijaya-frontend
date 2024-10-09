@@ -28,7 +28,7 @@ export const Contacts = () => {
               <Img src={email} alt="icon email" className="min-w-10 aspect-square" /> tbm.srg@gmail.com
             </li>
           </menu>
-          <a href="https://wa.me/6281334105663" rel="noreferrer" target="_blank" className="block">
+          <a href="https://wa.me/6281288385837" rel="noreferrer" target="_blank" className="block">
             <Button className="flex items-center justify-center w-full gap-2 btn-primary">
               <FaWhatsapp className="size-4 sm:size-5 md:size-6" /> {t("left-side.button-text")}
             </Button>

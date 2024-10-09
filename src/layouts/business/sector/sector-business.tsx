@@ -45,7 +45,7 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
               <p className="h-full overflow-y-auto text-sm leading-normal text-justify text-primary sm:text-base md:h-64 xl:h-auto scrollbar">
                 {business?.data.description}
               </p>
-              <a href={`https://wa.me/6281334105663?text=${templateMessage}`} rel="noreferrer" target="_blank" className="block mt-auto">
+              <a href={`https://wa.me/6281288385837?text=${templateMessage}`} rel="noreferrer" target="_blank" className="block mt-auto">
                 <Button className="flex items-center justify-center w-full gap-2 btn-secondary">
                   <FaWhatsapp className="size-4 sm:size-5 md:size-6" /> {t("left-side.button-text")}
                 </Button>

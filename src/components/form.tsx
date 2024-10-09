@@ -30,6 +30,8 @@ export const Form = ({ buttonTitle }: { buttonTitle: string }) => {
     }
 
     execute(input);
+
+    setInput(initValues);
   };
 
   return (
