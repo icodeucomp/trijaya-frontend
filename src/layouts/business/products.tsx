@@ -79,7 +79,7 @@ export const Products = () => {
         {openModalIndex !== null && (
           <Modal isVisible={openModalIndex !== null} onClose={closeModal}>
             <ImageSlider
-              images={filteredProduct?.Product[selectImages].media.map((item) => item.url) || ["/temp-business.webp"]}
+              images={filteredProduct?.Product[selectImages].media?.map((item) => item.url) || ["/temp-business.webp"]}
               imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-72 lg:h-96"
             />
             <SmallSlider slidesPerView={1} setIndex={setSelectImages} title={filteredProduct?.title || ""} className="space-y-2 md:space-y-4">

@@ -32,7 +32,7 @@ export const Products = ({ data, slugBusiness, id }: { slugBusiness: string; dat
   const { execute: executeDelete, loading: loadDeleteData } = usePost("DELETE", `/business/edit/${slugBusiness}`);
 
   const addElement = () => {
-    setElements((prev) => [...prev, { title: "", description: "", media: [{ slug: "", url: "" }], slug: "", newFiles: [], business: { title: "" } }]);
+    setElements((prev) => [...prev, { title: "", description: "", media: [], slug: "", newFiles: [], business: { title: "" } }]);
   };
 
   const deleteElement = async (slug: string) => {

@@ -36,56 +36,75 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
         </div>
       ) : (
         <>
-          <div className="w-full max-w-screen-sm px-4 pt-8 mx-auto space-y-4 sm:px-8">
-            <Img src={business?.data.imageHeader.url || "/temp-business.webp"} alt="temporary" className="aspect-square w-60 mx-auto" cover />
-            <h3 className="heading">{business?.data.title}</h3>
+          <div className="w-full max-w-2xl px-4 pt-8 mx-auto space-y-4 sm:px-8">
+            <div className="flex justify-between">
+              <Img
+                src={business?.data.imageHeader.url || "/temp-business.webp"}
+                alt="temporary"
+                className="aspect-square w-72 mx-auto rounded-lg"
+                cover
+              />
+              <Img
+                src={business?.data.productHeader.url || "/temp-business.webp"}
+                alt="temporary"
+                className="aspect-square w-72 mx-auto rounded-lg"
+                cover
+              />
+            </div>
+            <h3 className="heading text-center">{business?.data.title}</h3>
             <p className="text-sm sm:text-base text-dark-gray text-justify">{business?.data.description}</p>
           </div>
-          <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <ImageSlider
-              images={business?.data.Product[selectImageProduct].media.map((item) => item.url) || ["/temp-business.webp"]}
-              imgClassName="w-full max-w-xs mx-auto h-60 md:h-72"
-            />
-            <SmallSlider slidesPerView={1} title="Products" className="space-y-2 md:space-y-4 md:col-span-2" setIndex={setSelectImageProduct}>
-              {business?.data.Product.map((item, index) => (
-                <div key={index} className="space-y-2 md:space-y-4">
-                  <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>
+          {business?.data && business?.data.Product.length > 0 && (
+            <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <ImageSlider
+                images={business?.data.Product[selectImageProduct].media?.map((item) => item.url) || ["/temp-business.webp"]}
+                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80"
+              />
+              <SmallSlider slidesPerView={1} title="Products" className="space-y-2 md:space-y-4 lg:col-span-2" setIndex={setSelectImageProduct}>
+                {business?.data.Product.map((item, index) => (
+                  <div key={index} className="space-y-2 md:space-y-4">
+                    <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>
 
-                  <p className="overflow-y-auto text-sm leading-tight text-justify h-32 md:h-40 sm:text-base scrollbar">{item.description}</p>
-                </div>
-              ))}
-            </SmallSlider>
-          </div>
-          <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <ImageSlider
-              images={business?.data.Service[selectImageService].media.map((item) => item.url) || ["/temp-business.webp"]}
-              imgClassName="w-full max-w-xs mx-auto h-60 md:h-72"
-            />
-            <SmallSlider slidesPerView={1} title="Services" className="space-y-2 md:space-y-4 md:col-span-2" setIndex={setSelectImageService}>
-              {business?.data.Service.map((item, index) => (
-                <div key={index} className="space-y-2 md:space-y-4">
-                  <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>
+                    <p className="overflow-y-auto text-sm leading-tight text-justify h-32 md:h-40 sm:text-base scrollbar">{item.description}</p>
+                  </div>
+                ))}
+              </SmallSlider>
+            </div>
+          )}
+          {business?.data && business?.data.Service.length > 0 && (
+            <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <ImageSlider
+                images={business?.data.Service[selectImageService].media?.map((item) => item.url) || ["/temp-business.webp"]}
+                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80"
+              />
+              <SmallSlider slidesPerView={1} title="Services" className="space-y-2 md:space-y-4 lg:col-span-2" setIndex={setSelectImageService}>
+                {business?.data.Service.map((item, index) => (
+                  <div key={index} className="space-y-2 md:space-y-4">
+                    <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>
 
-                  <p className="overflow-y-auto text-sm leading-tight text-justify h-32 md:h-40 sm:text-base scrollbar">{item.description}</p>
-                </div>
-              ))}
-            </SmallSlider>
-          </div>
-          <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <ImageSlider
-              images={business?.data.Project[selectImageProject].media.map((item) => item.url) || ["/temp-business.webp"]}
-              imgClassName="w-full max-w-xs mx-auto h-60 md:h-72"
-            />
-            <SmallSlider slidesPerView={1} title="Projects" className="space-y-2 md:space-y-4 md:col-span-2" setIndex={setSelectImageProject}>
-              {business?.data.Project.map((item, index) => (
-                <div key={index} className="space-y-2 md:space-y-4">
-                  <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>
+                    <p className="overflow-y-auto text-sm leading-tight text-justify h-32 md:h-40 sm:text-base scrollbar">{item.description}</p>
+                  </div>
+                ))}
+              </SmallSlider>
+            </div>
+          )}
+          {business?.data && business?.data.Project.length > 0 && (
+            <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <ImageSlider
+                images={business?.data.Project[selectImageProject].media?.map((item) => item.url) || ["/temp-business.webp"]}
+                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80"
+              />
+              <SmallSlider slidesPerView={1} title="Projects" className="space-y-2 md:space-y-4 lg:col-span-2" setIndex={setSelectImageProject}>
+                {business?.data.Project.map((item, index) => (
+                  <div key={index} className="space-y-2 md:space-y-4">
+                    <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>
 
-                  <p className="overflow-y-auto text-sm leading-tight text-justify h-32 md:h-40 sm:text-base scrollbar">{item.description}</p>
-                </div>
-              ))}
-            </SmallSlider>
-          </div>
+                    <p className="overflow-y-auto text-sm leading-tight text-justify h-32 md:h-40 sm:text-base scrollbar">{item.description}</p>
+                  </div>
+                ))}
+              </SmallSlider>
+            </div>
+          )}
         </>
       )}
     </>

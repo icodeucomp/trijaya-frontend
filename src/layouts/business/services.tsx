@@ -78,7 +78,7 @@ export const Services = () => {
                 </div>
                 <ImageSlider
                   imgClassName="aspect-square"
-                  images={filteredServices?.Service[selectImages]?.media.slice(1).map((item) => item.url) || ["/temp-business.webp"]}
+                  images={filteredServices?.Service[selectImages]?.media?.slice(1).map((item) => item.url) || ["/temp-business.webp"]}
                   spaceBetween={10}
                   breakpoints={{ 0: { slidesPerView: 2 }, 768: { slidesPerView: 3 } }}
                   slidesPerView={3}

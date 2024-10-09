@@ -70,9 +70,9 @@ export const TopBar = ({ setOpenNav, data }: { setOpenNav: React.Dispatch<React.
                 <p className="text-sm font-semibold sm:text-base">{data?.username}</p>
                 <p className="text-xs tracking-tight sm:text-sm">{data?.email}</p>
               </div>
-              <button className={`p-0.5 border rounded-full duration-300 ${dropdown && "rotate-180"}`}>
+              <p className={`p-0.5 border rounded-full duration-300 ${dropdown && "rotate-180"}`}>
                 <FaCaretDown size={16} />
-              </button>
+              </p>
             </div>
             {dropdown && (
               <div className="w-full popover top-12">

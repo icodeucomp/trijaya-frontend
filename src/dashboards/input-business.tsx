@@ -74,11 +74,11 @@ export const InputBusiness = ({
 
           <div className="relative text-center" ref={ref}>
             {!images?.length ? (
-              <div className="cursor-pointer container-border w-52 aspect-square" onClick={toggleModal}>
+              <div className="cursor-pointer container-border w-52" onClick={toggleModal}>
                 <MdAdd className="size-8 fill-gray" />
               </div>
             ) : (
-              <Img src={images[0].url || "/temp-business.webp"} alt={title} className="w-52 rounded-lg aspect-square" cover />
+              <Img src={images[0].url || "/temp-business.webp"} alt={title} className="w-60 rounded-lg aspect-square" cover />
             )}
             <button className="text-lg duration-300 cursor-pointer text-primary hover:text-primary/80" onClick={toggleModal}>
               {!images?.length ? "Upload images" : "Show images"}
