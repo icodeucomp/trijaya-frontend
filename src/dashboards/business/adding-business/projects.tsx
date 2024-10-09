@@ -12,21 +12,19 @@ import { InputBusiness } from "@/dashboards/input-business";
 import { MdAdd } from "react-icons/md";
 
 import { BusinessSectorTypes } from "@/types";
+import { UploadTypes } from "@/dashboards/types";
 
 interface ProjectTypes extends BusinessSectorTypes {
   newFiles?: File[];
 }
-interface UploadTypes {
-  uploadedFiles: {
-    url: string;
-    name: string;
-  }[];
+interface UploadsTypes {
+  uploadedFiles: UploadTypes[];
 }
 
 export const Projects = ({ data, slugBusiness, id }: { slugBusiness: string; data: BusinessSectorTypes[] | undefined; id: number }) => {
   const [elements, setElements] = React.useState<ProjectTypes[]>([]);
 
-  const { uploading, uploadFile, response: dataImage } = useUpload<UploadTypes>();
+  const { uploading, uploadFile, response: dataImage } = useUpload<UploadsTypes>();
   const { execute: executeAdd, loading: loadAddData } = usePost("POST", `/business/edit/${slugBusiness}`);
   const { execute: executeUpdate, loading: loadUpdateData } = usePost("PATCH", `/business/edit/${slugBusiness}`);
   const { execute: executeDelete, loading: loadDeleteData } = usePost("DELETE", `/business/edit/${slugBusiness}`);
@@ -94,7 +92,7 @@ export const Projects = ({ data, slugBusiness, id }: { slugBusiness: string; dat
     const element = elements.find((el) => el.slug === slug);
     const files = element?.newFiles;
     if (!files) {
-      toast.success("Success upload file");
+      toast.error("You not change the images!");
       return;
     }
     if (element) {
@@ -134,6 +132,7 @@ export const Projects = ({ data, slugBusiness, id }: { slugBusiness: string; dat
           description={item.description}
           title={item.title}
           images={item.media}
+          newFiles={item.newFiles}
           onDelete={deleteElement}
           onInputChange={handleInputChange}
           onImagesChange={handleImagesChange}

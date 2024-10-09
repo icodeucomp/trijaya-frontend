@@ -25,6 +25,7 @@ export const InputBusiness = ({
   uploading,
   handleSubmitForm,
   loadData,
+  newFiles,
 }: InputBusinessProps) => {
   const [ref, modal, toggleModal] = useToggleState();
   const [refDeleteModal, deleteModal, toggleDeleteModal] = useToggleState();
@@ -119,11 +120,15 @@ export const InputBusiness = ({
                         <div className="loader"></div>
                       </div>
                     ) : (
-                      <div className="flex justify-end">
-                        <Button type="button" className="btn-primary" onClick={() => handleSubmitImage(slug)}>
-                          Save
-                        </Button>
-                      </div>
+                      <>
+                        {newFiles && newFiles?.length > 0 && (
+                          <div className="flex justify-end">
+                            <Button type="button" className="btn-primary" onClick={() => handleSubmitImage(slug)}>
+                              Save
+                            </Button>
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
                 </Modal>

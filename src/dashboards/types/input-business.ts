@@ -8,6 +8,7 @@ export interface InputBusinessProps {
     url: string;
     slug: string;
   }[];
+  newFiles?: File[];
   uploading: boolean;
   onInputChange: (slug: string, e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   onImagesChange: (slug: string, e: ChangeEvent<HTMLInputElement>) => void;

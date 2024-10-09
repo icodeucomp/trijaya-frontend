@@ -41,8 +41,8 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
       if (confirm("Are you sure to back to previous page? Your data will not be saved!")) {
         setTitle(business?.data.title || "");
         setDescription(business?.data.description || "");
-        setImageHeader({ url: business?.data.imageHeader.url || "", name: business?.data.imageHeader.slug || "" });
-        setProductHeader({ url: business?.data.productHeader.url || "", name: business?.data.productHeader.slug || "" });
+        setImageHeader({ url: business?.data.imageHeader.url || "", name: business?.data.imageHeader.slug || "", size: "" });
+        setProductHeader({ url: business?.data.productHeader.url || "", name: business?.data.productHeader.slug || "", size: "" });
         back();
         return;
       } else {
@@ -56,14 +56,14 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
   const handleFileImageHeader = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
     await uploadImageHeader(file!, `type=business&category=${slug}`);
-    setImageHeader({ url: URL.createObjectURL(file!), name: file?.name || "" });
+    setImageHeader({ url: URL.createObjectURL(file!), name: file?.name || "", size: "" });
   };
 
   // handle image product upload
   const handleFileImageProduct = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
     await uploadImageProduct(file!, `type=business&category=${slug}`);
-    setProductHeader({ url: URL.createObjectURL(file!), name: file?.name || "" });
+    setProductHeader({ url: URL.createObjectURL(file!), name: file?.name || "", size: "" });
   };
 
   // handle edit data
@@ -88,8 +88,8 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
     if (business?.data !== null) {
       setTitle(business?.data.title || "");
       setDescription(business?.data.description || "");
-      setImageHeader({ url: business?.data.imageHeader.url || "", name: business?.data.imageHeader.slug || "" });
-      setProductHeader({ url: business?.data.productHeader.url || "", name: business?.data.productHeader.slug || "" });
+      setImageHeader({ url: business?.data.imageHeader.url || "", name: business?.data.imageHeader.slug || "", size: "" });
+      setProductHeader({ url: business?.data.productHeader.url || "", name: business?.data.productHeader.slug || "", size: "" });
     }
   }, [business]);
 
