@@ -86,27 +86,39 @@ export const AllSectorBusiness = ({ slug }: { slug: string }) => {
 
   return (
     <Container className="pb-20">
-      <SectorBusiness
-        data={business?.data.Product}
-        loading={loading as boolean}
-        openModalIndex={openModalProducts}
-        setOpenModalIndex={setOpenModalProducts}
-        title="Products"
-      />
-      <SectorBusiness
-        data={business?.data.Project}
-        loading={loading as boolean}
-        openModalIndex={openModalProjects}
-        setOpenModalIndex={setOpenModalProjects}
-        title="Projects"
-      />
-      <SectorBusiness
-        data={business?.data.Service}
-        loading={loading as boolean}
-        openModalIndex={openModalServices}
-        setOpenModalIndex={setOpenModalServices}
-        title="Services"
-      />
+      <>
+        {business?.data && business?.data.Product.length > 0 && (
+          <SectorBusiness
+            data={business?.data.Product}
+            loading={loading as boolean}
+            openModalIndex={openModalProducts}
+            setOpenModalIndex={setOpenModalProducts}
+            title="Products"
+          />
+        )}
+      </>
+      <>
+        {business?.data && business?.data.Project.length > 0 && (
+          <SectorBusiness
+            data={business?.data.Project}
+            loading={loading as boolean}
+            openModalIndex={openModalProjects}
+            setOpenModalIndex={setOpenModalProjects}
+            title="Projects"
+          />
+        )}
+      </>
+      <>
+        {business?.data && business?.data.Service.length > 0 && (
+          <SectorBusiness
+            data={business?.data.Service}
+            loading={loading as boolean}
+            openModalIndex={openModalServices}
+            setOpenModalIndex={setOpenModalServices}
+            title="Services"
+          />
+        )}
+      </>
     </Container>
   );
 };
