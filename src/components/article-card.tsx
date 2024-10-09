@@ -14,7 +14,7 @@ import { ArticleCardProps } from "@/types";
 export const ArticleCard = ({ date, title, pathUrl, pathImg }: ArticleCardProps) => {
   return (
     <>
-      <Img src={pathImg || "/temp-article.webp"} alt={title} className="w-full h-64 rounded-lg" cover />
+      <Img src={pathImg || "/temp-article.webp"} alt={title} className="w-full h-72 rounded-lg" cover />
       <div className="flex gap-4 mt-2 text-xs sm:text-sm text-dark-gray">
         <li className="flex gap-1">
           <Img src={calendar} alt="calendar icon" className="size-4" />

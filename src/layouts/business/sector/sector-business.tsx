@@ -21,6 +21,8 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
     notFound();
   }
 
+  const templateMessage: string = `Halo%2C%20saya%20tertarik%20dengan%20layanan%20${business?.data.title}%20PT.Trijaya%20Berkah%20Mandiri.%0ABisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut%3F%20Terima%20kasih.`;
+
   return (
     <Container className="pt-10 pb-16 space-y-8">
       {loading ? (
@@ -43,7 +45,7 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
               <p className="h-full overflow-y-auto text-sm leading-normal text-justify text-primary sm:text-base md:h-64 xl:h-auto scrollbar">
                 {business?.data.description}
               </p>
-              <a href="https://wa.me/6281334105663" rel="noreferrer" target="_blank" className="block mt-auto">
+              <a href={`https://wa.me/6281334105663?text=${templateMessage}`} rel="noreferrer" target="_blank" className="block mt-auto">
                 <Button className="flex items-center justify-center w-full gap-2 btn-secondary">
                   <FaWhatsapp className="size-4 sm:size-5 md:size-6" /> {t("left-side.button-text")}
                 </Button>

@@ -11,7 +11,7 @@ export const Img = ({ src, alt, className, cover, priority = false }: ImgProps) 
         alt={alt}
         fill
         objectFit={cover ? "cover" : ""}
-        objectPosition="top"
+        objectPosition="center"
         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(500, 500))}`}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         priority={priority}
