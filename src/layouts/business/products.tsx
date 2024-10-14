@@ -6,6 +6,8 @@ import { useGetApi } from "@/hooks";
 
 import { useDebounce } from "use-debounce";
 
+import { useTranslations } from "next-intl";
+
 import { Background, BigSlider, Container, ImageSlider, Modal, SmallSlider } from "@/components";
 
 import { AnimatePresence } from "framer-motion";
@@ -13,6 +15,8 @@ import { AnimatePresence } from "framer-motion";
 import { BusinessesTypes, ResponseBusinessesTypes } from "@/types";
 
 export const Products = () => {
+  const t = useTranslations("business");
+
   const [productsData, setProductsData] = React.useState<BusinessesTypes[]>();
   const [filteredProduct, setFilteredProduct] = React.useState<BusinessesTypes>();
   const [openModalIndex, setOpenModalIndex] = React.useState<string | null>(null);
@@ -49,7 +53,7 @@ export const Products = () => {
     <Container id="product" className="pt-10 pb-16 sm:pb-20">
       <BigSlider
         className="space-y-8"
-        title="Products"
+        title={`${t("products")}`}
         isButton
         loadData={loading as boolean}
         linkButton="/business/sector"

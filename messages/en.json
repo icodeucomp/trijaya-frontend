@@ -1,6 +1,7 @@
 {
   "welcome": "Welcome",
   "language": "English Language",
+  "learn-more": "Learn More",
   "home": {
     "hero": {
       "title": "Rely on Us to Deliver Your Project Goals from Concept to Completion",
@@ -135,7 +136,9 @@
     "your-business": {
       "title": "Solutions for Your Business Needs",
       "description": "We offer specialized products and services to meet your needs and operational goals"
-    }
+    },
+    "products": "Products",
+    "services": "Services"
   },
   "certification": {
     "hero": {

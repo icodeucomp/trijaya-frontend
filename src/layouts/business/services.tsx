@@ -6,6 +6,8 @@ import { Link } from "@/i18n/routing";
 
 import { useGetApi } from "@/hooks";
 
+import { useTranslations } from "next-intl";
+
 import { Button, Container, Dropdown, ImageSlider, Img, SmallSlider } from "@/components";
 
 import { BusinessesTypes, ResponseBusinessesTypes } from "@/types";
@@ -17,6 +19,8 @@ interface TitleServicesTypes {
 }
 
 export const Services = () => {
+  const t = useTranslations();
+
   const { response: services, loading } = useGetApi<ResponseBusinessesTypes>("/business");
 
   const [filteredServices, setFilteredServices] = React.useState<BusinessesTypes>();
@@ -50,9 +54,9 @@ export const Services = () => {
   return (
     <Container id="service" className="pt-12 pb-8 space-y-8 sm:pb-16 sm:pt-16 md:pt-24">
       <div className="flex items-center justify-between">
-        <h3 className="heading">Services</h3>
+        <h3 className="heading">{t("business.services")}</h3>
         <Link href="/business/sector">
-          <Button className="btn-outline">Learn More</Button>
+          <Button className="btn-outline">{t("learn-more")}</Button>
         </Link>
       </div>
       {!filteredServices?.Service.length ? (

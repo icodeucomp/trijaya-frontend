@@ -8,6 +8,8 @@ import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
 import { Controller } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper/types";
 
+import { useTranslations } from "next-intl";
+
 import { Button } from "./button";
 
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
@@ -15,6 +17,8 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { BigSliderProps } from "@/types";
 
 export const BigSlider = ({ title, children, loadData, isButton, linkButton, className, ...props }: BigSliderProps) => {
+  const t = useTranslations();
+
   const [isBeginning, setIsBeginning] = useState<boolean>(false);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   const [controlledSwiper, setControlledSwiper] = useState<SwiperClass | null>(null);
@@ -34,7 +38,7 @@ export const BigSlider = ({ title, children, loadData, isButton, linkButton, cla
         <div className="relative flex items-center gap-4">
           {isButton && (
             <Link href={linkButton as string}>
-              <Button className="btn-outline">Learn More</Button>
+              <Button className="btn-outline">{t("learn-more")}</Button>
             </Link>
           )}
           <div className="flex gap-2 text-sm font-medium w-max">

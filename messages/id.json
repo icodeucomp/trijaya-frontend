@@ -1,6 +1,7 @@
 {
   "welcome": "Selamat Datang",
   "language": "Bahasa Indonesia",
+  "learn-more": "Pelajari Lebih Lanjut",
   "home": {
     "hero": {
       "title": "Percayakan kepada Kami untuk Mencapai Tujuan Proyek Anda dari Konsep hingga Penyelesaian",
@@ -135,7 +136,9 @@
     "your-business": {
       "title": "Solusi Kebutuhan Bisnis Anda",
       "description": "Kami menawarkan produk dan layanan khusus untuk memenuhi kebutuhan dan tujuan operasional Anda"
-    }
+    },
+    "products": "Produk",
+    "services": "Layanan"
   },
   "certification": {
     "hero": {

@@ -70,6 +70,15 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (
+      title === business?.data.title ||
+      description === business?.data.description ||
+      imageHeader === business?.data.imageHeader.url ||
+      productHeader === business?.data.productHeader.url
+    ) {
+      return;
+    }
+
     execute(`/business/${slug}`, {
       title,
       description,
