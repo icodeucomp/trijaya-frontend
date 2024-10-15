@@ -8,7 +8,7 @@ import { useGetApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
 
-import { Button, Container, Dropdown, ImageSlider, Img, SmallSlider } from "@/components";
+import { Button, Container, Dropdown, ImageSlider, Img, Motion, SmallSlider } from "@/components";
 
 import { BusinessesTypes, ResponseBusinessesTypes } from "@/types";
 import { useDebounce } from "use-debounce";
@@ -54,18 +54,22 @@ export const Services = () => {
   return (
     <Container id="service" className="pt-12 pb-8 space-y-8 sm:pb-16 sm:pt-16 md:pt-24">
       <div className="flex items-center justify-between">
-        <h3 className="heading">{t("business.services")}</h3>
-        <Link href="/business/sector">
-          <Button className="btn-outline">{t("learn-more")}</Button>
-        </Link>
+        <Motion tag="h3" initialX={-40} animateX={0} duration={0.3} className="heading">
+          {t("business.services")}
+        </Motion>
+        <Motion tag="div" initialX={40} animateX={0} duration={0.6} delay={0.3}>
+          <Link href="/business/sector">
+            <Button className="btn-outline">{t("learn-more")}</Button>
+          </Link>
+        </Motion>
       </div>
       {!filteredServices?.Service.length ? (
-        <h3 className="w-full col-span-1 m-8 text-lg sm:text-2xl md:text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
+        <h3 className="w-full col-span-1 m-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">
           The services is not found
         </h3>
       ) : (
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-0">
-          <div className="w-full max-w-xl mx-auto space-y-4 lg:max-w-2xl">
+          <Motion tag="div" initialY={40} animateY={0} duration={0.3} className="w-full max-w-xl mx-auto space-y-4 lg:max-w-2xl">
             {loading ? (
               <div className="flex justify-center w-full py-8">
                 <span className="loader"></span>
@@ -93,8 +97,8 @@ export const Services = () => {
                 )}
               </>
             )}
-          </div>
-          <div className="w-full space-y-4 sm:space-y-8 lg:pl-8">
+          </Motion>
+          <Motion tag="div" initialY={40} animateY={0} duration={0.6} delay={0.3} className="w-full space-y-4 sm:space-y-8 lg:pl-8">
             {loading ? (
               <div className="flex justify-center w-full py-8">
                 <span className="loader"></span>
@@ -118,7 +122,7 @@ export const Services = () => {
                 </SmallSlider>
               </>
             )}
-          </div>
+          </Motion>
         </div>
       )}
     </Container>

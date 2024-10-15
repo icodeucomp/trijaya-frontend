@@ -8,7 +8,7 @@ import { useDebounce } from "use-debounce";
 
 import { useTranslations } from "next-intl";
 
-import { Background, BigSlider, Container, ImageSlider, Modal, SmallSlider } from "@/components";
+import { Background, BigSlider, Container, ImageSlider, Modal, Motion, SmallSlider } from "@/components";
 
 import { AnimatePresence } from "framer-motion";
 
@@ -63,19 +63,21 @@ export const Products = () => {
       >
         {productsData?.map((item, index) => (
           <div key={index} onClick={() => openModal(item.slug)} className="cursor-pointer">
-            <Background
-              src={item.productHeader.url || "/temp-business.webp"}
-              className="flex-col justify-between w-full py-4 sm:py-6 min-h-300 filter-image"
-              parentClassName="rounded-lg"
-            >
-              <div className={`px-4 py-1 sm:px-6 rounded-3xl w-max ${colorLabel[index]}`}>
-                <label className="text-xs sm:text-sm">{item.title}</label>
-              </div>
-              <div className="space-y-1 text-light">
-                <h5 className="text-sm sm:text-base lg:text-lg">PT Trijaya Berkah Mandiri</h5>
-                <h6 className="text-base font-semibold lg:text-xl">{item.Product.length} Products</h6>
-              </div>
-            </Background>
+            <Motion tag="div" initialY={40} animateY={0} duration={1} delay={index * 0.1}>
+              <Background
+                src={item.productHeader.url || "/temp-business.webp"}
+                className="flex-col justify-between w-full py-4 sm:py-6 min-h-300 filter-image"
+                parentClassName="rounded-lg"
+              >
+                <div className={`px-4 py-1 sm:px-6 rounded-3xl w-max ${colorLabel[index]}`}>
+                  <label className="text-xs sm:text-sm">{item.title}</label>
+                </div>
+                <div className="space-y-1 text-light">
+                  <h5 className="text-sm sm:text-base lg:text-lg">PT Trijaya Berkah Mandiri</h5>
+                  <h6 className="text-base font-semibold lg:text-xl">{item.Product.length} Products</h6>
+                </div>
+              </Background>
+            </Motion>
           </div>
         ))}
       </BigSlider>

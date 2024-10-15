@@ -1,4 +1,4 @@
-import { Button, Container, Form, Img } from "@/components";
+import { Button, Container, Form, Img, Motion } from "@/components";
 
 import { call, email, location } from "@/icons";
 import { useTranslations } from "next-intl";
@@ -10,12 +10,12 @@ export const Contacts = () => {
 
   return (
     <Container id="contact" className="py-10 space-y-10 sm:py-16 md:py-20 md:space-y-12">
-      <div className="space-y-2 text-center">
+      <Motion tag="div" initialY={-40} animateY={0} duration={0.3} className="space-y-2 text-center">
         <h3 className="heading">{t("head.title")}</h3>
         <p className="subheading">{t("head.description")}</p>
-      </div>
+      </Motion>
       <div className="flex flex-col justify-between gap-12 md:gap-6 lg:gap-20 md:flex-row">
-        <div className="flex-1 space-y-4 sm:space-y-8">
+        <Motion tag="div" initialX={-40} animateX={0} duration={0.3} className="flex-1 space-y-4 sm:space-y-8">
           <h3 className="text-xl font-semibold sm:text-2xl lg:text-3xl text-primary">{t("left-side.title")}</h3>
           <menu className="space-y-2">
             <li className="flex items-center gap-3 text-sm sm:text-base">
@@ -33,14 +33,21 @@ export const Contacts = () => {
               <FaWhatsapp className="size-4 sm:size-5 md:size-6" /> {t("left-side.button-text")}
             </Button>
           </a>
-        </div>
-        <div className="flex-1 px-4 py-4 space-y-4 card-shadow md:px-8 rounded-2xl bg-light">
+        </Motion>
+        <Motion
+          tag="div"
+          initialX={40}
+          animateX={0}
+          duration={0.6}
+          delay={0.3}
+          className="flex-1 px-4 py-4 space-y-4 card-shadow md:px-8 rounded-2xl bg-light"
+        >
           <div className="space-y-2">
             <h4 className="text-xl font-semibold sm:text-2xl lg:text-3xl text-primary">{t("right-side.title")}</h4>
             <p className="text-sm">{t("right-side.description")}</p>
           </div>
           <Form buttonTitle={`${t("right-side.button-text")}`} />
-        </div>
+        </Motion>
       </div>
     </Container>
   );

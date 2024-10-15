@@ -51,7 +51,7 @@ export const Header = () => {
             <LanguageSwitcher />
           </div>
 
-          <div className="block lg:hidden">
+          <div className="flex items-center lg:hidden">
             <button onClick={toggleNavbar}>
               {navbar ? <IoMdClose size={32} className="fill-primary" /> : <IoMdMenu size={32} className="fill-primary" />}
             </button>

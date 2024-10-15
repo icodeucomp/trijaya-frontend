@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { useTranslations } from "next-intl";
 
-import { Container } from "@/components";
+import { Container, Motion } from "@/components";
 
 import { clientsTableLists } from "@/static";
 import { shimmer, toBase64 } from "@/utils";
@@ -11,13 +11,13 @@ export const Experiences = () => {
   const t = useTranslations("business.experiences");
   return (
     <Container id="experience" className="pb-20">
-      <div className="max-w-xl mx-auto space-y-2 text-center">
+      <Motion tag="div" initialY={-40} animateY={0} duration={1} className="max-w-xl mx-auto space-y-2 text-center">
         <h3 className="heading">{t("title")}</h3>
         <p className="text-sm font-medium sm:text-base md:text-lg text-dark-gray">{t("description")}</p>
-      </div>
+      </Motion>
       <div className="grid grid-cols-1 gap-8 px-0 mt-8 md:grid-cols-2 sm:px-4 md:px-8">
         {clientsTableLists.map((item, index) => (
-          <div key={index} className="overflow-hidden">
+          <Motion tag="div" initialY={40} animateY={0} duration={1} delay={index * 0.1} key={index} className="overflow-hidden">
             <h6 className="py-3 text-center rounded-t-lg bg-primary text-light">{item.year}</h6>
             {item.clients.map((item, index, row) => {
               const smallTitleSize = ["PT JUMANTA MITRA UTAMA", "PT Suri Tani Pemuka", "PT Arwana Citra Mulia Tbk", "PT Japfa Comfeed Indonesia Tbk"];
@@ -46,7 +46,7 @@ export const Experiences = () => {
                 </div>
               );
             })}
-          </div>
+          </Motion>
         ))}
       </div>
     </Container>

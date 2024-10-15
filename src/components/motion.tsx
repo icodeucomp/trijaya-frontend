@@ -9,35 +9,19 @@ import { useInView } from "react-intersection-observer";
 interface MotionComponentProps extends MotionProps {
   children: React.ReactNode;
   className?: string;
-  tag?: keyof JSX.IntrinsicElements;
+  tag: keyof JSX.IntrinsicElements;
   initialY?: number;
   animateY?: number;
   initialX?: number;
   animateX?: number;
   duration?: number;
   delay?: number;
-  threshold?: number;
 }
 
 export const Motion = React.forwardRef<HTMLElement, MotionComponentProps>(
-  (
-    {
-      children,
-      className,
-      tag = "div",
-      initialY = 0,
-      animateY = 0,
-      initialX = 0,
-      animateX = 0,
-      duration = 0.5,
-      delay = 0,
-      threshold = 0.25,
-      ...rest
-    },
-    ref
-  ) => {
+  ({ children, className, tag = "div", initialY = 0, animateY = 0, initialX = 0, animateX = 0, duration = 0.5, delay = 0, ...rest }, ref) => {
     const [inViewRef, inView] = useInView({
-      threshold,
+      threshold: 0.1,
       triggerOnce: false,
     });
 

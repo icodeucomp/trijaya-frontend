@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { Container, Img } from "@/components";
+import { Container, Img, Motion } from "@/components";
 
 import { OrganizationalLists } from "@/static";
 
@@ -10,11 +10,18 @@ export const OrganizationalStructure = () => {
   const organizational = OrganizationalLists();
   return (
     <Container id="organizational" className="py-16 space-y-8">
-      <div className="space-y-4 text-center sm:space-y-2 sm:text-start">
+      <Motion tag="div" initialY={-40} animateY={0} duration={0.3} className="space-y-4 text-center sm:space-y-2 sm:text-start">
         <h3 className="heading">{t("title")}</h3>
         <p className="subheading">{t("description")}</p>
-      </div>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      </Motion>
+      <Motion
+        tag="div"
+        initialY={40}
+        animateY={0}
+        duration={0.6}
+        delay={0.3}
+        className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+      >
         {organizational.map((item, index) => (
           <div key={index} className={`relative ${index === 0 ? "xl:row-span-2" : "row-span-1"}`}>
             <Img src={item.pathImg} alt={item.name} className={`w-full rounded-lg ${index === 0 ? "h-full" : "h-60 sm:h-72"}`} cover />
@@ -24,7 +31,7 @@ export const OrganizationalStructure = () => {
             </div>
           </div>
         ))}
-      </div>
+      </Motion>
     </Container>
   );
 };

@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function ContactUsLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <>{children}</>;
+  return <section className="overflow-x-hidden">{children}</section>;
 }

@@ -34,7 +34,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
 
   return (
     <html lang={locale}>
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} overflow-x-hidden`}>
         <NextIntlClientProvider messages={messages}>
           <Toaster position="bottom-center" />
           <Header />

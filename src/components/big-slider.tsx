@@ -11,6 +11,7 @@ import { Swiper as SwiperType } from "swiper/types";
 import { useTranslations } from "next-intl";
 
 import { Button } from "./button";
+import { Motion } from "./motion";
 
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
@@ -34,8 +35,10 @@ export const BigSlider = ({ title, children, loadData, isButton, linkButton, cla
   return (
     <div className={`relative w-full ${className ?? ""}`}>
       <div className="flex items-center justify-between">
-        <h3 className="heading">{title}</h3>
-        <div className="relative flex items-center gap-4">
+        <Motion tag="h3" initialX={-50} animateX={0} duration={0.4} className="heading">
+          {title}
+        </Motion>
+        <Motion tag="div" initialX={50} animateX={0} duration={0.8} delay={0.4} className="relative flex items-center gap-4">
           {isButton && (
             <Link href={linkButton as string}>
               <Button className="btn-outline">{t("learn-more")}</Button>
@@ -59,7 +62,7 @@ export const BigSlider = ({ title, children, loadData, isButton, linkButton, cla
               <FaArrowRight size={20} className={`${isEnd ? "fill-gray" : "fill-secondary "}`} />
             </button>
           </div>
-        </div>
+        </Motion>
       </div>
 
       {loadData ? (

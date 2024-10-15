@@ -4,7 +4,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { useGetSearchApi } from "@/hooks";
 import { useDebounce } from "use-debounce";
 
-import { Container, DisplayThumbnail, Pagination } from "@/components";
+import { Container, DisplayThumbnail, Motion, Pagination } from "@/components";
 import { SearchFilter } from "./search-filter";
 import { CardCertification } from "./card-certification";
 import { DateValueType } from "react-tailwindcss-datepicker";
@@ -64,28 +64,36 @@ export const CertificationLegalities = () => {
 
   return (
     <Container className="py-10 space-y-8 sm:py-16 md:py-20">
-      <h2 className="text-center heading">Company Legalities and Certifications</h2>
-      <div className="hidden lg:block">
+      <Motion tag="h2" initialY={-40} animateY={0} duration={0.3} className="text-center heading">
+        Company Legalities and Certifications
+      </Motion>
+      <Motion tag="div" initialY={-40} animateY={0} duration={0.6} delay={0.3} className="hidden lg:block">
         <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} searchTerm={searchTerm} date={date} setDate={setDate} />
-      </div>
+      </Motion>
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         {loading ? (
           <div className="flex items-center justify-center min-h-500">
             <div className="loader"></div>
           </div>
         ) : (
-          <div className="relative order-2 w-full lg:order-1 min-h-600 lg:min-h-500 flex flex-col">
+          <Motion
+            tag="div"
+            initialX={-40}
+            animateX={0}
+            duration={0.3}
+            className="relative flex flex-col order-2 w-full lg:order-1 min-h-600 lg:min-h-500"
+          >
             <div className="block lg:hidden">
               <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} searchTerm={searchTerm} date={date} setDate={setDate} />
             </div>
             {documents?.data && documents?.data.length < 1 ? (
               <div className="flex items-center justify-center h-full">
-                <h3 className="w-full col-span-1 m-8 text-lg sm:text-2xl md:text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
+                <h3 className="w-full col-span-1 m-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">
                   The document is not found
                 </h3>
               </div>
             ) : (
-              <div className="space-y-8 mt-8">
+              <div className="mt-8 space-y-8">
                 {documents?.data.map((item, index) => (
                   <CardCertification
                     key={index}
@@ -101,12 +109,12 @@ export const CertificationLegalities = () => {
                 ))}
               </div>
             )}
-            <div className="mt-auto w-full">
+            <div className="w-full mt-auto">
               <Pagination setPage={setPage} totalPage={totalPage} page={page} />
             </div>
-          </div>
+          </Motion>
         )}
-        <div className="order-1 w-full space-y-4 text-center lg:order-2">
+        <Motion tag="div" initialX={40} animateX={0} duration={0.6} delay={0.3} className="order-1 w-full space-y-4 text-center lg:order-2">
           <div className="flex justify-center w-full mt-4 lg:mt-8 preview-thumbnail-selected">
             <DisplayThumbnail
               fileUrl={
@@ -122,7 +130,7 @@ export const CertificationLegalities = () => {
               {convertDate(selectedCard?.uploadedAt || "")}
             </p>
           </div>
-        </div>
+        </Motion>
       </div>
     </Container>
   );

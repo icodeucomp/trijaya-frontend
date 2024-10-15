@@ -4,7 +4,7 @@ import { useGetSearchApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
 
-import { ArticleCard, BigSlider, Container } from "@/components";
+import { ArticleCard, BigSlider, Container, Motion } from "@/components";
 
 import { ResponseArticlesTypes } from "@/types";
 
@@ -27,9 +27,9 @@ export const Articles = () => {
         breakpoints={{ 0: { slidesPerView: 1 }, 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}
       >
         {articles?.data.map((item, index) => (
-          <div key={index}>
+          <Motion tag="div" initialY={50} animateY={0} duration={0.5} delay={index * 0.1} key={index}>
             <ArticleCard date={item.updatedAt} title={item.title} pathUrl={item.slug} pathImg={item.imageHeader} />
-          </div>
+          </Motion>
         ))}
       </BigSlider>
     </Container>

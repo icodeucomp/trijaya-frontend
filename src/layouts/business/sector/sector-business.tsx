@@ -6,7 +6,7 @@ import { useGetApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
 
-import { Breadcrumbs, Button, Container, Img } from "@/components";
+import { Breadcrumbs, Button, Container, Img, Motion } from "@/components";
 
 import { FaWhatsapp } from "react-icons/fa6";
 
@@ -31,16 +31,16 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
         </div>
       ) : (
         <>
-          <div className="hidden md:block">
+          <Motion tag="div" initialY={-40} animateY={0} duration={0.5} className="hidden md:block">
             <Breadcrumbs
               items={[
                 { name: "Business", path: "/business/sector" },
                 { name: business?.data.title || "", path: slug },
               ]}
             />
-          </div>
+          </Motion>
           <div className="flex flex-col-reverse gap-4 md:gap-8 md:flex-row">
-            <div className="flex flex-col w-full max-w-screen-md gap-4">
+            <Motion tag="div" initialX={-40} animateX={0} duration={0.6} delay={0.3} className="flex flex-col w-full max-w-screen-md gap-4">
               <h3 className="heading">{business?.data.title}</h3>
               <p className="h-full overflow-y-auto text-sm leading-normal text-justify text-primary sm:text-base md:h-64 xl:h-auto scrollbar">
                 {business?.data.description}
@@ -50,10 +50,10 @@ export const SectorBusiness = ({ slug }: { slug: string }) => {
                   <FaWhatsapp className="size-4 sm:size-5 md:size-6" /> {t("left-side.button-text")}
                 </Button>
               </a>
-            </div>
-            <div className="w-full max-w-md mx-auto">
+            </Motion>
+            <Motion tag="div" initialX={40} animateX={0} duration={0.9} delay={0.6} className="w-full max-w-md mx-auto">
               <Img src={business?.data.imageHeader.url || "/temp-business.webp"} alt={slug} className="w-full rounded-lg h-80 md:h-96" cover />
-            </div>
+            </Motion>
           </div>
         </>
       )}
