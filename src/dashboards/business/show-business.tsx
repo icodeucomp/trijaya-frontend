@@ -56,10 +56,14 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
           </div>
           {business?.data && business?.data.Product.length > 0 && (
             <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <ImageSlider
-                images={business?.data.Product[selectImageProduct].media?.map((item) => item.url) || ["/temp-business.webp"]}
-                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80"
-              />
+              {business?.data && business?.data.Product[selectImageProduct].media.length > 0 ? (
+                <ImageSlider
+                  images={business?.data.Product[selectImageProduct].media?.map((item) => item.url)}
+                  imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80"
+                />
+              ) : (
+                <ImageSlider images={["/temp-business.webp"]} imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80" />
+              )}
               <SmallSlider slidesPerView={1} title="Products" className="space-y-2 md:space-y-4 lg:col-span-2" setIndex={setSelectImageProduct}>
                 {business?.data.Product.map((item, index) => (
                   <div key={index} className="space-y-2 md:space-y-4">
@@ -73,10 +77,14 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
           )}
           {business?.data && business?.data.Service.length > 0 && (
             <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <ImageSlider
-                images={business?.data.Service[selectImageService].media?.map((item) => item.url) || ["/temp-business.webp"]}
-                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80"
-              />
+              {business?.data && business?.data.Service[selectImageService].media.length > 0 ? (
+                <ImageSlider
+                  images={business?.data.Service[selectImageService].media?.map((item) => item.url)}
+                  imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80"
+                />
+              ) : (
+                <ImageSlider images={["/temp-business.webp"]} imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80" />
+              )}
               <SmallSlider slidesPerView={1} title="Services" className="space-y-2 md:space-y-4 lg:col-span-2" setIndex={setSelectImageService}>
                 {business?.data.Service.map((item, index) => (
                   <div key={index} className="space-y-2 md:space-y-4">
@@ -90,10 +98,14 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
           )}
           {business?.data && business?.data.Project.length > 0 && (
             <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              <ImageSlider
-                images={business?.data.Project[selectImageProject].media?.map((item) => item.url) || ["/temp-business.webp"]}
-                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80"
-              />
+              {business?.data && business?.data.Project[selectImageProject].media.length > 0 ? (
+                <ImageSlider
+                  images={business?.data.Project[selectImageProject].media?.map((item) => item.url)}
+                  imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80"
+                />
+              ) : (
+                <ImageSlider images={["/temp-business.webp"]} imgClassName="w-full max-w-xs md:max-w-full mx-auto h-60 sm:72 md:h-80" />
+              )}
               <SmallSlider slidesPerView={1} title="Projects" className="space-y-2 md:space-y-4 lg:col-span-2" setIndex={setSelectImageProject}>
                 {business?.data.Project.map((item, index) => (
                   <div key={index} className="space-y-2 md:space-y-4">

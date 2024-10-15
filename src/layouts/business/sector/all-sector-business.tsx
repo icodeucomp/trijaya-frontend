@@ -57,10 +57,14 @@ const SectorBusiness = ({ title, data, loading, openModalIndex, setOpenModalInde
       <AnimatePresence>
         {openModalIndex !== null && (
           <Modal isVisible={openModalIndex !== null} onClose={closeModal}>
-            <ImageSlider
-              images={filterData?.media?.map((item) => item.url) || ["/temp-business.webp"]}
-              imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-72 lg:h-96"
-            />
+            {filterData && filterData?.media.length > 0 ? (
+              <ImageSlider
+                images={filterData?.media?.map((item) => item.url)}
+                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-72 lg:h-96"
+              />
+            ) : (
+              <ImageSlider images={["/temp-business.webp"]} imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-72 lg:h-96" />
+            )}
             <div className={`relative w-full space-y-8`}>
               <h3 className="font-medium text-xl sm:text-2xl md:text-3xl text-primary">{title}</h3>
               <div className="space-y-2 md:space-y-4">

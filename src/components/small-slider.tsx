@@ -8,15 +8,23 @@ import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
 import { Controller } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper/types";
 
-import { useTranslations } from "next-intl";
 import { Button } from "./button";
 
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 import { SmallSliderProps } from "@/types";
+import { usePathname } from "next/navigation";
 
 export const SmallSlider = ({ title, children, loadData, isButton, linkButton, setIndex, className, ...props }: SmallSliderProps) => {
-  const t = useTranslations();
+  const pathname = usePathname();
+
+  const renderText = pathname.startsWith("/en")
+    ? "Learn More"
+    : pathname.startsWith("/cn")
+    ? "了解更多"
+    : pathname.startsWith("/id")
+    ? "Pelajari Lebih Lanjut"
+    : "Learn More";
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [controlledSwiper, setControlledSwiper] = useState<SwiperClass | null>(null);
@@ -37,7 +45,7 @@ export const SmallSlider = ({ title, children, loadData, isButton, linkButton, s
         <div className="relative flex items-center gap-4">
           {isButton && (
             <Link href={linkButton as string}>
-              <Button className="btn-outline">{t("learn-more")}</Button>
+              <Button className="btn-outline">{renderText}</Button>
             </Link>
           )}
           <div className="flex gap-2 text-sm font-medium w-max">
