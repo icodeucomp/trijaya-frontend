@@ -12,7 +12,7 @@ import { Button, Img } from "@/components";
 import { PiCaretLeftLight } from "react-icons/pi";
 
 import { UploadTypes } from "../types";
-import { ResponseBusinessTypes } from "@/types";
+import { BusinessesTypes, ResponseBusinessTypes } from "@/types";
 
 export const EditBusiness = ({ slug }: { slug: string }) => {
   const { back } = useRouter();
@@ -25,7 +25,7 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
 
   // get one business by slug, patch data, and upload image api
   const { response: business, loading } = useGet<ResponseBusinessTypes>(`/business/${slug}`);
-  const { execute, loading: loadData } = usePost("PATCH", `/business/edit/${slug}`);
+  const { execute, loading: loadData } = usePost("PATCH", `/business`);
   const { uploading: uploadingImageHeader, uploadFile: uploadImageHeader, response: dataImageHeader } = useUpload<UploadTypes>();
   const { uploading: uploadingImageProduct, uploadFile: uploadImageProduct, response: dataImageProduct } = useUpload<UploadTypes>();
 
@@ -70,27 +70,34 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (
-      title === business?.data.title ||
-      description === business?.data.description ||
-      imageHeader === business?.data.imageHeader.url ||
-      productHeader === business?.data.productHeader.url
-    ) {
+    const updateFields: Partial<BusinessesTypes> = {};
+
+    if (title !== business?.data.title) {
+      updateFields.title = title;
+    }
+    if (title !== business?.data.description) {
+      updateFields.description = description;
+    }
+    if (imageHeader?.name !== business?.data.imageHeader?.slug) {
+      updateFields.imageHeader = {
+        ...updateFields.imageHeader,
+        slug: dataImageHeader?.name as string,
+        url: dataImageHeader?.url as string,
+      };
+    }
+    if (productHeader?.name !== business?.data.productHeader?.slug) {
+      updateFields.productHeader = {
+        ...updateFields.productHeader,
+        slug: dataImageProduct?.name as string,
+        url: dataImageProduct?.url as string,
+      };
+    }
+
+    if (Object.keys(updateFields).length < 0) {
       return;
     }
 
-    execute(`/business/${slug}`, {
-      title,
-      description,
-      imageHeader: {
-        slug: dataImageHeader?.name || imageHeader?.name,
-        url: dataImageHeader?.url || imageHeader?.url,
-      },
-      productHeader: {
-        slug: dataImageProduct?.name || productHeader?.name,
-        url: dataImageProduct?.url || productHeader?.url,
-      },
-    });
+    execute(`/business/${slug}`, updateFields);
   };
 
   React.useEffect(() => {

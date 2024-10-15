@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} antialiased`} suppressHydrationWarning={true}>
         <CookiesProvider>
           <Toaster position="bottom-center" />
           {children}
