@@ -1,6 +1,6 @@
 import { Button, Container, Form, Img, Motion } from "@/components";
 
-import { call, email, location } from "@/icons";
+import { call, email, location, workshop } from "@/icons";
 import { useTranslations } from "next-intl";
 
 import { FaWhatsapp } from "react-icons/fa6";
@@ -20,6 +20,10 @@ export const Contacts = () => {
           <menu className="space-y-2">
             <li className="flex items-center gap-3 text-sm sm:text-base">
               <Img src={location} alt="icon location" className="min-w-10 aspect-square" /> Jl.Bhayangkara No.136B, Kota Serang-Banten 42118
+            </li>
+            <li className="flex items-center gap-3 text-sm sm:text-base">
+              <Img src={workshop} alt="icon workshop" className="min-w-10 aspect-square" /> Jl. Raya Serang - Petir RT.012 / RW.001 Ds. Cimaung, Kec.
+              Cikeusal, Kab. Serang - Banten
             </li>
             <li className="flex items-center gap-3 text-sm sm:text-base">
               <Img src={call} alt="icon call" className="min-w-10 aspect-square" /> 0254 - 7932385

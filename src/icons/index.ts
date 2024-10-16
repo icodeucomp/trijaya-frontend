@@ -19,8 +19,10 @@ import permanent_job from "./permanent-job.svg";
 import call from "./call.svg";
 import email from "./email.svg";
 import location from "./location.svg";
+import workshop from "./workshop.svg";
 
 export {
+  workshop,
   call,
   email,
   location,

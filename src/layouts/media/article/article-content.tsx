@@ -1,5 +1,7 @@
 "use client";
 
+import { MouseEvent } from "react";
+
 import { Link } from "@/i18n/routing";
 
 import { notFound } from "next/navigation";
@@ -10,11 +12,14 @@ import { useTranslations } from "next-intl";
 
 import { Breadcrumbs, Container, Img, BigSlider, Motion } from "@/components";
 
+import { FaLink } from "react-icons/fa6";
+
 import { calendar } from "@/icons";
 
 import { convertDate } from "@/utils";
 
 import { ArticleCardProps, ResponseArticlesTypes, ResponseArticleTypes } from "@/types";
+import toast from "react-hot-toast";
 
 const RelatedArticles = ({ date, title, pathUrl, pathImg }: ArticleCardProps) => {
   return (
@@ -40,6 +45,12 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
   const { response: article, loading: loadingArticle, error } = useGetApi<ResponseArticleTypes>(`/blogs/${slug}`);
 
   const t = useTranslations("media");
+
+  const handleShareButton = async (e: MouseEvent) => {
+    e.preventDefault();
+    await navigator.clipboard.writeText(window.location.href);
+    toast.success("Text copied to clipboard!");
+  };
 
   if (error) {
     notFound();
@@ -74,6 +85,12 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
           </div>
           <Motion tag="div" initialX={0} animateX={0} duration={0.8} delay={0.6} className="w-full h-auto text-justify lg:col-span-2">
             <div className="dangerous_html" dangerouslySetInnerHTML={{ __html: article?.data.content as TrustedHTML }} />
+            <div className="flex items-center justify-end gap-2 pt-6">
+              <span className="text-base md:text-xl text-primary">Share this article</span>
+              <button onClick={handleShareButton} className="p-2.5 duration-300 border rounded-full border-primary group hover:bg-primary">
+                <FaLink size={20} className="duration-300 fill-primary group-hover:fill-light" />
+              </button>
+            </div>
           </Motion>
         </>
       )}
