@@ -24,10 +24,11 @@ export const Services = () => {
   const { response: services, loading } = useGetApi<ResponseBusinessesTypes>("/business");
 
   const [filteredServices, setFilteredServices] = React.useState<BusinessesTypes>();
+  console.log("🚀 ~ Services ~ filteredServices:", filteredServices);
   const [filtered, setFiltered] = React.useState<string>("");
   const [selectImages, setSelectImages] = React.useState<number>(0);
 
-  const [categoryFilter] = useDebounce(filtered, 1000);
+  const [categoryFilter] = useDebounce(filtered, 500);
 
   const titleServices: TitleServicesTypes[] =
     services?.data.filter((item) => item.Service.length > 0).map((item) => ({ display: item.title, value: item.title })) || [];
@@ -41,7 +42,7 @@ export const Services = () => {
 
   React.useEffect(() => {
     if (services?.data && services.data.length > 0) {
-      setFilteredServices(services?.data[0]);
+      setFilteredServices(services?.data.filter((item) => item.Service.length > 0)[0]);
       setFiltered(titleServices[0].value);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -64,7 +65,7 @@ export const Services = () => {
         </Motion>
       </div>
       {!filteredServices?.Service.length ? (
-        <h3 className="w-full col-span-1 m-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">
+        <h3 className="w-full col-span-1 m-0 text-lg font-semibold text-center sm:m-8 sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">
           The services is not found
         </h3>
       ) : (
@@ -76,24 +77,28 @@ export const Services = () => {
               </div>
             ) : (
               <>
-                <div className="w-full overflow-hidden rounded-lg">
-                  <Img
-                    src={filteredServices?.Service[selectImages]?.media?.[0].url || "/temp-business.webp"}
-                    alt="temporary"
-                    className="w-full h-80 sm:h-96"
-                    cover
-                  />
-                </div>
-                {filteredServices && filteredServices?.Service[selectImages].media.length > 0 ? (
-                  <ImageSlider
-                    imgClassName="aspect-square"
-                    images={filteredServices?.Service[selectImages]?.media?.slice(1).map((item) => item.url) || ["/temp-business.webp"]}
-                    spaceBetween={10}
-                    breakpoints={{ 0: { slidesPerView: 2 }, 768: { slidesPerView: 3 } }}
-                    slidesPerView={3}
-                  />
+                {filteredServices && filteredServices?.Service[selectImages]?.media?.length > 0 ? (
+                  <>
+                    <div className="w-full overflow-hidden rounded-lg">
+                      <Img
+                        src={filteredServices?.Service[selectImages]?.media?.[0].url || "/temp-business.webp"}
+                        alt="temporary"
+                        className="w-full h-80 sm:h-96"
+                        cover
+                      />
+                    </div>
+                    {filteredServices?.Service[selectImages]?.media?.length > 1 && (
+                      <ImageSlider
+                        imgClassName="aspect-square"
+                        images={filteredServices?.Service[selectImages]?.media?.slice(1).map((item) => item.url) || ["/temp-business.webp"]}
+                        spaceBetween={10}
+                        breakpoints={{ 0: { slidesPerView: 2 }, 768: { slidesPerView: 3 } }}
+                        slidesPerView={3}
+                      />
+                    )}
+                  </>
                 ) : (
-                  <ImageSlider images={["/temp-business.webp"]} imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-72 lg:h-96" />
+                  <Img src={"/temp-business.webp"} alt="temporary" className="w-full rounded-lg h-80 sm:h-96" cover />
                 )}
               </>
             )}

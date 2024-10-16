@@ -68,6 +68,7 @@ export const Products = () => {
                 src={item.productHeader.url || "/temp-business.webp"}
                 className="flex-col justify-between w-full py-4 sm:py-6 min-h-300 filter-image"
                 parentClassName="rounded-lg"
+                isHover
               >
                 <div className={`px-4 py-1 sm:px-6 rounded-3xl w-max ${colorLabel[index]}`}>
                   <label className="text-xs sm:text-sm">{item.title}</label>

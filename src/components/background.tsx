@@ -6,9 +6,9 @@ import { shimmer, toBase64 } from "@/utils";
 
 import { BackgroundProps } from "@/types";
 
-export const Background = ({ src, className, children, parentClassName }: BackgroundProps) => {
+export const Background = ({ src, className, children, parentClassName, isHover }: BackgroundProps) => {
   return (
-    <figure className={`relative text-light shadow-lg overflow-hidden ${parentClassName ?? ""}`}>
+    <figure className={`relative text-light shadow-lg overflow-hidden group ${parentClassName ?? ""}`}>
       <Image
         src={src}
         alt="background image"
@@ -18,7 +18,7 @@ export const Background = ({ src, className, children, parentClassName }: Backgr
         priority
         objectFit="cover"
         objectPosition="center"
-        className="-z-10"
+        className={`-z-10 ${isHover ? "duration-300 group-hover:scale-110" : ""}`}
       />
       <Container className={`z-1 relative flex ${className ?? ""}`}>{children}</Container>
     </figure>

@@ -132,10 +132,10 @@
     @apply border text-primary border-primary hover:bg-primary hover:text-light;
   }
   .btn-primary {
-    @apply text-light bg-primary hover:bg-primary/90;
+    @apply text-light bg-primary hover:bg-primary/80;
   }
   .btn-secondary {
-    @apply text-light bg-green-500 hover:bg-green-500/90;
+    @apply text-light bg-green-500 hover:bg-green-500/80;
   }
   .btn-cross-border {
     @apply absolute duration-300 right-4 top-4 flex justify-center items-center rounded-full border-primary border-2 size-8 hover:bg-primary;

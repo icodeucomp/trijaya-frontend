@@ -46,20 +46,22 @@ export const BigSlider = ({ title, children, loadData, isButton, linkButton, cla
           )}
           <div className="flex gap-2 text-sm font-medium w-max">
             <button
-              className={`p-2 md:p-3 border rounded-lg bg-light ${isBeginning ? "border-gray" : "border-primary"}`}
+              className={`p-2 md:p-3 border rounded-lg bg-light duration-300 group ${
+                isBeginning ? "border-gray" : "border-primary hover:bg-primary"
+              }`}
               disabled={isBeginning}
               type="button"
               onClick={handleClickPrev}
             >
-              <FaArrowLeft size={20} className={`${isBeginning ? "fill-gray" : "fill-secondary "}`} />
+              <FaArrowLeft size={20} className={`duration-300 ${isBeginning ? "fill-gray" : "fill-secondary group-hover:fill-light"}`} />
             </button>
             <button
-              className={`p-2 md:p-3 border rounded-lg bg-light ${isEnd ? "border-gray" : "border-primary"}`}
+              className={`p-2 md:p-3 border rounded-lg bg-light duration-300 group ${isEnd ? "border-gray" : "border-primary hover:bg-primary"}`}
               disabled={isEnd}
               type="button"
               onClick={handleClickNext}
             >
-              <FaArrowRight size={20} className={`${isEnd ? "fill-gray" : "fill-secondary "}`} />
+              <FaArrowRight size={20} className={`duration-300 ${isEnd ? "fill-gray" : "fill-secondary group-hover:fill-light"}`} />
             </button>
           </div>
         </Motion>

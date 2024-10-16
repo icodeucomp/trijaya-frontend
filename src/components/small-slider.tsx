@@ -50,20 +50,27 @@ export const SmallSlider = ({ title, children, loadData, isButton, linkButton, s
           )}
           <div className="flex gap-2 text-sm font-medium w-max">
             <button
-              className={`p-2 md:p-3 border rounded-lg bg-light ${currentPage === 1 ? "border-gray" : "border-primary"}`}
+              className={`p-2 md:p-3 border rounded-lg bg-light duration-300 group ${
+                currentPage === 1 ? "border-gray" : "border-primary hover:bg-primary"
+              }`}
               disabled={currentPage === 1}
               type="button"
               onClick={handleClickPrev}
             >
-              <FaArrowLeft size={20} className={`${currentPage === 1 ? "fill-gray" : "fill-secondary "}`} />
+              <FaArrowLeft size={20} className={`duration-300 ${currentPage === 1 ? "fill-gray" : "fill-secondary group-hover:fill-light"}`} />
             </button>
             <button
-              className={`p-2 md:p-3 border rounded-lg bg-light ${currentPage === totalPage ? "border-gray" : "border-primary"}`}
+              className={`p-2 md:p-3 border rounded-lg bg-light duration-300 group ${
+                currentPage === totalPage ? "border-gray" : "border-primary hover:bg-primary"
+              }`}
               disabled={currentPage === totalPage}
               type="button"
               onClick={handleClickNext}
             >
-              <FaArrowRight size={20} className={`${currentPage === totalPage ? "fill-gray" : "fill-secondary "}`} />
+              <FaArrowRight
+                size={20}
+                className={`duration-300 ${currentPage === totalPage ? "fill-gray" : "fill-secondary group-hover:fill-light"}`}
+              />
             </button>
           </div>
         </div>

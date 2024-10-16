@@ -21,7 +21,7 @@ interface MotionComponentProps extends MotionProps {
 export const Motion = React.forwardRef<HTMLElement, MotionComponentProps>(
   ({ children, className, tag = "div", initialY = 0, animateY = 0, initialX = 0, animateX = 0, duration = 0.5, delay = 0, ...rest }, ref) => {
     const [inViewRef, inView] = useInView({
-      threshold: 0.1,
+      threshold: 0,
       triggerOnce: false,
     });
 

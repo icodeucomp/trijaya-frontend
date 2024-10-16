@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { building, electric_cord, electrical_services, helmet_safety, navaid_military, quill_paper, robot_two } from "@/icons";
+import { building, electric_cord, electrical_services, helmet_safety, navaid_military, robot_two } from "@/icons";
 
 import { TemplateTypes } from "@/types";
 
@@ -37,11 +37,6 @@ export const Business = () => {
       title: `${t("list-six.title")}`,
       description: `${t("list-six.description")}`,
       pathImg: helmet_safety,
-    },
-    {
-      title: `${t("list-seven.title")}`,
-      description: `${t("list-seven.description")}`,
-      pathImg: quill_paper,
     },
   ] as TemplateTypes[];
 };

@@ -137,10 +137,10 @@
     @apply border text-primary border-primary hover:bg-primary hover:text-light;
   }
   .btn-primary {
-    @apply text-light bg-primary hover:bg-primary/90;
+    @apply text-light bg-primary hover:bg-primary/80;
   }
   .btn-secondary {
-    @apply text-light bg-green-500 hover:bg-green-500/90;
+    @apply text-light bg-green-500 hover:bg-green-500/80;
   }
   .heading {
     @apply text-xl font-semibold sm:text-2xl lg:text-3xl text-primary;

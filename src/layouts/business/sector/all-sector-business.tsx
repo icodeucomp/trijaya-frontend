@@ -40,13 +40,14 @@ const SectorBusiness = ({ title, data, loading, openModalIndex, setOpenModalInde
         breakpoints={{ 0: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }}
       >
         {data?.map((item, index) => (
-          <div key={index} onClick={() => openModal(item.slug)}>
+          <div key={index} className="cursor-pointer" onClick={() => openModal(item.slug)}>
             <Motion tag="div" initialY={30} animateY={0} duration={1} delay={index * 0.1}>
               {item.media.length > 0 ? (
                 <Background
                   src={item.media[0].url}
                   className="flex-col justify-end w-full py-2 h-72 sm:h-80 filter-image"
                   parentClassName="rounded-lg"
+                  isHover
                 >
                   <div className="text-light">
                     <h5 className="text-base sm:text-lg line-clamp-1">{item.title}</h5>
@@ -58,6 +59,7 @@ const SectorBusiness = ({ title, data, loading, openModalIndex, setOpenModalInde
                   src={"/temp-business.webp"}
                   className="flex-col justify-end w-full py-2 h-72 sm:h-80 filter-image"
                   parentClassName="rounded-lg"
+                  isHover
                 >
                   <div className="text-light">
                     <h5 className="text-base sm:text-lg line-clamp-1">{item.title}</h5>

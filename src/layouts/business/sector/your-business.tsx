@@ -28,12 +28,13 @@ export const YourBusiness = () => {
       ) : (
         <div className="grid grid-cols-2 gap-4 text-center sm:grid-cols-3 lg:grid-cols-4">
           {products?.data.map((item, index) => (
-            <Link href={`/business/sector/${item.slug}`} key={index}>
+            <Link href={`/business/sector/${item.slug}`} key={index} className="cursor-pointer">
               <Motion tag="div" initialY={40} animateY={0} duration={1} delay={index * 0.1}>
                 <Background
                   src={item.imageHeader.url || "/temp-business.webp"}
                   className="items-center justify-center py-8 aspect-square filter-image"
                   parentClassName="rounded-lg"
+                  isHover
                 >
                   <h5 className="text-xl font-semibold">{item.title}</h5>
                 </Background>

@@ -43,20 +43,20 @@ export const ImageSlider = ({ images, imgClassName, ...props }: ImageSliderProps
       </Swiper>
       <div className="absolute flex items-center justify-between w-full px-4 text-sm font-medium -translate-y-1/2 top-1/2 z-1">
         <button
-          className={`p-2 md:p-3 border rounded-lg bg-light ${isBeginning ? "border-gray" : "border-primary"}`}
+          className={`p-2 md:p-3 border rounded-lg bg-light duration-300 group ${isBeginning ? "border-gray" : "border-primary hover:bg-primary"}`}
           disabled={isBeginning}
           type="button"
           onClick={handleClickPrev}
         >
-          <FaArrowLeft size={20} className={`${isBeginning ? "fill-gray" : "fill-secondary "}`} />
+          <FaArrowLeft size={20} className={`duration-300 ${isBeginning ? "fill-gray" : "fill-secondary group-hover:fill-light"}`} />
         </button>
         <button
-          className={`p-2 md:p-3 border rounded-lg bg-light ${isEnd ? "border-gray" : "border-primary"}`}
+          className={`p-2 md:p-3 border rounded-lg bg-light duration-300 group ${isEnd ? "border-gray" : "border-primary hover:bg-primary"}`}
           disabled={isEnd}
           type="button"
           onClick={handleClickNext}
         >
-          <FaArrowRight size={20} className={`${isEnd ? "fill-gray" : "fill-secondary "}`} />
+          <FaArrowRight size={20} className={`duration-300 ${isEnd ? "fill-gray" : "fill-secondary group-hover:fill-light"}`} />
         </button>
       </div>
     </div>
