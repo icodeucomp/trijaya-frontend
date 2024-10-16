@@ -7,7 +7,7 @@ import { Motion } from "@/components";
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Hero />
       <section className="relative">
         <Motion tag="div" initialY={0} animateY={0} duration={0.5}>
@@ -27,6 +27,6 @@ export default function Home() {
         <Clients />
       </section>
       <Articles />
-    </>
+    </div>
   );
 }
