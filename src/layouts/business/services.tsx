@@ -24,7 +24,6 @@ export const Services = () => {
   const { response: services, loading } = useGetApi<ResponseBusinessesTypes>("/business");
 
   const [filteredServices, setFilteredServices] = React.useState<BusinessesTypes>();
-  console.log("🚀 ~ Services ~ filteredServices:", filteredServices);
   const [filtered, setFiltered] = React.useState<string>("");
   const [selectImages, setSelectImages] = React.useState<number>(0);
 
