@@ -9,7 +9,7 @@ export const Hero = () => {
   const t = useTranslations("home.hero");
 
   return (
-    <Background src="/images/home-header.webp" className="flex items-center min-h-500 lg:min-h-custom-header 2xl:min-h-600" parentClassName="filter">
+    <Background src="/images/home-header.webp" className="items-center min-h-500 lg:min-h-custom-header 2xl:min-h-600" parentClassName="filter">
       <div className="max-w-xl space-y-4">
         <Motion tag="h1" initialX={-50} animateX={0} duration={0.3} className="text-3xl font-semibold leading-snug md:text-4xl">
           {t("title")}
