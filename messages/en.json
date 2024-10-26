@@ -1,7 +1,7 @@
 {
   "welcome": "Welcome",
   "language": "English Language",
-  "learn-more": "Learn More",
+  "view-all": "View All",
   "home": {
     "hero": {
       "title": "Rely on Us to Deliver Your Project Goals from Concept to Completion",
@@ -20,12 +20,24 @@
         "description": "We provide services for supplying raw or semi-finished goods in accordance with contracts mutually agreed upon by both parties.."
       },
       "two": {
-        "title": "Construction",
+        "title": "Civil & Construction",
         "description": "We offer services for designing, constructing, and renovating infrastructure, including building structures and civil engineering works, as agreed upon by both parties."
       },
       "three": {
-        "title": "Fabrication, Mechanical & Engineering",
-        "description": "We provide services in fabrication, mechanical, and engineering, both in the form of products and services."
+        "title": "Fabrication",
+        "description": "We provide fabrication services that include component manufacturing, structural assembly, and custom product work as needed."
+      },
+      "four": {
+        "title": "Mechanical",
+        "description": "We provide mechanical services that include assembly, maintenance, and repair of industrial machinery and equipment."
+      },
+      "five": {
+        "title": "Engineering",
+        "description": "We offer engineering services that include the design, development, and implementation of engineering solutions for various industries."
+      },
+      "six": {
+        "title": "Electrical",
+        "description": "We provide electrical services that include installation, maintenance, and repair of electrical systems for various industrial sectors."
       },
       "title": "Our Dedicated Services for You",
       "description": "We provide professional services for your business"
@@ -34,7 +46,7 @@
       "title": "Our Clients",
       "description": "We collaborate to engineer solutions that stand the test of time"
     },
-    "articles": "Media Hub"
+    "articles": "Newsrooms"
   },
   "profile": {
     "hero": {
@@ -116,29 +128,18 @@
         "description": "Manufacturing of Fire Extinguisher Boxes, Nozzle Modification, Smoke Detectors, Hose Upgrades, Valves, Local and Imported Sprinklers, and similar services."
       },
       "list-seven": {
-        "title": "Paper Machine ",
-        "description": "HEADBOX Paper Machine Services to Enhance Final Products According to Customer Requirements, Backed by the PMPRO Team from Thailand, Comprising Skilled Experts with Experience in Asia, Europe, and the Middle East."
+        "title": "Manpower Supply",
+        "description": "From skilled laborers to technical experts, we offer reliable workforce solutions that align with your business needs and project timelines."
+      },
+      "list-eight": {
+        "title": "Repair & Maintenance",
+        "description": "We offer professional and reliable repair and maintenance services, providing effective and high-quality solutions to ensure the optimal performance of your equipment."
       }
     },
     "experiences": {
       "title": "Experiences",
       "description": "We have successfully delivered high-quality services across a diverse range of industries and regions"
-    },
-    "business-sector": {
-      "electrical": "Electrical",
-      "mechanical": "Mechanical",
-      "fabrication": "Fabrication",
-      "machining": "Machining",
-      "general-supplier": "General Supplier",
-      "construction": "Construction",
-      "civil": "Civil"
-    },
-    "your-business": {
-      "title": "Solutions for Your Business Needs",
-      "description": "We offer specialized products and services to meet your needs and operational goals"
-    },
-    "products": "Products",
-    "services": "Services"
+    }
   },
   "certification": {
     "hero": {

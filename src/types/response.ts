@@ -23,7 +23,7 @@ export interface ArticlesTypes {
   title: string;
   slug: string;
   content: string;
-  imageHeader: string;
+  header: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -32,6 +32,10 @@ export interface BusinessSectorTypes {
   title: string;
   slug: string;
   description: string;
+  header: {
+    url: string;
+    slug: string;
+  };
   media: {
     url: string;
     slug: string;
@@ -46,7 +50,7 @@ export interface BusinessesTypes {
   title: string;
   slug: string;
   description: string;
-  imageHeader: {
+  header: {
     slug: string;
     url: string;
   };

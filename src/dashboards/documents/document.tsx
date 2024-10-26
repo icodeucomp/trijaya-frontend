@@ -96,7 +96,7 @@ export const Document = () => {
       ) : (
         <Content data={documents?.data} />
       )}
-      <Pagination page={page} totalPage={totalPage} setPage={setPage} />
+      <Pagination page={page} totalPage={totalPage} setPage={setPage} isNumbering />
     </>
   );
 };

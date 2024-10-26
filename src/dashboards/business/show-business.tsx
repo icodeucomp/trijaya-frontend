@@ -38,24 +38,19 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
         <>
           <div className="w-full max-w-2xl px-4 pt-8 mx-auto space-y-4 sm:px-8">
             <div className="flex justify-between">
-              <Img
-                src={business?.data.imageHeader.url || "/temp-business.webp"}
-                alt="temporary"
-                className="aspect-square w-72 mx-auto rounded-lg"
-                cover
-              />
+              <Img src={business?.data.header.url || "/temp-business.webp"} alt="temporary" className="mx-auto rounded-lg aspect-square w-72" cover />
               <Img
                 src={business?.data.productHeader.url || "/temp-business.webp"}
                 alt="temporary"
-                className="aspect-square w-72 mx-auto rounded-lg"
+                className="mx-auto rounded-lg aspect-square w-72"
                 cover
               />
             </div>
-            <h3 className="heading text-center">{business?.data.title}</h3>
-            <p className="text-sm sm:text-base text-dark-gray text-justify">{business?.data.description}</p>
+            <h3 className="text-center heading">{business?.data.title}</h3>
+            <p className="text-sm text-justify sm:text-base text-dark-gray">{business?.data.description}</p>
           </div>
           {business?.data && business?.data.Product.length > 0 && (
-            <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid w-full grid-cols-1 gap-4 px-4 pt-20 mx-auto sm:px-8 md:grid-cols-2 lg:grid-cols-3">
               {business?.data && business?.data.Product[selectImageProduct].media.length > 0 ? (
                 <ImageSlider
                   images={business?.data.Product[selectImageProduct].media?.map((item) => item.url)}
@@ -69,14 +64,14 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
                   <div key={index} className="space-y-2 md:space-y-4">
                     <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>
 
-                    <p className="overflow-y-auto text-sm leading-tight text-justify h-32 md:h-40 sm:text-base scrollbar">{item.description}</p>
+                    <p className="h-32 overflow-y-auto text-sm leading-tight text-justify md:h-40 sm:text-base scrollbar">{item.description}</p>
                   </div>
                 ))}
               </SmallSlider>
             </div>
           )}
           {business?.data && business?.data.Service.length > 0 && (
-            <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid w-full grid-cols-1 gap-4 px-4 pt-20 mx-auto sm:px-8 md:grid-cols-2 lg:grid-cols-3">
               {business?.data && business?.data.Service[selectImageService].media.length > 0 ? (
                 <ImageSlider
                   images={business?.data.Service[selectImageService].media?.map((item) => item.url)}
@@ -90,14 +85,14 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
                   <div key={index} className="space-y-2 md:space-y-4">
                     <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>
 
-                    <p className="overflow-y-auto text-sm leading-tight text-justify h-32 md:h-40 sm:text-base scrollbar">{item.description}</p>
+                    <p className="h-32 overflow-y-auto text-sm leading-tight text-justify md:h-40 sm:text-base scrollbar">{item.description}</p>
                   </div>
                 ))}
               </SmallSlider>
             </div>
           )}
           {business?.data && business?.data.Project.length > 0 && (
-            <div className="w-full px-4 pt-20 mx-auto sm:px-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid w-full grid-cols-1 gap-4 px-4 pt-20 mx-auto sm:px-8 md:grid-cols-2 lg:grid-cols-3">
               {business?.data && business?.data.Project[selectImageProject].media.length > 0 ? (
                 <ImageSlider
                   images={business?.data.Project[selectImageProject].media?.map((item) => item.url)}
@@ -111,7 +106,7 @@ export const ShowBusiness = ({ slug }: { slug: string }) => {
                   <div key={index} className="space-y-2 md:space-y-4">
                     <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>
 
-                    <p className="overflow-y-auto text-sm leading-tight text-justify h-32 md:h-40 sm:text-base scrollbar">{item.description}</p>
+                    <p className="h-32 overflow-y-auto text-sm leading-tight text-justify md:h-40 sm:text-base scrollbar">{item.description}</p>
                   </div>
                 ))}
               </SmallSlider>

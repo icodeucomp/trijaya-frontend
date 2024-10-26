@@ -44,8 +44,7 @@ export const useGetSearchApi = <T>({ path, searchQuery, sort, order, dateStart, 
     };
 
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery, sort, order, dateStart, dateEnd, page]);
+  }, [path, limit, searchQuery, sort, order, dateStart, dateEnd, page]);
 
   return { response, error, loading };
 };

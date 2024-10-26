@@ -7,10 +7,10 @@ export default function Media() {
   const t = useTranslations("media.hero");
 
   return (
-    <>
+    <section className="overflow-x-hidden">
       <Hero pathImg="/images/media-header.webp" title={`${t("title")}`} description={`${t("description")}`} />
       <CompanyActivities />
       <ArticlesGallery />
-    </>
+    </section>
   );
 }

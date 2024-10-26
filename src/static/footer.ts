@@ -1,5 +1,6 @@
-import { FooterTypes } from "@/types";
 import { useTranslations } from "next-intl";
+
+import { FooterTypes } from "@/types";
 
 export const FooterLists = () => {
   const t = useTranslations("footer");
@@ -19,10 +20,12 @@ export const FooterLists = () => {
       title: `${t("business.title")}`,
       pathUrl: "/business",
       content: [
-        { title: `${t("business.fields.one")}`, pathUrl: "#service" },
-        { title: `${t("business.fields.two")}`, pathUrl: "#product" },
-        { title: `${t("business.fields.three")}`, pathUrl: "#experience" },
-        { title: `${t("business.fields.four")}`, pathUrl: "/sector" },
+        { title: "Electrical", pathUrl: "/sector/electrical" },
+        { title: "Fabrication", pathUrl: "/sector/fabrication" },
+        { title: "General Supplier", pathUrl: "/sector/general-supplier" },
+        { title: "Machining", pathUrl: "/sector/machining" },
+        { title: "Mechanical", pathUrl: "/sector/mechanical" },
+        { title: "Civil & Construction", pathUrl: "/sector/civil-construction" },
       ],
     },
     {

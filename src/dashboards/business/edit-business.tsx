@@ -35,13 +35,13 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
     if (
       title !== business?.data.title ||
       description !== business?.data.description ||
-      imageHeader?.url !== business?.data.imageHeader.url ||
+      imageHeader?.url !== business?.data.header.url ||
       productHeader?.url !== business?.data.productHeader.url
     ) {
       if (confirm("Are you sure to back to previous page? Your data will not be saved!")) {
         setTitle(business?.data.title || "");
         setDescription(business?.data.description || "");
-        setImageHeader({ url: business?.data.imageHeader.url || "", name: business?.data.imageHeader.slug || "", size: "" });
+        setImageHeader({ url: business?.data.header.url || "", name: business?.data.header.slug || "", size: "" });
         setProductHeader({ url: business?.data.productHeader.url || "", name: business?.data.productHeader.slug || "", size: "" });
         back();
         return;
@@ -78,9 +78,9 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
     if (title !== business?.data.description) {
       updateFields.description = description;
     }
-    if (imageHeader?.name !== business?.data.imageHeader?.slug) {
-      updateFields.imageHeader = {
-        ...updateFields.imageHeader,
+    if (imageHeader?.name !== business?.data.header?.slug) {
+      updateFields.header = {
+        ...updateFields.header,
         slug: dataImageHeader?.name as string,
         url: dataImageHeader?.url as string,
       };
@@ -104,7 +104,7 @@ export const EditBusiness = ({ slug }: { slug: string }) => {
     if (business?.data !== null) {
       setTitle(business?.data.title || "");
       setDescription(business?.data.description || "");
-      setImageHeader({ url: business?.data.imageHeader.url || "", name: business?.data.imageHeader.slug || "", size: "" });
+      setImageHeader({ url: business?.data.header.url || "", name: business?.data.header.slug || "", size: "" });
       setProductHeader({ url: business?.data.productHeader.url || "", name: business?.data.productHeader.slug || "", size: "" });
     }
   }, [business]);

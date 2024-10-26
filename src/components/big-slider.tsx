@@ -17,7 +17,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 import { BigSliderProps } from "@/types";
 
-export const BigSlider = ({ title, children, loadData, isButton, linkButton, className, ...props }: BigSliderProps) => {
+export const BigSlider = ({ title, children, loadData, linkButton, className, ...props }: BigSliderProps) => {
   const t = useTranslations();
 
   const [isBeginning, setIsBeginning] = useState<boolean>(false);
@@ -39,11 +39,9 @@ export const BigSlider = ({ title, children, loadData, isButton, linkButton, cla
           {title}
         </Motion>
         <Motion tag="div" initialX={50} animateX={0} duration={0.8} delay={0.4} className="relative flex items-center gap-4">
-          {isButton && (
-            <Link href={linkButton as string}>
-              <Button className="btn-outline">{t("learn-more")}</Button>
-            </Link>
-          )}
+          <Link href={linkButton || "/"}>
+            <Button className="btn-outline">{t("learn-more")}</Button>
+          </Link>
           <div className="flex gap-2 text-sm font-medium w-max">
             <button
               className={`p-2 md:p-3 border rounded-lg bg-light duration-300 group ${

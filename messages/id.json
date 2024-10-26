@@ -1,7 +1,7 @@
 {
   "welcome": "Selamat Datang",
   "language": "Bahasa Indonesia",
-  "learn-more": "Pelajari Lebih Lanjut",
+  "view-all": "Lihat Semuanya",
   "home": {
     "hero": {
       "title": "Percayakan kepada Kami untuk Mencapai Tujuan Proyek Anda dari Konsep hingga Penyelesaian",
@@ -16,16 +16,28 @@
     },
     "services": {
       "one": {
-        "title": "General Supplier",
+        "title": "Pemasok Umum",
         "description": "Kami melayani pemesanan pengumpulan produk mentah atau setengah jadi dan menyediakan layanan berkualitas untuk memenuhi kebutuhan bisnis."
       },
       "two": {
-        "title": "Konstruksi",
+        "title": "Sipil & Konstruksi",
         "description": "Kami melayani pemesanan konstruksi proyek skala besar dan kecil Dengan tim ahli dan pengalaman yang mendalam, kami menjamin kualitas dalam setiap tahap pembangunan."
       },
       "three": {
-        "title": "Fabrikasi, Mekanik, & Teknik",
-        "description": "Kami melayani pemesanan dalam bidang fabrikasi, mekanikal, dan teknik, baik dalam bentuk produk maupun jasa."
+        "title": "Fabrikasi",
+        "description": "Kami menyediakan layanan fabrikasi yang mencakup pembuatan komponen, perakitan struktur, serta pengerjaan produk custom sesuai kebutuhan."
+      },
+      "four": {
+        "title": "Mekanik",
+        "description": "Kami menyediakan layanan di bidang mechanical yang meliputi perakitan, perawatan, dan reparasi mesin serta peralatan industri."
+      },
+      "five": {
+        "title": "Teknik",
+        "description": "Kami menawarkan layanan engineering yang mencakup desain, pengembangan, dan implementasi solusi teknik untuk berbagai industri."
+      },
+      "six": {
+        "title": "Kelistrikan",
+        "description": "Kami menyediakan layanan electrical yang meliputi instalasi, perawatan, dan perbaikan sistem kelistrikan untuk berbagai sektor industri."
       },
       "title": "Layanan Khusus Kami untuk Anda",
       "description": "Kami menyediakan layanan profesional untuk bisnis Anda"
@@ -116,29 +128,18 @@
         "description": "Pembuatan Box Pemadam Kebakaran, Modifikasi Nozzle, Detektor Asap, Upgrade Selang, Valve, Alat Penyiram Lokal dan Impor, dan jasa sejenisnya."
       },
       "list-seven": {
-        "title": "Mesin Kertas",
-        "description": "Layanan Mesin Kertas HEADBOX untuk Meningkatkan Produk Akhir Sesuai Kebutuhan Pelanggan, Didukung oleh Tim PMPRO dari Thailand yang Terdiri dari Ahli Terampil Berpengalaman di Asia, Eropa, dan Timur Tengah."
+        "title": "Persediaan Tenaga Kerja",
+        "description": "Dari pekerja terampil hingga ahli teknis, kami menawarkan solusi tenaga kerja yang dapat diandalkan yang sesuai dengan kebutuhan bisnis dan jadwal proyek Anda."
+      },
+      "list-eight": {
+        "title": "Perbaikan & Pemeliharaan",
+        "description": "Kami menawarkan layanan perbaikan dan pemeliharaan yang profesional dan andal, memberikan solusi yang efektif dan berkualitas tinggi untuk memastikan kinerja peralatan Anda yang optimal."
       }
     },
     "experiences": {
       "title": "Pengalaman",
       "description": "Kami telah berhasil memberikan layanan berkualitas tinggi di beragam industri dan wilayah"
-    },
-    "business-sector": {
-      "electrical": "Listrik",
-      "mechanical": "Mekanis",
-      "fabrication": "Pembuatan",
-      "machining": "permesinan",
-      "general-supplier": "General Supplier",
-      "construction": "Konstruksi",
-      "civil": "Sipil"
-    },
-    "your-business": {
-      "title": "Solusi Kebutuhan Bisnis Anda",
-      "description": "Kami menawarkan produk dan layanan khusus untuk memenuhi kebutuhan dan tujuan operasional Anda"
-    },
-    "products": "Produk",
-    "services": "Layanan"
+    }
   },
   "certification": {
     "hero": {

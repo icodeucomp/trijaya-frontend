@@ -25,6 +25,7 @@ const config: Config = {
         1000: "1000px",
       },
       maxHeight: {
+        "custom-header": "calc(100vh - 80px)",
         "custom-modal": "calc(100% - 16px)",
       },
       zIndex: {

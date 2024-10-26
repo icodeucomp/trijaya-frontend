@@ -20,8 +20,16 @@ import call from "./call.svg";
 import email from "./email.svg";
 import location from "./location.svg";
 import workshop from "./workshop.svg";
+import auto_repair from "./auto-repair.svg";
+import engineering from "./engineering.svg";
+import miner_worker from "./miner-worker.svg";
+import scheduled_maintenance from "./scheduled-maintenance.svg";
 
 export {
+  scheduled_maintenance,
+  miner_worker,
+  auto_repair,
+  engineering,
   workshop,
   call,
   email,

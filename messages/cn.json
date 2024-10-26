@@ -1,7 +1,7 @@
 {
   "welcome": "欢迎",
   "language": "语言",
-  "learn-more": "了解更多",
+  "view-all": "查看全部",
   "home": {
     "hero": {
       "title": "信任我们，实现您的项目目标，从概念到完成。",
@@ -24,7 +24,19 @@
         "description": "我们提供大规模和小规模项目的施工订购服务。凭借专业团队和丰富的经验，我们保证在每个建设阶段的质量。"
       },
       "three": {
-        "title": "制造、机械、工程",
+        "title": "制造",
+        "description": "我们提供在制造、机械和工程领域的订购服务，包括产品和服务。"
+      },
+      "four": {
+        "title": "机械",
+        "description": "我们提供在制造、机械和工程领域的订购服务，包括产品和服务。"
+      },
+      "five": {
+        "title": "工程",
+        "description": "我们提供在制造、机械和工程领域的订购服务，包括产品和服务。"
+      },
+      "six": {
+        "title": "工程",
         "description": "我们提供在制造、机械和工程领域的订购服务，包括产品和服务。"
       },
       "title": "我们为您提供专属服务",
@@ -116,29 +128,18 @@
         "description": "制造灭火器箱、喷嘴改造、烟雾探测器、软管升级、阀门、本地和进口喷淋设备及类似服务。"
       },
       "list-seven": {
-        "title": "纸张机械",
-        "description": "HEADBOX纸机服务, 旨在根据客户需求提高最终产品, 由来自泰国的PMPRO团队支持, 团队由在亚洲、欧洲和中东经验丰富的专业人员组成。"
+        "title": "安全",
+        "description": "制造灭火器箱、喷嘴改造、烟雾探测器、软管升级、阀门、本地和进口喷淋设备及类似服务。"
+      },
+      "list-eight": {
+        "title": "安全",
+        "description": "制造灭火器箱、喷嘴改造、烟雾探测器、软管升级、阀门、本地和进口喷淋设备及类似服务。"
       }
     },
     "experiences": {
       "title": "经验",
       "description": "我们已成功为多个行业和地区提供高质量的服务"
-    },
-    "business-sector": {
-      "electrical": "电气",
-      "mechanical": "机械",
-      "fabrication": "制造 ",
-      "machining": "加工",
-      "general-supplier": "一般供应",
-      "construction": "建筑",
-      "civil": "土木"
-    },
-    "your-business": {
-      "title": "满足您业务需求的解决方案",
-      "description": "我们提供专业的产品和服务，以满足您的需求和运营目标"
-    },
-    "products": "产品",
-    "services": "服务"
+    }
   },
   "certification": {
     "hero": {

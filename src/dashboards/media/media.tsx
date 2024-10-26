@@ -73,7 +73,7 @@ export const Media = () => {
       ) : (
         <Content data={medias?.data} />
       )}
-      <Pagination page={page} totalPage={totalPage} setPage={setPage} />
+      <Pagination page={page} totalPage={totalPage} setPage={setPage} isNumbering />
     </>
   );
 };

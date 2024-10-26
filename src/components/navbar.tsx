@@ -36,11 +36,20 @@ const DesktopLink = ({ pathUrl, title, content }: NavbarTypes) => {
 
   return (
     <li className="flex items-center h-full list-none group" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-      <Link href={pathUrl} className={`duration-300 hover:text-primary font-medium relative w-max ${isActive ? "text-primary" : "text-dark"}`}>
-        <span>{title}</span>
-        <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
-        <span className={`absolute h-1 transition-all -bottom-2 right-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
-      </Link>
+      {title === "Business" ? (
+        <span className={`duration-300 font-medium relative w-max cursor-default ${isActive ? "text-primary" : "text-dark"}`}>
+          <span>{title}</span>
+          <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
+          <span className={`absolute h-1 transition-all -bottom-2 right-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
+        </span>
+      ) : (
+        <Link href={pathUrl} className={`duration-300 hover:text-primary font-medium relative w-max ${isActive ? "text-primary" : "text-dark"}`}>
+          <span>{title}</span>
+          <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
+          <span className={`absolute h-1 transition-all -bottom-2 right-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
+        </Link>
+      )}
+
       <AnimatePresence>
         {isHovered && content && (
           <motion.div
@@ -60,7 +69,7 @@ const DesktopLink = ({ pathUrl, title, content }: NavbarTypes) => {
               <h4 className="flex items-center gap-4 text-xl font-medium text-primary">
                 {title} <FaAngleRight />
               </h4>
-              <div className="grid max-w-screen-md grid-cols-2 gap-8">
+              <div className="grid grid-cols-3 gap-8">
                 {content?.map((item, index) => {
                   return (
                     <div key={index} className="space-y-2">
@@ -89,9 +98,13 @@ const MobileLink = ({ pathUrl, title, content }: NavbarTypes) => {
   return (
     <div ref={ref} className="relative w-full">
       <div className="flex items-center gap-2 px-4 sm:px-8">
-        <Link href={pathUrl} className="text-base font-medium duration-300 hover:text-light text-light group sm:text-lg w-max">
-          {title}
-        </Link>
+        {title === "Business" ? (
+          <span className="text-base font-medium duration-300 cursor-default text-light sm:text-lg w-max">{title}</span>
+        ) : (
+          <Link href={pathUrl} className="text-base font-medium duration-300 hover:text-light-gray text-light sm:text-lg w-max">
+            {title}
+          </Link>
+        )}
         {content && (
           <span onClick={toggleDropdown}>
             <FaAngleRight className={`duration-300 cursor-pointer ${dropdown && "rotate-90"}`} />

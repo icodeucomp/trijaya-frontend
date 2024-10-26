@@ -6,7 +6,7 @@ import { Link } from "@/i18n/routing";
 
 import { notFound } from "next/navigation";
 
-import { useGetApi, useGetSearchApi } from "@/hooks";
+import { useGetApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
 
@@ -41,8 +41,8 @@ const RelatedArticles = ({ date, title, pathUrl, pathImg }: ArticleCardProps) =>
 };
 
 export const ArticleContent = ({ slug }: { slug: string }) => {
-  const { response: articles, loading: loadingArticles } = useGetSearchApi<ResponseArticlesTypes>({ path: "/blogs", limit: "5" });
-  const { response: article, loading: loadingArticle, error } = useGetApi<ResponseArticleTypes>(`/blogs/${slug}`);
+  const { response: articles, loading: loadingArticles } = useGetApi<ResponseArticlesTypes>({ path: "/blogs", limit: "5" });
+  const { response: article, loading: loadingArticle, error } = useGetApi<ResponseArticleTypes>({ path: `/blogs/${slug}` });
 
   const t = useTranslations("media");
 
@@ -109,7 +109,7 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
 
               <div className="space-y-8">
                 {articles?.data.map((item, index) => (
-                  <RelatedArticles key={index} date={item.updatedAt} pathUrl={item.slug} title={item.title} pathImg={item.imageHeader} />
+                  <RelatedArticles key={index} date={item.updatedAt} pathUrl={item.slug} title={item.title} pathImg={item.header} />
                 ))}
               </div>
             </Motion>
@@ -122,7 +122,7 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
                 breakpoints={{ 0: { slidesPerView: 1 }, 660: { slidesPerView: 2 } }}
               >
                 {articles?.data.map((item, index) => (
-                  <RelatedArticles key={index} date={item.updatedAt} pathUrl={item.slug} title={item.title} pathImg={item.imageHeader} />
+                  <RelatedArticles key={index} date={item.updatedAt} pathUrl={item.slug} title={item.title} pathImg={item.header} />
                 ))}
               </BigSlider>
             </Motion>

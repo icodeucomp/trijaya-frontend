@@ -171,6 +171,6 @@
     @apply rounded-full duration-300 cursor-pointer flex justify-center items-center size-10 border border-primary hover:bg-primary;
   }
   .pagination-number {
-    @apply px-3 py-2 text-sm text-center transition-all border rounded-lg shadow-sm border-gray/50 text-dark-blue min-w-9;
+    @apply size-10 sm:size-12 flex items-center justify-center text-base text-center transition-all border rounded-lg shadow-sm border-gray/50 text-dark-blue;
   }
 }

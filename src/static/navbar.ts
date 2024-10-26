@@ -1,5 +1,6 @@
-import { NavbarTypes } from "@/types";
 import { useTranslations } from "next-intl";
+
+import { NavbarTypes } from "@/types";
 
 export const NavbarList = () => {
   const t = useTranslations("header");
@@ -24,13 +25,35 @@ export const NavbarList = () => {
       title: `${t("business.title")}`,
       pathUrl: "/business",
       content: [
-        { title: `${t("business.services.title")}`, pathUrl: "#service", description: `${t("business.services.description")}` },
-        { title: `${t("business.products.title")}`, pathUrl: "#product", description: `${t("business.products.description")}` },
-        { title: `${t("business.experiences.title")}`, pathUrl: "#experience", description: `${t("business.experiences.description")}` },
         {
-          title: `${t("business.business-sector.title")}`,
-          pathUrl: "/sector",
-          description: `${t("business.business-sector.description")}`,
+          title: "Electrical",
+          pathUrl: "/sector/electrical",
+          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+        },
+        {
+          title: "Fabrication",
+          pathUrl: "/sector/fabrication",
+          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+        },
+        {
+          title: "General Supplier",
+          pathUrl: "/sector/general-supplier",
+          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+        },
+        {
+          title: "Machining",
+          pathUrl: "/sector/machining",
+          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+        },
+        {
+          title: "Mechanical",
+          pathUrl: "/sector/mechanical",
+          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+        },
+        {
+          title: "Civil & Construction",
+          pathUrl: "/sector/civil-construction",
+          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
         },
       ],
     },

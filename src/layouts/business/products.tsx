@@ -2,29 +2,33 @@
 
 import * as React from "react";
 
-import { useGetApi } from "@/hooks";
+import { notFound } from "next/navigation";
+import { Link, useRouter } from "@/i18n/routing";
+
+import { useGetApi, useToggleState } from "@/hooks";
 
 import { useDebounce } from "use-debounce";
 
-import { useTranslations } from "next-intl";
-
-import { Background, BigSlider, Container, ImageSlider, Modal, Motion, SmallSlider } from "@/components";
-
 import { AnimatePresence } from "framer-motion";
+import { Background, ImageSlider, Modal, Motion } from "@/components";
 
-import { BusinessesTypes, ResponseBusinessesTypes } from "@/types";
+import { FaArrowLeft } from "react-icons/fa6";
+import { PiCaretDownBold } from "react-icons/pi";
 
-export const Products = () => {
-  const t = useTranslations("business");
+import { BusinessSectorTypes, ResponseBusinessesSectorTypes, ResponseBusinessTypes } from "@/types";
 
-  const [productsData, setProductsData] = React.useState<BusinessesTypes[]>();
-  const [filteredProduct, setFilteredProduct] = React.useState<BusinessesTypes>();
+export const Products = ({ slug }: { slug: string }) => {
+  const { back } = useRouter();
+
+  const [ref, popover, togglePopover] = useToggleState(false);
+
+  const [filteredProduct, setFilteredProduct] = React.useState<BusinessSectorTypes>();
   const [openModalIndex, setOpenModalIndex] = React.useState<string | null>(null);
-  const [selectImages, setSelectImages] = React.useState<number>(0);
 
   const [categoryFilter] = useDebounce(openModalIndex, 300);
 
-  const { response: products, loading } = useGetApi<ResponseBusinessesTypes>("/business");
+  const { response: business, loading, error } = useGetApi<ResponseBusinessTypes>({ path: `/business/${slug}` });
+  const { response: businessName } = useGetApi<ResponseBusinessesSectorTypes>({ path: "/business/metadata" });
 
   const openModal = (index: string) => {
     setOpenModalIndex(index);
@@ -34,79 +38,94 @@ export const Products = () => {
     setOpenModalIndex(null);
   };
 
-  const colorLabel = ["bg-red-600", "bg-green-600", "bg-blue-600", "bg-yellow-600", "bg-rose-600", "bg-orange-600", "bg-teal-600"];
-
   React.useEffect(() => {
     if (openModalIndex !== "") {
-      setFilteredProduct(products?.data.find((item) => item.slug === categoryFilter));
+      setFilteredProduct(business?.data.Product.find((item) => item.slug === categoryFilter));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryFilter]);
 
-  React.useEffect(() => {
-    if (products?.data && products.data.length > 0) {
-      setProductsData(products.data.filter((item) => item.Product.length > 0));
-    }
-  }, [products]);
+  if (loading) {
+    return (
+      <div className="flex justify-center py-24">
+        <div className="loader"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    notFound();
+  }
 
   return (
-    <Container id="product" className="pt-10 pb-16 sm:pb-20">
-      <BigSlider
-        className="space-y-8"
-        title={`${t("products")}`}
-        isButton
-        loadData={loading as boolean}
-        linkButton="/business/sector"
-        spaceBetween={10}
-        slidesPerView={4}
-        breakpoints={{ 0: { slidesPerView: 2 }, 768: { slidesPerView: 3 }, 1024: { slidesPerView: 4 } }}
-      >
-        {productsData?.map((item, index) => (
-          <div key={index} onClick={() => openModal(item.slug)} className="cursor-pointer">
-            <Motion tag="div" initialY={40} animateY={0} duration={1} delay={index * 0.1}>
-              <Background
-                src={item.productHeader.url || "/temp-business.webp"}
-                className="flex-col justify-between w-full py-4 sm:py-6 min-h-300 filter-image"
-                parentClassName="rounded-lg"
-                isHover
-              >
-                <div className={`px-4 py-1 sm:px-6 rounded-3xl w-max ${colorLabel[index]}`}>
-                  <label className="text-xs sm:text-sm">{item.title}</label>
-                </div>
-                <div className="space-y-1 text-light">
-                  <h5 className="text-sm sm:text-base lg:text-lg">PT Trijaya Berkah Mandiri</h5>
-                  <h6 className="text-base font-semibold lg:text-xl">{item.Product.length} Products</h6>
-                </div>
-              </Background>
-            </Motion>
-          </div>
-        ))}
-      </BigSlider>
+    <>
+      <div className="flex items-center gap-4 mb-8 lg:hidden">
+        <span ref={ref} className={`dropdown w-full min-h-12 ${popover ? "border-primary" : "border-gray"}`} onClick={togglePopover}>
+          {business?.data.title}
+          <PiCaretDownBold size={20} className={`duration-300 absolute right-2 fill-dark ${popover && "rotate-180"}`} />
+          {popover && (
+            <div className={`popover top-14`}>
+              {businessName?.data.map((item, index) => (
+                <Link href={item.slug} key={index} className="block w-full px-4 py-2.5 rounded-lg whitespace-nowrap btn-primary">
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+          )}
+        </span>
+      </div>
+      <div className="flex items-center gap-4 mb-4 lg:hidden">
+        <button
+          className="flex items-center justify-center duration-300 border rounded-lg size-10 sm:size-12 bg-light border-primary hover:bg-primary group"
+          type="button"
+          onClick={() => back()}
+        >
+          <FaArrowLeft size={20} className="duration-300 fill-secondary group-hover:fill-light" />
+        </button>
+        <span className="text-xl font-medium sm:text-2xl text-primary">Back</span>
+      </div>
+      <h2 className="mb-4 sm:mb-8 heading">{business?.data.title}</h2>
+      <div className="lg:pr-4 lg:overflow-y-auto lg:max-h-custom-modal scrollbar">
+        <div className="grid grid-cols-2 gap-8 xl:grid-cols-3">
+          {business?.data.Product?.map((item, index) => (
+            <div key={index} onClick={() => openModal(item.slug)} className="cursor-pointer">
+              <Motion tag="div" initialY={40} animateY={0} duration={1} delay={index * 0.1}>
+                <Background
+                  src={item.media?.[0].url || "/temp-business.webp"}
+                  className="items-center justify-center w-full min-h-200 sm:min-h-300 filter-image"
+                  parentClassName="rounded-lg"
+                  isHover
+                >
+                  <label className="text-base font-semibold text-center sm:text-lg md:text-xl">{item.title}</label>
+                </Background>
+              </Motion>
+            </div>
+          ))}
+        </div>
+      </div>
       <AnimatePresence>
         {openModalIndex !== null && (
           <Modal isVisible={openModalIndex !== null} onClose={closeModal}>
-            {filteredProduct && filteredProduct?.Product[selectImages].media.length > 0 ? (
+            {filteredProduct && filteredProduct?.media.length > 0 ? (
               <ImageSlider
-                images={filteredProduct?.Product[selectImages].media?.map((item) => item.url)}
-                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-72 lg:h-96"
+                images={filteredProduct?.media?.map((item) => item.url)}
+                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-80 lg:h-96"
               />
             ) : (
-              <ImageSlider images={["/temp-business.webp"]} imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-72 lg:h-96" />
+              <ImageSlider images={["/temp-business.webp"]} imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-80 lg:h-96" />
             )}
-            <SmallSlider slidesPerView={1} setIndex={setSelectImages} title={filteredProduct?.title || ""} className="space-y-2 md:space-y-4">
-              {filteredProduct?.Product.map((item, index) => (
-                <div key={index} className="space-y-2 md:space-y-4">
-                  <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{item.title}</h4>
-
-                  <p className="overflow-y-auto text-sm leading-tight text-justify h-36 md:h-52 lg:h-64 sm:text-base xl:text-lg scrollbar">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </SmallSlider>
+            <div className="relative w-full space-y-4 sm:space-y-8">
+              <h3 className="text-xl font-medium sm:text-2xl md:text-3xl text-primary">{business?.data.title}</h3>
+              <div className="space-y-2 md:space-y-4">
+                <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{filteredProduct?.title}</h4>
+                <p className="h-40 overflow-y-auto text-sm leading-tight text-justify md:h-52 lg:h-60 sm:text-base xl:text-lg scrollbar">
+                  {filteredProduct?.description}
+                </p>
+              </div>
+            </div>
           </Modal>
         )}
       </AnimatePresence>
-    </Container>
+    </>
   );
 };

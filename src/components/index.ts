@@ -15,3 +15,4 @@ export * from "./motion";
 export * from "./big-slider";
 export * from "./display-thumbnail";
 export * from "./pagination";
+export * from "./sidebar";

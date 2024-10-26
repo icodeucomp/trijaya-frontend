@@ -1,16 +1,12 @@
-import { useTranslations } from "next-intl";
+import { Projects } from "@/layouts";
+import { Description, ProductSector } from "@/layouts/business";
 
-import { Hero } from "@/layouts";
-import { AllSectorBusiness, SectorBusiness } from "@/layouts/business";
-
-export default function Sector({ params }: { params: { slug: string } }) {
-  const t = useTranslations("business.sector.hero");
-
+export default function BusinessSector({ params }: { params: { slug: string } }) {
   return (
-    <>
-      <Hero pathImg="/images/sector-header.webp" title={`${t("title")}`} description={`${t("description")}`} />
-      <SectorBusiness slug={params.slug} />
-      <AllSectorBusiness slug={params.slug} />
-    </>
+    <section className="overflow-x-hidden">
+      <Description slug={params.slug} />
+      <Projects />
+      <ProductSector slug={params.slug} />
+    </section>
   );
 }

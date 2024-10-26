@@ -10,7 +10,7 @@ import { shimmer, toBase64 } from "@/utils";
 export const Experiences = () => {
   const t = useTranslations("business.experiences");
   return (
-    <Container id="experience" className="pb-20">
+    <Container id="experience" className="py-16">
       <Motion tag="div" initialY={-40} animateY={0} duration={1} className="max-w-xl mx-auto space-y-2 text-center">
         <h3 className="heading">{t("title")}</h3>
         <p className="text-sm font-medium sm:text-base md:text-lg text-dark-gray">{t("description")}</p>

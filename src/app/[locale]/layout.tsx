@@ -22,8 +22,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Home | Trijaya Berkah Mandiri",
-  description: "Home Page for PT Trijaya Berkah Mandiri",
+  title: "Trijaya Berkah Mandiri",
+  description: "This is official website from PT Trijaya Berkah Mandiri",
   icons: {
     icon: "/logo-company.png",
   },
@@ -34,7 +34,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
 
   return (
     <html lang={locale}>
-      <body className={`${poppins.className} overflow-x-hidden`}>
+      <body className={`${poppins.className} flex flex-col min-h-screen overflow-x-hidden`}>
         <NextIntlClientProvider messages={messages}>
           <Toaster position="bottom-center" />
           <Header />

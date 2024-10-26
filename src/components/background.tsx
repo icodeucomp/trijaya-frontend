@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import { Container } from "./container";
-
 import { shimmer, toBase64 } from "@/utils";
 
 import { BackgroundProps } from "@/types";
@@ -20,7 +18,7 @@ export const Background = ({ src, className, children, parentClassName, isHover 
         objectPosition="center"
         className={`-z-10 ${isHover ? "duration-300 group-hover:scale-110" : ""}`}
       />
-      <Container className={`z-1 relative flex ${className ?? ""}`}>{children}</Container>
+      <div className={`z-1 relative flex mx-auto ${className ?? ""}`}>{children}</div>
     </figure>
   );
 };

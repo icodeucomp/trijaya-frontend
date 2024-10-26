@@ -5,6 +5,5 @@ export interface BigSliderProps extends SwiperOptions {
   children: React.ReactNode[] | React.ReactNode;
   className: string;
   loadData: boolean;
-  isButton?: boolean;
   linkButton?: string;
 }
