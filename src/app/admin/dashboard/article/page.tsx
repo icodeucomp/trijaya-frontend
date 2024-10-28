@@ -1,5 +1,5 @@
-import { Article } from "@/dashboards";
+import { Articles } from "@/dashboards";
 
 export default function ArticlesDashboard() {
-  return <Article />;
+  return <Articles />;
 }

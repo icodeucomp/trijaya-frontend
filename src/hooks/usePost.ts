@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 import { request } from "@/utils";
 
-export const usePost = (method: "GET" | "POST" | "PATCH" | "DELETE", linkHref: string) => {
+export const usePost = (method: "GET" | "POST" | "PATCH" | "DELETE", linkHref?: string) => {
   const [loading, setLoading] = useState<boolean>();
   const [error, setError] = useState<string>();
 
@@ -29,7 +29,10 @@ export const usePost = (method: "GET" | "POST" | "PATCH" | "DELETE", linkHref: s
     })
       .then((response) => {
         toast.success(response?.data.message);
-        window.location.href = `/admin/dashboard/${linkHref}`;
+        if (linkHref) {
+          window.location.href = `/admin/dashboard/${linkHref}`;
+          return;
+        }
       })
       .catch((error) => {
         toast.error(error.response?.data.message || "There was an error");

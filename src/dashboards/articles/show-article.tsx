@@ -1,16 +1,16 @@
 "use client";
 
-import { useGet } from "@/hooks";
+import { useGetApi } from "@/hooks";
 
 import { convertDate } from "@/utils";
 
 import { ResponseArticleTypes } from "@/types";
 
 export const ShowArticle = ({ slug }: { slug: string }) => {
-  const { response: article, loading } = useGet<ResponseArticleTypes>(`/blogs/${slug}`);
+  const { response: article, loading } = useGetApi<ResponseArticleTypes>({ path: `/blogs/${slug}` });
 
   if (loading) {
-    <div className="w-full py-16 flex justify-center">
+    <div className="flex justify-center w-full py-16">
       <span className="loader"></span>
     </div>;
   }

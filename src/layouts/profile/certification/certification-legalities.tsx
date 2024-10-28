@@ -1,7 +1,7 @@
 "use client";
 
 import { ChangeEvent, useEffect, useState } from "react";
-import { useGetSearchApi } from "@/hooks";
+import { useGetApi } from "@/hooks";
 import { useDebounce } from "use-debounce";
 
 import { Container, DisplayThumbnail, Motion, Pagination } from "@/components";
@@ -29,7 +29,7 @@ export const CertificationLegalities = () => {
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
-  const { response: documents, loading } = useGetSearchApi<ResponseDocumentsTypes>({
+  const { response: documents, loading } = useGetApi<ResponseDocumentsTypes>({
     path: "/documents",
     searchQuery: debouncedSearchTerm,
     limit: "3",

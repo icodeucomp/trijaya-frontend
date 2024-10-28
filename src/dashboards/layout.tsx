@@ -45,6 +45,10 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     </div>;
   }
 
+  if (error) {
+    return;
+  }
+
   return (
     <div className="relative flex bg-light">
       <div onClick={() => setOpenNav(false)} className={`lg:hidden fixed inset-0 h-screen z-100 bg-dark/50 ${openNav ? "block" : "hidden"}`} />

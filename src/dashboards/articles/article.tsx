@@ -4,7 +4,7 @@ import * as React from "react";
 
 import Link from "next/link";
 
-import { useGetSearchApi } from "@/hooks";
+import { useGetApi } from "@/hooks";
 
 import { useDebounce } from "use-debounce";
 
@@ -56,14 +56,14 @@ const Content = ({ data }: { data: ArticlesTypes[] | undefined }) => {
   );
 };
 
-export const Article = () => {
+export const Articles = () => {
   const [searchTerm, setSearchTerm] = React.useState<string>("");
   const [page, setPage] = React.useState<number>(1);
   const [totalPage, setTotalPage] = React.useState<number>(0);
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
-  const { response: articles, loading } = useGetSearchApi<ResponseArticlesTypes>({
+  const { response: articles, loading } = useGetApi<ResponseArticlesTypes>({
     path: "/blogs",
     searchQuery: debouncedSearchTerm,
     page: page.toString(),
@@ -99,7 +99,9 @@ export const Article = () => {
       ) : (
         <Content data={articles?.data} />
       )}
-      <Pagination page={page} totalPage={totalPage} setPage={setPage} isNumbering />
+      <div className="pt-8">
+        <Pagination page={page} totalPage={totalPage} setPage={setPage} isNumbering />
+      </div>
     </>
   );
 };

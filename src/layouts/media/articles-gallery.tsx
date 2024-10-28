@@ -6,11 +6,12 @@ import { useGetApi, useMediaQuery } from "@/hooks";
 
 import { useTranslations } from "next-intl";
 
+import { useDebounce } from "use-debounce";
+
 import { ArticleCard, Container, Motion, Pagination } from "@/components";
 
 import { ResponseArticlesTypes } from "@/types";
 import { CiSearch } from "react-icons/ci";
-import { useDebounce } from "use-debounce";
 
 export const ArticlesGallery = () => {
   const t = useTranslations("media");
@@ -55,10 +56,10 @@ export const ArticlesGallery = () => {
   return (
     <Container className="py-16 space-y-8">
       <div className="flex items-center justify-between">
-        <Motion tag="h3" initialX={-50} animateX={0} duration={0.4} className="heading w-full">
+        <Motion tag="h3" initialX={-40} animateX={0} duration={0.3} className="w-full heading">
           {t("articles-gallery")}
         </Motion>
-        <div className="relative w-full max-w-xs">
+        <Motion tag="div" initialX={40} animateX={0} duration={0.5} delay={0.3} className="relative w-full max-w-xs">
           <div className="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
             <CiSearch size={20} />
           </div>
@@ -69,7 +70,7 @@ export const ArticlesGallery = () => {
             value={searchTerm}
             placeholder="Search"
           />
-        </div>
+        </Motion>
       </div>
 
       {loading ? (
@@ -79,7 +80,7 @@ export const ArticlesGallery = () => {
       ) : (
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {articles?.data && articles?.data.length < 1 ? (
-            <h3 className="w-full col-span-1 mt-8 text-lg min-h-400 font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">
+            <h3 className="w-full col-span-1 mt-8 text-lg font-semibold text-center min-h-400 sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">
               The articles is not found
             </h3>
           ) : (

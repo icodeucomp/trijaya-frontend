@@ -82,21 +82,23 @@ export const ProductSector = ({ slug }: { slug: string }) => {
       <AnimatePresence>
         {openModal !== null && (
           <Modal isVisible={openModal !== null} onClose={() => setOpenModal(null)}>
-            {filterData && filterData?.media.length > 0 ? (
-              <ImageSlider
-                images={filterData?.media?.map((item) => item.url)}
-                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-80 lg:h-96"
-              />
-            ) : (
-              <ImageSlider images={["/temp-business.webp"]} imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-80 lg:h-96" />
-            )}
-            <div className="relative w-full space-y-4 sm:space-y-8">
-              <h3 className="text-xl font-medium sm:text-2xl md:text-3xl text-primary">Products</h3>
-              <div className="space-y-2 md:space-y-4">
-                <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{filterData?.title}</h4>
-                <p className="h-40 overflow-y-auto text-sm leading-tight text-justify md:h-52 lg:h-60 sm:text-base xl:text-lg scrollbar">
-                  {filterData?.description}
-                </p>
+            <div className="flex flex-col gap-4 md:gap-8 md:flex-row">
+              {filterData && filterData?.media.length > 0 ? (
+                <ImageSlider
+                  images={filterData?.media?.map((item) => item.url)}
+                  imgClassName="w-72 sm:w-80 mx-auto lg:w-96 aspect-square rounded-lg"
+                />
+              ) : (
+                <ImageSlider images={["/temp-business.webp"]} imgClassName="w-72 sm:w-80 mx-auto lg:w-96 aspect-square rounded-lg" />
+              )}
+              <div className="relative w-full space-y-4 sm:space-y-8">
+                <h3 className="text-xl font-medium sm:text-2xl md:text-3xl text-primary">Products</h3>
+                <div className="space-y-2 md:space-y-4">
+                  <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{filterData?.title}</h4>
+                  <p className="h-40 overflow-y-auto text-sm leading-tight text-justify md:h-48 lg:h-60 sm:text-base xl:text-lg scrollbar">
+                    {filterData?.description}
+                  </p>
+                </div>
               </div>
             </div>
           </Modal>

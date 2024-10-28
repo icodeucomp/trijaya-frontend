@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { useGetSearchApi } from "@/hooks";
+import { useGetApi } from "@/hooks";
 
 import { useDebounce } from "use-debounce";
 
@@ -22,7 +22,7 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
   return (
     <menu className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 place-items-center xl:grid-cols-3">
       {!data?.length ? (
-        <h3 className="w-full col-span-1 m-8 text-lg sm:text-2xl md:text-3xl font-semibold text-center sm:col-span-2 xl:col-span-3 text-gray/50">
+        <h3 className="w-full col-span-1 m-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">
           The documents is not found
         </h3>
       ) : (
@@ -55,14 +55,14 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
   );
 };
 
-export const Document = () => {
+export const Documents = () => {
   const [searchTerm, setSearchTerm] = React.useState<string>("");
   const [page, setPage] = React.useState<number>(1);
   const [totalPage, setTotalPage] = React.useState<number>(0);
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
-  const { response: documents, loading } = useGetSearchApi<ResponseDocumentsTypes>({
+  const { response: documents, loading } = useGetApi<ResponseDocumentsTypes>({
     path: "/documents",
     searchQuery: debouncedSearchTerm,
     page: page.toString(),
@@ -96,7 +96,9 @@ export const Document = () => {
       ) : (
         <Content data={documents?.data} />
       )}
-      <Pagination page={page} totalPage={totalPage} setPage={setPage} isNumbering />
+      <div className="pt-8">
+        <Pagination page={page} totalPage={totalPage} setPage={setPage} isNumbering />
+      </div>
     </>
   );
 };

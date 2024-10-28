@@ -40,6 +40,7 @@ export interface BusinessSectorTypes {
     url: string;
     slug: string;
   }[];
+  businessId: number;
   business: {
     title: string;
   };
@@ -67,6 +68,15 @@ export interface MediaTypes {
   name: string;
   slug: string;
   url: string;
+  size?: string;
+}
+
+export interface AlbumTypes {
+  updatedAt: string;
+  name: string;
+  slug: string;
+  header: string;
+  medias: MediaTypes[];
 }
 
 export interface DocumentsTypes {
@@ -95,6 +105,8 @@ export type ResponseBusinessesSectorTypes = ResponsePayload<BusinessSectorTypes[
 export type ResponseBusinessSectorTypes = ResponsePayload<BusinessSectorTypes>;
 
 export type ResponseMediaTypes = ResponsePayload<MediaTypes[]>;
+export type ResponseAlbumsTypes = ResponsePayload<AlbumTypes[]>;
+export type ResponseAlbumTypes = ResponsePayload<AlbumTypes>;
 
 export type ResponseDocumentsTypes = ResponsePayload<DocumentsTypes[]>;
 export type ResponseCategoriesDocumentTypes = ResponsePayload<CategoriesDocumentTypes[]>;

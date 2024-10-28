@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { useGet, usePost, useToggleState, useUpload } from "@/hooks";
+import { useGetApi, usePost, useToggleState, useUpload } from "@/hooks";
 
 import { AnimatePresence } from "framer-motion";
 
@@ -18,8 +18,8 @@ export const EditDocument = ({ slug }: { slug: string }) => {
   const [ref, modal, toggleModal] = useToggleState();
 
   // call api
-  const { response: categories } = useGet<ResponseCategoriesDocumentTypes>("/documents/categories");
-  const { response: document, loading } = useGet<ResponseDocumentTypes>(`/documents/${slug}`);
+  const { response: categories } = useGetApi<ResponseCategoriesDocumentTypes>({ path: "/documents/categories" });
+  const { response: document, loading } = useGetApi<ResponseDocumentTypes>({ path: `/documents/${slug}` });
 
   const { loading: loadData, execute } = usePost("PATCH", "/document");
 
@@ -89,7 +89,7 @@ export const EditDocument = ({ slug }: { slug: string }) => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 md:min-w-xl">
-                <h1 className="text-lg font-semibold text-center sm:text-start text-primary">Add Document</h1>
+                <h3 className="text-lg font-semibold text-center sm:text-start text-primary">Add Document</h3>
                 <div className="space-y-4">
                   {loading ? (
                     <div className="flex justify-center py-4">

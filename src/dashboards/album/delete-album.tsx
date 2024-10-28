@@ -11,22 +11,19 @@ import { Modal } from "../modal";
 
 import { GoTrash } from "react-icons/go";
 
-export const DeleteMedia = ({ slug }: { slug: string }) => {
+export const DeleteAlbum = ({ slug }: { slug: string }) => {
   const [ref, modal, toggleModal] = useToggleState();
 
-  const { execute, loading } = usePost("DELETE", "media");
+  const { execute, loading } = usePost("DELETE", "album");
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    execute(`/media/${slug}`, {});
+    execute(`/albums/${slug}`, {});
   };
 
   return (
     <div ref={ref}>
-      <button
-        onClick={toggleModal}
-        className="absolute p-2 duration-300 border rounded-full top-4 right-4 border-secondary bg-light hover:bg-secondary group"
-      >
+      <button onClick={toggleModal} className="p-2 duration-300 border rounded-full border-secondary bg-light hover:bg-secondary group">
         <GoTrash size={20} className="text-secondary group-hover:text-light" />
       </button>
 

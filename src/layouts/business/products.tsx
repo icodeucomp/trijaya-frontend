@@ -7,8 +7,6 @@ import { Link, useRouter } from "@/i18n/routing";
 
 import { useGetApi, useToggleState } from "@/hooks";
 
-import { useDebounce } from "use-debounce";
-
 import { AnimatePresence } from "framer-motion";
 import { Background, ImageSlider, Modal, Motion } from "@/components";
 
@@ -25,8 +23,6 @@ export const Products = ({ slug }: { slug: string }) => {
   const [filteredProduct, setFilteredProduct] = React.useState<BusinessSectorTypes>();
   const [openModalIndex, setOpenModalIndex] = React.useState<string | null>(null);
 
-  const [categoryFilter] = useDebounce(openModalIndex, 300);
-
   const { response: business, loading, error } = useGetApi<ResponseBusinessTypes>({ path: `/business/${slug}` });
   const { response: businessName } = useGetApi<ResponseBusinessesSectorTypes>({ path: "/business/metadata" });
 
@@ -40,10 +36,10 @@ export const Products = ({ slug }: { slug: string }) => {
 
   React.useEffect(() => {
     if (openModalIndex !== "") {
-      setFilteredProduct(business?.data.Product.find((item) => item.slug === categoryFilter));
+      setFilteredProduct(business?.data.Product.find((item) => item.slug === openModalIndex));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [categoryFilter]);
+  }, [openModalIndex]);
 
   if (loading) {
     return (
@@ -106,21 +102,23 @@ export const Products = ({ slug }: { slug: string }) => {
       <AnimatePresence>
         {openModalIndex !== null && (
           <Modal isVisible={openModalIndex !== null} onClose={closeModal}>
-            {filteredProduct && filteredProduct?.media.length > 0 ? (
-              <ImageSlider
-                images={filteredProduct?.media?.map((item) => item.url)}
-                imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-80 lg:h-96"
-              />
-            ) : (
-              <ImageSlider images={["/temp-business.webp"]} imgClassName="w-full max-w-xs md:max-w-full mx-auto h-64 md:h-80 lg:h-96" />
-            )}
-            <div className="relative w-full space-y-4 sm:space-y-8">
-              <h3 className="text-xl font-medium sm:text-2xl md:text-3xl text-primary">{business?.data.title}</h3>
-              <div className="space-y-2 md:space-y-4">
-                <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{filteredProduct?.title}</h4>
-                <p className="h-40 overflow-y-auto text-sm leading-tight text-justify md:h-52 lg:h-60 sm:text-base xl:text-lg scrollbar">
-                  {filteredProduct?.description}
-                </p>
+            <div className="flex flex-col gap-4 md:gap-8 md:flex-row">
+              {filteredProduct && filteredProduct?.media.length > 0 ? (
+                <ImageSlider
+                  images={filteredProduct?.media?.map((item) => item.url)}
+                  imgClassName="w-72 sm:w-80 mx-auto lg:w-96 aspect-square rounded-lg"
+                />
+              ) : (
+                <ImageSlider images={["/temp-business.webp"]} imgClassName="w-72 sm:w-80 mx-auto lg:w-96 aspect-square rounded-lg" />
+              )}
+              <div className="relative w-full space-y-4 sm:space-y-8">
+                <h3 className="text-xl font-medium sm:text-2xl md:text-3xl text-primary">{business?.data.title}</h3>
+                <div className="space-y-2 md:space-y-4">
+                  <h4 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{filteredProduct?.title}</h4>
+                  <p className="h-40 overflow-y-auto text-sm leading-tight text-justify md:h-48 lg:h-60 sm:text-base xl:text-lg scrollbar">
+                    {filteredProduct?.description}
+                  </p>
+                </div>
               </div>
             </div>
           </Modal>

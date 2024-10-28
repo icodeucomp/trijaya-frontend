@@ -6,7 +6,7 @@ import { Link, usePathname } from "@/i18n/routing";
 
 import { useToggleState } from "@/hooks";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 
 import { NavbarList } from "@/static";
 
@@ -14,7 +14,7 @@ import { FaAngleRight } from "react-icons/fa6";
 
 import { NavbarTypes } from "../types";
 
-const motionVariants = {
+const motionVariants: Variants = {
   open: {
     height: "auto",
     opacity: 1,
@@ -28,7 +28,7 @@ const motionVariants = {
 };
 
 const DesktopLink = ({ pathUrl, title, content }: NavbarTypes) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const pathname = usePathname();
 
@@ -37,16 +37,23 @@ const DesktopLink = ({ pathUrl, title, content }: NavbarTypes) => {
   return (
     <li className="flex items-center h-full list-none group" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       {title === "Business" ? (
-        <span className={`duration-300 font-medium relative w-max cursor-default ${isActive ? "text-primary" : "text-dark"}`}>
+        <span
+          className={`duration-300 font-medium relative w-max cursor-default group-hover:font-semibold ${isActive ? "text-primary" : "text-dark"}`}
+        >
           <span>{title}</span>
-          <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
-          <span className={`absolute h-1 transition-all -bottom-2 right-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
+          <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary ${isActive ? "w-3/6" : "w-0"}`}></span>
+          <span className={`absolute h-1 transition-all -bottom-2 right-1/2 bg-secondary ${isActive ? "w-3/6" : "w-0"}`}></span>
         </span>
       ) : (
-        <Link href={pathUrl} className={`duration-300 hover:text-primary font-medium relative w-max ${isActive ? "text-primary" : "text-dark"}`}>
+        <Link
+          href={pathUrl}
+          className={`duration-300 hover:text-primary font-medium relative w-max group-hover:font-semibold ${
+            isActive ? "text-primary" : "text-dark"
+          }`}
+        >
           <span>{title}</span>
-          <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
-          <span className={`absolute h-1 transition-all -bottom-2 right-1/2 bg-secondary group-hover:w-3/6 ${isActive ? "w-3/6" : "w-0"}`}></span>
+          <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary ${isActive ? "w-3/6" : "w-0"}`}></span>
+          <span className={`absolute h-1 transition-all -bottom-2 right-1/2 bg-secondary ${isActive ? "w-3/6" : "w-0"}`}></span>
         </Link>
       )}
 
@@ -115,7 +122,7 @@ const MobileLink = ({ pathUrl, title, content }: NavbarTypes) => {
         initial={false}
         animate={dropdown ? "open" : "closed"}
         variants={motionVariants}
-        className="w-full px-8 mt-4 space-y-2 bg-light sm:px-8"
+        className="w-full px-4 mt-4 space-y-2 bg-light sm:px-8"
       >
         <div className="py-4 space-y-4 text-sm sm:text-base">
           {content?.map((item, index) => (

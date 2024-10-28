@@ -7,7 +7,7 @@ const CKEditor = dynamic(() => import("../ckeditor"), { ssr: false });
 
 import { useRouter } from "next/navigation";
 
-import { useGet, usePost } from "@/hooks";
+import { useGetApi, usePost } from "@/hooks";
 
 import { Button } from "@/components";
 
@@ -26,7 +26,7 @@ export const EditArticle = ({ slug }: { slug: string }) => {
   const [error, setError] = React.useState<boolean>(false);
 
   // get one article by slug and patch data api
-  const { response: article, loading } = useGet<ResponseArticleTypes>(`/blogs/${slug}`);
+  const { response: article, loading } = useGetApi<ResponseArticleTypes>({ path: `/blogs/${slug}` });
   const { execute, loading: loadData } = usePost("PATCH", `article`);
 
   // handle back route

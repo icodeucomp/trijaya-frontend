@@ -1,19 +1,20 @@
 "use client";
 
-import { useGet, useToggleState } from "@/hooks";
+import { useGetApi, useToggleState } from "@/hooks";
 
 import { AnimatePresence } from "framer-motion";
 
 import { Modal } from "../modal";
+import { Button } from "@/components";
 
 import { BiShowAlt } from "react-icons/bi";
+
 import { ResponseDocumentTypes } from "@/types";
-import { Button } from "@/components";
 
 export const ShowDocument = ({ slug }: { slug: string }) => {
   const [ref, modal, toggleModal] = useToggleState();
 
-  const { response: document, loading } = useGet<ResponseDocumentTypes>(`/documents/${slug}`);
+  const { response: document, loading } = useGetApi<ResponseDocumentTypes>({ path: `/documents/${slug}` });
 
   return (
     <div ref={ref}>

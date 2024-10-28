@@ -26,7 +26,7 @@ export const ImageSlider = ({ images, imgClassName, ...props }: ImageSliderProps
   };
 
   return (
-    <div className="relative">
+    <div className="relative mx-auto w-72 aspect-square sm:w-80 lg:w-96">
       <Swiper
         modules={[Controller]}
         controller={{ control: controlledSwiper }}
