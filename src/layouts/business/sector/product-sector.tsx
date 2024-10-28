@@ -64,7 +64,7 @@ export const ProductSector = ({ slug }: { slug: string }) => {
             <div key={index} className="cursor-pointer" onClick={() => setOpenModal(item.slug)}>
               <Motion tag="div" initialY={30} animateY={0} duration={1} delay={index * 0.1}>
                 <Background
-                  src={item.media[0].url}
+                  src={item.media[0]?.url || "/temp-business.webp"}
                   className="flex-col justify-end w-full p-4 h-72 sm:h-80 filter-image"
                   parentClassName="rounded-lg"
                   isHover

@@ -9,10 +9,13 @@ import { AnimatePresence } from "framer-motion";
 import { GoTrash } from "react-icons/go";
 
 export const DeleteArticle = ({ slug }: { slug: string }) => {
+  // use modal state and toggle function to open and close modal
   const [ref, modal, toggleModal] = useToggleState();
 
+  // use post hook to send DELETE request to server to delete article
   const { execute, loading } = usePost("DELETE", "article");
 
+  // handle form submission to delete article from server database
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     execute(`/blogs/${slug}`, {});

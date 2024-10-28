@@ -4,7 +4,7 @@ import * as React from "react";
 
 import Link from "next/link";
 
-import { useGetApi } from "@/hooks";
+import { useGetApi, useMediaQuery } from "@/hooks";
 
 import { useDebounce } from "use-debounce";
 
@@ -57,28 +57,44 @@ const Content = ({ data }: { data: ArticlesTypes[] | undefined }) => {
 };
 
 export const Articles = () => {
+  // get and set data to manipulate query in call api
   const [searchTerm, setSearchTerm] = React.useState<string>("");
   const [page, setPage] = React.useState<number>(1);
+  const [limit, setLimit] = React.useState<number>(9);
   const [totalPage, setTotalPage] = React.useState<number>(0);
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
+  // fetch api to show all data articles / blogs
   const { response: articles, loading } = useGetApi<ResponseArticlesTypes>({
     path: "/blogs",
     searchQuery: debouncedSearchTerm,
     page: page.toString(),
+    limit: limit.toString(),
   });
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    setSearchTerm(e.target.value);
-  };
+  // define responsive media query
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isTablet = useMediaQuery("(min-width: 640px) and (max-width: 1023px)");
+  const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 639px)");
 
+  // to set data total page after first render
   React.useEffect(() => {
-    if (articles?.total && articles?.total > 1) {
-      setTotalPage(Math.ceil(articles.total / 9));
+    if (articles?.total && articles?.total > 0) {
+      setTotalPage(Math.ceil(articles.total / limit));
     }
-  }, [articles]);
+  }, [articles, limit]);
+
+  // to set data limit after first render
+  React.useEffect(() => {
+    if (isDesktop) {
+      setLimit(9);
+    } else if (isTablet) {
+      setLimit(2);
+    } else if (isMobile) {
+      setLimit(1);
+    }
+  }, [isDesktop, isTablet, isMobile]);
 
   return (
     <>
@@ -87,7 +103,7 @@ export const Articles = () => {
         <span className="text-sm text-gray">Last Updated at: {articles?.newest}</span>
       </div>
       <div className="flex flex-col items-center justify-between gap-4 my-4 sm:flex-row">
-        <Filter setSearchTerm={handleSearch} />
+        <Filter setSearchTerm={(e) => setSearchTerm(e.target.value)} />
         <Link href="/admin/dashboard/article/add">
           <Button className="btn-primary">Add New Blog</Button>
         </Link>

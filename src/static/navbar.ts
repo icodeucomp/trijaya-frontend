@@ -62,11 +62,12 @@ export const NavbarList = () => {
       pathUrl: "/media",
       content: [
         {
-          title: `${t("media.company-activities.title")}`,
-          pathUrl: "#company-activity",
-          description: `${t("media.company-activities.description")}`,
+          title: `${t("media.projects-gallery.title")}`,
+          pathUrl: "#projects-gallery",
+          description: `${t("media.projects-gallery.description")}`,
         },
-        { title: `${t("media.articles.title")}`, pathUrl: "#article", description: `${t("media.articles.description")}` },
+        { title: `${t("media.albums.title")}`, pathUrl: "#lifeattbm", description: `${t("media.albums.description")}` },
+        { title: `${t("media.articles-gallery.title")}`, pathUrl: "#articles-gallery", description: `${t("media.articles-gallery.description")}` },
       ],
     },
     { title: `${t("contact-us")}`, pathUrl: "/contact-us" },

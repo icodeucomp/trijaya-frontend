@@ -132,10 +132,7 @@ export const EditDocument = ({ slug }: { slug: string }) => {
 
                   <div className="relative flex flex-row items-center overflow-hidden border rounded-lg border-gray/50">
                     <input type="file" id="file-pdf" onChange={handleFileChange} hidden />
-                    <label
-                      htmlFor="file-pdf"
-                      className="block px-4 py-2 mr-4 text-sm font-semibold border-0 cursor-pointer rounded-s-lg whitespace-nowrap bg-light-gray text-primary hover:bg-blue-200"
-                    >
+                    <label htmlFor="file-pdf" className="file-label">
                       Choose file
                     </label>
                     <label className="text-sm text-slate-500 whitespace-nowrap">{selectedFile}</label>

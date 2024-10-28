@@ -114,7 +114,7 @@ export const EditAlbum = ({ slug }: { slug: string }) => {
               <form onSubmit={handleSubmit} className="space-y-4 md:min-w-xl">
                 <h3 className="text-lg font-semibold text-center sm:text-start text-primary">Add Album</h3>
                 <div className="relative text-center">
-                  <Img src={album.header || "/temp-business.webp"} alt={"test"} className="mx-auto rounded-lg w-60 aspect-square" cover />
+                  <Img src={album.header || "/temp-business.webp"} alt={"test"} className="mx-auto rounded-lg w-60 aspect-video" cover />
                 </div>
                 <div className="relative w-full">
                   <input
@@ -135,16 +135,12 @@ export const EditAlbum = ({ slug }: { slug: string }) => {
                 {errors && !album.name && <small className="w-full text-secondary">Enter name please!</small>}
                 <div className="relative flex flex-row items-center overflow-hidden border rounded-lg border-gray/50">
                   <input type="file" id="images" onChange={handleImagesChange} hidden accept="image/*" multiple />
-                  <label
-                    htmlFor="images"
-                    className="block px-4 py-2 mr-4 text-sm font-semibold border-0 cursor-pointer rounded-s-lg whitespace-nowrap bg-light-gray text-primary hover:bg-blue-200"
-                  >
+                  <label htmlFor="images" className="file-label">
                     Choose file
                   </label>
                   <label className="text-sm text-slate-500 whitespace-nowrap">{album?.medias?.length} Images</label>
-                  <div className="absolute top-0 right-0 w-4 h-full bg-light"></div>
+                  <small className="pr-2 ms-auto text-gray/70">Max 5mb. (aspect ratio of 16:9)</small>
                 </div>
-                <small className="pl-2 text-gray/70">maximum image size 5mb. (aspect ratio of 16:9)</small>
                 <div className="grid grid-cols-3 gap-2 mt-4">
                   {album.medias?.map((image, index) => (
                     <div key={index} className="relative">

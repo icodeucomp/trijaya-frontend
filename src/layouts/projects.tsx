@@ -59,7 +59,7 @@ export const Projects = () => {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {projects?.data.map((item, index) => (
             <Motion tag="div" initialY={30} animateY={0} duration={1} delay={index * 0.1} key={index} className="space-y-4 text-dark-blue">
-              <Background src={item.header.url || "/temp-business.webp"} className="items-end min-h-300" parentClassName="rounded-lg filter-image">
+              <Background src={item.header?.url || "/temp-business.webp"} className="items-end min-h-300" parentClassName="rounded-lg filter-image">
                 <div className="px-4 py-2 bg-primary">{item.business.title}</div>
               </Background>
               <Link href={`/business/sector/project/${item.slug}`} className="block">

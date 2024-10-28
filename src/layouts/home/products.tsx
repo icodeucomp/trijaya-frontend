@@ -58,7 +58,7 @@ export const Products = () => {
         {products?.data?.map((item, index) => (
           <Link key={index} href={`/business/sector/product/${item.slug}`}>
             <Background
-              src={item.productHeader.url || "/temp-business.webp"}
+              src={item.productHeader?.url || "/temp-business.webp"}
               className="flex-col justify-between w-full p-4 sm:p-6 min-h-300 filter-image"
               parentClassName="rounded-lg"
               isHover

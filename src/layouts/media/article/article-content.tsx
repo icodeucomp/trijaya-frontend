@@ -10,7 +10,7 @@ import { useGetApi } from "@/hooks";
 
 import { useTranslations } from "next-intl";
 
-import { Breadcrumbs, Container, Img, BigSlider, Motion } from "@/components";
+import { Breadcrumbs, Container, Img, Motion } from "@/components";
 
 import { FaLink } from "react-icons/fa6";
 
@@ -100,33 +100,18 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
             <span className="loader"></span>
           </div>
         ) : (
-          <>
-            <Motion tag="div" initialX={40} animateX={0} duration={0.4} delay={0.2} className={`sticky top-4 hidden space-y-12 lg:block`}>
-              <div className="flex items-center gap-4 pt-1">
-                <i className="h-12 border-l-4 border-primary" />
-                <h5 className="text-2xl font-semibold text-primary">{t("other-articles")}</h5>
-              </div>
+          <Motion tag="div" initialX={40} animateX={0} duration={0.4} delay={0.2} className={`sticky top-4 hidden space-y-12 lg:block`}>
+            <div className="flex items-center gap-4 pt-1">
+              <i className="h-12 border-l-4 border-primary" />
+              <h5 className="text-2xl font-semibold text-primary">{t("other-articles")}</h5>
+            </div>
 
-              <div className="space-y-8">
-                {articles?.data.map((item, index) => (
-                  <RelatedArticles key={index} date={item.updatedAt} pathUrl={item.slug} title={item.title} pathImg={item.header} />
-                ))}
-              </div>
-            </Motion>
-            <Motion tag="div" initialX={40} animateX={0} duration={0.4} delay={0.2} className="block my-10 lg:hidden">
-              <BigSlider
-                title={`${t("other-articles")}`}
-                className="space-y-8"
-                slidesPerView={2}
-                loadData={false}
-                breakpoints={{ 0: { slidesPerView: 1 }, 660: { slidesPerView: 2 } }}
-              >
-                {articles?.data.map((item, index) => (
-                  <RelatedArticles key={index} date={item.updatedAt} pathUrl={item.slug} title={item.title} pathImg={item.header} />
-                ))}
-              </BigSlider>
-            </Motion>
-          </>
+            <div className="space-y-8">
+              {articles?.data.map((item, index) => (
+                <RelatedArticles key={index} date={item.updatedAt} pathUrl={item.slug} title={item.title} pathImg={item.header} />
+              ))}
+            </div>
+          </Motion>
         )}
       </div>
     </Container>

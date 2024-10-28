@@ -64,7 +64,7 @@ export const ProjectGallery = () => {
   }, [isDesktop, isTablet, isMobile]);
 
   return (
-    <Container className="py-16">
+    <Container className="py-16" id="projects-gallery">
       <Motion tag="div" initialY={-40} animateY={0} duration={0.2} className="mb-8 space-y-2 text-center">
         <h3 className="heading">{t("head.title")}</h3>
         <p className="subheading">{t("head.description")}</p>
@@ -133,17 +133,19 @@ export const ProjectGallery = () => {
               <h3 className="text-xl font-semibold text-center sm:text-2xl text-primary">{filteredAlbum?.title}</h3>
               <div className="p-2 overflow-x-hidden overflow-y-auto h-80 scrollbar">
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                  {filteredAlbum?.media.map((media, index) => (
-                    <div
-                      key={index}
-                      onClick={() => setSelected(media.url)}
-                      className={`cursor-pointer hover:shadow-custom-border rounded-lg transition-shadow w-max ${
-                        selected === media.url ? "shadow-custom-border" : "shadow-none"
-                      }`}
-                    >
-                      <Img src={media.url} alt={media.slug} className="rounded-lg w-52 aspect-video" cover />
-                    </div>
-                  ))}
+                  {filteredAlbum?.media &&
+                    filteredAlbum?.media.length > 0 &&
+                    filteredAlbum?.media.map((media, index) => (
+                      <div
+                        key={index}
+                        onClick={() => setSelected(media.url)}
+                        className={`cursor-pointer hover:shadow-custom-border rounded-lg transition-shadow w-max ${
+                          selected === media.url ? "shadow-custom-border" : "shadow-none"
+                        }`}
+                      >
+                        <Img src={media.url} alt={media.slug} className="rounded-lg w-52 aspect-video" cover />
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>

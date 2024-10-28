@@ -19,15 +19,15 @@ export const AddArticle = () => {
   // define back route
   const { back } = useRouter();
 
-  //set data
+  // get and set data to manipulate or store data to database
   const [content, setContent] = React.useState<string>("");
   const [title, setTitle] = React.useState<string>("");
   const [error, setError] = React.useState<boolean>(false);
 
-  // post article api
+  // use post hook to send POST request to server to add article
   const { execute, loading } = usePost("POST", "article");
 
-  // handle back button
+  // handle back button if the data is not empty
   const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (title !== "" || content !== "") {
@@ -43,7 +43,7 @@ export const AddArticle = () => {
     back();
   };
 
-  // handle add article
+  // handle form submission to add article from server database
   const handleSubmitForm = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (title === "" || content === "") {

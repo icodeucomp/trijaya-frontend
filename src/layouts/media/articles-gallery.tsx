@@ -54,7 +54,7 @@ export const ArticlesGallery = () => {
   }, [isLargeDesktop, isDesktop, isTablet, isMobile]);
 
   return (
-    <Container className="py-16 space-y-8">
+    <Container className="py-16 space-y-8" id="articles-gallery">
       <div className="flex items-center justify-between">
         <Motion tag="h3" initialX={-40} animateX={0} duration={0.3} className="w-full heading">
           {t("articles-gallery")}

@@ -42,7 +42,7 @@ export const Description = ({ slug }: { slug: string }) => {
               </a>
             </Motion>
             <Motion tag="div" initialX={40} animateX={0} duration={0.9} delay={0.6} className="w-full max-w-md mx-auto">
-              <Img src={business?.data.header.url || "/temp-business.webp"} alt={slug} className="w-full rounded-lg h-80 md:h-96" cover />
+              <Img src={business?.data.header?.url || "/temp-business.webp"} alt={slug} className="w-full rounded-lg h-80 md:h-96" cover />
             </Motion>
           </div>
         )}

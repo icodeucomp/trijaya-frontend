@@ -7,6 +7,7 @@ import { convertDate } from "@/utils";
 import { ResponseArticleTypes } from "@/types";
 
 export const ShowArticle = ({ slug }: { slug: string }) => {
+  // fetch api to show data article / blog by slug
   const { response: article, loading } = useGetApi<ResponseArticleTypes>({ path: `/blogs/${slug}` });
 
   if (loading) {

@@ -3,14 +3,12 @@ export * from "./template";
 export * from "./container";
 export * from "./img";
 export * from "./button";
-export * from "./small-slider";
 export * from "./dropdown";
 export * from "./modal";
 export * from "./image-slider";
 export * from "./background";
 export * from "./article-card";
 export * from "./breadcrumb";
-export * from "./big-slider";
 export * from "./pagination";
 
 export * from "./navbar";

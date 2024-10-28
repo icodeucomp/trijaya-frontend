@@ -224,32 +224,20 @@
       }
     },
     "business": {
-      "title": "商业",
-      "services": {
-        "title": "服务",
-        "description": "了解我们为支持各行业需求提供的服务。"
-      },
-      "products": {
-        "title": "产品",
-        "description": "探索我们开发的创新产品，以为客户提供最佳解决方案。"
-      },
-      "experiences": {
-        "title": "经验",
-        "description": "了解我们在以往项目中的经验和取得的成功。"
-      },
-      "business-sector": {
-        "title": "业务领域",
-        "description": "了解我们服务的业务领域，包括一般供应商、制造、管道项目、机械加工、机械、电气、土木工程和建筑。"
-      }
+      "title": "商业"
     },
     "media": {
       "title": "媒体",
-      "company-activities": {
-        "title": "公司活动",
-        "description": "了解我们在项目执行中的最新公司活动信息。"
+      "projects-gallery": {
+        "title": "项目画廊",
+        "description": "在我们的项目执行中查找有关公司各种活动的最新信息。"
       },
-      "articles": {
-        "title": "文章",
+      "albums": {
+        "title": "#LifeatTBM",
+        "description": "#LifeatTBM 通过照片捕捉了 TBM 团队的奉献、合作和让工作生活难忘的日常瞬间。"
+      },
+      "articles-gallery": {
+        "title": "文章库",
         "description": "阅读关于我们及相关行业、创新和趋势的最新资讯和信息文章。"
       }
     },
@@ -289,8 +277,9 @@
     "media": {
       "title": "媒体 ",
       "fields": {
-        "one": "博客",
-        "two": "画廊"
+        "one": "项目展厅",
+        "two": "#LifeatTBM",
+        "three": "文章库"
       }
     },
     "contact-us": {

@@ -84,7 +84,7 @@ export const Projects = ({ slug }: { slug: string }) => {
         </Motion>
         <Motion tag="div" initialX={40} animateX={0} duration={0.6} delay={0.3} className="max-w-md mx-auto md:max-w-full">
           <Img
-            src={project?.data.header.url || "/temp-business.webp"}
+            src={project?.data.header?.url || "/temp-business.webp"}
             alt={project?.data.header.slug || slug}
             className="mx-auto rounded-lg aspect-square w-80 sm:w-72 md:w-80 xl:w-96"
             cover
@@ -105,13 +105,11 @@ export const Projects = ({ slug }: { slug: string }) => {
         {imageProjects.length < 1 ? (
           <h3 className="w-full text-lg font-semibold text-center sm:text-2xl md:text-3xl text-gray/50">The projects photo gallery is not found</h3>
         ) : (
-          <>
-            <Motion tag="div" initialX={40} animateX={0} duration={0.6} delay={0.3} className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2">
-              {imageProjects.map((item, index) => (
-                <Img key={index} src={item.url} alt={item.slug} className="mx-auto rounded-lg aspect-square w-80 sm:w-72 md:w-80 xl:w-96" cover />
-              ))}
-            </Motion>
-          </>
+          <Motion tag="div" initialX={40} animateX={0} duration={0.6} delay={0.3} className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2">
+            {imageProjects.map((item, index) => (
+              <Img key={index} src={item.url} alt={item.slug} className="mx-auto rounded-lg aspect-square w-80 sm:w-72 md:w-80 xl:w-96" cover />
+            ))}
+          </Motion>
         )}
       </div>
     </Container>

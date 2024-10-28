@@ -61,7 +61,7 @@ export const Albums = () => {
   }, [isDesktop, isTablet, isMobile]);
 
   return (
-    <Container className="py-16">
+    <Container className="py-16" id="lifeattbm">
       <div className="flex items-center justify-between mb-8">
         <Motion tag="h3" initialX={-50} animateX={0} duration={0.4} className="w-full heading">
           #LifeatTBM
@@ -129,17 +129,19 @@ export const Albums = () => {
               <h3 className="text-xl font-semibold text-center sm:text-2xl text-primary">{filteredAlbum?.name}</h3>
               <div className="p-2 overflow-x-hidden overflow-y-auto h-80 scrollbar">
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                  {filteredAlbum?.medias.map((media, index) => (
-                    <div
-                      key={index}
-                      onClick={() => setSelected(media.url)}
-                      className={`cursor-pointer hover:shadow-custom-border rounded-lg transition-shadow w-max ${
-                        selected === media.url ? "shadow-custom-border" : "shadow-none"
-                      }`}
-                    >
-                      <Img src={media.url} alt={media.slug} className="rounded-lg w-52 aspect-video" cover />
-                    </div>
-                  ))}
+                  {filteredAlbum?.medias &&
+                    filteredAlbum.medias.length > 0 &&
+                    filteredAlbum?.medias.map((media, index) => (
+                      <div
+                        key={index}
+                        onClick={() => setSelected(media.url)}
+                        className={`cursor-pointer hover:shadow-custom-border rounded-lg transition-shadow w-max ${
+                          selected === media.url ? "shadow-custom-border" : "shadow-none"
+                        }`}
+                      >
+                        <Img src={media.url} alt={media.slug} className="rounded-lg w-52 aspect-video" cover />
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>

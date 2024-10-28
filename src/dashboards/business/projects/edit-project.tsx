@@ -184,10 +184,7 @@ export const EditProject = ({ slugProject, businessId, slug }: { slugProject: st
               <div className="space-y-4">
                 <div className="relative flex flex-row items-center overflow-hidden border rounded-lg border-gray/50">
                   <input type="file" id="images" hidden accept="image/*" multiple onChange={handleImagesChange} />
-                  <label
-                    htmlFor="images"
-                    className="block px-4 py-2 mr-4 text-sm font-semibold border-0 cursor-pointer rounded-s-lg whitespace-nowrap bg-light-gray text-primary hover:bg-blue-200"
-                  >
+                  <label htmlFor="images" className="file-label">
                     Choose file
                   </label>
                   <label className="text-sm text-slate-500 whitespace-nowrap">{project.media?.length} Images</label>

@@ -224,33 +224,21 @@
       }
     },
     "business": {
-      "title": "Business",
-      "services": {
-        "title": "Services",
-        "description": "Discover the services we offer to support various industry needs."
-      },
-      "products": {
-        "title": "Products",
-        "description": "Explore the innovative products we develop for optimal solutions for our customers."
-      },
-      "experiences": {
-        "title": "Experiences",
-        "description": "Learn about our experience in previous projects and the successes we have achieved."
-      },
-      "business-sector": {
-        "title": "Business Sector",
-        "description": "Get to know the business sectors we serve, including General Supplier, Fabrication, Piping Project, Machining, Mechanical, Electrical, Civil, and Construction."
-      }
+      "title": "Business"
     },
     "media": {
       "title": "Media",
-      "company-activities": {
-        "title": "Company Activities",
+      "projects-gallery": {
+        "title": "Projects Gallery",
         "description": "Find the latest information about various company activities in our project execution."
       },
-      "articles": {
+      "albums": {
+        "title": "#LifeatTBM",
+        "description": "#LifeatTBM captures the spirit of TBM through photos that showcase our team's dedication, collaboration, and daily moments that make work life memorable."
+      },
+      "articles-gallery": {
         "title": "Articles",
-        "description": " Read informative articles and the latest news about us, as well as relevant industry trends and innovations."
+        "description": "Read informative articles and the latest news about us, as well as relevant industry trends and innovations."
       }
     },
     "career": {
@@ -289,8 +277,9 @@
     "media": {
       "title": "Media",
       "fields": {
-        "one": "Blogs & Articles",
-        "two": "Gallery"
+        "one": "Projects Gallery",
+        "two": "#LifeatTBM",
+        "three": "Articles Gallery"
       }
     },
     "contact-us": {

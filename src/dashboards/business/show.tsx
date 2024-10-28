@@ -38,7 +38,7 @@ export const Show = ({ slug }: { slug: string }) => {
                   cover
                 />
                 <div className="space-y-2">
-                  <h3 className="heading">{business?.data.title}</h3>
+                  <h3 className="text-xl font-semibold sm:text-2xl md:text-3xl text-primary">{business?.data.title}</h3>
                   <p className="text-sm text-justify sm:text-base">{business?.data.description}</p>
                 </div>
               </div>

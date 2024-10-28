@@ -20,16 +20,17 @@ export const EditArticle = ({ slug }: { slug: string }) => {
   // define back route
   const { back } = useRouter();
 
-  // set before and after data
+  // get and set data to manipulate or store data to database
   const [content, setContent] = React.useState<string>("");
   const [title, setTitle] = React.useState<string>("");
   const [error, setError] = React.useState<boolean>(false);
 
-  // get one article by slug and patch data api
+  // fetch api to show data article / blog by slug
   const { response: article, loading } = useGetApi<ResponseArticleTypes>({ path: `/blogs/${slug}` });
+  // use post hook to send PATCH request to server to edit article
   const { execute, loading: loadData } = usePost("PATCH", `article`);
 
-  // handle back route
+  // handle back button if the data is not empty
   const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (article?.data.title !== title || article?.data.content !== content) {
@@ -45,7 +46,7 @@ export const EditArticle = ({ slug }: { slug: string }) => {
     back();
   };
 
-  // handle edit data
+  // handle form submission to edit article from server database
   const handleSubmitForm = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (title === "" || content === "") {
@@ -55,6 +56,7 @@ export const EditArticle = ({ slug }: { slug: string }) => {
     execute(`/blogs/${slug}`, { title, content });
   };
 
+  // to set data article by slug after first render
   React.useEffect(() => {
     if (article?.data !== null) {
       setTitle(article?.data.title || "");

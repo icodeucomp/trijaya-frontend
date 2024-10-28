@@ -224,33 +224,21 @@
       }
     },
     "business": {
-      "title": "Bisnis",
-      "services": {
-        "title": "Layanan",
-        "description": "Temukan layanan yang kami tawarkan untuk mendukung berbagai kebutuhan industri."
-      },
-      "products": {
-        "title": "Produk",
-        "description": "Jelajahi berbagai produk inovatif yang kami kembangkan untuk solusi terbaik bagi pelanggan."
-      },
-      "experiences": {
-        "title": "Pengalaman",
-        "description": "Pelajari tentang pengalaman kami dalam proyek-proyek sebelumnya dan keberhasilan yang telah kami capai."
-      },
-      "business-sector": {
-        "title": "Sektor Bisnis",
-        "description": "Kenali sektor-sektor bisnis yang kami layani, termasuk General Supplier, Fabrication, Piping Project, Machining, Mechanical, Electrical, Civil, dan Construction."
-      }
+      "title": "Bisnis"
     },
     "media": {
       "title": "Media",
-      "company-activities": {
-        "title": "Kegiatan Perusahaan",
-        "description": "Temukan informasi terkini tentang berbagai kegiatan perusahaan dalam pengerjaan proyek kami."
+      "projects-gallery": {
+        "title": "Galeri Proyek",
+        "description": "Find the latest information about various company activities in our project execution."
       },
-      "articles": {
-        "title": "Artikel",
-        "description": "Baca artikel informatif dan berita terkini mengenai kami, dan industri, inovasi, dan tren yang relevan."
+      "albums": {
+        "title": "#LifeatTBM",
+        "description": "#LifeatTBM menangkap semangat TBM melalui foto-foto yang menunjukkan dedikasi, kolaborasi, dan momen-momen harian yang membuat kehidupan kerja berkesan."
+      },
+      "articles-gallery": {
+        "title": "Galeri Artikel",
+        "description": " Read informative articles and the latest news about us, as well as relevant industry trends and innovations."
       }
     },
     "contact-us": "Hubungi kami",
@@ -289,8 +277,9 @@
     "media": {
       "title": "Media",
       "fields": {
-        "one": "blog",
-        "two": "Galeri"
+        "one": "Galeri Proyek",
+        "two": "#LifeatTBM",
+        "three": "Galeri Artikel"
       }
     },
     "contact-us": {
