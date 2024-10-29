@@ -32,6 +32,8 @@ export const Projects = ({ slug }: { slug: string }) => {
     if (project && project.data.media.length > 0) {
       setTotalPage(Math.ceil(project.data.media.length / limit));
       setImageProjects(project.data.media.slice(startIndex, startIndex + limit));
+    } else {
+      setTotalPage(0);
     }
   }, [project, limit, page]);
 

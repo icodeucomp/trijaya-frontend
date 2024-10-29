@@ -37,9 +37,7 @@ const DesktopLink = ({ pathUrl, title, content }: NavbarTypes) => {
   return (
     <li className="flex items-center h-full list-none group" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       {title === "Business" ? (
-        <span
-          className={`duration-300 font-medium relative w-max cursor-default group-hover:font-semibold ${isActive ? "text-primary" : "text-dark"}`}
-        >
+        <span className={`font-medium relative w-max cursor-default group-hover:font-semibold ${isActive ? "text-primary" : "text-dark"}`}>
           <span>{title}</span>
           <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary ${isActive ? "w-3/6" : "w-0"}`}></span>
           <span className={`absolute h-1 transition-all -bottom-2 right-1/2 bg-secondary ${isActive ? "w-3/6" : "w-0"}`}></span>
@@ -47,9 +45,7 @@ const DesktopLink = ({ pathUrl, title, content }: NavbarTypes) => {
       ) : (
         <Link
           href={pathUrl}
-          className={`duration-300 hover:text-primary font-medium relative w-max group-hover:font-semibold ${
-            isActive ? "text-primary" : "text-dark"
-          }`}
+          className={`hover:text-primary font-medium relative w-max group-hover:font-semibold ${isActive ? "text-primary" : "text-dark"}`}
         >
           <span>{title}</span>
           <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary ${isActive ? "w-3/6" : "w-0"}`}></span>
@@ -64,7 +60,7 @@ const DesktopLink = ({ pathUrl, title, content }: NavbarTypes) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 w-full duration-300 shadow-lg bg-light-gray h-80 top-16 z-10000"
+            className={`absolute left-0 w-full duration-300 shadow-lg bg-light-gray h-80 top-20 z-10000`}
           >
             <motion.div
               initial={{ opacity: 0, y: 30 }}

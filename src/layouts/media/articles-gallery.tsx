@@ -2,6 +2,9 @@
 
 import * as React from "react";
 
+import { useRouter } from "@/i18n/routing";
+import { useSearchParams } from "next/navigation";
+
 import { useGetApi, useMediaQuery } from "@/hooks";
 
 import { useTranslations } from "next-intl";
@@ -10,22 +13,24 @@ import { useDebounce } from "use-debounce";
 
 import { ArticleCard, Container, Motion, Pagination } from "@/components";
 
-import { ResponseArticlesTypes } from "@/types";
 import { CiSearch } from "react-icons/ci";
+
+import { ResponseArticlesTypes } from "@/types";
 
 export const ArticlesGallery = () => {
   const t = useTranslations("media");
+  const { push } = useRouter();
+  const searchParams = useSearchParams();
 
   const [page, setPage] = React.useState<number>(1);
   const [limit, setLimit] = React.useState<number>(6);
   const [totalPage, setTotalPage] = React.useState<number>(0);
-  const [searchTerm, setSearchTerm] = React.useState<string>("");
 
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
+  const [debouncedSearchTerm] = useDebounce(searchParams.get("articles_keywords"), 500);
 
   const { response: articles, loading } = useGetApi<ResponseArticlesTypes>({
     path: "/blogs",
-    searchQuery: debouncedSearchTerm,
+    searchQuery: debouncedSearchTerm || "",
     limit: limit.toString(),
     page: page.toString(),
   });
@@ -35,9 +40,16 @@ export const ArticlesGallery = () => {
   const isTablet = useMediaQuery("(min-width: 640px) and (max-width: 1023px)");
   const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 639px)");
 
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    push(`/media?articles_keywords=${e.target.value}#articles-gallery`);
+  };
+
   React.useEffect(() => {
     if (articles && articles.total > 0) {
       setTotalPage(Math.ceil(articles.total / limit));
+    } else {
+      setTotalPage(0);
     }
   }, [articles, limit]);
 
@@ -54,7 +66,7 @@ export const ArticlesGallery = () => {
   }, [isLargeDesktop, isDesktop, isTablet, isMobile]);
 
   return (
-    <Container className="py-16 space-y-8" id="articles-gallery">
+    <Container className="py-32 space-y-8" id="articles-gallery">
       <div className="flex items-center justify-between">
         <Motion tag="h3" initialX={-40} animateX={0} duration={0.3} className="w-full heading">
           {t("articles-gallery")}
@@ -66,8 +78,8 @@ export const ArticlesGallery = () => {
           <input
             type="search"
             className="block w-full py-2 pl-10 pr-4 text-sm duration-300 border rounded-lg outline-none lg:py-4 text-dark-blue border-gray focus:border-primary"
-            onChange={(e) => setSearchTerm(e.target.value)}
-            value={searchTerm}
+            onChange={handleSearch}
+            value={searchParams.get("articles_keywords") || ""}
             placeholder="Search"
           />
         </Motion>
@@ -80,7 +92,7 @@ export const ArticlesGallery = () => {
       ) : (
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {articles?.data && articles?.data.length < 1 ? (
-            <h3 className="w-full col-span-1 mt-8 text-lg font-semibold text-center min-h-400 sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">
+            <h3 className="w-full col-span-1 py-16 text-lg font-semibold text-center min-h-400 sm:text-2xl md:text-3xl sm:col-span-2 lg:col-span-3 text-gray/50">
               The articles is not found
             </h3>
           ) : (

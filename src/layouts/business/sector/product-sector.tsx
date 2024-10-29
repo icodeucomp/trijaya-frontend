@@ -31,6 +31,8 @@ export const ProductSector = ({ slug }: { slug: string }) => {
   React.useEffect(() => {
     if (products && products.total > 0) {
       setTotalPage(Math.ceil(products.total / limit));
+    } else {
+      setTotalPage(0);
     }
   }, [products, limit]);
 

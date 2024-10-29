@@ -14,6 +14,7 @@ const config: Config = {
     extend: {
       minHeight: {
         "custom-header": "calc(100vh - 80px)",
+        "custom-header-home": "calc(100vh - 124px)",
         200: "200px",
         300: "300px",
         400: "400px",

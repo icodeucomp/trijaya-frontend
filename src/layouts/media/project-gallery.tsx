@@ -2,6 +2,8 @@
 
 import * as React from "react";
 
+import { useRouter } from "@/i18n/routing";
+import { useSearchParams } from "next/navigation";
 import { useGetApi, useMediaQuery } from "@/hooks";
 
 import { useTranslations } from "next-intl";
@@ -11,24 +13,29 @@ import { useDebounce } from "use-debounce";
 import { AnimatePresence } from "framer-motion";
 import { Background, Container, Img, Modal, Motion, Pagination } from "@/components";
 
-import { BusinessSectorTypes, ResponseBusinessesSectorTypes } from "@/types";
 import { CiSearch } from "react-icons/ci";
 
+import { BusinessSectorTypes, ResponseBusinessesSectorTypes } from "@/types";
+
 export const ProjectGallery = () => {
-  const [filteredAlbum, setFilteredAlbum] = React.useState<BusinessSectorTypes>();
+  const t = useTranslations("media");
+
+  const { push } = useRouter();
+  const searchParams = useSearchParams();
+
+  const [filteredProject, setFilteredProject] = React.useState<BusinessSectorTypes>();
   const [openModalIndex, setOpenModalIndex] = React.useState<string | null>(null);
   const [selected, setSelected] = React.useState<string>("");
 
   const [page, setPage] = React.useState<number>(1);
   const [limit, setLimit] = React.useState<number>(4);
   const [totalPage, setTotalPage] = React.useState<number>(0);
-  const [searchTerm, setSearchTerm] = React.useState<string>("");
 
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
+  const [debouncedSearchTerm] = useDebounce(searchParams.get("projects_keywords"), 500);
 
   const { response: projects, loading } = useGetApi<ResponseBusinessesSectorTypes>({
     path: "/projects",
-    searchQuery: debouncedSearchTerm,
+    searchQuery: debouncedSearchTerm || "",
     limit: limit.toString(),
     page: page.toString(),
   });
@@ -37,18 +44,27 @@ export const ProjectGallery = () => {
   const isTablet = useMediaQuery("(min-width: 640px) and (max-width: 1023px)");
   const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 639px)");
 
-  const t = useTranslations("media");
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    push(`/media?projects_keywords=${e.target.value}#projects-gallery`);
+  };
+
+  const handleClose = () => {
+    setSelected("");
+    setOpenModalIndex(null);
+  };
 
   React.useEffect(() => {
     if (projects && projects.total > 0) {
       setTotalPage(Math.ceil(projects.total / limit));
+    } else {
+      setTotalPage(0);
     }
   }, [projects, limit]);
 
   React.useEffect(() => {
     if (projects?.data && projects.data.length > 0) {
-      setFilteredAlbum(projects?.data.find((item) => item.slug === openModalIndex));
-      setSelected(projects.data[0].header.url);
+      setFilteredProject(projects?.data.find((item) => item.slug === openModalIndex));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openModalIndex]);
@@ -64,8 +80,8 @@ export const ProjectGallery = () => {
   }, [isDesktop, isTablet, isMobile]);
 
   return (
-    <Container className="py-16" id="projects-gallery">
-      <Motion tag="div" initialY={-40} animateY={0} duration={0.2} className="mb-8 space-y-2 text-center">
+    <Container className="pt-16" id="projects-gallery">
+      <Motion tag="div" initialY={-40} animateY={0} duration={0.2} className="mb-16 space-y-2 text-center">
         <h3 className="heading">{t("head.title")}</h3>
         <p className="subheading">{t("head.description")}</p>
       </Motion>
@@ -81,8 +97,8 @@ export const ProjectGallery = () => {
             <input
               type="search"
               className="block w-full sm:min-w-60 py-2 pl-10 pr-4 text-sm duration-300 border rounded-lg outline-none lg:py-3.5 text-dark-blue border-gray focus:border-primary"
-              onChange={(e) => setSearchTerm(e.target.value)}
-              value={searchTerm}
+              onChange={handleSearch}
+              value={searchParams.get("projects_keywords") || ""}
               placeholder="Search"
             />
           </div>
@@ -95,13 +111,11 @@ export const ProjectGallery = () => {
           <div className="loader"></div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
+        <>
           {projects?.data && projects?.data.length < 1 ? (
-            <h3 className="w-full col-span-1 mt-8 text-lg font-semibold text-center min-h-400 sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">
-              The projects is not found
-            </h3>
+            <h3 className="w-full col-span-1 py-16 text-lg font-semibold text-center min-h-400 sm:text-2xl md:text-3xl sm:col-span-2 lg:col-span-3 text-gray/50">The projects is not found</h3>
           ) : (
-            <>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
               {projects?.data.map((item, index) => {
                 const grid = index === 0 || index === 1 ? "row-span-2" : index === 3 ? "col-start-3" : "";
                 return (
@@ -121,27 +135,25 @@ export const ProjectGallery = () => {
                   </div>
                 );
               })}
-            </>
+            </div>
           )}
-        </div>
+        </>
       )}
       <AnimatePresence>
         {openModalIndex !== null && (
-          <Modal isVisible={openModalIndex !== null} onClose={() => setOpenModalIndex(null)}>
+          <Modal isVisible={openModalIndex !== null} onClose={handleClose}>
             <div className="space-y-4">
-              <Img src={selected || "/temp-business.webp"} alt={filteredAlbum?.title || ""} className="mx-auto rounded-lg w-96 aspect-video" cover />
-              <h3 className="text-xl font-semibold text-center sm:text-2xl text-primary">{filteredAlbum?.title}</h3>
+              <Img src={selected || filteredProject?.header.url || "/temp-business.webp"} alt={filteredProject?.title || ""} className="mx-auto rounded-lg w-96 aspect-video" cover />
+              <h3 className="text-xl font-semibold text-center sm:text-2xl text-primary">{filteredProject?.title}</h3>
               <div className="p-2 overflow-x-hidden overflow-y-auto h-80 scrollbar">
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                  {filteredAlbum?.media &&
-                    filteredAlbum?.media.length > 0 &&
-                    filteredAlbum?.media.map((media, index) => (
+                  {filteredProject?.media &&
+                    filteredProject?.media.length > 0 &&
+                    filteredProject?.media.map((media, index) => (
                       <div
                         key={index}
                         onClick={() => setSelected(media.url)}
-                        className={`cursor-pointer hover:shadow-custom-border rounded-lg transition-shadow w-max ${
-                          selected === media.url ? "shadow-custom-border" : "shadow-none"
-                        }`}
+                        className={`cursor-pointer hover:shadow-custom-border rounded-lg transition-shadow w-max ${selected === media.url ? "shadow-custom-border" : "shadow-none"}`}
                       >
                         <Img src={media.url} alt={media.slug} className="rounded-lg w-52 aspect-video" cover />
                       </div>

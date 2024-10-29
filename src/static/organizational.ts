@@ -14,6 +14,6 @@ export const OrganizationalLists = () => {
     { pathImg: "/images/owner/zuhri-arifin.webp", name: "Zuhri Arifin", job: `${t("fabrication-supervisor")}` },
     { pathImg: "/images/owner/supriyanto.webp", name: "Supriyanto", job: `${t("machining-supervisor")}` },
     { pathImg: "/images/owner/dyta-fitra-rosika.webp", name: "Dyta Fitra Rosika", job: `${t("leader-admin")}` },
-    { pathImg: "/images/owner/rini-apriliani.webp", name: "Rini Apriani", job: `${t("safety")}` },
+    { pathImg: "/images/owner/rini-apriani.webp", name: "Rini Apriani", job: `${t("safety")}` },
   ] as organizationalTypes[];
 };

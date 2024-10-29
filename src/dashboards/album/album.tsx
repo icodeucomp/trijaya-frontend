@@ -62,8 +62,10 @@ export const Albums = () => {
   const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 639px)");
 
   React.useEffect(() => {
-    if (albums?.total && albums?.total > 1) {
+    if (albums?.total && albums?.total > 0) {
       setTotalPage(Math.ceil(albums.total / limit));
+    } else {
+      setTotalPage(0);
     }
   }, [albums, limit]);
 

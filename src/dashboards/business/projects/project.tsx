@@ -68,6 +68,8 @@ export const Projects = ({ slug }: { slug: string }) => {
   React.useEffect(() => {
     if (projects && projects.total > 0) {
       setTotalPage(Math.ceil(projects.total / limit));
+    } else {
+      setTotalPage(0);
     }
   }, [projects, limit]);
 

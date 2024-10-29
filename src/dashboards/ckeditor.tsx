@@ -37,7 +37,7 @@ class CustomUploadAdapter {
 
           const cookies = this.getCookie("jwt");
 
-          fetch(`${baseUrlApi}/upload?type=blogs`, {
+          fetch(`${baseUrlApi}/upload?type=blog`, {
             method: "POST",
             body: formData,
             headers: {

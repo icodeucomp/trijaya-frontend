@@ -1,6 +1,10 @@
 "use client";
 
-import { ChangeEvent, useEffect, useState } from "react";
+import * as React from "react";
+
+import { useRouter } from "@/i18n/routing";
+import { useSearchParams } from "next/navigation";
+
 import { useGetApi } from "@/hooks";
 import { useDebounce } from "use-debounce";
 
@@ -14,24 +18,25 @@ import { convertDate, formatDate } from "@/utils";
 import { ResponseDocumentsTypes } from "@/types";
 
 export const CertificationLegalities = () => {
+  const { push } = useRouter();
+  const searchParams = useSearchParams();
   // filtered data state
-  const [selectCard, setSelectCard] = useState<string>("");
+  const [selectCard, setSelectCard] = React.useState<string>("");
 
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [sort, setSort] = useState<string>("uploadedAt");
-  const [order, setOrder] = useState<string>("desc");
-  const [page, setPage] = useState<number>(1);
-  const [totalPage, setTotalPage] = useState<number>(1);
+  const [sort, setSort] = React.useState<string>("uploadedAt");
+  const [order, setOrder] = React.useState<string>("desc");
+  const [page, setPage] = React.useState<number>(1);
+  const [totalPage, setTotalPage] = React.useState<number>(1);
+  const [date, setDate] = React.useState<DateValueType>({ startDate: null, endDate: null });
 
-  const [date, setDate] = useState<DateValueType>({ startDate: null, endDate: null });
   const dateStart = formatDate(date?.startDate);
   const dateEnd = formatDate(date?.endDate);
 
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
+  const [debouncedSearchTerm] = useDebounce(searchParams.get("documents_keywords"), 1000);
 
   const { response: documents, loading } = useGetApi<ResponseDocumentsTypes>({
     path: "/documents",
-    searchQuery: debouncedSearchTerm,
+    searchQuery: debouncedSearchTerm || "",
     limit: "3",
     page: page.toString(),
     sort,
@@ -50,30 +55,44 @@ export const CertificationLegalities = () => {
     }
   };
 
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    setSearchTerm(e.target.value);
+    push(`/profile/certification?documents_keywords=${e.target.value}#certification-legalities`);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (documents?.data && documents.data.length > 0) {
       setTotalPage(Math.ceil(documents.total / 3));
       setSelectCard(documents.data[0].slug);
+    } else {
+      setTotalPage(0);
     }
   }, [documents]);
 
   return (
-    <Container className="py-10 space-y-8 sm:py-16 md:py-20">
+    <Container className="py-10 space-y-8 sm:py-16 md:py-20" id="certification-legalities">
       <Motion tag="h2" initialY={-40} animateY={0} duration={0.3} className="text-center heading">
         Company Legalities and Certifications
       </Motion>
       <Motion tag="div" initialY={-40} animateY={0} duration={0.6} delay={0.3} className="hidden lg:block">
-        <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} searchTerm={searchTerm} date={date} setDate={setDate} />
+        <SearchFilter
+          setFiltered={handleSetFiltered}
+          setSearchTerm={handleSearch}
+          searchTerm={searchParams.get("documents_keywords") || ""}
+          date={date}
+          setDate={setDate}
+        />
       </Motion>
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <Motion tag="div" initialX={-40} animateX={0} duration={0.3} className="relative flex flex-col order-2 w-full lg:order-1">
           <div className="block lg:hidden">
-            <SearchFilter setFiltered={handleSetFiltered} setSearchTerm={handleSearch} searchTerm={searchTerm} date={date} setDate={setDate} />
+            <SearchFilter
+              setFiltered={handleSetFiltered}
+              setSearchTerm={handleSearch}
+              searchTerm={searchParams.get("documents_keywords") || ""}
+              date={date}
+              setDate={setDate}
+            />
           </div>
           {loading ? (
             <div className="flex items-center justify-center min-h-500">
@@ -106,13 +125,13 @@ export const CertificationLegalities = () => {
               )}
             </>
           )}
-          <div className="w-full mt-auto pt-8">
+          <div className="w-full pt-8 mt-auto">
             <Pagination setPage={setPage} totalPage={totalPage} page={page} isNumbering />
           </div>
         </Motion>
         <Motion tag="div" initialX={40} animateX={0} duration={0.6} delay={0.3} className="order-1 w-full space-y-4 text-center lg:order-2">
           {documents?.data && documents?.data.length < 1 ? (
-            <div className="flex items-center justify-center h-full">
+            <div className="flex items-center justify-center min-h-500">
               <h3 className="w-full col-span-1 m-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">
                 The document is not found
               </h3>

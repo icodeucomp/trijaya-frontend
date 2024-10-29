@@ -77,13 +77,16 @@ export const Pagination = ({ setPage, page, totalPage, isNumbering }: Pagination
       {/* Next button */}
       <button
         className={`size-10 sm:size-12 flex items-center justify-center border duration-300 rounded-lg bg-light border-primary group ${
-          page === totalPage ? "border-gray" : "border-primary hover:bg-primary"
+          page === totalPage || totalPage === 0 ? "border-gray" : "border-primary hover:bg-primary"
         }`}
         type="button"
         onClick={handleNextPage}
-        disabled={page === totalPage}
+        disabled={page === totalPage || totalPage === 0}
       >
-        <FaArrowRight size={20} className={`duration-300 ${page === totalPage ? "fill-gray" : "fill-secondary group-hover:fill-light"}`} />
+        <FaArrowRight
+          size={20}
+          className={`duration-300 ${page === totalPage || totalPage === 0 ? "fill-gray" : "fill-secondary group-hover:fill-light"}`}
+        />
       </button>
     </div>
   );

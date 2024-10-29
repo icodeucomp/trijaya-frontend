@@ -24,8 +24,10 @@ import auto_repair from "./auto-repair.svg";
 import engineering from "./engineering.svg";
 import miner_worker from "./miner-worker.svg";
 import scheduled_maintenance from "./scheduled-maintenance.svg";
+import arrow_long_up_left from "./arrow-long-up-left.svg";
 
 export {
+  arrow_long_up_left,
   scheduled_maintenance,
   miner_worker,
   auto_repair,

@@ -35,7 +35,7 @@ export const LanguageSwitcher = () => {
             disabled={isPending}
             onClick={(e) => handleChangeLanguage(e, item.title)}
             className={`flex items-center gap-1 pl-2 text-sm xl:pl-4 uppercase ${
-              localActive === item.title ? "text-primary font-semibold" : "text-dark font-medium"
+              localActive === item.title ? "text-secondary font-semibold" : "text-light font-medium"
             }`}
           >
             <Img className="size-3 md:size-5" src={item.pathIcon} alt="United Kingdom Flag" />

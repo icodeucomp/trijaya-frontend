@@ -5,7 +5,7 @@ import { Articles, Clients, Details, Experiences, Hero, Message, Products, Servi
 
 export default function Home() {
   return (
-    <div className="overflow-x-hidden">
+    <section className="overflow-x-hidden">
       <Hero />
       <section className="relative">
         <Image
@@ -27,6 +27,6 @@ export default function Home() {
       </section>
       <Experiences />
       <Articles />
-    </div>
+    </section>
   );
 }

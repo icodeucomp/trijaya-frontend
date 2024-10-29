@@ -75,8 +75,10 @@ export const Documents = () => {
   const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 639px)");
 
   React.useEffect(() => {
-    if (documents?.total && documents?.total > 1) {
+    if (documents?.total && documents?.total > 0) {
       setTotalPage(Math.ceil(documents.total / limit));
+    } else {
+      setTotalPage(0);
     }
   }, [documents, limit]);
 

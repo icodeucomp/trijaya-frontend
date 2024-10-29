@@ -10,13 +10,13 @@ import { useGetApi, useMediaQuery } from "@/hooks";
 
 import { ResponseBusinessesSectorTypes } from "@/types";
 
-export const Projects = () => {
+export const Projects = ({ slug }: { slug?: string }) => {
   const [page, setPage] = React.useState<number>(1);
   const [limit, setLimit] = React.useState<number>(3);
   const [totalPage, setTotalPage] = React.useState<number>(0);
 
   const { response: projects, loading } = useGetApi<ResponseBusinessesSectorTypes>({
-    path: "/projects",
+    path: `/projects${slug ? `?business=${slug}` : ""}`,
     limit: limit.toString(),
     page: page.toString(),
   });
@@ -28,6 +28,8 @@ export const Projects = () => {
   React.useEffect(() => {
     if (projects && projects.total > 0) {
       setTotalPage(Math.ceil(projects.total / limit));
+    } else {
+      setTotalPage(0);
     }
   }, [projects, limit]);
 

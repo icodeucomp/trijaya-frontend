@@ -38,7 +38,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
         <NextIntlClientProvider messages={messages}>
           <Toaster position="bottom-center" />
           <Header />
-          <div className="mt-20">{children}</div>
+          {children}
           <Footer />
         </NextIntlClientProvider>
       </body>

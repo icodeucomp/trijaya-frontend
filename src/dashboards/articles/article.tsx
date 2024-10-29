@@ -82,6 +82,8 @@ export const Articles = () => {
   React.useEffect(() => {
     if (articles?.total && articles?.total > 0) {
       setTotalPage(Math.ceil(articles.total / limit));
+    } else {
+      setTotalPage(0);
     }
   }, [articles, limit]);
 
