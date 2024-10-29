@@ -158,7 +158,7 @@ export const Header = () => {
                     ) : (
                       <>
                         {data && data.length < 1 ? (
-                          <h3 className="flex justify-center w-full py-8 text-xl font-semibold sm:text-2xl text-gray/70">No result for "{searchTerm}"</h3>
+                          <h3 className="flex justify-center w-full py-8 text-xl font-semibold sm:text-2xl text-gray/70">No result for &quot;{searchTerm}&quot;</h3>
                         ) : (
                           data?.map((item: any, index: any) => {
                             const linkHref =
