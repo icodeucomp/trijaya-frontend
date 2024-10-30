@@ -42,12 +42,10 @@ export const Pagination = ({ setPage, page, totalPage, isNumbering }: Pagination
   };
 
   return (
-    <div className="flex items-center justify-center gap-2 sm:gap-4">
+    <div className="flex items-center justify-center gap-1 sm:gap-4">
       {/* Previous button */}
       <button
-        className={`size-10 sm:size-12 duration-300 flex items-center justify-center border rounded-lg bg-light group border-primary ${
-          page === 1 ? "border-gray" : "border-primary hover:bg-primary"
-        }`}
+        className={`size-10 sm:size-12 duration-300 flex items-center justify-center border rounded-lg bg-light group border-primary ${page === 1 ? "border-gray" : "border-primary hover:bg-primary"}`}
         type="button"
         onClick={handlePreviousPage}
         disabled={page === 1}
@@ -59,16 +57,11 @@ export const Pagination = ({ setPage, page, totalPage, isNumbering }: Pagination
       {isNumbering &&
         getPageNumbers().map((numberPage, index) =>
           typeof numberPage === "number" ? (
-            <button
-              key={index}
-              type="button"
-              onClick={() => setPage(numberPage)}
-              className={`pagination-number ${numberPage === page ? "bg-primary text-light" : "bg-light text-dark-blue"}`}
-            >
+            <button key={index} type="button" onClick={() => setPage(numberPage)} className={`pagination-number ${numberPage === page ? "bg-primary text-light" : "bg-light text-dark-blue"}`}>
               {numberPage}
             </button>
           ) : (
-            <span key={index} className="p-1.5 text-3xl">
+            <span key={index} className="p-0 sm:p-1 text-3xl">
               {numberPage}
             </span>
           )
@@ -83,10 +76,7 @@ export const Pagination = ({ setPage, page, totalPage, isNumbering }: Pagination
         onClick={handleNextPage}
         disabled={page === totalPage || totalPage === 0}
       >
-        <FaArrowRight
-          size={20}
-          className={`duration-300 ${page === totalPage || totalPage === 0 ? "fill-gray" : "fill-secondary group-hover:fill-light"}`}
-        />
+        <FaArrowRight size={20} className={`duration-300 ${page === totalPage || totalPage === 0 ? "fill-gray" : "fill-secondary group-hover:fill-light"}`} />
       </button>
     </div>
   );

@@ -71,7 +71,7 @@ export const ArticlesGallery = () => {
         <Motion tag="h3" initialX={-40} animateX={0} duration={0.3} className="w-full heading">
           {t("articles-gallery")}
         </Motion>
-        <Motion tag="div" initialX={40} animateX={0} duration={0.5} delay={0.3} className="relative w-full max-w-xs">
+        <Motion tag="div" initialX={40} animateX={0} duration={0.5} delay={0.3} className="relative w-full max-w-xs hidden sm:block">
           <div className="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
             <CiSearch size={20} />
           </div>
@@ -92,9 +92,7 @@ export const ArticlesGallery = () => {
       ) : (
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {articles?.data && articles?.data.length < 1 ? (
-            <h3 className="w-full col-span-1 py-16 text-lg font-semibold text-center min-h-400 sm:text-2xl md:text-3xl sm:col-span-2 lg:col-span-3 text-gray/50">
-              The articles is not found
-            </h3>
+            <h3 className="w-full col-span-1 py-16 text-lg font-semibold text-center min-h-400 sm:text-2xl md:text-3xl sm:col-span-2 lg:col-span-3 text-gray/50">The articles is not found</h3>
           ) : (
             <>
               {articles?.data.map((item, index) => (

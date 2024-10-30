@@ -84,7 +84,7 @@ export const Albums = () => {
           #LifeatTBM
         </Motion>
         <Motion tag="div" initialX={50} animateX={0} duration={0.8} delay={0.4} className="flex items-center gap-4">
-          <div className="relative w-full max-w-xs">
+          <div className="relative w-full max-w-xs hidden sm:block">
             <div className="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
               <CiSearch size={20} />
             </div>
@@ -137,21 +137,23 @@ export const Albums = () => {
         {openModalIndex !== null && (
           <Modal isVisible={openModalIndex !== null} onClose={handleClose}>
             <div className="space-y-4">
-              <Img src={selected || filteredAlbum?.header || "/temp-business.webp"} alt={filteredAlbum?.name || ""} className="mx-auto rounded-lg w-96 aspect-video" cover />
+              <Img src={selected || filteredAlbum?.header || "/temp-business.webp"} alt={filteredAlbum?.name || ""} className="mx-auto rounded-lg w-80 sm:w-96 aspect-video" cover />
               <h3 className="text-xl font-semibold text-center sm:text-2xl text-primary">{filteredAlbum?.name}</h3>
-              <div className="p-2 overflow-x-hidden overflow-y-auto h-80 scrollbar">
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-                  {filteredAlbum?.medias &&
-                    filteredAlbum.medias.length > 0 &&
+              <div className="p-1 sm:p-2 overflow-x-hidden overflow-y-auto h-80 scrollbar">
+                <div className="grid grid-cols-2 gap-2 sm:gap-4 sm:grid-cols-3 lg:grid-cols-4 justify-items-center">
+                  {filteredAlbum?.medias && filteredAlbum.medias.length > 0 ? (
                     filteredAlbum?.medias.map((media, index) => (
                       <div
                         key={index}
                         onClick={() => setSelected(media.url)}
                         className={`cursor-pointer hover:shadow-custom-border rounded-lg transition-shadow w-max ${selected === media.url ? "shadow-custom-border" : "shadow-none"}`}
                       >
-                        <Img src={media.url} alt={media.slug} className="rounded-lg w-52 aspect-video" cover />
+                        <Img src={media.url} alt={media.slug} className="rounded-lg w-40 sm:w-48 md:w-52 aspect-video" cover />
                       </div>
-                    ))}
+                    ))
+                  ) : (
+                    <h3 className="w-full col-span-2 mt-8 text-lg font-semibold text-center sm:text-2xl sm:col-span-3 lg:col-span-4 text-gray/50">Photos have not been added to the album</h3>
+                  )}
                 </div>
               </div>
             </div>

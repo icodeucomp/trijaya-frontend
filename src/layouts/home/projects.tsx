@@ -10,13 +10,13 @@ import { useGetApi, useMediaQuery } from "@/hooks";
 
 import { ResponseBusinessesSectorTypes } from "@/types";
 
-export const Projects = ({ slug }: { slug?: string }) => {
+export const Projects = () => {
   const [page, setPage] = React.useState<number>(1);
   const [limit, setLimit] = React.useState<number>(3);
   const [totalPage, setTotalPage] = React.useState<number>(0);
 
   const { response: projects, loading } = useGetApi<ResponseBusinessesSectorTypes>({
-    path: `/projects${slug ? `?business=${slug}` : ""}`,
+    path: "/projects",
     limit: limit.toString(),
     page: page.toString(),
   });
@@ -43,8 +43,12 @@ export const Projects = ({ slug }: { slug?: string }) => {
     }
   }, [isDesktop, isTablet, isMobile]);
 
+  if (projects?.data && projects?.data.length < 1) {
+    return null;
+  }
+
   return (
-    <Container className="py-16 space-y-8">
+    <Container className="py-14 space-y-8">
       <div className="flex items-center justify-between">
         <Motion tag="h3" initialX={-50} animateX={0} duration={0.4} className="heading">
           Our Newest Projects
@@ -54,13 +58,13 @@ export const Projects = ({ slug }: { slug?: string }) => {
         </Motion>
       </div>
       {loading ? (
-        <div className="flex justify-center w-full py-16 min-h-600">
+        <div className="flex justify-center w-full py-16 min-h-400">
           <div className="loader"></div>
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {projects?.data.map((item, index) => (
-            <Motion tag="div" initialY={30} animateY={0} duration={1} delay={index * 0.1} key={index} className="space-y-4 text-dark-blue">
+            <Motion tag="div" initialY={30} animateY={0} duration={1} delay={index * 0.1} key={index} className="space-y-4 min-h-400 text-dark-blue">
               <Background src={item.header?.url || "/temp-business.webp"} className="items-end min-h-300" parentClassName="rounded-lg filter-image">
                 <div className="px-4 py-2 bg-primary">{item.business.title}</div>
               </Background>

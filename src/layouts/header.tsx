@@ -4,23 +4,26 @@ import * as React from "react";
 
 import { Link, useRouter } from "@/i18n/routing";
 
-import { useGetApi, useToggleState } from "@/hooks";
-
-import { useDebounce } from "use-debounce";
+import { useGetApi, useMediaQuery, useToggleState } from "@/hooks";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Img, LanguageSwitcher, Navbar } from "@/components";
 
-import { IoMdClose, IoMdMenu } from "react-icons/io";
+import { arrow_long_up_left } from "@/icons";
+
 import { CiSearch } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
-import { arrow_long_up_left } from "@/icons";
+
 import { formatKebabCase } from "@/utils";
+
+import { ResponseSearchData, SearchData } from "@/types";
+import { IoSearch } from "react-icons/io5";
 
 export const Header = () => {
   const { push } = useRouter();
 
   const [ref, navbar, toggleNavbar] = useToggleState(false);
+  const isMobile = useMediaQuery("(max-width: 640px)");
 
   const [openModal, setOpenModal] = React.useState<boolean>(false);
 
@@ -29,9 +32,24 @@ export const Header = () => {
 
   const [lastScrollY, setLastScrollY] = React.useState<number>(0);
 
-  const [debounceSearchTerm] = useDebounce(searchTerm, 300);
+  const [data, setData] = React.useState<SearchData[]>([]);
 
-  const { response: data, loading } = useGetApi<any>({ path: `/search?name=${debounceSearchTerm}` });
+  const { response: searchData } = useGetApi<ResponseSearchData>({ path: `/search` });
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>, linkHref: string) => {
+    e.preventDefault();
+    push(linkHref);
+    setOpenModal(false);
+  };
+
+  React.useEffect(() => {
+    if (searchData?.data && searchData.data.length > 0) {
+      setData(
+        searchData?.data.filter((item) => (item.title && item.title.toLowerCase().includes(searchTerm.toLowerCase())) || (item.name && item.name.toLowerCase().includes(searchTerm.toLowerCase())))
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchData, searchTerm]);
 
   React.useEffect(() => {
     if (typeof window !== "undefined") {
@@ -49,12 +67,6 @@ export const Header = () => {
       });
     }
   }, [lastScrollY]);
-
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>, linkHref: string) => {
-    e.preventDefault();
-    push(linkHref);
-    setOpenModal(false);
-  };
 
   React.useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -79,7 +91,7 @@ export const Header = () => {
 
   return (
     <header ref={ref} className="w-full z-1000">
-      <div className="bg-primary">
+      <div className="bg-primary hidden lg:block">
         <div className="flex justify-end max-w-screen-xl px-4 py-2 mx-auto sm:py-3 sm:px-8">
           <LanguageSwitcher />
         </div>
@@ -87,7 +99,11 @@ export const Header = () => {
       <div className={`bg-light-gray top-0 w-full transition-all duration-300 ease-in-out shadow ${isVisible ? "relative" : "fixed"}`}>
         <div className="flex items-center justify-between w-full h-20 max-w-screen-xl px-4 mx-auto sm:px-8">
           <Link href="/" className="flex items-center gap-2 font-bold">
-            <Img className="min-w-56 sm:min-w-64 h-14 sm:h-16" src="/logo-company-navbar.png" alt="logo PT Trijaya Berkah Mandiri" />
+            {isMobile ? (
+              <Img className="size-14" src="/logo-company.png" alt="logo PT Trijaya Berkah Mandiri" />
+            ) : (
+              <Img className="min-w-64 h-16" src="/logo-company-navbar.png" alt="logo PT Trijaya Berkah Mandiri" />
+            )}
           </Link>
 
           <Navbar navbar={navbar} />
@@ -98,6 +114,7 @@ export const Header = () => {
               className="block w-full p-2.5 text-sm duration-300 border outline-none rounded-s-lg text-dark-blue border-gray focus:border-primary"
               onClick={() => setOpenModal(true)}
               placeholder="Search"
+              readOnly
             />
             <button
               type="button"
@@ -109,8 +126,15 @@ export const Header = () => {
             </button>
           </div>
 
-          <div className="block lg:hidden">
-            <button onClick={toggleNavbar}>{navbar ? <IoMdClose size={32} className="fill-primary" /> : <IoMdMenu size={32} className="fill-primary" />}</button>
+          <div className="flex items-center gap-4 lg:hidden">
+            <button onClick={() => setOpenModal(true)}>
+              <IoSearch size={32} className="fill-primary" />
+            </button>
+            <button onClick={toggleNavbar} className={`relative flex flex-col justify-center overflow-hidden items-center p-2 ${navbar ? "space-y-1" : "space-y-1.5"}`}>
+              <span className={`block h-1 w-10 rounded-full bg-primary transition-transform ease-in-out ${navbar ? "translate-y-2 rotate-45" : ""}`}></span>
+              <span className={`block h-1 w-8 rounded-full bg-primary duration-200 ${navbar && "translate-x-16"}`}></span>
+              <span className={`block h-1 w-10 rounded-full bg-primary transition-transform ease-in-out ${navbar ? "-translate-y-2 -rotate-45" : ""}`}></span>
+            </button>
           </div>
         </div>
       </div>
@@ -149,60 +173,49 @@ export const Header = () => {
               <div className="pr-2 mt-6 overflow-y-auto h-96 scrollbar">
                 {searchTerm === "" ? (
                   <h3 className="flex justify-center w-full py-8 text-xl font-semibold text-gray/50">No recent searches</h3>
+                ) : data && data.length === 0 ? (
+                  <h3 className="flex justify-center w-full py-8 text-xl font-semibold sm:text-2xl text-gray/70">No results for &quot;{searchTerm}&quot;</h3>
                 ) : (
-                  <>
-                    {loading ? (
-                      <div className="flex justify-center py-16">
-                        <div className="loader"></div>
-                      </div>
-                    ) : (
-                      <>
-                        {data && data.length < 1 ? (
-                          <h3 className="flex justify-center w-full py-8 text-xl font-semibold sm:text-2xl text-gray/70">No result for &quot;{searchTerm}&quot;</h3>
-                        ) : (
-                          data?.map((item: any, index: any) => {
-                            const linkHref =
-                              item.business && item.header
-                                ? `/business/sector/project/${item.slug}`
-                                : item.business
-                                ? `/business/sector/product/${formatKebabCase(item.business)}?products_keywords=${item.title}`
-                                : item.creator
-                                ? `/media?album_keywords=${item.name}#lifeattbm`
-                                : item.author
-                                ? `/media/article/${item.slug}`
-                                : item.uploader
-                                ? `/profile/certification?documents_keywords=${item.name}#certification-legalities`
-                                : `/business/sector/${item.slug}`;
+                  data?.map((item: any, index: number) => {
+                    const linkHref =
+                      item.feature === "project"
+                        ? `/business/sector/project/${item.slug}`
+                        : item.feature === "product"
+                        ? `/business/sector/product/${formatKebabCase(item.business)}?products_keywords=${item.title}`
+                        : item.feature === "album"
+                        ? `/media?album_keywords=${item.name}#lifeattbm`
+                        : item.feature === "blog"
+                        ? `/media/article/${item.slug}`
+                        : item.feature === "document"
+                        ? `/profile/certification?documents_keywords=${item.name}#certification-legalities`
+                        : `/business/sector/${item.slug}`;
 
-                            return (
-                              <div key={index} className="flex items-center justify-between border-t border-gray/50">
-                                <div className="flex items-center gap-2 pl-4 py-2.5">
-                                  <Img src={item.media?.[0].url || item.header?.url || item.header || "/temp-article.webp"} alt="temp" className="w-20 rounded-lg aspect-video" cover />
-                                  <div className="relative">
-                                    <h5 className="text-sm text-gray">
-                                      {item.business
-                                        ? `${item.header ? "Projects" : "Products"} | ${item.business}`
-                                        : item.creator
-                                        ? "Albums"
-                                        : item.author
-                                        ? "Articles"
-                                        : item.uploader
-                                        ? "Documents"
-                                        : "Sector"}
-                                    </h5>
-                                    <h5 className="text-sm text-dark-blue">{item.title || item.name}</h5>
-                                  </div>
-                                </div>
-                                <button onClick={(e) => handleClick(e, linkHref)} className="pr-4">
-                                  <Img src={arrow_long_up_left} alt="arrow up left" className="size-5 sm:size-6" />
-                                </button>
-                              </div>
-                            );
-                          })
-                        )}
-                      </>
-                    )}
-                  </>
+                    const category: string = item.business
+                      ? `${item.header ? "Projects" : "Products"} | ${item.business}`
+                      : item.feature === "album"
+                      ? "Albums"
+                      : item.feature === "blog"
+                      ? "Articles"
+                      : item.feature === "document"
+                      ? "Documents"
+                      : "Sector";
+
+                    const img: string = item.media?.[0]?.url || item.header?.url || item?.header || "/temp-article.webp";
+                    return (
+                      <div key={index} className="flex items-center justify-between border-t border-gray/50">
+                        <div className="flex items-center gap-2 pl-4 py-2.5">
+                          <Img src={img} alt="thumbnail" className="w-20 sm:w-24 min-w-20 rounded-lg aspect-video" cover />
+                          <div className="relative">
+                            <h5 className="text-sm text-gray line-clamp-1">{category}</h5>
+                            <h5 className="text-sm text-dark-blue line-clamp-1">{item.title || item.name}</h5>
+                          </div>
+                        </div>
+                        <button onClick={(e) => handleClick(e, linkHref)} className="pr-4">
+                          <Img src={arrow_long_up_left} alt="back arrow" className="size-5 sm:size-6" />
+                        </button>
+                      </div>
+                    );
+                  })
                 )}
               </div>
             </motion.div>

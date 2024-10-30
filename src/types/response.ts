@@ -93,6 +93,18 @@ export interface CategoriesDocumentTypes {
   category: string;
 }
 
+export interface SearchData {
+  title: string;
+  name: string;
+  feature: string;
+  slug: string;
+  media: {
+    url: string;
+  }[];
+  header: string | { url: string };
+  business: string;
+}
+
 export type ResponseContactUs = ResponsePayload<ContactUsTypes>;
 
 export type ResponseArticlesTypes = ResponsePayload<ArticlesTypes[]>;
@@ -113,3 +125,5 @@ export type ResponseCategoriesDocumentTypes = ResponsePayload<CategoriesDocument
 export type ResponseDocumentTypes = ResponsePayload<DocumentsTypes>;
 
 export type ResponseUserTypes = ResponsePayload<UserTypes>;
+
+export type ResponseSearchData = ResponsePayload<SearchData[]>;

@@ -8,7 +8,7 @@ import { useGetApi, useMediaQuery } from "@/hooks";
 
 import { Background, Container, Motion, Pagination } from "@/components";
 
-import { ResponseBusinessesTypes } from "@/types";
+import { BusinessesTypes, ResponseBusinessesTypes } from "@/types";
 
 export const Products = () => {
   const colorLabel = ["bg-red-600", "bg-green-600", "bg-blue-600", "bg-yellow-600", "bg-rose-600", "bg-orange-600", "bg-teal-600"];
@@ -17,7 +17,9 @@ export const Products = () => {
   const [limit, setLimit] = React.useState<number>(4);
   const [totalPage, setTotalPage] = React.useState<number>(0);
 
-  const { response: products, loading } = useGetApi<ResponseBusinessesTypes>({
+  const [products, setProducts] = React.useState<BusinessesTypes[]>();
+
+  const { response: business, loading } = useGetApi<ResponseBusinessesTypes>({
     path: "/business",
     limit: limit.toString(),
     page: page.toString(),
@@ -28,12 +30,13 @@ export const Products = () => {
   const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 767px)");
 
   React.useEffect(() => {
-    if (products && products.total > 0) {
-      setTotalPage(Math.ceil(products.total / limit));
+    if (business?.data && business?.data.length > 0) {
+      setTotalPage(Math.ceil(business.total / limit));
+      setProducts(business.data.filter((item) => item?.Product?.length > 0));
     } else {
       setTotalPage(0);
     }
-  }, [products, limit]);
+  }, [business, limit]);
 
   React.useEffect(() => {
     if (isDesktop) {
@@ -57,19 +60,14 @@ export const Products = () => {
       </div>
 
       {loading ? (
-        <div className="flex justify-center py-16 min-h-400">
+        <div className="flex justify-center py-16 min-h-300">
           <div className="loader"></div>
         </div>
       ) : (
         <Motion tag="div" initialY={40} animateY={0} duration={1} delay={0.6} className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {products?.data?.map((item, index) => (
+          {products?.map((item, index) => (
             <Link key={index} href={`/business/sector/product/${item.slug}`}>
-              <Background
-                src={item.productHeader?.url || "/temp-business.webp"}
-                className="flex-col justify-between w-full p-4 sm:p-6 min-h-300 filter-image"
-                parentClassName="rounded-lg"
-                isHover
-              >
+              <Background src={item.productHeader?.url || "/temp-business.webp"} className="flex-col justify-between w-full p-4 sm:p-6 min-h-300 filter-image" parentClassName="rounded-lg" isHover>
                 <div className={`px-4 py-1 sm:px-6 rounded-3xl w-max ${colorLabel[index]}`}>
                   <label className="text-xs sm:text-sm">{item.title}</label>
                 </div>

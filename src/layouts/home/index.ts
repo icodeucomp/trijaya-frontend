@@ -6,3 +6,4 @@ export * from "./experiences";
 export * from "./details";
 export * from "./services";
 export * from "./products";
+export * from "./projects";
