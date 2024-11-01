@@ -6,23 +6,22 @@ import { useGetApi, useMediaQuery } from "@/hooks";
 
 import { AnimatePresence } from "framer-motion";
 
-import { Background, Container, ImageSlider, Modal, Motion, Pagination } from "@/components";
+import { Background, ImageSlider, Modal, Motion, Slider } from "@/components";
 
-import { ResponseBusinessesSectorTypes } from "@/types";
+import { BusinessSectorTypes, ResponseBusinessesSectorTypes } from "@/types";
 
 export const ProductSector = ({ slug }: { slug: string }) => {
   const [page, setPage] = React.useState<number>(1);
   const [limit, setLimit] = React.useState<number>(4);
   const [totalPage, setTotalPage] = React.useState<number>(0);
+
   const [openModal, setOpenModal] = React.useState<string | null>(null);
 
-  const { response: products, loading } = useGetApi<ResponseBusinessesSectorTypes>({
-    path: `/products?business=${slug}`,
-    limit: limit.toString(),
-    page: page.toString(),
-  });
+  const [products, setProducts] = React.useState<BusinessSectorTypes[]>();
 
-  const filterData = products?.data?.find((item) => item.slug === openModal);
+  const { response: resProducts, loading } = useGetApi<ResponseBusinessesSectorTypes>({ path: `/products?business=${slug}`, limit: "1000000" });
+
+  const filterData = resProducts?.data?.find((item) => item.slug === openModal);
 
   const isLargeDesktop = useMediaQuery("(min-width: 1024px)");
   const isDesktop = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
@@ -30,12 +29,14 @@ export const ProductSector = ({ slug }: { slug: string }) => {
   const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 639px)");
 
   React.useEffect(() => {
-    if (products && products.total > 0) {
-      setTotalPage(Math.ceil(products.total / limit));
+    const startIndex = (page - 1) * limit;
+    if (resProducts?.data && resProducts?.data.length > 0) {
+      setTotalPage(Math.ceil(resProducts.total / limit));
+      setProducts(resProducts.data.slice(startIndex, startIndex + limit));
     } else {
       setTotalPage(0);
     }
-  }, [products, limit]);
+  }, [resProducts, limit, page]);
 
   React.useEffect(() => {
     if (isLargeDesktop) {
@@ -49,27 +50,23 @@ export const ProductSector = ({ slug }: { slug: string }) => {
     }
   }, [isLargeDesktop, isDesktop, isTablet, isMobile]);
 
-  if (products?.data && products?.data.length < 1) {
+  if (resProducts?.data && resProducts?.data.length < 1) {
     return null;
   }
 
   return (
-    <Container className="pb-16">
-      <div className="flex items-center justify-between">
-        <Motion tag="h3" initialX={-50} animateX={0} duration={0.4} className="heading">
-          Products
-        </Motion>
-        <Motion tag="div" initialX={50} animateX={0} duration={0.8} delay={0.4} className="relative flex items-center gap-4">
-          <Pagination page={page} totalPage={totalPage} setPage={setPage} />
-        </Motion>
-      </div>
-      {loading ? (
-        <div className="flex justify-center w-full mt-8 py-16 h-72 sm:h-80">
-          <div className="loader"></div>
-        </div>
-      ) : (
-        <div className="grid gap-4 mt-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {products?.data.map((item, index) => (
+    <>
+      <Slider
+        page={page}
+        setPage={setPage}
+        title="Products"
+        totalPage={totalPage}
+        loading={loading}
+        parentClassName="pb-16 space-y-8"
+        className="grid gap-4 mt-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+      >
+        <>
+          {products?.map((item, index) => (
             <div key={index} className="cursor-pointer" onClick={() => setOpenModal(item.slug)}>
               <Motion tag="div" initialY={30} animateY={0} duration={1} delay={index * 0.1}>
                 <Background src={item.media[0]?.url || "/temp-business.webp"} className="flex-col justify-end w-full p-4 h-72 sm:h-80 filter-image" parentClassName="rounded-lg" isHover>
@@ -81,8 +78,8 @@ export const ProductSector = ({ slug }: { slug: string }) => {
               </Motion>
             </div>
           ))}
-        </div>
-      )}
+        </>
+      </Slider>
       <AnimatePresence>
         {openModal !== null && (
           <Modal isVisible={openModal !== null} onClose={() => setOpenModal(null)}>
@@ -103,6 +100,6 @@ export const ProductSector = ({ slug }: { slug: string }) => {
           </Modal>
         )}
       </AnimatePresence>
-    </Container>
+    </>
   );
 };

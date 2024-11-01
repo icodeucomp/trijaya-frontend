@@ -54,7 +54,7 @@ export const Products = ({ slug }: { slug: string }) => {
           {formatTitleCase(slug)}
           <PiCaretDownBold size={20} className={`duration-300 absolute right-2 fill-dark ${popover && "rotate-180"}`} />
           {popover && (
-            <div className={`popover top-14 z-1000`}>
+            <div className={`popover top-14 z-100`}>
               {businessName?.data.map((item, index) => (
                 <Link href={item.slug} key={index} className="block w-full px-4 py-2.5 rounded-lg whitespace-nowrap btn-primary">
                   {item.title}
@@ -65,7 +65,7 @@ export const Products = ({ slug }: { slug: string }) => {
         </span>
       </div>
       <div className="flex items-center gap-4 mb-4 lg:hidden">
-        <button className="flex items-center justify-center duration-300 border rounded-lg size-10 sm:size-12 bg-light border-primary hover:bg-primary group" type="button" onClick={() => back()}>
+        <button className="btn-back group" type="button" onClick={() => back()}>
           <FaArrowLeft size={20} className="duration-300 fill-secondary group-hover:fill-light" />
         </button>
         <span className="text-xl font-medium sm:text-2xl text-primary">Back</span>

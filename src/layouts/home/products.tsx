@@ -6,7 +6,7 @@ import { Link } from "@/i18n/routing";
 
 import { useGetApi, useMediaQuery } from "@/hooks";
 
-import { Background, Container, Motion, Pagination } from "@/components";
+import { Background, Motion, Slider } from "@/components";
 
 import { BusinessesTypes, ResponseBusinessesTypes } from "@/types";
 
@@ -19,24 +19,21 @@ export const Products = () => {
 
   const [products, setProducts] = React.useState<BusinessesTypes[]>();
 
-  const { response: business, loading } = useGetApi<ResponseBusinessesTypes>({
-    path: "/business",
-    limit: limit.toString(),
-    page: page.toString(),
-  });
+  const { response: business, loading } = useGetApi<ResponseBusinessesTypes>({ path: "/business", limit: "100" });
 
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
   const isMobile = useMediaQuery("(min-width: 0px) and (max-width: 767px)");
 
   React.useEffect(() => {
+    const startIndex = (page - 1) * limit;
     if (business?.data && business?.data.length > 0) {
       setTotalPage(Math.ceil(business.total / limit));
-      setProducts(business.data.filter((item) => item?.Product?.length > 0));
+      setProducts(business.data.filter((item) => item?.Product?.length > 0).slice(startIndex, startIndex + limit));
     } else {
       setTotalPage(0);
     }
-  }, [business, limit]);
+  }, [business, limit, page]);
 
   React.useEffect(() => {
     if (isDesktop) {
@@ -49,24 +46,11 @@ export const Products = () => {
   }, [isDesktop, isTablet, isMobile]);
 
   return (
-    <Container className="py-16 space-y-8">
-      <div className="flex items-center justify-between">
-        <Motion tag="h3" initialX={-50} animateX={0} duration={0.4} className="heading">
-          Products
-        </Motion>
-        <Motion tag="div" initialX={50} animateX={0} duration={0.8} delay={0.4}>
-          <Pagination page={page} totalPage={totalPage} setPage={setPage} />
-        </Motion>
-      </div>
-
-      {loading ? (
-        <div className="flex justify-center py-16 min-h-300">
-          <div className="loader"></div>
-        </div>
-      ) : (
-        <Motion tag="div" initialY={40} animateY={0} duration={1} delay={0.6} className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {products?.map((item, index) => (
-            <Link key={index} href={`/business/sector/product/${item.slug}`}>
+    <Slider page={page} setPage={setPage} title="Products" totalPage={totalPage} loading={loading} parentClassName="py-16 space-y-8" className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <>
+        {products?.map((item, index) => (
+          <Link key={index} href={`/business/sector/product/${item.slug}`}>
+            <Motion tag="div" initialY={30} animateY={0} duration={1} delay={index * 0.1}>
               <Background src={item.productHeader?.url || "/temp-business.webp"} className="flex-col justify-between w-full p-4 sm:p-6 min-h-300 filter-image" parentClassName="rounded-lg" isHover>
                 <div className={`px-4 py-1 sm:px-6 rounded-3xl w-max ${colorLabel[index]}`}>
                   <label className="text-xs sm:text-sm">{item.title}</label>
@@ -76,10 +60,10 @@ export const Products = () => {
                   <h6 className="text-base font-semibold lg:text-xl">{item.Product.length} Products</h6>
                 </div>
               </Background>
-            </Link>
-          ))}
-        </Motion>
-      )}
-    </Container>
+            </Motion>
+          </Link>
+        ))}
+      </>
+    </Slider>
   );
 };

@@ -60,11 +60,7 @@ export const Projects = ({ slug }: { slug: string }) => {
   return (
     <Container className="py-20">
       <div className="flex items-center gap-4 mb-8">
-        <button
-          className="flex items-center justify-center duration-300 border rounded-lg size-10 sm:size-12 bg-light border-primary hover:bg-primary group"
-          type="button"
-          onClick={() => back()}
-        >
+        <button className="btn-back group" type="button" onClick={() => back()}>
           <FaArrowLeft size={20} className="duration-300 fill-secondary group-hover:fill-light" />
         </button>
         <span className="text-xl font-medium sm:text-2xl text-primary">Back</span>
@@ -73,9 +69,7 @@ export const Projects = ({ slug }: { slug: string }) => {
       <div className="flex flex-col-reverse justify-between gap-4 md:gap-8 md:flex-row">
         <Motion tag="div" initialX={-40} animateX={0} duration={0.3} className="flex flex-col w-full gap-4">
           <h3 className="heading">{project?.data.title}</h3>
-          <p className="h-full overflow-y-auto text-sm leading-normal text-justify text-primary sm:text-base md:h-44 scrollbar">
-            {project?.data.description}
-          </p>
+          <p className="h-full overflow-y-auto text-sm leading-normal text-justify text-primary sm:text-base md:h-44 scrollbar">{project?.data.description}</p>
           <div className="flex items-center w-full max-w-xl">
             <div className="w-1 h-2 bg-primary"></div>
             <div className="w-1/2 h-2 bg-primary"></div>
@@ -85,12 +79,7 @@ export const Projects = ({ slug }: { slug: string }) => {
           <Img className="mx-auto size-16 md:size-20 md:mx-0" src="/logo-company.png" alt="logo PT Trijaya Berkah Mandiri" />
         </Motion>
         <Motion tag="div" initialX={40} animateX={0} duration={0.6} delay={0.3} className="max-w-md mx-auto md:max-w-full">
-          <Img
-            src={project?.data.header?.url || "/temp-business.webp"}
-            alt={project?.data.header.slug || slug}
-            className="mx-auto rounded-lg aspect-square w-80 sm:w-72 md:w-80 xl:w-96"
-            cover
-          />
+          <Img src={project?.data.header?.url || "/temp-business.webp"} alt={project?.data.header.slug || slug} className="mx-auto rounded-lg aspect-square w-80 sm:w-72 md:w-80 xl:w-96" cover />
         </Motion>
       </div>
 

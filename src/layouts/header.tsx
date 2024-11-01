@@ -13,11 +13,11 @@ import { arrow_long_up_left } from "@/icons";
 
 import { CiSearch } from "react-icons/ci";
 import { RxCross1 } from "react-icons/rx";
+import { IoSearch } from "react-icons/io5";
 
 import { formatKebabCase } from "@/utils";
 
 import { ResponseSearchData, SearchData } from "@/types";
-import { IoSearch } from "react-icons/io5";
 
 export const Header = () => {
   const { push } = useRouter();
@@ -34,10 +34,9 @@ export const Header = () => {
 
   const [data, setData] = React.useState<SearchData[]>([]);
 
-  const { response: searchData } = useGetApi<ResponseSearchData>({ path: `/search` });
+  const { response: searchData, loading } = useGetApi<ResponseSearchData>({ path: `/search` });
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>, linkHref: string) => {
-    e.preventDefault();
+  const handleClick = (linkHref: string) => {
     push(linkHref);
     setOpenModal(false);
   };
@@ -91,7 +90,7 @@ export const Header = () => {
 
   return (
     <header ref={ref} className="w-full z-1000">
-      <div className="bg-primary hidden lg:block">
+      <div className="hidden bg-primary lg:block">
         <div className="flex justify-end max-w-screen-xl px-4 py-2 mx-auto sm:py-3 sm:px-8">
           <LanguageSwitcher />
         </div>
@@ -102,11 +101,11 @@ export const Header = () => {
             {isMobile ? (
               <Img className="size-14" src="/logo-company.png" alt="logo PT Trijaya Berkah Mandiri" />
             ) : (
-              <Img className="min-w-64 h-16" src="/logo-company-navbar.png" alt="logo PT Trijaya Berkah Mandiri" />
+              <Img className="h-16 min-w-64" src="/logo-company-navbar.png" alt="logo PT Trijaya Berkah Mandiri" />
             )}
           </Link>
 
-          <Navbar navbar={navbar} />
+          <Navbar navbar={navbar} toggleNavbar={toggleNavbar} />
 
           <div className="relative hidden overflow-hidden rounded-lg lg:min-w-52 xl:min-w-64 lg:flex">
             <input
@@ -140,7 +139,7 @@ export const Header = () => {
       </div>
       <AnimatePresence>
         {openModal && (
-          <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full min-h-screen p-4 bg-opacity-50 bg-dark-blue z-1000">
+          <div className="fixed top-0 left-0 flex items-center justify-center w-full h-full min-h-screen p-4 bg-opacity-50 bg-dark-blue z-10000">
             <motion.div
               className="relative w-full max-w-screen-md p-4 py-4 mx-auto overflow-hidden rounded-lg shadow-lg max-h-custom-modal bg-light min-h-400"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -158,18 +157,22 @@ export const Header = () => {
                 <RxCross1 size={20} className="text-primary group-hover:text-light" />
               </button>
               <h3 className="mt-1 text-xl font-semibold text-primary sm:text-2xl">Search</h3>
-              <div className="relative w-full mt-6">
-                <div className="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
-                  <CiSearch size={20} />
+              {loading ? (
+                <div className="w-full h-10 mt-6 rounded-lg bg-gray/40 animate-pulse"></div>
+              ) : (
+                <div className="relative w-full mt-6">
+                  <div className="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
+                    <CiSearch size={20} />
+                  </div>
+                  <input
+                    type="search"
+                    className="block w-full py-2 pl-10 pr-4 text-sm duration-300 border rounded-lg outline-none text-dark-blue border-gray focus:border-primary"
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    value={searchTerm}
+                    placeholder="Search"
+                  />
                 </div>
-                <input
-                  type="search"
-                  className="block w-full py-2 pl-10 pr-4 text-sm duration-300 border rounded-lg outline-none text-dark-blue border-gray focus:border-primary"
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  value={searchTerm}
-                  placeholder="Search"
-                />
-              </div>
+              )}
               <div className="pr-2 mt-6 overflow-y-auto h-96 scrollbar">
                 {searchTerm === "" ? (
                   <h3 className="flex justify-center w-full py-8 text-xl font-semibold text-gray/50">No recent searches</h3>
@@ -204,13 +207,13 @@ export const Header = () => {
                     return (
                       <div key={index} className="flex items-center justify-between border-t border-gray/50">
                         <div className="flex items-center gap-2 pl-4 py-2.5">
-                          <Img src={img} alt="thumbnail" className="w-20 sm:w-24 min-w-20 rounded-lg aspect-video" cover />
+                          <Img src={img} alt="thumbnail" className="w-20 rounded-lg sm:w-24 min-w-20 aspect-video" cover />
                           <div className="relative">
                             <h5 className="text-sm text-gray line-clamp-1">{category}</h5>
                             <h5 className="text-sm text-dark-blue line-clamp-1">{item.title || item.name}</h5>
                           </div>
                         </div>
-                        <button onClick={(e) => handleClick(e, linkHref)} className="pr-4">
+                        <button onClick={() => handleClick(linkHref)} className="pr-4">
                           <Img src={arrow_long_up_left} alt="back arrow" className="size-5 sm:size-6" />
                         </button>
                       </div>

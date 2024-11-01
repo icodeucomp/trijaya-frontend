@@ -27,16 +27,14 @@ export const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="flex gap-2 divide-x xl:gap-4 divide-primary">
+    <div className="flex gap-2 divide-x xl:gap-4 divide-gray z-10000">
       {languages.map((item, index) => {
         return (
           <button
             key={index}
             disabled={isPending}
             onClick={(e) => handleChangeLanguage(e, item.title)}
-            className={`flex items-center gap-1 pl-2 text-sm xl:pl-4 uppercase ${
-              localActive === item.title ? "text-secondary font-semibold" : "text-light font-medium"
-            }`}
+            className={`flex items-center gap-1 pl-2 text-sm xl:pl-4 uppercase ${localActive === item.title ? "text-secondary font-semibold" : "text-light font-medium"}`}
           >
             <Img className="size-3 md:size-5" src={item.pathIcon} alt="United Kingdom Flag" />
             {item.title}

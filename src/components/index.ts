@@ -14,3 +14,4 @@ export * from "./motion";
 export * from "./display-thumbnail";
 export * from "./pagination";
 export * from "./sidebar";
+export * from "./slider";
