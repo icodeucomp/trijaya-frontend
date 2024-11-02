@@ -1,4 +1,4 @@
-"sue client";
+"use client";
 
 import * as React from "react";
 
@@ -6,26 +6,9 @@ import { Container } from "./container";
 import { Motion } from "./motion";
 import { Pagination } from "./pagination";
 import { AnimatePresence, motion } from "framer-motion";
+import { SliderProps } from "@/types";
 
-export const Slider = ({
-  title,
-  loading,
-  children,
-  totalPage,
-  className,
-  parentClassName,
-  page,
-  setPage,
-}: {
-  title: string;
-  loading: boolean | undefined;
-  totalPage: number;
-  className: string;
-  parentClassName: string;
-  children: JSX.Element | JSX.Element[];
-  setPage: React.Dispatch<React.SetStateAction<number>>;
-  page: number;
-}) => {
+export const Slider = ({ title, loading, children, totalPage, className, parentClassName, page, setPage }: SliderProps) => {
   return (
     <Container className={parentClassName ?? ""}>
       <div className="flex items-center justify-between">

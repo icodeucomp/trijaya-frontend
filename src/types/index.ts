@@ -10,6 +10,7 @@ export * from "./background";
 export * from "./article-card";
 export * from "./breadcrumb";
 export * from "./pagination";
+export * from "./slider";
 
 export * from "./navbar";
 export * from "./footer";
