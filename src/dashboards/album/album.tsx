@@ -20,7 +20,7 @@ const Content = ({ data }: { data: AlbumTypes[] | undefined }) => {
   return (
     <menu className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 place-items-center xl:grid-cols-3">
       {!data?.length ? (
-        <h3 className="w-full col-span-1 mt-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">The albums is not found</h3>
+        <h3 className="w-full col-span-1 my-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">The albums is not found</h3>
       ) : (
         data?.map((item, index) => (
           <article key={index} className="relative w-full max-w-xs duration-300 rounded-md card-shadow text-dark-blue bg-light">

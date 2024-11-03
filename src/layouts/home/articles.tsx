@@ -65,11 +65,17 @@ export const Articles = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {articles?.data.map((item, index) => (
-            <Motion tag="div" initialY={50} animateY={0} duration={0.5} delay={index * 0.1} key={index}>
-              <ArticleCard date={item.updatedAt} title={item.title} pathUrl={item.slug} pathImg={item.header} />
-            </Motion>
-          ))}
+          {articles?.data && articles?.data.length < 1 ? (
+            <h3 className="w-full col-span-1 my-8 text-lg font-semibold text-center sm:text-2xl md:col-span-2 lg:col-span-3 text-gray/50">Articles not found</h3>
+          ) : (
+            <>
+              {articles?.data.map((item, index) => (
+                <Motion tag="div" initialY={50} animateY={0} duration={0.5} delay={index * 0.1} key={index}>
+                  <ArticleCard date={item.updatedAt} title={item.title} pathUrl={item.slug} pathImg={item.header} />
+                </Motion>
+              ))}
+            </>
+          )}
         </div>
       )}
     </Container>

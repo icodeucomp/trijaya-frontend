@@ -1,20 +1,11 @@
 import { useTranslations } from "next-intl";
 
-import {
-  building,
-  electric_cord,
-  electrical_services,
-  helmet_safety,
-  miner_worker,
-  navaid_military,
-  robot_two,
-  scheduled_maintenance,
-} from "@/icons";
+import { building, electric_cord, electrical_services, helmet_safety, miner_worker, navaid_military, robot_two, scheduled_maintenance } from "@/icons";
 
 import { TemplateTypes } from "@/types";
 
 export const Business = () => {
-  const t = useTranslations("business.details");
+  const t = useTranslations("home.details");
 
   return [
     {

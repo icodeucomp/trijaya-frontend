@@ -17,7 +17,7 @@ import { CiSearch } from "react-icons/ci";
 
 import { BusinessSectorTypes, ResponseBusinessesSectorTypes } from "@/types";
 
-export const ProjectGallery = () => {
+export const ProjectsGallery = () => {
   const t = useTranslations("media");
 
   const { push } = useRouter();
@@ -87,7 +87,7 @@ export const ProjectGallery = () => {
       </Motion>
       <div className="flex items-center justify-between mb-8">
         <Motion tag="h3" initialX={-50} animateX={0} duration={0.4} delay={0.2} className="w-full heading">
-          Projects Gallery
+          {t("projects-gallery")}
         </Motion>
         <Motion tag="div" initialX={50} animateX={0} duration={0.8} delay={0.4} className="flex items-center gap-4">
           <div className="relative w-full max-w-xs hidden sm:block">
@@ -158,7 +158,7 @@ export const ProjectGallery = () => {
                       </div>
                     ))
                   ) : (
-                    <h3 className="w-full col-span-2 mt-8 text-lg font-semibold text-center sm:text-2xl sm:col-span-3 lg:col-span-4 text-gray/50">Projects photos have not been added to the album</h3>
+                    <h3 className="w-full col-span-2 my-8 text-lg font-semibold text-center sm:text-2xl sm:col-span-3 lg:col-span-4 text-gray/50">Projects photos have not been added to the album</h3>
                   )}
                 </div>
               </div>

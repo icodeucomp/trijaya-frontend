@@ -15,43 +15,46 @@ import { UploadTypes } from "../types";
 import { ResponseCategoriesDocumentTypes } from "@/types";
 
 export const AddDocument = () => {
+  // use modal state and toggle function to open and close modal
   const [ref, modal, toggleModal] = useToggleState();
 
-  // call api
-  const { response: categories, loading } = useGetApi<ResponseCategoriesDocumentTypes>({ path: "/documents/categories" });
-  const { loading: loadData, execute } = usePost("POST", "/document");
-  const { uploading, uploadFile, response: dataUpload } = useUpload<UploadTypes>();
-
-  // logic handle data
+  // get and set data to manipulate or store data to database
   const [name, setName] = React.useState<string>("");
   const [category, setCategory] = React.useState<string>("");
+  const [file, setFile] = React.useState<string>("");
   const [error, setError] = React.useState<boolean>(false);
-  const [selectedFile, setSelectedFile] = React.useState<string>("Please select a file");
-  const [errorFile, setErrorFile] = React.useState<boolean>(false);
+  const [errorFile, setErrorFile] = React.useState<boolean[]>([false, false]);
 
+  // use post hook to send POST request to server to add file and article, and then use get hook to get category documents
+  const { loading: loadData, execute } = usePost("POST", "/document");
+  const { uploading, uploadFile, response: dataUpload } = useUpload<UploadTypes>();
+  const { response: categories, loading } = useGetApi<ResponseCategoriesDocumentTypes>({ path: "/documents/categories" });
+
+  // handle file changes for file pdf and also add condition just only a pdf
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
     const ext = file?.name.split(".").pop();
     if (!category) {
-      setError(true);
+      setErrorFile([true, false]);
       return;
     }
     if (ext !== "pdf") {
-      setErrorFile(true);
+      setErrorFile([false, true]);
       return;
     }
-    setSelectedFile(file?.name || "");
-    setErrorFile(false);
+    setFile(file?.name || "");
+    setErrorFile([false, false]);
     setError(false);
     await uploadFile(file!, `category=${category}`, true);
   };
 
+  // handle close button if the data is not empty
   const handleClose = () => {
-    if (name !== "" || category !== "" || selectedFile !== "Please select a file") {
+    if (name !== "" || category !== "" || file !== "") {
       if (confirm("Are you sure you want to close? Your data will not be saved!")) {
         setName("");
         setCategory("");
-        setSelectedFile("Please select a file");
+        setFile("");
         toggleModal();
         return;
       } else {
@@ -61,11 +64,11 @@ export const AddDocument = () => {
     toggleModal();
   };
 
-  // submit form
+  // handle form submission to add document from server database
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!category || !name) {
+    if (!category || !name || !file) {
       setError(true);
       return;
     }
@@ -100,11 +103,7 @@ export const AddDocument = () => {
                     </div>
                   ) : (
                     <div className="relative">
-                      <select
-                        onChange={(e) => setCategory(e.target.value)}
-                        className={`select-input ${category === "" ? "text-gray" : "text-dark-blue"}`}
-                        value={category}
-                      >
+                      <select onChange={(e) => setCategory(e.target.value)} className={`select-input ${category === "" ? "text-gray" : "text-dark-blue"}`} value={category}>
                         <option value="" disabled>
                           Document category
                         </option>
@@ -134,11 +133,12 @@ export const AddDocument = () => {
                     <label htmlFor="file-pdf" className="file-label">
                       Choose file
                     </label>
-                    <label className="text-sm text-slate-500 whitespace-nowrap">{selectedFile}</label>
-                    <div className="absolute top-0 right-0 w-4 h-full bg-light"></div>
+                    <label className="text-sm text-slate-500 whitespace-nowrap">{file !== "" ? file : "Please select a file"}</label>
+                    <small className="absolute top-0 right-0 w-24 h-full flex items-center px-2 bg-light text-gray/70 whitespace-nowrap">Max. (20mb)</small>
                   </div>
-                  <small className="pl-2 text-gray/70">maximum file size 20mb.</small>
-                  <div className="flex">{errorFile && <small className="text-secondary">Only a pdf! (MAX. 20mb)</small>}</div>
+                  {error && !file && errorFile[0] === false && errorFile[1] === false && <small className="text-red-500">Enter file a pdf document please</small>}
+                  {errorFile[0] === true && <small className="text-red-500">To insert a file, you must be select the category</small>}
+                  {errorFile[1] === true && <small className="text-red-500">The file is only a pdf!</small>}
                 </div>
                 <div className="flex justify-end">
                   {uploading ? (

@@ -8,7 +8,7 @@ import { clientsTableLists } from "@/static";
 import { shimmer, toBase64 } from "@/utils";
 
 export const Experiences = () => {
-  const t = useTranslations("business.experiences");
+  const t = useTranslations("home.experiences");
   return (
     <Container id="experience" className="py-16">
       <Motion tag="div" initialY={-40} animateY={0} duration={1} className="max-w-xl mx-auto space-y-2 text-center">
@@ -36,13 +36,7 @@ export const Experiences = () => {
                       placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(sizes, 56))}`}
                     />
                   </div>
-                  <div
-                    className={`flex text-xs sm:text-sm md:text-base items-center col-span-2 pl-4 font-medium border-r ${
-                      lastIndex && "rounded-ee-lg"
-                    }`}
-                  >
-                    {item.title}
-                  </div>
+                  <div className={`flex text-xs sm:text-sm md:text-base items-center col-span-2 pl-4 font-medium border-r ${lastIndex && "rounded-ee-lg"}`}>{item.title}</div>
                 </div>
               );
             })}

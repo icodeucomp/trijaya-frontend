@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { usePathname } from "next/navigation";
 
-import { useGet, useMediaQuery } from "@/hooks";
+import { useGetProfile, useMediaQuery } from "@/hooks";
 
 import { useCookies } from "next-client-cookies";
 
@@ -17,7 +17,7 @@ import { ResponseUserTypes } from "@/types";
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   const isTabletMid = useMediaQuery("(max-width: 1024px)");
 
-  const { error, loading, response: user } = useGet<ResponseUserTypes>("/profile");
+  const { error, loading, response: user } = useGetProfile<ResponseUserTypes>();
 
   const [openNav, setOpenNav] = React.useState<boolean>(isTabletMid ? false : true);
 
@@ -40,9 +40,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   }, [isTabletMid, pathname]);
 
   if (loading) {
-    <div className="flex justify-center min-h-screen items-center">
-      <div className="loader"></div>
-    </div>;
+    return (
+      <div className="flex justify-center min-h-screen items-center">
+        <div className="loader"></div>
+      </div>
+    );
   }
 
   if (error) {

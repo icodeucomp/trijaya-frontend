@@ -41,10 +41,10 @@ const RelatedArticles = ({ date, title, pathUrl, pathImg }: ArticleCardProps) =>
 };
 
 export const ArticleContent = ({ slug }: { slug: string }) => {
+  const t = useTranslations("media");
+
   const { response: articles, loading: loadingArticles } = useGetApi<ResponseArticlesTypes>({ path: "/blogs", limit: "5" });
   const { response: article, loading: loadingArticle, error } = useGetApi<ResponseArticleTypes>({ path: `/blogs/${slug}` });
-
-  const t = useTranslations("media");
 
   const handleShareButton = async (e: MouseEvent) => {
     e.preventDefault();
@@ -57,7 +57,7 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
   }
 
   return (
-    <Container className="p-10 sm:pt-16 grid grid-cols-1 lg:grid-cols-3 grid-rows-[auto,auto] gap-x-6 gap-y-4 xl:gap-16 text-dark-blue">
+    <Container className="p-10 sm:pt-16 grid grid-cols-1 lg:grid-cols-3 grid-rows-[auto,auto] gap-x-6 gap-y-4 xl:gap-x-16 text-dark-blue">
       {loadingArticle ? (
         <div className="flex justify-center w-full col-span-2 py-4">
           <span className="loader"></span>
@@ -86,7 +86,7 @@ export const ArticleContent = ({ slug }: { slug: string }) => {
           <Motion tag="div" initialX={0} animateX={0} duration={0.8} delay={0.6} className="w-full h-auto text-justify lg:col-span-2">
             <div className="dangerous_html" dangerouslySetInnerHTML={{ __html: article?.data.content as TrustedHTML }} />
             <div className="flex items-center justify-end gap-2 pt-6">
-              <span className="text-base md:text-xl text-primary">Share this article</span>
+              <span className="text-base md:text-xl text-primary">{t("share-articles")}</span>
               <button onClick={handleShareButton} className="p-2.5 duration-300 border rounded-full border-primary group hover:bg-primary">
                 <FaLink size={20} className="duration-300 fill-primary group-hover:fill-light" />
               </button>

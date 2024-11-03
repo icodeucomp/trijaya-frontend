@@ -24,7 +24,7 @@ const Content = ({ data }: { data: ArticlesTypes[] | undefined }) => {
   return (
     <menu className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 place-items-center xl:grid-cols-3">
       {!data?.length ? (
-        <h3 className="w-full col-span-1 mt-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">The articles is not found</h3>
+        <h3 className="w-full col-span-1 my-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">The articles is not found</h3>
       ) : (
         data?.map((item, index) => (
           <article key={index} className="w-full max-w-xs p-4 space-y-4 duration-300 rounded-md card-shadow text-dark-blue bg-light">
@@ -36,7 +36,7 @@ const Content = ({ data }: { data: ArticlesTypes[] | undefined }) => {
               </li>
             </div>
             <h4 className="text-xl font-semibold h-14 line-clamp-2">{item.title}</h4>
-            <div className="relative flex items-center justify-between">
+            <div className="relative flex items-center justify-center gap-4">
               <Link href={`/admin/dashboard/article/show/${item.slug}`}>
                 <button className="p-2 duration-300 border rounded-full border-primary bg-light hover:bg-primary group">
                   <BiShowAlt size={20} className="text-primary group-hover:text-light" />

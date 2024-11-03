@@ -152,7 +152,7 @@ export const Albums = () => {
                       </div>
                     ))
                   ) : (
-                    <h3 className="w-full col-span-2 mt-8 text-lg font-semibold text-center sm:text-2xl sm:col-span-3 lg:col-span-4 text-gray/50">Photos have not been added to the album</h3>
+                    <h3 className="w-full col-span-2 my-8 text-lg font-semibold text-center sm:text-2xl sm:col-span-3 lg:col-span-4 text-gray/50">Photos have not been added to the album</h3>
                   )}
                 </div>
               </div>

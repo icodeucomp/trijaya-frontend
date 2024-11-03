@@ -28,12 +28,7 @@ export const ShowProject = ({ slugProject }: { slugProject: string }) => {
         {modal && (
           <Modal isVisible={modal} onClose={toggleModal} className="max-w-screen-md">
             <div className="w-full px-4 pt-4 space-y-4 sm:pt-0 sm:px-8">
-              <Img
-                src={project?.data.header?.url || "/temp-business.webp"}
-                alt={project?.data.header.slug || slugProject}
-                className="w-64 mx-auto rounded-lg aspect-square"
-                cover
-              />
+              <Img src={project?.data.header?.url || "/temp-business.webp"} alt={project?.data.header.slug || slugProject} className="w-64 mx-auto rounded-lg aspect-square" cover />
 
               <div className="space-y-2">
                 <h4 className="text-xl font-semibold sm:text-2xl text-primary">{project?.data.title}</h4>
@@ -42,15 +37,7 @@ export const ShowProject = ({ slugProject }: { slugProject: string }) => {
 
               <div className="grid grid-cols-3">
                 {project?.data.media && project.data.media.length > 0 ? (
-                  project?.data.media?.map((image, index) => (
-                    <Img
-                      key={index}
-                      src={image.url || "/temp-business.webp"}
-                      alt={image.slug}
-                      className="mx-auto rounded-lg w-52 aspect-square"
-                      cover
-                    />
-                  ))
+                  project?.data.media?.map((image, index) => <Img key={index} src={image.url || "/temp-business.webp"} alt={image.slug} className="mx-auto rounded-lg w-52 aspect-square" cover />)
                 ) : (
                   <Img src={"/temp-business.webp"} alt={slugProject} className="mx-auto rounded-lg w-52 aspect-square" cover />
                 )}

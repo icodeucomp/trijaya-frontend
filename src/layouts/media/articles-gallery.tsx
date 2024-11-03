@@ -19,6 +19,7 @@ import { ResponseArticlesTypes } from "@/types";
 
 export const ArticlesGallery = () => {
   const t = useTranslations("media");
+
   const { push } = useRouter();
   const searchParams = useSearchParams();
 

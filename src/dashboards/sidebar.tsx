@@ -14,12 +14,7 @@ import { PiCaretRightBold } from "react-icons/pi";
 
 import { SidebarProps } from "./types";
 
-export const sideBarMenu: { title: string; content?: string[] }[] = [
-  { title: "Article" },
-  { title: "Document" },
-  { title: "LifeatTBM" },
-  { title: "Business", content: ["Product", "Project"] },
-];
+export const sideBarMenu: { title: string; content?: string[] }[] = [{ title: "Article" }, { title: "Document" }, { title: "LifeatTBM" }, { title: "Business", content: ["Product", "Project"] }];
 
 export const Sidebar = ({ openNav, isTabletMid }: SidebarProps) => {
   const pathname = usePathname();
@@ -61,7 +56,7 @@ export const Sidebar = ({ openNav, isTabletMid }: SidebarProps) => {
       </div>
       <ul className="space-y-2">
         {sideBarMenu.map((item, index) => {
-          const isActive = splitPathname === item.title.toLowerCase() || splitPathname.startsWith(`${item.title.toLowerCase()}/`);
+          const isActive = splitPathname === item.title.toLowerCase() || splitPathname.startsWith(item.title === "LifeatTBM" ? "album" : `${item.title.toLowerCase()}/`);
           return (
             <div className="w-full px-4" key={index}>
               <span className={`sidebar-menu group ${isActive ? "bg-primary" : "bg-light"}`}>
@@ -71,22 +66,12 @@ export const Sidebar = ({ openNav, isTabletMid }: SidebarProps) => {
                 </Link>
                 {item.title === "Business" && (
                   <span onClick={() => setDropdown((prevDropdown) => !prevDropdown)} className="absolute right-4 top-2.5 cursor-pointer">
-                    <PiCaretRightBold
-                      size={24}
-                      className={`duration-300 group-hover:text-light ${dropdown ? "rotate-90" : "rotate-0"} ${
-                        isActive ? "text-light" : "text-primary"
-                      }`}
-                    />
+                    <PiCaretRightBold size={24} className={`duration-300 group-hover:text-light ${dropdown ? "rotate-90" : "rotate-0"} ${isActive ? "text-light" : "text-primary"}`} />
                   </span>
                 )}
               </span>
               {item.content && item.content?.length > 0 && (
-                <motion.div
-                  initial={false}
-                  animate={dropdown ? "open" : "closed"}
-                  variants={dropdownVariants}
-                  className="w-full mt-4 space-y-2 bg-light"
-                >
+                <motion.div initial={false} animate={dropdown ? "open" : "closed"} variants={dropdownVariants} className="w-full mt-4 space-y-2 bg-light">
                   <div className="space-y-2 text-sm sm:text-base">
                     {item.content?.map((content, index) => (
                       <Link href={`/admin/dashboard/business/${content.toLowerCase()}`} key={index} className="sidebar-menu group bg-light">

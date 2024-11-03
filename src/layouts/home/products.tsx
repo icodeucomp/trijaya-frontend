@@ -4,6 +4,8 @@ import * as React from "react";
 
 import { Link } from "@/i18n/routing";
 
+import { useTranslations } from "next-intl";
+
 import { useGetApi, useMediaQuery } from "@/hooks";
 
 import { Background, Motion, Slider } from "@/components";
@@ -11,6 +13,8 @@ import { Background, Motion, Slider } from "@/components";
 import { BusinessesTypes, ResponseBusinessesTypes } from "@/types";
 
 export const Products = () => {
+  const t = useTranslations("home");
+
   const colorLabel = ["bg-red-600", "bg-green-600", "bg-blue-600", "bg-yellow-600", "bg-rose-600", "bg-orange-600", "bg-teal-600"];
 
   const [page, setPage] = React.useState<number>(1);
@@ -46,7 +50,15 @@ export const Products = () => {
   }, [isDesktop, isTablet, isMobile]);
 
   return (
-    <Slider page={page} setPage={setPage} title="Products" totalPage={totalPage} loading={loading} parentClassName="py-16 space-y-8" className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+    <Slider
+      page={page}
+      setPage={setPage}
+      title={`${t("products")}`}
+      totalPage={totalPage}
+      loading={loading}
+      parentClassName="py-16 space-y-8"
+      className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4"
+    >
       <>
         {products?.map((item, index) => (
           <Link key={index} href={`/business/sector/product/${item.slug}`}>

@@ -2,6 +2,7 @@
   "welcome": "Welcome",
   "language": "English Language",
   "view-all": "View All",
+  "read-more": "Read More",
   "home": {
     "hero": {
       "title": "Rely on Us to Deliver Your Project Goals from Concept to Completion",
@@ -42,51 +43,6 @@
       "title": "Our Dedicated Services for You",
       "description": "We provide professional services for your business"
     },
-    "clients": {
-      "title": "Our Clients",
-      "description": "We collaborate to engineer solutions that stand the test of time"
-    },
-    "articles": "Newsrooms"
-  },
-  "profile": {
-    "hero": {
-      "title": "Profile",
-      "description": "Discover Who We Are: Our Story, Vision, and Mission. Explore Our Organizational Structure, Legal Foundations, and Industry Certifications That Drive Our Commitment to Excellence."
-    },
-    "message": {
-      "subtitle": "We are General Supplier, Fabrication, Machining, Mechanical, Electrical, and Civil company.",
-      "description-one": "PT Trijaya Berkah Mandiri has been operating since 2015, established under Notarial Deed No.1 dated November 4, 2015. Throughout our journey, we have provided a wide range of products for both large and small-scale projects, as well as services for various works and workshops, predominantly serving the western Banten region and extending to parts of Java, Sumatra, and Kalimantan.",
-      "description-two": "As a leading General Supplier and Project provider, PT Trijaya Berkah Mandiri meets the needs of businesses in the fields of Electrical Special Panel Making, Mechanical, Engineering, Safety, and other related projects. In 2019, we expanded into the construction sector. We are dedicated to serving with utmost care and supporting our customers’ needs, whether for large or small-scale projects."
-    },
-    "vision-mission": {
-      "title": "Vision & Missions",
-      "vision": {
-        "title": "Vision",
-        "description": "Meeting the needs of the industrial sector in manufacturing production machines, we also provide high-quality fabrication and repair services for parts. This helps reduce reliance on foreign products and supports the growth of domestic production capabilities."
-      },
-      "mission": {
-        "title": "Missions",
-        "description-one": "Provide services for manufacturing machines, as well as producing and repairing high-quality production machine parts. This ensures customer satisfaction and trust, fostering strong and lasting partnerships.",
-        "description-two": "Support the government’s efforts to create jobs, reduce unemployment, and boost the national economy, contributing to the well-being of Indonesian families."
-      }
-    },
-    "organizational-structure": {
-      "title": "Organizational Structure",
-      "description": "Get to know the passionate directors and managers behind our success.",
-      "job": {
-        "director": "Director",
-        "general-manager": "General Manager",
-        "electrical-manager": "Electrical Manager",
-        "accounting-manager": "Accounting Manager",
-        "project-manager": "Project Manager",
-        "machining-supervisor": "Machining Supervisor",
-        "fabrication-supervisor": "Fabrication Supervisor",
-        "leader-admin": "Leader Admin",
-        "safety": "Safety Officer"
-      }
-    }
-  },
-  "business": {
     "details": {
       "title": "Services & Products Details",
       "description": "PT. A brings a wealth of experience and expertise across various projects in General Supply, Fabrication, Machining, Mechanical, Electrical, Civil, and Construction. Supported by a dedicated and skilled team, we are prepared to tackle challenges at every stage of a project. With a focus on innovation and efficiency, we strive to deliver solutions that meet the specific needs of our clients. We take pride in building strong partnerships across various industries, delivering satisfying results, and contributing to the success of their projects.",
@@ -129,8 +85,54 @@
     "experiences": {
       "title": "Experiences",
       "description": "We have successfully delivered high-quality services across a diverse range of industries and regions"
+    },
+    "clients": {
+      "title": "Our Clients",
+      "description": "We collaborate to engineer solutions that stand the test of time"
+    },
+    "articles": "Latest Articles",
+    "projects": "Our Newest Projects",
+    "products": "Products"
+  },
+  "profile": {
+    "hero": {
+      "title": "Profile",
+      "description": "Discover Who We Are: Our Story, Vision, and Mission. Explore Our Organizational Structure, Legal Foundations, and Industry Certifications That Drive Our Commitment to Excellence."
+    },
+    "message": {
+      "subtitle": "We are General Supplier, Fabrication, Machining, Mechanical, Electrical, and Civil company.",
+      "description-one": "PT Trijaya Berkah Mandiri has been operating since 2015, established under Notarial Deed No.1 dated November 4, 2015. Throughout our journey, we have provided a wide range of products for both large and small-scale projects, as well as services for various works and workshops, predominantly serving the western Banten region and extending to parts of Java, Sumatra, and Kalimantan.",
+      "description-two": "As a leading General Supplier and Project provider, PT Trijaya Berkah Mandiri meets the needs of businesses in the fields of Electrical Special Panel Making, Mechanical, Engineering, Safety, and other related projects. In 2019, we expanded into the construction sector. We are dedicated to serving with utmost care and supporting our customers’ needs, whether for large or small-scale projects."
+    },
+    "vision-mission": {
+      "title": "Vision & Missions",
+      "vision": {
+        "title": "Vision",
+        "description": "Meeting the needs of the industrial sector in manufacturing production machines, we also provide high-quality fabrication and repair services for parts. This helps reduce reliance on foreign products and supports the growth of domestic production capabilities."
+      },
+      "mission": {
+        "title": "Missions",
+        "description-one": "Provide services for manufacturing machines, as well as producing and repairing high-quality production machine parts. This ensures customer satisfaction and trust, fostering strong and lasting partnerships.",
+        "description-two": "Support the government’s efforts to create jobs, reduce unemployment, and boost the national economy, contributing to the well-being of Indonesian families."
+      }
+    },
+    "organizational-structure": {
+      "title": "Organizational Structure",
+      "description": "Get to know the passionate directors and managers behind our success.",
+      "job": {
+        "director": "Director",
+        "general-manager": "General Manager",
+        "electrical-manager": "Electrical Manager",
+        "accounting-manager": "Accounting Manager",
+        "project-manager": "Project Manager",
+        "machining-supervisor": "Machining Supervisor",
+        "fabrication-supervisor": "Fabrication Supervisor",
+        "leader-admin": "Leader Admin",
+        "safety": "Safety Officer"
+      }
     }
   },
+  "business": {},
   "certification": {
     "hero": {
       "title": "Legalities and Certifications",
@@ -173,6 +175,11 @@
     "right-side": {
       "title": "Questions, comments, or suggestions?",
       "description": "Simply fill in the form and we`ll be in touch shortly",
+      "first-name": "First Name",
+      "last-name": "Last Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "message": "Your Message",
       "button-text": "Send Message"
     }
   },
@@ -185,12 +192,10 @@
       "title": "Company Gallery",
       "description": "Our Work in Action: Projects Activities and Articles"
     },
-    "project-activities": "Project Activities",
-    "articles-gallery": "Articles Gallery",
-    "latest-articles": "Latest Articles",
-    "more-articles": "More Articles",
-    "share-articles": "Share this article",
-    "other-articles": "Other Articles"
+    "projects-gallery": "Galeri Proyek",
+    "articles-gallery": "Galeri Artikel",
+    "share-articles": "Bagikan artikel ini",
+    "other-articles": "Artikel Lainnya"
   },
   "header": {
     "home": "Home",

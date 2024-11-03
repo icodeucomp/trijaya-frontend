@@ -112,19 +112,12 @@ export const EditAlbum = ({ slug }: { slug: string }) => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 md:min-w-xl">
-                <h3 className="text-lg font-semibold text-center sm:text-start text-primary">Add Album</h3>
+                <h3 className="text-lg font-semibold text-center sm:text-start text-primary">Edit Album</h3>
                 <div className="relative text-center">
                   <Img src={album.header || "/temp-business.webp"} alt={"test"} className="mx-auto rounded-lg w-60 aspect-video" cover />
                 </div>
                 <div className="relative w-full">
-                  <input
-                    type="text"
-                    id="title"
-                    className="floating-input peer"
-                    placeholder=" "
-                    value={album.name}
-                    onChange={(e) => setAlbum((prev) => ({ ...prev, name: e.target.value }))}
-                  />
+                  <input type="text" id="title" className="floating-input peer" placeholder=" " value={album.name} onChange={(e) => setAlbum((prev) => ({ ...prev, name: e.target.value }))} />
                   <label
                     htmlFor="title"
                     className="floating-label peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
@@ -144,11 +137,7 @@ export const EditAlbum = ({ slug }: { slug: string }) => {
                 <div className="grid grid-cols-3 gap-2 mt-4">
                   {album.medias?.map((image, index) => (
                     <div key={index} className="relative">
-                      <button
-                        onClick={() => handleDeleteImage(image.slug)}
-                        type="button"
-                        className="absolute flex items-center justify-center w-5 h-5 rounded-full -top-2 -right-2 z-1 bg-secondary"
-                      >
+                      <button onClick={() => handleDeleteImage(image.slug)} type="button" className="absolute flex items-center justify-center w-5 h-5 rounded-full -top-2 -right-2 z-1 bg-secondary">
                         <FaMinus className="fill-light" />
                       </button>
                       <Img src={image.url || "/temp-business.webp"} alt={`Selected image ${index + 1}`} className="w-full h-32 rounded-lg" cover />

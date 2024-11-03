@@ -1,4 +1,8 @@
+"use client";
+
 import { Link } from "@/i18n/routing";
+
+import { useTranslations } from "next-intl";
 
 import { Img } from "./image";
 import { Button } from "./button";
@@ -12,6 +16,7 @@ import { convertDate } from "@/utils";
 import { ArticleCardProps } from "@/types";
 
 export const ArticleCard = ({ date, title, pathUrl, pathImg }: ArticleCardProps) => {
+  const t = useTranslations();
   return (
     <>
       <Img src={pathImg || "/temp-article.webp"} alt={title} className="w-full h-60 rounded-lg" cover />
@@ -24,7 +29,7 @@ export const ArticleCard = ({ date, title, pathUrl, pathImg }: ArticleCardProps)
       <h4 className="mt-4 text-xl font-semibold h-14 sm:h-16 sm:text-2xl text-dark-blue line-clamp-2">{title}</h4>
       <Link href={`/media/article/${pathUrl}`} className="block mt-4">
         <Button className="flex items-center gap-2 btn-outline group">
-          Read More <GoArrowRight className="fill-primary group-hover:fill-light" size={20} />
+          {t("read-more")} <GoArrowRight className="fill-primary group-hover:fill-light" size={20} />
         </Button>
       </Link>
     </>

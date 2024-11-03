@@ -2,6 +2,7 @@
   "welcome": "Selamat Datang",
   "language": "Bahasa Indonesia",
   "view-all": "Lihat Semuanya",
+  "read-more": "Baca Lebih Lanjut",
   "home": {
     "hero": {
       "title": "Percayakan kepada Kami untuk Mencapai Tujuan Proyek Anda dari Konsep hingga Penyelesaian",
@@ -42,51 +43,6 @@
       "title": "Layanan Khusus Kami untuk Anda",
       "description": "Kami menyediakan layanan profesional untuk bisnis Anda"
     },
-    "clients": {
-      "title": "Klien kami",
-      "description": "Kami berkolaborasi untuk menciptakan solusi inovatif yang dirancang untuk keberlanjutan dan dapat diandalkan dalam berbagai tantangan industri."
-    },
-    "articles": "Pusat Informasi"
-  },
-  "profile": {
-    "hero": {
-      "title": "Profil",
-      "description": "Temukan Siapa Kami: Kisah, Visi, dan Misi Kami. \nJelajahi Struktur Organisasi, Landasan Hukum, dan Sertifikasi Industri Kami yang Mendorong Komitmen Kami terhadap Keunggulan."
-    },
-    "message": {
-      "subtitle": "Kami adalah perusahaan General Supplier, Fabrikasi, Permesinan, Mekanikal, Elektrikal, dan Sipil.",
-      "description-one": "PT Trijaya Berkah Mandiri telah berjalan sejak tahun 2015 dengan Akta Pendirian Notaris No.1 tanggal 4 November 2015. Selama perjalanan, kami telah banyak melayani produksi produk baik dalam skala besar maupun kecil, begitu juga proyek, pekerjaan, bengkel, dan hampir \nsebagian besar mendominasi daerah Banten barat hingga sebagian wilayah Jawa, Sumatera dan Kalimantan.",
-      "description-two": "PT.Trijaya Berkah Mandiri sebagai salah satu General Supplier dan Project hadir memenuhi kebutuhan para pebisnis yang fokus bergerak dalam bidang Electrical Spesial Panel Maker, Mechanical, Engineering, Safety dan Project lainnya. \nDan pada tahun 2019 kami mulai bergerak di bidang Kontruksi.Kami melayani dengan sepenuh hati dan mensupport sesuai dengan kebutuhan pelanggan baik skala besar maupun kecil."
-    },
-    "vision-mission": {
-      "title": "Visi",
-      "vision": {
-        "title": "Visi",
-        "description": "Memenuhi kebutuhan sektor industri dalam hal pembuatan mesin-mesin produksi, serta menyediakan jasa pembuatan dan perbaikan part berkualitas yang baik, sehingga dapat mengurangi ketergantungan terhadap produk-produk luar negeri dan menjadi produsen di negara sendiri"
-      },
-      "mission": {
-        "title": "Misi",
-        "description-one": "Memberikan pembuatan mesin maupun jasa pembuatan part hingga perbaikan sparepart mesin produksi dengan kualitas yang baik sehingga memberikan rasa kepuasan dan kepercayaan dari pelanggan sehingga dapat terjalin kerjasama yang baik",
-        "description-two": "Membantu pemerintah dalam menciptakan lapangan kerja guna mengurangi kemiskinan dan meningkatkan perekonomian dalam negeri serta mensejahterakan keluarga Indonesia"
-      }
-    },
-    "organizational-structure": {
-      "title": "Struktur Organisasi",
-      "description": "Berikut adalah sosok yang menjadi pilar utama kesuksesan kami.",
-      "job": {
-        "director": "Director",
-        "general-manager": "General Manager",
-        "electrical-manager": "Electrical Manager",
-        "accounting-manager": "Accounting Manager",
-        "project-manager": "Project Manager",
-        "machining-supervisor": "Machining Supervisor",
-        "fabrication-supervisor": "Fabrication Supervisor",
-        "leader-admin": "Leader Admin",
-        "safety": "Safety Officer"
-      }
-    }
-  },
-  "business": {
     "details": {
       "title": "Layanan",
       "description": "PT. Trijaya Berkah Mandiri memiliki pengalaman yang kaya dan mendalam dalam berbagai proyek di bidang General Supplier, Fabrication, Machining, Mechanical, Electrical, Civil, dan Construction. Kami didukung oleh tim profesional yang kompeten dan berdedikasi, siap menghadapi tantangan di setiap tahap proyek. Dengan pendekatan yang berorientasi pada inovasi dan efisiensi, kami selalu berusaha memberikan solusi yang memenuhi kebutuhan spesifik klien kami. Kami bangga menjalin kemitraan yang kuat dengan berbagai industri, memberikan hasil yang memuaskan, dan berkontribusi pada kesuksesan proyek-proyek mereka.",
@@ -129,8 +85,54 @@
     "experiences": {
       "title": "Pengalaman",
       "description": "Kami telah berhasil memberikan layanan berkualitas tinggi di beragam industri dan wilayah"
+    },
+    "clients": {
+      "title": "Klien kami",
+      "description": "Kami berkolaborasi untuk menciptakan solusi inovatif yang dirancang untuk keberlanjutan dan dapat diandalkan dalam berbagai tantangan industri."
+    },
+    "articles": "Artikel Terbaru",
+    "projects": "Proyek Terbaru Kami",
+    "products": "Produk"
+  },
+  "profile": {
+    "hero": {
+      "title": "Profil",
+      "description": "Temukan Siapa Kami: Kisah, Visi, dan Misi Kami. \nJelajahi Struktur Organisasi, Landasan Hukum, dan Sertifikasi Industri Kami yang Mendorong Komitmen Kami terhadap Keunggulan."
+    },
+    "message": {
+      "subtitle": "Kami adalah perusahaan General Supplier, Fabrikasi, Permesinan, Mekanikal, Elektrikal, dan Sipil.",
+      "description-one": "PT Trijaya Berkah Mandiri telah berjalan sejak tahun 2015 dengan Akta Pendirian Notaris No.1 tanggal 4 November 2015. Selama perjalanan, kami telah banyak melayani produksi produk baik dalam skala besar maupun kecil, begitu juga proyek, pekerjaan, bengkel, dan hampir \nsebagian besar mendominasi daerah Banten barat hingga sebagian wilayah Jawa, Sumatera dan Kalimantan.",
+      "description-two": "PT.Trijaya Berkah Mandiri sebagai salah satu General Supplier dan Project hadir memenuhi kebutuhan para pebisnis yang fokus bergerak dalam bidang Electrical Spesial Panel Maker, Mechanical, Engineering, Safety dan Project lainnya. \nDan pada tahun 2019 kami mulai bergerak di bidang Kontruksi.Kami melayani dengan sepenuh hati dan mensupport sesuai dengan kebutuhan pelanggan baik skala besar maupun kecil."
+    },
+    "vision-mission": {
+      "title": "Visi",
+      "vision": {
+        "title": "Visi",
+        "description": "Memenuhi kebutuhan sektor industri dalam hal pembuatan mesin-mesin produksi, serta menyediakan jasa pembuatan dan perbaikan part berkualitas yang baik, sehingga dapat mengurangi ketergantungan terhadap produk-produk luar negeri dan menjadi produsen di negara sendiri"
+      },
+      "mission": {
+        "title": "Misi",
+        "description-one": "Memberikan pembuatan mesin maupun jasa pembuatan part hingga perbaikan sparepart mesin produksi dengan kualitas yang baik sehingga memberikan rasa kepuasan dan kepercayaan dari pelanggan sehingga dapat terjalin kerjasama yang baik",
+        "description-two": "Membantu pemerintah dalam menciptakan lapangan kerja guna mengurangi kemiskinan dan meningkatkan perekonomian dalam negeri serta mensejahterakan keluarga Indonesia"
+      }
+    },
+    "organizational-structure": {
+      "title": "Struktur Organisasi",
+      "description": "Berikut adalah sosok yang menjadi pilar utama kesuksesan kami.",
+      "job": {
+        "director": "Director",
+        "general-manager": "General Manager",
+        "electrical-manager": "Electrical Manager",
+        "accounting-manager": "Accounting Manager",
+        "project-manager": "Project Manager",
+        "machining-supervisor": "Machining Supervisor",
+        "fabrication-supervisor": "Fabrication Supervisor",
+        "leader-admin": "Leader Admin",
+        "safety": "Safety Officer"
+      }
     }
   },
+  "business": {},
   "certification": {
     "hero": {
       "title": "Legalitas dan Sertifikasi",
@@ -173,6 +175,11 @@
     "right-side": {
       "title": "Pertanyaan, komentar, atau saran?",
       "description": "Cukup isi formulir dan kami akan segera menghubungi Anda",
+      "first-name": "Nama Depan",
+      "last-name": "Nama Belakang",
+      "email": "Email",
+      "phone": "Nomor Telepon",
+      "message": "Pesan Anda",
       "button-text": "Kirim Pesan"
     }
   },
@@ -185,10 +192,8 @@
       "title": "Galeri Perusahaan",
       "description": "Pekerjaan Kami dalam Tindakan: Kegiatan Proyek dan Artikel"
     },
-    "project-activities": "Kegiatan Proyek",
+    "projects-gallery": "Galeri Proyek",
     "articles-gallery": "Galeri Artikel",
-    "latest-articles": "Artikel Terakhir",
-    "more-articles": "Artikel Lainnya",
     "share-articles": "Bagikan artikel ini",
     "other-articles": "Artikel Lainnya"
   },

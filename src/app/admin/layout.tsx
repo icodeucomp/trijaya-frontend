@@ -22,6 +22,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Login",
   description: "Login Page for PT Trijaya Berkah Mandiri",
+  icons: {
+    icon: "/logo-company.png",
+  },
 };
 
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {

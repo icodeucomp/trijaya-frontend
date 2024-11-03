@@ -2,6 +2,7 @@
   "welcome": "欢迎",
   "language": "语言",
   "view-all": "查看全部",
+  "read-more": "更多信息",
   "home": {
     "hero": {
       "title": "信任我们，实现您的项目目标，从概念到完成。",
@@ -42,51 +43,6 @@
       "title": "我们为您提供专属服务",
       "description": "我们为您的业务提供专业服务"
     },
-    "clients": {
-      "title": "我们的客户",
-      "description": "我们合作创造旨在可持续性和在各种行业挑战中可靠的创新解决方案。"
-    },
-    "articles": "信息中心"
-  },
-  "profile": {
-    "hero": {
-      "title": "资料",
-      "description": "了解我们：我们的故事、愿景和使命。探索我们的组织结构、法律基础和推动我们对卓越承诺的行业认证。"
-    },
-    "message": {
-      "subtitle": "我们是一家综合供应商，提供制造、机械、电气和土木工程服务。",
-      "description-one": "PT Trijaya Berkah Mandiri自2015年起运营, 注册成立于2015年11月4日, 公证人第1号。在这段时间里, 我们为大规模和小规模的产品生产提供了大量服务，包括项目、工作、车间，并在西万丹及部分爪哇、苏门答腊和加里曼丹地区占据主导地位。",
-      "description-two": "PT Trijaya Berkah Mandiri作为一家综合供应商和项目公司, 致力于满足专注于电气特殊面板制造、机械、工程、安全和其他项目的商家的需求。在2019年, 我们开始涉足建筑领域。我们全心全意地服务，并根据客户的需求支持无论是大规模还是小规模的项目。"
-    },
-    "vision-mission": {
-      "title": "愿景",
-      "vision": {
-        "title": "愿景",
-        "description": "满足工业部门在生产机械制造方面的需求，提供高质量的零件制造和维修服务，从而减少对外国产品的依赖，成为国内生产者。"
-      },
-      "mission": {
-        "title": "使命",
-        "description-one": "提供机械制造以及零件制造和生产设备备件维修服务，确保高质量，从而使客户满意并建立良好的合作关系。",
-        "description-two": "帮助政府创造就业机会，以减少贫困、促进国内经济发展，并改善印尼家庭的福祉。"
-      }
-    },
-    "organizational-structure": {
-      "title": "组织结构",
-      "description": "以下是我们成功的主要支柱。",
-      "job": {
-        "director": "Director",
-        "general-manager": "General Manager",
-        "electrical-manager": "Electrical Manager",
-        "accounting-manager": "Accounting Manager",
-        "project-manager": "Project Manager",
-        "machining-supervisor": "Machining Supervisor",
-        "fabrication-supervisor": "Fabrication Supervisor",
-        "leader-admin": "Leader Admin",
-        "safety": "Safety Officer"
-      }
-    }
-  },
-  "business": {
     "details": {
       "title": "服务",
       "description": "PT.Trijaya Berkah Mandiri在一般供应、制造、机械、机电、土木和建筑等领域拥有丰富的经验和专业知识。我们拥有一支敬业和技术精湛的团队, 随时准备应对项目各个阶段的挑战。我们专注于创新和高效, 努力提供满足客户特定需求的解决方案。我们为与各个行业建立强大的合作伙伴关系、提供令人满意的成果以及为项目的成功做出贡献而感到自豪。",
@@ -129,8 +85,54 @@
     "experiences": {
       "title": "经验",
       "description": "我们已成功为多个行业和地区提供高质量的服务"
+    },
+    "clients": {
+      "title": "我们的客户",
+      "description": "我们合作创造旨在可持续性和在各种行业挑战中可靠的创新解决方案。"
+    },
+    "articles": "最新文章",
+    "projects": "我们的最新项目",
+    "products": "产品"
+  },
+  "profile": {
+    "hero": {
+      "title": "资料",
+      "description": "了解我们：我们的故事、愿景和使命。探索我们的组织结构、法律基础和推动我们对卓越承诺的行业认证。"
+    },
+    "message": {
+      "subtitle": "我们是一家综合供应商，提供制造、机械、电气和土木工程服务。",
+      "description-one": "PT Trijaya Berkah Mandiri自2015年起运营, 注册成立于2015年11月4日, 公证人第1号。在这段时间里, 我们为大规模和小规模的产品生产提供了大量服务，包括项目、工作、车间，并在西万丹及部分爪哇、苏门答腊和加里曼丹地区占据主导地位。",
+      "description-two": "PT Trijaya Berkah Mandiri作为一家综合供应商和项目公司, 致力于满足专注于电气特殊面板制造、机械、工程、安全和其他项目的商家的需求。在2019年, 我们开始涉足建筑领域。我们全心全意地服务，并根据客户的需求支持无论是大规模还是小规模的项目。"
+    },
+    "vision-mission": {
+      "title": "愿景",
+      "vision": {
+        "title": "愿景",
+        "description": "满足工业部门在生产机械制造方面的需求，提供高质量的零件制造和维修服务，从而减少对外国产品的依赖，成为国内生产者。"
+      },
+      "mission": {
+        "title": "使命",
+        "description-one": "提供机械制造以及零件制造和生产设备备件维修服务，确保高质量，从而使客户满意并建立良好的合作关系。",
+        "description-two": "帮助政府创造就业机会，以减少贫困、促进国内经济发展，并改善印尼家庭的福祉。"
+      }
+    },
+    "organizational-structure": {
+      "title": "组织结构",
+      "description": "以下是我们成功的主要支柱。",
+      "job": {
+        "director": "Director",
+        "general-manager": "General Manager",
+        "electrical-manager": "Electrical Manager",
+        "accounting-manager": "Accounting Manager",
+        "project-manager": "Project Manager",
+        "machining-supervisor": "Machining Supervisor",
+        "fabrication-supervisor": "Fabrication Supervisor",
+        "leader-admin": "Leader Admin",
+        "safety": "Safety Officer"
+      }
     }
   },
+  "business": {},
   "certification": {
     "hero": {
       "title": "法律和认证",
@@ -173,6 +175,11 @@
     "right-side": {
       "title": "有问题、评论或建议吗？",
       "description": "只需填写表格，我们会尽快与您联系",
+      "first-name": "名",
+      "last-name": "姓",
+      "email": "电子邮件",
+      "phone": "电话号码",
+      "message": "您的留言",
       "button-text": "发送消息"
     }
   },
@@ -185,10 +192,8 @@
       "title": "公司画廊",
       "description": "我们的工作实践：项目活动和文章"
     },
-    "project-activities": "项目活动",
+    "projects-gallery": "项目展厅",
     "articles-gallery": "文章画廊",
-    "latest-articles": "最新文章",
-    "more-articles": "更多文章",
     "share-articles": "分享这篇文章",
     "other-articles": "其他文章"
   },

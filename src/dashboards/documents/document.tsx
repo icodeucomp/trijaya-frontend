@@ -22,7 +22,7 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
   return (
     <menu className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 place-items-center xl:grid-cols-3">
       {!data?.length ? (
-        <h3 className="w-full col-span-1 mt-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">The documents is not found</h3>
+        <h3 className="w-full col-span-1 my-8 text-lg font-semibold text-center sm:text-2xl md:text-3xl sm:col-span-2 xl:col-span-3 text-gray/50">The documents is not found</h3>
       ) : (
         data?.map((item, index) => (
           <article key={index} className="w-full max-w-xs p-4 duration-300 rounded-md card-shadow text-dark-blue bg-light">
@@ -38,7 +38,7 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
             <div className="mt-2 space-y-2 text-center h-14">
               <h5 className="text-xl font-semibold line-clamp-2">{item.name}</h5>
             </div>
-            <div className="flex items-center justify-between mt-4">
+            <div className="flex items-center justify-center gap-4 mt-4">
               <ShowDocument slug={item.slug} />
               <EditDocument slug={item.slug} />
               <DeleteDocument slug={item.slug} />

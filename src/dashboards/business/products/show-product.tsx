@@ -27,21 +27,16 @@ export const ShowProduct = ({ slugProduct }: { slugProduct: string }) => {
       <AnimatePresence>
         {modal && (
           <Modal isVisible={modal} onClose={toggleModal} className="max-w-screen-lg">
-            <div className="flex flex-col w-full gap-4 px-4 pt-10 md:flex-row sm:px-8">
+            <div className="grid grid-cols-1 w-full gap-4 px-4 pt-10 md:grid-cols-2 sm:px-8">
               {product?.data && product?.data.media.length > 0 ? (
-                <ImageSlider
-                  images={product?.data.media?.map((item) => item.url)}
-                  imgClassName="w-72 sm:w-80 mx-auto lg:w-96 aspect-square rounded-lg"
-                />
+                <ImageSlider images={product?.data.media?.map((item) => item.url)} imgClassName="w-72 sm:w-80 mx-auto lg:w-96 aspect-square rounded-lg" />
               ) : (
                 <ImageSlider images={["/temp-business.webp"]} imgClassName="w-72 sm:w-80 mx-auto lg:w-96 aspect-square rounded-lg" />
               )}
 
               <div className="space-y-4">
                 <h4 className="text-xl font-semibold sm:text-2xl text-primary">{product?.data.title}</h4>
-                <p className="h-full pr-2 overflow-y-auto text-sm leading-tight text-justify md:h-64 sm:text-base scrollbar">
-                  {product?.data.description}
-                </p>
+                <p className="h-full pr-2 overflow-y-auto text-sm leading-tight text-justify md:h-64 sm:text-base scrollbar">{product?.data.description}</p>
               </div>
             </div>
           </Modal>

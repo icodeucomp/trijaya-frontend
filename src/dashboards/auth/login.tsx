@@ -54,14 +54,7 @@ export const Login = () => {
           {error && !input.username && <small className="w-full text-secondary">Enter your username</small>}
 
           <div className="relative w-full mt-4">
-            <input
-              type={isVisible ? "text" : "password"}
-              id="password"
-              className="pr-8 floating-input peer"
-              placeholder=" "
-              onChange={handleChange}
-              autoComplete="off"
-            />
+            <input type={isVisible ? "text" : "password"} id="password" className="pr-8 floating-input peer" placeholder=" " onChange={handleChange} autoComplete="off" />
             <label
               htmlFor="password"
               className="floating-label peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"

@@ -16,7 +16,7 @@ export const Edit = ({ slug }: { slug: string }) => {
 
   // call api
   const { response: business } = useGetApi<ResponseBusinessTypes>({ path: `/business/${slug}` });
-  const { loading: loadData, execute } = usePost("PATCH", "/business/sector");
+  const { loading: loadData, execute } = usePost("PATCH", "/business");
   const { uploading, uploadFile, response: dataImageHeader } = useUpload<UploadTypes>();
 
   // logic handle data
@@ -97,26 +97,14 @@ export const Edit = ({ slug }: { slug: string }) => {
                   <div className="relative text-center">
                     {error && !header && <small className="text-secondary">Please enter an image</small>}
                     <small className="w-full">maximum image size 5mb. (aspect ratio of 1:1)</small>
-                    <Img
-                      src={header?.url || "/temp-business.webp"}
-                      alt={header?.name || ""}
-                      className="mx-auto rounded-lg w-72 aspect-square"
-                      cover
-                    />
+                    <Img src={header?.url || "/temp-business.webp"} alt={header?.name || ""} className="mx-auto rounded-lg w-72 aspect-square" cover />
                     <label htmlFor="image-header" className="duration-300 cursor-pointer text-primary hover:text-primary/80">
                       Upload Image Header
                     </label>
                     <input type="file" accept="image/*" id="image-header" className="sr-only" onChange={handleFileImageHeader} />
                   </div>
                   <div className="relative w-full">
-                    <input
-                      type="text"
-                      id="description"
-                      value={description}
-                      className="floating-input peer"
-                      placeholder=" "
-                      onChange={(e) => setDescription(e.target.value)}
-                    />
+                    <input type="text" id="description" value={description} className="floating-input peer" placeholder=" " onChange={(e) => setDescription(e.target.value)} />
                     <label
                       htmlFor="description"
                       className="floating-label peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
