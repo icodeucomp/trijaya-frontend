@@ -78,6 +78,9 @@
 }
 
 /* ckeditor style */
+.ck.ck-balloon-panel.ck-powered-by-balloon {
+  display: none !important;
+}
 .ck-content * {
   all: revert;
   color: #181c14 !important;

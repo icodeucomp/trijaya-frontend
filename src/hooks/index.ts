@@ -6,3 +6,4 @@ export * from "./useLogin";
 export * from "./useGetProfile";
 export * from "./usePost";
 export * from "./useUpload";
+export * from "./useLogout";

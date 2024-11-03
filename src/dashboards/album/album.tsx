@@ -24,7 +24,7 @@ const Content = ({ data }: { data: AlbumTypes[] | undefined }) => {
       ) : (
         data?.map((item, index) => (
           <article key={index} className="relative w-full max-w-xs duration-300 rounded-md card-shadow text-dark-blue bg-light">
-            <Img src={item.header || "/temp-business.webp"} alt={item.name} className="rounded-t-lg aspect-video w-80" cover />
+            <Img src={item.header || "/temp-business.webp"} alt={item.name} className="rounded-t-lg h-52 w-full" cover />
             <div className="relative h-20 pt-3 pb-6 text-center">
               <h4 className="text-xl font-semibold line-clamp-2">{item.name}</h4>
             </div>

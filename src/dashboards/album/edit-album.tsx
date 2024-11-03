@@ -73,7 +73,7 @@ export const EditAlbum = ({ slug }: { slug: string }) => {
       updateFields.name = album.name;
     }
 
-    if (Object.keys(updateFields).length < 0) {
+    if (Object.keys(updateFields).length < 1) {
       setErrors(true);
       return;
     }

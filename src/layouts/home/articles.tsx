@@ -22,6 +22,7 @@ export const Articles = () => {
     path: "/blogs",
     limit: limit.toString(),
     page: page.toString(),
+    order: "desc",
   });
 
   const isDesktop = useMediaQuery("(min-width: 1024px)");

@@ -63,7 +63,7 @@ export const Edit = ({ slug }: { slug: string }) => {
       updateFields.header = { ...updateFields.header, slug: dataImageHeader?.name as string, url: dataImageHeader?.url as string };
     }
 
-    if (Object.keys(updateFields).length < 0) {
+    if (Object.keys(updateFields).length < 1) {
       return;
     }
 
