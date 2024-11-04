@@ -11,7 +11,7 @@ export const Details = () => {
 
   return (
     <div className="grid w-full grid-cols-1 mx-auto lg:grid-cols-2 max-w-screen-2xl">
-      <Background src="/images/business-details.webp" className="flex-col w-full h-full gap-40 py-20 lg:gap-0 lg:justify-between sm:py-28 md:py-32" parentClassName="filter">
+      <Background src="/images/business-details.webp" className="flex-col w-full h-full gap-40 py-20 lg:gap-0 lg:justify-between sm:py-28 md:py-32 filter-image">
         <Motion tag="div" initialX={-40} animateX={0} duration={0.3} className="px-2 sm:px-6 md:px-10 xl:px-14 text-light">
           <h3 className="text-xl font-semibold sm:text-2xl lg:text-3xl xl:text-5xl">{t("title")}</h3>
           <p className="mt-2 text-sm leading-normal text-justify sm:text-base md:text-lg">{t("description")}</p>

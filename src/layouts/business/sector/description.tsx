@@ -22,7 +22,7 @@ export const Description = ({ slug }: { slug: string }) => {
 
   return (
     <>
-      <Hero pathImg="/images/profile-header.webp" title={business?.data.title || ""} description={business?.data.description || ""} />
+      <Hero pathImg="/images/business-header.webp" title={business?.data.title || ""} description={business?.data.description || ""} />
       <Container className="py-16 space-y-8">
         {loading ? (
           <div className="flex justify-center w-full py-16">

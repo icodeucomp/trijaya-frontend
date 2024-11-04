@@ -113,7 +113,7 @@
       "mission": {
         "title": "Missions",
         "description-one": "Provide services for manufacturing machines, as well as producing and repairing high-quality production machine parts. This ensures customer satisfaction and trust, fostering strong and lasting partnerships.",
-        "description-two": "Support the government’s efforts to create jobs, reduce unemployment, and boost the national economy, contributing to the well-being of Indonesian families."
+        "description-two": "Support the government's efforts to create jobs, reduce unemployment, and boost the national economy, contributing to the well-being of Indonesian families."
       }
     },
     "organizational-structure": {
@@ -145,7 +145,7 @@
       "description": "Join us at and unlock your potential, working with a passionate team and making a real difference in the world. We eagerly look forward to your arrival!"
     },
     "head": {
-      "title": "Professinal Staff and Internship",
+      "title": "Professional Staff and Internship",
       "description": "We have several job and internship vacancies open"
     },
     "one": {
@@ -192,10 +192,10 @@
       "title": "Company Gallery",
       "description": "Our Work in Action: Projects Activities and Articles"
     },
-    "projects-gallery": "Galeri Proyek",
-    "articles-gallery": "Galeri Artikel",
-    "share-articles": "Bagikan artikel ini",
-    "other-articles": "Artikel Lainnya"
+    "projects-gallery": "Projects Gallery",
+    "articles-gallery": "Articles Gallery",
+    "share-articles": "Share this article",
+    "other-articles": "Other articles"
   },
   "header": {
     "home": "Home",

@@ -4,21 +4,21 @@ import { shimmer, toBase64 } from "@/utils";
 
 import { BackgroundProps } from "@/types";
 
-export const Background = ({ src, className, children, parentClassName, isHover }: BackgroundProps) => {
+export const Background = ({ src, className, children, parentClassName, isHover, isTop }: BackgroundProps) => {
   return (
     <figure className={`relative text-light shadow-lg overflow-hidden group ${parentClassName ?? ""}`}>
       <Image
         src={src}
         alt="background image"
         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(400, 400))}`}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         fill
+        quality={100}
         priority
         objectFit="cover"
-        objectPosition="center"
-        className={`-z-10 ${isHover ? "duration-300 group-hover:scale-110" : ""}`}
+        objectPosition={isTop ? "top" : "center"}
+        className={`absolute inset-0 w-full h-full ${isHover ? "duration-300 group-hover:scale-110" : ""}`}
       />
-      <div className={`z-1 relative flex mx-auto ${className ?? ""}`}>{children}</div>
+      <div className={`z-1 relative flex mx-auto w-full ${className ?? ""}`}>{children}</div>
     </figure>
   );
 };

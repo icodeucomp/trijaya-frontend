@@ -149,11 +149,8 @@
   .subheading {
     @apply text-sm sm:text-base md:text-xl text-dark-gray;
   }
-  .filter {
-    @apply bg-gradient-to-b from-dark/80 to-dark/50;
-  }
   .filter-image {
-    @apply bg-gradient-to-b from-dark/50 via-dark-blue/20 to-dark/50;
+    @apply bg-gradient-to-b from-black/50 via-black/20 to-black/50;
   }
   .popover {
     @apply absolute p-4 space-y-2 -translate-x-1/2 border border-gray rounded-lg shadow-lg left-1/2 w-full bg-light text-dark-blue z-100;
