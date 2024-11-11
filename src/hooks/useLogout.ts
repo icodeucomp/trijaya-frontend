@@ -25,14 +25,14 @@ export const useLogout = () => {
       method: "POST",
       options: {
         headers: {
-          Authorization: `Bearer ${cookies.get("session")}`,
+          Authorization: `Bearer ${cookies.get("jwt")}`,
           "Access-Control-Allow-Origin": "*",
         },
       },
     })
       .then((response) => {
         toast.success(response.data.message);
-        cookies.remove("session");
+        cookies.remove("jwt");
         push("/admin/login");
       })
       .catch((error) => {

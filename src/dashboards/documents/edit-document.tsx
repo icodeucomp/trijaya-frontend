@@ -116,7 +116,7 @@ export const EditDocument = ({ slug }: { slug: string }) => {
                     <div className="relative">
                       <select onChange={(e) => setCategory(e.target.value)} className={`select-input ${category === "" ? "text-gray" : "text-dark-blue"}`} value={category}>
                         {categories?.data.map((item, index) => (
-                          <option key={index} value={item.slug}>
+                          <option key={index} value={item.category}>
                             {item.category}
                           </option>
                         ))}

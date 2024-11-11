@@ -108,7 +108,7 @@ export const AddDocument = () => {
                           Document category
                         </option>
                         {categories?.data.map((item, index) => (
-                          <option key={index} value={item.slug} className="text-dark-blue">
+                          <option key={index} value={item.category} className="text-dark-blue">
                             {item.category}
                           </option>
                         ))}
