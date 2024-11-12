@@ -100,8 +100,6 @@ export const EditProject = ({ slugProject, businessId, slug }: { slugProject: st
       return;
     }
 
-    console.log(Object.keys(updateFields).length);
-
     execute(`/projects/${slugProject}`, updateFields);
   };
 
@@ -134,12 +132,7 @@ export const EditProject = ({ slugProject, businessId, slug }: { slugProject: st
                   <small className="w-full">maximum image size 5mb. (aspect ratio of 1:1)</small>
                 )}
 
-                <Img
-                  src={project.header?.url || "/temp-business.webp"}
-                  alt={project.header?.slug || slugProject}
-                  className="mx-auto rounded-lg w-60 aspect-square"
-                  cover
-                />
+                <Img src={project.header?.url || "/temp-business.webp"} alt={project.header?.slug || slugProject} className="mx-auto rounded-lg w-60 aspect-square" cover />
 
                 <label htmlFor="image-header" className="cursor-pointer text-primary hover:font-semibold hover:text-primary/80">
                   Edit Image Header
@@ -148,14 +141,7 @@ export const EditProject = ({ slugProject, businessId, slug }: { slugProject: st
                 <input type="file" accept="image/*" id="image-header" className="sr-only" onChange={handleHeaderImageChange} />
               </div>
               <div className="relative w-full">
-                <input
-                  type="text"
-                  id="title"
-                  className="floating-input peer"
-                  placeholder=" "
-                  value={project.title}
-                  onChange={(e) => setProject((prev) => ({ ...prev, title: e.target.value }))}
-                />
+                <input type="text" id="title" className="floating-input peer" placeholder=" " value={project.title} onChange={(e) => setProject((prev) => ({ ...prev, title: e.target.value }))} />
                 <label
                   htmlFor="title"
                   className="floating-label peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7"
@@ -194,11 +180,7 @@ export const EditProject = ({ slugProject, businessId, slug }: { slugProject: st
                 <div className="grid grid-cols-2 gap-4 mt-4 sm:grid-cols-3">
                   {project?.media?.map((image, index) => (
                     <div key={index} className="relative">
-                      <button
-                        onClick={() => handleDeleteImage(index)}
-                        type="button"
-                        className="absolute flex items-center justify-center w-5 h-5 rounded-full -top-2 -right-2 z-1 bg-secondary"
-                      >
+                      <button onClick={() => handleDeleteImage(index)} type="button" className="absolute flex items-center justify-center w-5 h-5 rounded-full -top-2 -right-2 z-1 bg-secondary">
                         <FaMinus className="fill-light" />
                       </button>
                       <Img src={image.url || "/temp-business.webp"} alt={image.slug} className="w-48 mx-auto rounded-lg aspect-square" cover />

@@ -16,9 +16,9 @@ import { AddDocument } from "./add-document";
 
 import { carbon_tag } from "@/icons";
 
-import { DocumentsTypes, ResponseDocumentsTypes } from "@/types";
+import { DEFAULT_FILE } from "@/static";
 
-const DEFAULT_FILE = "https://trijaya-berkah-mandiri-storage.s3.ap-southeast-1.amazonaws.com/company-profile/Trijaya+Bakti+Mandiri+-+Company+Profile.pdf";
+import { DocumentsTypes, ResponseDocumentsTypes } from "@/types";
 
 const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
   return (

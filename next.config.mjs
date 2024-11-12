@@ -8,10 +8,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "icodeu-storage.s3.ap-southeast-1.amazonaws.com",
-      },
-      {
-        protocol: "https",
         hostname: "trijaya-berkah-mandiri-storage.s3.ap-southeast-1.amazonaws.com",
       },
       {

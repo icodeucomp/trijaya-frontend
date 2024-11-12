@@ -13,11 +13,11 @@ import { SearchFilter } from "./search-filter";
 import { CardCertification } from "./card-certification";
 import { DateValueType } from "react-tailwindcss-datepicker";
 
+import { DEFAULT_FILE } from "@/static";
+
 import { convertDate, formatDate } from "@/utils";
 
 import { ResponseDocumentsTypes } from "@/types";
-
-const DEFAULT_FILE = "https://trijaya-berkah-mandiri-storage.s3.ap-southeast-1.amazonaws.com/company-profile/Trijaya+Bakti+Mandiri+-+Company+Profile.pdf";
 
 export const CertificationLegalities = () => {
   const { push } = useRouter();
@@ -107,7 +107,6 @@ export const CertificationLegalities = () => {
                       size={item.size}
                       selected={selectCard}
                       setSelected={setSelectCard}
-                      defaultFile={DEFAULT_FILE}
                     />
                   ))}
                 </div>
