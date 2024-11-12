@@ -18,6 +18,8 @@ import { carbon_tag } from "@/icons";
 
 import { DocumentsTypes, ResponseDocumentsTypes } from "@/types";
 
+const DEFAULT_FILE = "https://trijaya-berkah-mandiri-storage.s3.ap-southeast-1.amazonaws.com/company-profile/Trijaya+Bakti+Mandiri+-+Company+Profile.pdf";
+
 const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
   return (
     <menu className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 place-items-center xl:grid-cols-3">
@@ -27,9 +29,7 @@ const Content = ({ data }: { data: DocumentsTypes[] | undefined }) => {
         data?.map((item, index) => (
           <article key={index} className="w-full max-w-xs p-4 duration-300 rounded-md card-shadow text-dark-blue bg-light">
             <div className="preview-thumbnail">
-              <DisplayThumbnail
-                fileUrl={item.url || "https://icodeu-storage.s3.ap-southeast-1.amazonaws.com/documents/award/surat-pernyataan-ambil-sertifikat-toeflmuhammad-helmy-fadlail-albab-1728069726585.pdf"}
-              />
+              <DisplayThumbnail fileUrl={item.url || DEFAULT_FILE} />
             </div>
             <div className="flex gap-1 mt-2 text-sm text-dark-gray">
               <Img src={carbon_tag} alt="calendar icon" className="size-4" />

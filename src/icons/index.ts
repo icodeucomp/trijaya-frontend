@@ -10,7 +10,6 @@ import factory_worker from "./factory-worker.svg";
 import electric_cord from "./electric-cord.svg";
 import electrical_services from "./electrical-services.svg";
 import robot_two from "./robot-two.svg";
-import navaid_military from "./navaid-military.svg";
 import helmet_safety from "./helmet-safety.svg";
 import quill_paper from "./quill-paper.svg";
 import building from "./building.svg";
@@ -26,8 +25,10 @@ import miner_worker from "./miner-worker.svg";
 import scheduled_maintenance from "./scheduled-maintenance.svg";
 import arrow_long_up_left from "./arrow-long-up-left.svg";
 import user_profile from "./user-profile.svg";
+import pipe from "./pipe.svg";
 
 export {
+  pipe,
   user_profile,
   arrow_long_up_left,
   scheduled_maintenance,
@@ -43,7 +44,6 @@ export {
   electric_cord,
   electrical_services,
   robot_two,
-  navaid_military,
   helmet_safety,
   quill_paper,
   building,

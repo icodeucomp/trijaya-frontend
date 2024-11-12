@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { auto_repair, data_usage_settings, electric_cord, engineering, factory_worker, park_delivery } from "@/icons";
+import { auto_repair, data_usage_settings, electric_cord, engineering, factory_worker, miner_worker, park_delivery, pipe } from "@/icons";
 
 import { TemplateTypes } from "@/types";
 
@@ -47,6 +47,18 @@ export const ServiceLists = () => {
       title: `${t("six.title")}`,
       description: `${t("six.description")}`,
       slug: "electrical",
+    },
+    {
+      pathImg: miner_worker,
+      title: `${t("seven.title")}`,
+      description: `${t("seven.description")}`,
+      slug: "manpower-supply",
+    },
+    {
+      pathImg: pipe,
+      title: `${t("eight.title")}`,
+      description: `${t("eight.description")}`,
+      slug: "Piping",
     },
   ] as FooterTypes[];
 };

@@ -3,6 +3,7 @@
   "language": "English Language",
   "view-all": "View All",
   "read-more": "Read More",
+  "see-details": "See Details",
   "home": {
     "hero": {
       "title": "Rely on Us to Deliver Your Project Goals from Concept to Completion",
@@ -40,6 +41,14 @@
         "title": "Electrical",
         "description": "We provide electrical services that include installation, maintenance, and repair of electrical systems for various industrial sectors."
       },
+      "seven": {
+        "title": "Manpower Supply",
+        "description": "From skilled workers to technical experts, we offer reliable labor solutions that fit your business needs and project timelines."
+      },
+      "eight": {
+        "title": "Piping",
+        "description": "We provide piping services that include installation, maintenance, and repair of piping systems for various industrial sectors."
+      },
       "title": "Our Dedicated Services for You",
       "description": "We provide professional services for your business"
     },
@@ -50,36 +59,28 @@
       "motto": "Engineering Excellence, Every Step of the Way",
       "message": "All work will be supervised under high control by a Supervisor from the initial planning, progress, to commissioning stages. A work guarantee is provided in accordance with TBM standards or as required by the client or customer.",
       "list-one": {
-        "title": "Electrical Products",
-        "description": "Supply Cable, Electrical Tools, Panel, Contactor, Motor, Cable Tray, Lamp, Cable ties, Light poles, Fan and etc."
+        "title": "Civil & Construction",
+        "description": "Our work includes industrial building construction or industrial building repairs, installation of various types of roofing such as Spandek models, Bitumen models, partitioning, and all fabrication work."
       },
       "list-two": {
-        "title": "Electrical Project",
-        "description": "Lighting rod, Cad Well, Installation Low ang High Voltage for industries, Phone or Intercom, Hall Sound System, lightning protection  PLC system and etc."
+        "title": "Mechanical Spare part",
+        "description": "Rubber, Seal, Hose, Pipe Nipple, Injector,  Pressure gauge, Srews, Bolt, Conduit  and etc."
       },
       "list-three": {
-        "title": "Mechanical Spare part",
-        "description": "Rubber, Seal, Hose, Pipe Nipple, Injector, Pressure gauge, Sews, Bolt, Conduit  and etc."
+        "title": "Repair & Maintenance",
+        "description": "We offer professional and reliable repair and maintenance services, providing effective and high-quality solutions to ensure the optimal performance of your equipment."
       },
       "list-four": {
-        "title": "Workshop Project",
-        "description": "Hard Chrome, Sand Blasting, Teflon Coating, Nikel Chrome, Shell Structure, Thank Project, Overhaul, Piping, Molding,Separator, Vibrator, Mixing Rolls and etc."
-      },
-      "list-five": {
-        "title": "Construction",
-        "description": "Our work includes industrial building construction or industrial building repairs, installation of various types of roofing such as Spandex models, Bitumen models, partitioning, and all fabrication work."
-      },
-      "list-six": {
         "title": "Safety",
         "description": "Manufacturing of Fire Extinguisher Boxes, Nozzle Modification, Smoke Detectors, Hose Upgrades, Valves, Local and Imported Sprinklers, and similar services."
       },
-      "list-seven": {
-        "title": "Manpower Supply",
-        "description": "From skilled laborers to technical experts, we offer reliable workforce solutions that align with your business needs and project timelines."
+      "list-five": {
+        "title": "Electrical Product",
+        "description": "Supplay Cabel, Elecrical Tools, Panel, Contactor, Motor, Cabel Tray, Lamp, Cable ties, Light poles, Fan and etc"
       },
-      "list-eight": {
-        "title": "Repair & Maintenance",
-        "description": "We offer professional and reliable repair and maintenance services, providing effective and high-quality solutions to ensure the optimal performance of your equipment."
+      "list-six": {
+        "title": "Electrical Project",
+        "description": "Lighting rod, Cad Well, Installation Low ang High Voltage for industries, Phone or Intercome, Hall Sound System, lightning protection  PLC system and etc."
       }
     },
     "experiences": {

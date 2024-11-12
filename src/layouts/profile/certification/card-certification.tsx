@@ -11,18 +11,14 @@ import { baseUrlApi, convertDate } from "@/utils";
 interface CardCertificationProps extends DocumentsTypes {
   setSelected: (selected: string) => void;
   selected: string;
+  defaultFile: string;
 }
 
-export const CardCertification = ({ selected, setSelected, slug, name, url, category, uploadedAt }: CardCertificationProps) => {
+export const CardCertification = ({ selected, setSelected, slug, name, url, category, uploadedAt, defaultFile }: CardCertificationProps) => {
   return (
     <div className={`card-certification group ${selected === slug && "bg-primary"}`} onClick={() => setSelected(slug)}>
       <div className="preview-thumbnail">
-        <DisplayThumbnail
-          fileUrl={
-            url ||
-            "https://icodeu-storage.s3.ap-southeast-1.amazonaws.com/documents/award/surat-pernyataan-ambil-sertifikat-toeflmuhammad-helmy-fadlail-albab-1728069726585.pdf"
-          }
-        />
+        <DisplayThumbnail fileUrl={url || defaultFile} />
       </div>
       <div className="space-y-2">
         <h5 className={`text-sm sm:text-base md:text-lg font-semibold ${selected === slug ? "text-light" : "text-primary"}`}>{name}</h5>

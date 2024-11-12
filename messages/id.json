@@ -3,6 +3,7 @@
   "language": "Bahasa Indonesia",
   "view-all": "Lihat Semuanya",
   "read-more": "Baca Lebih Lanjut",
+  "see-details": "Lihat Detailnya",
   "home": {
     "hero": {
       "title": "Percayakan kepada Kami untuk Mencapai Tujuan Proyek Anda dari Konsep hingga Penyelesaian",
@@ -40,6 +41,14 @@
         "title": "Kelistrikan",
         "description": "Kami menyediakan layanan electrical yang meliputi instalasi, perawatan, dan perbaikan sistem kelistrikan untuk berbagai sektor industri."
       },
+      "seven": {
+        "title": "Pasokan Tenaga Kerja",
+        "description": "Dari pekerja terampil hingga ahli teknis, kami menawarkan solusi tenaga kerja yang dapat diandalkan yang sesuai dengan kebutuhan bisnis dan jadwal proyek Anda"
+      },
+      "eight": {
+        "title": "Perpipaan",
+        "description": "Kami menyediakan layanan piping yang meliputi instalasi, perawatan, dan perbaikan sistem perpipaan untuk berbagai sektor industri."
+      },
       "title": "Layanan Khusus Kami untuk Anda",
       "description": "Kami menyediakan layanan profesional untuk bisnis Anda"
     },
@@ -50,36 +59,28 @@
       "motto": "Engineering Excellence, Every Step of the Way",
       "message": "Semua pekerjaan akan diawasi di bawah kendali tinggi oleh seorang Supervisor mulai dari tahap perencanaan awal, pengerjaan, hingga commissioning. \nJaminan pekerjaan diberikan sesuai dengan standar TBM atau sesuai kebutuhan klien atau pelanggan.",
       "list-one": {
-        "title": "Produk Listrik",
-        "description": "Supply Kabel, Alat Listrik, Panel, Kontaktor, Motor, Cable Tray, Lampu, Pengikat Kabel, Tiang Lampu, Kipas Angin dan lain-lain."
+        "title": "Sipil & Konstruksi",
+        "description": "Pekerjaan kami meliputi konstruksi bangunan industri atau perbaikan bangunan industri, pemasangan berbagai jenis atap seperti model Spandek, model Bitumen, partisi, dan semua pekerjaan fabrikasi."
       },
       "list-two": {
-        "title": "Proyek Listrik",
-        "description": "Batang penerangan, Sumur Cad, Instalasi Tegangan Rendah dan Tinggi untuk industri, Telepon atau Interkom, Hall Sound System, sistem PLC penangkal petir dan lain-lain."
+        "title": "Suku Cadang Mekanik",
+        "description": "Karet, Seal, Selang, Pipa Nipple, Injektor, Pengukur Tekanan, Sekrup, Baut, Konduit, dan lainnya."
       },
       "list-three": {
-        "title": "Suku Cadang Mekanik",
-        "description": "Karet, Segel, Selang, Puting Pipa, Injektor, Pengukur Tekanan, Jahitan, Baut, Saluran dan lain-lain."
+        "title": "Perbaikan & Pemeliharaan",
+        "description": "Kami menawarkan layanan perbaikan dan pemeliharaan profesional dan andal, memberikan solusi yang efektif dan berkualitas tinggi untuk memastikan kinerja optimal peralatan Anda."
       },
       "list-four": {
-        "title": "Proyek Workshop",
-        "description": "Krom Keras, Peledakan Pasir, Pelapis Teflon, Krom Nikel, Struktur Cangkang, Proyek Terima Kasih, Perombakan, Perpipaan, Pencetakan, Pemisah, Penggetar, Gulungan Pencampur, dan lain-lain."
+        "title": "Keamanan",
+        "description": "Pembuatan Kotak Pemadam Kebakaran, Modifikasi Nozzle, Detektor Asap, Peningkatan Selang, Katup, Sprinkler Lokal dan Impor, dan layanan serupa."
       },
       "list-five": {
-        "title": "Konstruksi",
-        "description": "Pekerjaan kami meliputi pembangunan gedung industri atau perbaikan gedung industri, pemasangan berbagai jenis atap seperti model Spandex, model Bitumen, partisi, dan segala pekerjaan fabrikasi."
+        "title": "Produk Listrik",
+        "description": "Pasokan Kabel, Alat Listrik, Panel, Kontaktor, Motor, Kabel Tray, Lampu, Kabel Ties, Tiang Lampu, Kipas, dan lainnya."
       },
       "list-six": {
-        "title": "Keamanan",
-        "description": "Pembuatan Box Pemadam Kebakaran, Modifikasi Nozzle, Detektor Asap, Upgrade Selang, Valve, Alat Penyiram Lokal dan Impor, dan jasa sejenisnya."
-      },
-      "list-seven": {
-        "title": "Persediaan Tenaga Kerja",
-        "description": "Dari pekerja terampil hingga ahli teknis, kami menawarkan solusi tenaga kerja yang dapat diandalkan yang sesuai dengan kebutuhan bisnis dan jadwal proyek Anda."
-      },
-      "list-eight": {
-        "title": "Perbaikan & Pemeliharaan",
-        "description": "Kami menawarkan layanan perbaikan dan pemeliharaan yang profesional dan andal, memberikan solusi yang efektif dan berkualitas tinggi untuk memastikan kinerja peralatan Anda yang optimal."
+        "title": "Proyek Listrik",
+        "description": "Penangkal petir, Cad Well, Instalasi Tegangan Rendah dan Tinggi untuk industri, Telepon atau Interkom, Sistem Suara Aula, perlindungan petir, sistem PLC, dan lainnya."
       }
     },
     "experiences": {
