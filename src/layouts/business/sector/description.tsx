@@ -10,8 +10,11 @@ import { Button, Container, Img, Motion } from "@/components";
 import { FaWhatsapp } from "react-icons/fa6";
 
 import { ResponseBusinessTypes } from "@/types";
+import { ServiceLists } from "@/static";
 
 export const Description = ({ slug }: { slug: string }) => {
+  const services = ServiceLists();
+
   const { response: business, loading, error } = useGetApi<ResponseBusinessTypes>({ path: `/business/${slug}` });
 
   if (error) {
@@ -20,9 +23,11 @@ export const Description = ({ slug }: { slug: string }) => {
 
   const templateMessage: string = `Halo%2C%20saya%20tertarik%20dengan%20layanan%20${business?.data.title}%20PT.Trijaya%20Berkah%20Mandiri.%0ABisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut%3F%20Terima%20kasih.`;
 
+  const filterService = services.find((service) => service.slug === business?.data.slug);
+
   return (
     <>
-      <Hero pathImg="/images/business-header.webp" title={business?.data.title || ""} description={business?.data.description || ""} />
+      <Hero pathImg="/images/business-header.webp" title={filterService?.title || ""} description={filterService?.description || ""} />
       <Container className="py-16 space-y-8">
         {loading ? (
           <div className="flex justify-center w-full py-16">

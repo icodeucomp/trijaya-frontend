@@ -165,7 +165,7 @@
     @apply relative flex items-center w-full gap-4 px-3 sm:px-6 min-h-36 sm:min-h-44 lg:min-h-36 duration-300 cursor-pointer card-shadow rounded-xl bg-light;
   }
   .navbar-submenu {
-    @apply absolute left-0 w-full shadow-lg bg-light-gray h-80 top-20 z-1000 opacity-0 transition-all duration-300 ease-in-out pointer-events-none;
+    @apply absolute left-0 w-full shadow-lg bg-light-gray h-80 scrollbar overflow-y-auto top-20 z-1000 pb-10 opacity-0 transition-all duration-300 ease-in-out pointer-events-none;
   }
   .form-contact-input {
     @apply w-full text-sm bg-light-gray border border-gray outline-primary focus:border-primary p-2.5 rounded-md duration-300;

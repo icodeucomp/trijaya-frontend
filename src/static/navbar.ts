@@ -4,6 +4,7 @@ import { NavbarTypes } from "@/types";
 
 export const NavbarList = () => {
   const t = useTranslations("header");
+  const tr = useTranslations("home.services");
 
   return [
     { title: `${t("home")}`, pathUrl: "/" },
@@ -26,34 +27,44 @@ export const NavbarList = () => {
       pathUrl: "/business",
       content: [
         {
-          title: "Electrical",
-          pathUrl: "/sector/electrical",
-          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+          title: `${tr("one.title")}`,
+          description: `${tr("one.description")}`,
+          pathUrl: "mechanical",
         },
         {
-          title: "Fabrication",
-          pathUrl: "/sector/fabrication",
-          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+          title: `${tr("two.title")}`,
+          description: `${tr("two.description")}`,
+          pathUrl: "civil-construction",
         },
         {
-          title: "General Supplier",
-          pathUrl: "/sector/general-supplier",
-          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+          title: `${tr("three.title")}`,
+          description: `${tr("three.description")}`,
+          pathUrl: "fabrication",
         },
         {
-          title: "Machining",
-          pathUrl: "/sector/machining",
-          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+          title: `${tr("four.title")}`,
+          description: `${tr("four.description")}`,
+          pathUrl: "piping",
         },
         {
-          title: "Mechanical",
-          pathUrl: "/sector/mechanical",
-          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+          title: `${tr("five.title")}`,
+          description: `${tr("five.description")}`,
+          pathUrl: "engineering",
         },
         {
-          title: "Civil & Construction",
-          pathUrl: "/sector/civil-construction",
-          description: "Enim fermentum quam id mattis cras potenti pretium massa. Litora nisl ex sed vestibulum nec eu aptent euismod dui est.",
+          title: `${tr("six.title")}`,
+          description: `${tr("six.description")}`,
+          pathUrl: "manpower-supply",
+        },
+        {
+          title: `${tr("seven.title")}`,
+          description: `${tr("seven.description")}`,
+          pathUrl: "general-supplier",
+        },
+        {
+          title: `${tr("eight.title")}`,
+          description: `${tr("eight.description")}`,
+          pathUrl: "electrical",
         },
       ],
     },

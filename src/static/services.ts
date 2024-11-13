@@ -13,10 +13,10 @@ export const ServiceLists = () => {
 
   return [
     {
-      pathImg: park_delivery,
+      pathImg: auto_repair,
       title: `${t("one.title")}`,
       description: `${t("one.description")}`,
-      slug: "general-supplier",
+      slug: "mechanical",
     },
     {
       pathImg: factory_worker,
@@ -31,10 +31,10 @@ export const ServiceLists = () => {
       slug: "fabrication",
     },
     {
-      pathImg: auto_repair,
+      pathImg: pipe,
       title: `${t("four.title")}`,
       description: `${t("four.description")}`,
-      slug: "mechanical",
+      slug: "piping",
     },
     {
       pathImg: engineering,
@@ -43,22 +43,22 @@ export const ServiceLists = () => {
       slug: "engineering",
     },
     {
-      pathImg: electric_cord,
+      pathImg: miner_worker,
       title: `${t("six.title")}`,
       description: `${t("six.description")}`,
-      slug: "electrical",
-    },
-    {
-      pathImg: miner_worker,
-      title: `${t("seven.title")}`,
-      description: `${t("seven.description")}`,
       slug: "manpower-supply",
     },
     {
-      pathImg: pipe,
+      pathImg: park_delivery,
+      title: `${t("seven.title")}`,
+      description: `${t("seven.description")}`,
+      slug: "general-supplier",
+    },
+    {
+      pathImg: electric_cord,
       title: `${t("eight.title")}`,
       description: `${t("eight.description")}`,
-      slug: "Piping",
+      slug: "electrical",
     },
   ] as FooterTypes[];
 };

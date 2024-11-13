@@ -18,8 +18,8 @@
     },
     "services": {
       "one": {
-        "title": "General Supplier",
-        "description": "We provide services for supplying raw or semi-finished goods in accordance with contracts mutually agreed upon by both parties.."
+        "title": "Mechanical",
+        "description": "We provide mechanical services that include assembly, maintenance, and repair of industrial machinery and equipment."
       },
       "two": {
         "title": "Civil & Construction",
@@ -30,24 +30,24 @@
         "description": "We provide fabrication services that include component manufacturing, structural assembly, and custom product work as needed."
       },
       "four": {
-        "title": "Mechanical",
-        "description": "We provide mechanical services that include assembly, maintenance, and repair of industrial machinery and equipment."
+        "title": "Piping",
+        "description": "We provide piping services that include installation, maintenance, and repair of piping systems for various industrial sectors."
       },
       "five": {
         "title": "Engineering",
         "description": "We offer engineering services that include the design, development, and implementation of engineering solutions for various industries."
       },
       "six": {
-        "title": "Electrical",
-        "description": "We provide electrical services that include installation, maintenance, and repair of electrical systems for various industrial sectors."
-      },
-      "seven": {
         "title": "Manpower Supply",
         "description": "From skilled workers to technical experts, we offer reliable labor solutions that fit your business needs and project timelines."
       },
+      "seven": {
+        "title": "General Supplier",
+        "description": "We provide services for supplying raw or semi-finished goods in accordance with contracts mutually agreed upon by both parties."
+      },
       "eight": {
-        "title": "Piping",
-        "description": "We provide piping services that include installation, maintenance, and repair of piping systems for various industrial sectors."
+        "title": "Electrical",
+        "description": "We provide electrical services that include installation, maintenance, and repair of electrical systems for various industrial sectors."
       },
       "title": "Our Dedicated Services for You",
       "description": "We provide professional services for your business"
@@ -133,7 +133,6 @@
       }
     }
   },
-  "business": {},
   "certification": {
     "hero": {
       "title": "Legalities and Certifications",

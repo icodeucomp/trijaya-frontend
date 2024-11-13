@@ -18,36 +18,36 @@
     },
     "services": {
       "one": {
-        "title": "Pemasok Umum",
-        "description": "Kami melayani pemesanan pengumpulan produk mentah atau setengah jadi dan menyediakan layanan berkualitas untuk memenuhi kebutuhan bisnis."
+        "title": "Mekanik",
+        "description": "Kami menyediakan layanan mekanik yang mencakup perakitan, pemeliharaan, dan perbaikan mesin serta peralatan industri."
       },
       "two": {
         "title": "Sipil & Konstruksi",
-        "description": "Kami melayani pemesanan konstruksi proyek skala besar dan kecil Dengan tim ahli dan pengalaman yang mendalam, kami menjamin kualitas dalam setiap tahap pembangunan."
+        "description": "Kami menawarkan layanan untuk merancang, membangun, dan merenovasi infrastruktur, termasuk bangunan dan pekerjaan teknik sipil, sesuai kesepakatan kedua pihak."
       },
       "three": {
         "title": "Fabrikasi",
-        "description": "Kami menyediakan layanan fabrikasi yang mencakup pembuatan komponen, perakitan struktur, serta pengerjaan produk custom sesuai kebutuhan."
+        "description": "Kami menyediakan layanan fabrikasi yang mencakup pembuatan komponen, perakitan struktural, dan pekerjaan produk khusus sesuai kebutuhan."
       },
       "four": {
-        "title": "Mekanik",
-        "description": "Kami menyediakan layanan di bidang mechanical yang meliputi perakitan, perawatan, dan reparasi mesin serta peralatan industri."
+        "title": "Perpipaan",
+        "description": "Kami menyediakan layanan pipa yang mencakup instalasi, pemeliharaan, dan perbaikan sistem perpipaan untuk berbagai sektor industri."
       },
       "five": {
-        "title": "Teknik",
-        "description": "Kami menawarkan layanan engineering yang mencakup desain, pengembangan, dan implementasi solusi teknik untuk berbagai industri."
+        "title": "Rekayasa",
+        "description": "Kami menawarkan layanan rekayasa yang mencakup desain, pengembangan, dan implementasi solusi rekayasa untuk berbagai industri."
       },
       "six": {
-        "title": "Kelistrikan",
-        "description": "Kami menyediakan layanan electrical yang meliputi instalasi, perawatan, dan perbaikan sistem kelistrikan untuk berbagai sektor industri."
+        "title": "Penyedia Tenaga Kerja",
+        "description": "Dari pekerja terampil hingga ahli teknis, kami menyediakan solusi tenaga kerja yang andal sesuai dengan kebutuhan bisnis dan jadwal proyek Anda."
       },
       "seven": {
-        "title": "Pasokan Tenaga Kerja",
-        "description": "Dari pekerja terampil hingga ahli teknis, kami menawarkan solusi tenaga kerja yang dapat diandalkan yang sesuai dengan kebutuhan bisnis dan jadwal proyek Anda"
+        "title": "Pemasok Umum",
+        "description": "Kami menyediakan layanan penyediaan bahan mentah atau setengah jadi sesuai dengan kontrak yang disepakati bersama."
       },
       "eight": {
-        "title": "Perpipaan",
-        "description": "Kami menyediakan layanan piping yang meliputi instalasi, perawatan, dan perbaikan sistem perpipaan untuk berbagai sektor industri."
+        "title": "Listrik",
+        "description": "Kami menyediakan layanan kelistrikan yang mencakup instalasi, pemeliharaan, dan perbaikan sistem listrik untuk berbagai sektor industri."
       },
       "title": "Layanan Khusus Kami untuk Anda",
       "description": "Kami menyediakan layanan profesional untuk bisnis Anda"
@@ -133,7 +133,6 @@
       }
     }
   },
-  "business": {},
   "certification": {
     "hero": {
       "title": "Legalitas dan Sertifikasi",

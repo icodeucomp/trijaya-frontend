@@ -4,6 +4,7 @@ import { FooterTypes } from "@/types";
 
 export const FooterLists = () => {
   const t = useTranslations("footer");
+  const tr = useTranslations("home.services");
 
   return [
     {
@@ -20,12 +21,14 @@ export const FooterLists = () => {
       title: `${t("business.title")}`,
       pathUrl: "/business",
       content: [
-        { title: "Electrical", pathUrl: "/sector/electrical" },
-        { title: "Fabrication", pathUrl: "/sector/fabrication" },
-        { title: "General Supplier", pathUrl: "/sector/general-supplier" },
-        { title: "Machining", pathUrl: "/sector/machining" },
-        { title: "Mechanical", pathUrl: "/sector/mechanical" },
-        { title: "Civil & Construction", pathUrl: "/sector/civil-construction" },
+        { title: `${tr("one.title")}`, pathUrl: "/sector/mechanical" },
+        { title: `${tr("two.title")}`, pathUrl: "/sector/civil-construction" },
+        { title: `${tr("three.title")}`, pathUrl: "/sector/fabrication" },
+        { title: `${tr("four.title")}`, pathUrl: "/sector/piping" },
+        { title: `${tr("five.title")}`, pathUrl: "/sector/engineering" },
+        { title: `${tr("six.title")}`, pathUrl: "/sector/manpower-supply" },
+        { title: `${tr("seven.title")}`, pathUrl: "/sector/general-supplier" },
+        { title: `${tr("eight.title")}`, pathUrl: "/sector/electrical" },
       ],
     },
     {
