@@ -7,7 +7,7 @@ interface AxiosProps {
   options?: AxiosRequestConfig;
 }
 
-export const baseUrlApi = "https://tbm-backend-dot-icodeu-431422.et.r.appspot.com/api/v1";
+export const baseUrlApi = "https://trijaya-berkah-mandiri.et.r.appspot.com/api/v1";
 
 const axiosInstance = axios.create({ baseURL: baseUrlApi });
 
