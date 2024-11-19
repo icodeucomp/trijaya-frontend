@@ -16,13 +16,15 @@ export const CareerLists = () => {
       pathImg: permanent_job,
       title: `${t("one.title")}`,
       description: `${t("one.description")}`,
-      buttonText: `${t("one.button-text")}`,
+      // buttonText: `${t("one.button-text")}`,
+      buttonText: "Coming Soon",
     },
     {
       pathImg: new_job,
       title: `${t("two.title")}`,
       description: `${t("two.description")}`,
-      buttonText: `${t("two.button-text")}`,
+      // buttonText: `${t("two.button-text")}`,
+      buttonText: "Coming Soon",
     },
   ] as CareerTypes[];
 };

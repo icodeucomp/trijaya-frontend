@@ -61,7 +61,7 @@ const DesktopLink = ({ pathUrl, title, content }: LinkProps) => {
               {content?.map((item, index) => {
                 return (
                   <div key={index} className="space-y-2">
-                    <Link href={`${pathUrl}/sector/${item.pathUrl}`} className="flex items-center gap-4 text-lg font-medium duration-300 text-dark-gray hover:text-dark-blue">
+                    <Link href={pathUrl + item.pathUrl} className="flex items-center gap-4 text-lg font-medium duration-300 text-dark-gray hover:text-dark-blue">
                       {item.title} <FaAngleRight />
                     </Link>
                     <p className="text-sm text-gray line-clamp-2">{item.description}</p>
