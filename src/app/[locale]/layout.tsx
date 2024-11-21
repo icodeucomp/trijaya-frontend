@@ -9,7 +9,6 @@ import { Poppins } from "next/font/google";
 
 import { Toaster } from "react-hot-toast";
 import { Footer, Header } from "@/layouts";
-import Script from "next/script";
 
 import "./globals.css";
 
@@ -45,15 +44,6 @@ export default async function RootLayout({ children, params: { locale } }: { chi
           <Footer />
         </NextIntlClientProvider>
       </body>
-      <Script id="google-analytics-tbm" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          
-          gtag('config', 'G-HE7VW56TFX');      
-        `}
-      </Script>
       <GoogleAnalytics gaId="G-HE7VW56TFX" />
     </html>
   );
