@@ -45,7 +45,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
           <Footer />
         </NextIntlClientProvider>
       </body>
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics-tbm" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
