@@ -47,11 +47,6 @@ export const NavbarList = () => {
           pathUrl: "/sector/piping",
         },
         {
-          title: `${tr("five.title")}`,
-          description: `${tr("five.description")}`,
-          pathUrl: "/sector/engineering",
-        },
-        {
           title: `${tr("six.title")}`,
           description: `${tr("six.description")}`,
           pathUrl: "/sector/manpower-supply",

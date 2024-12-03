@@ -37,7 +37,7 @@ const DesktopLink = ({ pathUrl, title, content }: LinkProps) => {
 
   return (
     <li className="flex items-center h-full list-none group">
-      {title === "Business" ? (
+      {pathUrl === "/business" ? (
         <span className={`font-medium relative w-max cursor-default group-hover:font-semibold ${isActive ? "text-primary" : "text-dark"}`}>
           <span>{title}</span>
           <span className={`absolute h-1 transition-all -bottom-2 left-1/2 bg-secondary ${isActive ? "w-3/6" : "w-0"}`}></span>

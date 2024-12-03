@@ -25,7 +25,6 @@ export const FooterLists = () => {
         { title: `${tr("two.title")}`, pathUrl: "/sector/civil-construction" },
         { title: `${tr("three.title")}`, pathUrl: "/sector/fabrication" },
         { title: `${tr("four.title")}`, pathUrl: "/sector/piping" },
-        { title: `${tr("five.title")}`, pathUrl: "/sector/engineering" },
         { title: `${tr("six.title")}`, pathUrl: "/sector/manpower-supply" },
         { title: `${tr("seven.title")}`, pathUrl: "/sector/general-supplier" },
         { title: `${tr("eight.title")}`, pathUrl: "/sector/electrical" },

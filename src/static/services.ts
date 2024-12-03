@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { auto_repair, data_usage_settings, electric_cord, engineering, factory_worker, miner_worker, park_delivery, pipe } from "@/icons";
+import { auto_repair, data_usage_settings, electric_cord, factory_worker, miner_worker, park_delivery, pipe } from "@/icons";
 
 import { TemplateTypes } from "@/types";
 
@@ -35,12 +35,6 @@ export const ServiceLists = () => {
       title: `${t("four.title")}`,
       description: `${t("four.description")}`,
       slug: "piping",
-    },
-    {
-      pathImg: engineering,
-      title: `${t("five.title")}`,
-      description: `${t("five.description")}`,
-      slug: "engineering",
     },
     {
       pathImg: miner_worker,

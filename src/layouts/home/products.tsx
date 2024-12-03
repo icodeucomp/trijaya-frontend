@@ -49,6 +49,10 @@ export const Products = () => {
     }
   }, [isDesktop, isTablet, isMobile]);
 
+  if (products && products.length < 1) {
+    return null;
+  }
+
   return (
     <Slider
       page={page}
