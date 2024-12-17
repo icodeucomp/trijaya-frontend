@@ -25,7 +25,11 @@ export const Products = ({ slug }: { slug: string }) => {
   const [filteredProduct, setFilteredProduct] = React.useState<BusinessSectorTypes>();
   const [openModalIndex, setOpenModalIndex] = React.useState<string | null>(null);
 
-  const { response: products, loading, error } = useGetApi<ResponseBusinessesSectorTypes>({ path: `/products?business=${slug}`, searchQuery: searchParams.get("products_keywords") || "" });
+  const {
+    response: products,
+    loading,
+    error,
+  } = useGetApi<ResponseBusinessesSectorTypes>({ path: `/products?business=${slug}`, limit: "1000000", searchQuery: searchParams.get("products_keywords") || "" });
   const { response: businessName } = useGetApi<ResponseBusinessesTypes>({ path: "/business/metadata" });
 
   const openModal = (index: string) => {
@@ -64,7 +68,7 @@ export const Products = ({ slug }: { slug: string }) => {
           )}
         </span>
       </div>
-      <div className="flex items-center gap-4 mb-4 lg:hidden">
+      <div className="flex items-center gap-4 mb-8 lg:hidden">
         <button className="btn-back group" type="button" onClick={() => back()}>
           <FaArrowLeft size={20} className="duration-300 fill-secondary group-hover:fill-light" />
         </button>

@@ -23,7 +23,7 @@ export const Products = () => {
 
   const [products, setProducts] = React.useState<BusinessesTypes[]>();
 
-  const { response: business, loading } = useGetApi<ResponseBusinessesTypes>({ path: "/business", limit: "100" });
+  const { response: businesses, loading } = useGetApi<ResponseBusinessesTypes>({ path: "/business", limit: "100" });
 
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
@@ -31,13 +31,13 @@ export const Products = () => {
 
   React.useEffect(() => {
     const startIndex = (page - 1) * limit;
-    if (business?.data && business?.data.length > 0) {
-      setTotalPage(Math.ceil(business.total / limit));
-      setProducts(business.data.filter((item) => item?.Product?.length > 0).slice(startIndex, startIndex + limit));
+    if (businesses?.data && businesses?.data.length > 0) {
+      setProducts(businesses.data.filter((business) => business.Product.length > 0).slice(startIndex, startIndex + limit));
+      setTotalPage(Math.ceil(businesses.data.filter((business) => business.Product.length > 0).length / limit));
     } else {
       setTotalPage(0);
     }
-  }, [business, limit, page]);
+  }, [businesses, limit, page]);
 
   React.useEffect(() => {
     if (isDesktop) {
