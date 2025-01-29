@@ -189,8 +189,6 @@ export const Header = () => {
                         ? `/media?album_keywords=${item.name}#lifeattbm`
                         : item.feature === "blog"
                         ? `/media/article/${item.slug}`
-                        : item.feature === "document"
-                        ? `/profile/certification?documents_keywords=${item.name}#certification-legalities`
                         : `/business/sector/${item.slug}`;
 
                     const category: string = item.business
@@ -199,8 +197,6 @@ export const Header = () => {
                       ? "Albums"
                       : item.feature === "blog"
                       ? "Articles"
-                      : item.feature === "document"
-                      ? "Documents"
                       : "Sector";
 
                     const img: string = item.media?.[0]?.url || item.header?.url || item?.header || "/temp-article.webp";
