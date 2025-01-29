@@ -14,7 +14,7 @@ export const FooterLists = () => {
         { title: `${t("profile.fields.one")}`, pathUrl: "#about-us" },
         { title: `${t("profile.fields.two")}`, pathUrl: "#vision-mission" },
         { title: `${t("profile.fields.three")}`, pathUrl: "#organizational" },
-        { title: `${t("profile.fields.four")}`, pathUrl: "/certification" },
+        // { title: `${t("profile.fields.four")}`, pathUrl: "/certification" },
       ],
     },
     {

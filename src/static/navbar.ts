@@ -15,11 +15,11 @@ export const NavbarList = () => {
         { title: `${t("profile.about-us.title")}`, pathUrl: "#about-us", description: `${t("profile.about-us.description")}` },
         { title: `${t("profile.vision-mission.title")}`, pathUrl: "#vision-mission", description: `${t("profile.vision-mission.description")}` },
         { title: `${t("profile.organizational.title")}`, pathUrl: "#organizational", description: `${t("profile.organizational.description")}` },
-        {
-          title: `${t("profile.legality.title")}`,
-          pathUrl: "/certification",
-          description: `${t("profile.legality.description")}`,
-        },
+        // {
+        //   title: `${t("profile.legality.title")}`,
+        //   pathUrl: "/certification",
+        //   description: `${t("profile.legality.description")}`,
+        // },
       ],
     },
     {
