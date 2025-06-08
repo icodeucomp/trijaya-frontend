@@ -5,12 +5,7 @@ import { Container, Img, Motion } from "@/components";
 export const Message = () => {
   const t = useTranslations("home.message");
 
-  const images: string[] = [
-    "/images/home-message-1.webp",
-    "/images/home-message-2.webp",
-    "/images/home-message-3.webp",
-    "/images/home-message-4.webp",
-  ];
+  const images: string[] = ["/images/home-message-1.webp", "/images/home-message-2.webp", "/images/home-message-3.webp", "/images/home-message-4.webp"];
 
   return (
     <Container className="flex flex-col-reverse gap-8 pt-10 sm:pt-16 md:pt-20 lg:flex-row">

@@ -7,8 +7,7 @@ export const OrganizationalLists = () => {
 
   return [
     { pathImg: "/images/owner/dudi-hikmat.webp", name: "Dudi Hikmat", job: `${t("director")}` },
-    { pathImg: "/images/owner/thomas-oktavianto.webp", name: "Thomas Oktavianto", job: `${t("general-manager")}` },
-    { pathImg: "/images/owner/subhan-nurdin.webp", name: "Subhan Nurdin", job: `${t("project-manager")}` },
+    { pathImg: "/images/owner/subhan-nurdin.webp", name: "Subhan Nurdin", job: `${t("general-manager")}` },
     { pathImg: "/images/owner/dedi-supardi.webp", name: "Dedi Supardi", job: `${t("electrical-manager")}` },
     { pathImg: "/images/owner/ikoh-munikoh.webp", name: "Ikoh Munikoh", job: `${t("accounting-manager")}` },
     { pathImg: "/images/owner/zuhri-arifin.webp", name: "Zuhri Arifin", job: `${t("fabrication-supervisor")}` },
